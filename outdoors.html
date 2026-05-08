@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Outdoors | Utah County Relocation Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #2B3D30;
+      --green-mid:   #344A39;
+      --forest-mid:  #344A39;
+      --cream:       #F2E8D5;
+      --cream-dark:  #E4D5BC;
+      --sage:        #99A189;
+      --mocha:       #6B4F3A;
+      --charcoal:    #1C1C1C;
+      --text-dark:   #1C1C1C;
+      --text-light:  rgba(242,232,213,0.72);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* NAV PILL */
+    .nav-wrap {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      width: calc(100% - 48px);
+      max-width: 1080px;
+    }
+    .nav-pill {
+      background: #fff;
+      border-radius: 100px;
+      padding: 10px 12px 10px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+      transition: box-shadow 0.3s;
+    }
+    .nav-pill.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.05); }
+    .nav-back {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--charcoal); }
+    .nav-cta {
+      background: var(--green);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
+
+    /* HERO */
+    .hero {
+      background: var(--green);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 48px 100px;
+    }
+    .hero-body { max-width: 680px; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 8.5vw, 100px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.04;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.78;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* PHOTO CARD GRID */
+    .grid-section {
+      background: #fff;
+      padding: 80px 48px 100px;
+    }
+    .grid-inner { max-width: 1200px; margin: 0 auto; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (min-width: 768px) {
+      .card-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      aspect-ratio: 3 / 4;
+      background: var(--green);
+    }
+    .card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .card:hover img { transform: scale(1.07); }
+    .card-label-wrap {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 48px 14px 16px;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .card-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.35;
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.32s ease;
+      background: var(--green);
+    }
+    .overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .overlay-inner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transform: translateY(22px);
+      transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .overlay.active .overlay-inner { transform: translateY(0); }
+
+    .overlay-photo {
+      flex: 0 0 33vh;
+      min-height: 180px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+    .overlay-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 55%, rgba(43,61,48,0.55) 100%);
+      pointer-events: none;
+    }
+    .overlay-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .overlay-body {
+      flex: 1;
+      overflow-y: auto;
+      background: var(--green);
+      padding: 44px 56px 64px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .overlay-close {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      z-index: 2001;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      line-height: 1;
+      padding: 0;
+    }
+    .overlay-close:hover { background: rgba(255,255,255,0.22); transform: scale(1.07); }
+
+    .overlay-body-inner { max-width: 660px; margin: 0 auto; }
+    .overlay-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .overlay-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.82;
+      margin-bottom: 28px;
+    }
+    .tip-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(153,161,137,0.22);
+      border-left: 3px solid var(--sage);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .tip-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--sage);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .tip-text {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: rgba(242,232,213,0.82);
+      line-height: 1.75;
+    }
+    .distance-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .distance-table tr + tr td { border-top: 1px solid rgba(153,161,137,0.15); }
+    .distance-table td {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: rgba(242,232,213,0.82);
+      padding: 9px 0;
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    .distance-table td:first-child {
+      font-weight: 400;
+      color: var(--cream);
+      padding-right: 16px;
+    }
+    .distance-table td:last-child {
+      text-align: right;
+      color: var(--sage);
+      white-space: nowrap;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--cream);
+      padding: 100px 48px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4.5vw, 58px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      max-width: 580px;
+      margin: 0 auto 16px;
+      line-height: 1.12;
+    }
+    .cta-section p {
+      font-size: 15px;
+      color: #777;
+      max-width: 440px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+      line-height: 1.78;
+    }
+    .btn-green {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 15px 38px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: all 0.22s;
+    }
+    .btn-green:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(43,61,48,0.28);
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 100px 24px 80px; }
+      .grid-section { padding: 56px 16px 72px; }
+      .card-grid { gap: 10px; }
+      .overlay-body { padding: 32px 20px 48px; }
+      .cta-section { padding: 72px 24px; }
+      .nav-pill { padding: 10px 10px 10px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV PILL -->
+  <div class="nav-wrap">
+    <nav class="nav-pill" id="main-nav">
+      <a href="index.html" class="nav-back">&#8592; Back to the Guide</a>
+      <a href="index.html#contact" class="nav-cta">Work With Me</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-body">
+      <h1 class="hero-title">The Outdoors<br>Are Everything.</h1>
+      <p class="hero-sub">You're 20 minutes from world-class hiking, skiing, and canyon access. People don't just move here for a house. They move here for this.</p>
+    </div>
+  </section>
+
+  <!-- PHOTO CARD GRID -->
+  <section class="grid-section">
+    <div class="grid-inner">
+      <div class="card-grid">
+
+        <div class="card" data-id="timpanogos-cave" tabindex="0" role="button" aria-label="Open Timpanogos Cave">
+          <img src="timpanogos-cave.jpg" alt="Timpanogos Cave">
+          <div class="card-label-wrap"><span class="card-label">Timpanogos Cave</span></div>
+        </div>
+
+        <div class="card" data-id="alpine-loop" tabindex="0" role="button" aria-label="Open Alpine Loop">
+          <img src="alpine-loop.jpg" alt="Alpine Loop">
+          <div class="card-label-wrap"><span class="card-label">Alpine Loop</span></div>
+        </div>
+
+        <div class="card" data-id="battle-creek-falls" tabindex="0" role="button" aria-label="Open Battle Creek Falls">
+          <img src="battle-creek-falls.jpg" alt="Battle Creek Falls">
+          <div class="card-label-wrap"><span class="card-label">Battle Creek Falls</span></div>
+        </div>
+
+        <div class="card" data-id="sundance" tabindex="0" role="button" aria-label="Open Sundance Mountain Resort">
+          <img src="sundance.jpg" alt="Sundance Mountain Resort">
+          <div class="card-label-wrap"><span class="card-label">Sundance Mountain Resort</span></div>
+        </div>
+
+        <div class="card" data-id="utah-lake" tabindex="0" role="button" aria-label="Open Utah Lake">
+          <img src="utah-lake.jpg" alt="Utah Lake">
+          <div class="card-label-wrap"><span class="card-label">Utah Lake</span></div>
+        </div>
+
+        <div class="card" data-id="tibble-fork" tabindex="0" role="button" aria-label="Open Tibble Fork Reservoir">
+          <img src="tibble-fork.jpg" alt="Tibble Fork Reservoir">
+          <div class="card-label-wrap"><span class="card-label">Tibble Fork Reservoir</span></div>
+        </div>
+
+        <div class="card" data-id="fishing" tabindex="0" role="button" aria-label="Open Provo Canyon Fly Fishing">
+          <img src="fishing.jpg" alt="Provo Canyon Fly Fishing">
+          <div class="card-label-wrap"><span class="card-label">Provo Canyon Fly Fishing</span></div>
+        </div>
+
+        <div class="card" data-id="mighty-5" tabindex="0" role="button" aria-label="Open The Mighty 5 National Parks">
+          <img src="outdoors-2.jpg" alt="The Mighty 5 National Parks">
+          <div class="card-label-wrap"><span class="card-label">The Mighty 5 National Parks</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="overlay-inner">
+      <div class="overlay-photo" id="overlay-photo">
+        <img id="overlay-img" src="" alt="">
+      </div>
+      <div class="overlay-body" id="overlay-scroll">
+        <div class="overlay-body-inner" id="overlay-body-content"></div>
+      </div>
+    </div>
+    <button class="overlay-close" id="overlay-close" aria-label="Close">&times;</button>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to find your neighborhood?</h2>
+    <p>The right neighborhood puts you close to everything that matters to you. Let's talk about what that looks like.</p>
+    <a href="index.html#contact" class="btn-green">Talk to Kelsie.</a>
+  </section>
+
+  <script>
+    var mainNav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+      mainNav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    var overlayData = {
+      'timpanogos-cave': {
+        photo: 'timpanogos-cave.jpg',
+        alt: 'Timpanogos Cave National Monument',
+        headline: 'Timpanogos Cave National Monument.',
+        body: "One of the most underrated things to do in Utah County and it's in your backyard. The hike to the cave entrance is 1.5 miles with 1,000 feet of elevation gain, and it earns the experience. Inside you'll find stalactites, stalagmites, and helictite formations unlike anything else in the state. The cave stays at 45 degrees year-round so bring a layer.",
+        tipType: 'text',
+        tip: 'Reservations required. Tickets sell out weeks in advance in summer, so book at recreation.gov before you think you need to. The cave is open May through October only.'
+      },
+      'alpine-loop': {
+        photo: 'alpine-loop.jpg',
+        alt: 'The Alpine Loop Scenic Byway',
+        headline: 'The Alpine Loop Scenic Byway.',
+        body: 'September is when the aspens turn and the Alpine Loop becomes one of the most beautiful drives in the country. The road runs through American Fork Canyon and Provo Canyon connecting the two. Pull over anywhere. You cannot take a bad photo. Snow closes it in winter, so check road conditions before you go.',
+        tipType: 'text',
+        tip: 'Tibble Fork Reservoir is right off the loop and fills up fast on summer weekends. Go on a Tuesday if you want the place to yourself.'
+      },
+      'battle-creek-falls': {
+        photo: 'battle-creek-falls.jpg',
+        alt: 'Battle Creek Falls',
+        headline: 'Battle Creek Falls.',
+        body: "This is the hike you take people on their first week. About 1.5 miles round trip, 300 feet of elevation gain, and ends at a real waterfall. It's in Pleasant Grove and takes about 45 minutes. Family friendly, dog friendly, and genuinely rewarding for the effort. The trailhead fills up on weekends, so get there before 8am or after 5pm.",
+        tipType: 'text',
+        tip: 'This is the warmup. Once your lungs adjust to the altitude, Grove Creek Trail above Pleasant Grove is the next step up.'
+      },
+      'sundance': {
+        photo: 'sundance.jpg',
+        alt: 'Sundance Mountain Resort',
+        headline: 'Sundance Mountain Resort.',
+        body: "Robert Redford's resort sits at the base of Mount Timpanogos and operates year-round. In winter it's a ski resort with runs for all levels and far less crowded than Park City. In summer it's hiking, the Mountain Coaster, the zip line, and the outdoor amphitheater. The restaurants are genuinely good. It's 20 minutes from most of Utah County.",
+        tipType: 'text',
+        tip: 'The Sundance Film Festival is in Park City in January but overflow events and screenings happen at Sundance Resort. Worth putting on your calendar your first year.'
+      },
+      'utah-lake': {
+        photo: 'utah-lake.jpg',
+        alt: 'Utah Lake',
+        headline: 'Utah Lake.',
+        body: "Utah Lake gets overlooked because people are staring at the mountains. That's a mistake. It's the largest freshwater lake in Utah and it sits right in the valley floor. Paddle boarding, kayaking, fishing, and some of the best sunsets in the county happen here. Lindon Marina and Utah Lake State Park are the two main access points.",
+        tipType: 'text',
+        tip: "Water quality varies by season and weather conditions. Check utah.gov before swimming. For paddle boarding and kayaking it's generally fine most of the season."
+      },
+      'tibble-fork': {
+        photo: 'tibble-fork.jpg',
+        alt: 'Tibble Fork Reservoir',
+        headline: 'Tibble Fork Reservoir.',
+        body: 'A high mountain reservoir tucked into American Fork Canyon at about 6,200 feet elevation. Fishing, paddle boarding, and some of the best picnic spots in the county. The drive up the canyon alone is worth it. This is where locals go when Utah Lake is too crowded.',
+        tipType: 'text',
+        tip: 'The road to Tibble Fork is the same road to the Alpine Loop. Combine them into one outing. Go early on weekends. The parking lot fills by 9am in summer.'
+      },
+      'fishing': {
+        photo: 'fishing.jpg',
+        alt: 'Provo Canyon Fly Fishing',
+        headline: 'Provo Canyon Fly Fishing.',
+        body: "The Provo River runs through one of the most scenic canyons in Utah County and it's a legitimate blue ribbon fishery. Brown and rainbow trout, year-round fishing, and access points all along the canyon. You don't need to be an expert, as guided trips are available out of Heber City and Provo. The canyon itself is also a scenic drive between Utah County and Heber Valley.",
+        tipType: 'text',
+        tip: "Fall is the best season for the canyon. The aspens in Provo Canyon in October are as good as the Alpine Loop. Fish or don't fish. Just drive it."
+      },
+      'mighty-5': {
+        photo: 'outdoors-2.jpg',
+        alt: 'The Mighty 5 National Parks',
+        headline: "Five National Parks Within a Day's Drive.",
+        body: "This is the thing most people don't fully register until they live here. Zion, Bryce Canyon, Arches, Canyonlands, and Capitol Reef are all within a four to five hour drive of Utah County. Most families who move here make it to all five within their first two years. Spring and fall are the best seasons to visit. Summer is hot and crowded.",
+        tipType: 'table',
+        distances: [
+          ['Zion National Park',   '3 hrs 15 min', '240 miles'],
+          ['Bryce Canyon',         '3 hrs 30 min', '255 miles'],
+          ['Capitol Reef',         '3 hrs',        '210 miles'],
+          ['Arches National Park', '4 hrs',        '235 miles'],
+          ['Canyonlands',          '4 hrs 15 min', '250 miles']
+        ]
+      }
+    };
+
+    var overlay       = document.getElementById('overlay');
+    var overlayImg    = document.getElementById('overlay-img');
+    var overlayBody   = document.getElementById('overlay-body-content');
+    var overlayScroll = document.getElementById('overlay-scroll');
+    var closeBtn      = document.getElementById('overlay-close');
+    var overlayPhoto  = document.getElementById('overlay-photo');
+
+    function openOverlay(id) {
+      var d = overlayData[id];
+      if (!d) return;
+
+      overlayImg.src = d.photo;
+      overlayImg.alt = d.alt;
+
+      var tipHTML = '';
+      if (d.tipType === 'table') {
+        var rows = d.distances.map(function(r) {
+          return '<tr><td>' + r[0] + '</td><td>' + r[1] + ' / ' + r[2] + '</td></tr>';
+        }).join('');
+        tipHTML = '<p class="tip-label">Distances from Utah County</p>'
+                + '<table class="distance-table">' + rows + '</table>';
+      } else {
+        tipHTML = '<p class="tip-label">Local Tip</p>'
+                + '<p class="tip-text">' + d.tip + '</p>';
+      }
+
+      overlayBody.innerHTML =
+          '<h2 class="overlay-headline">' + d.headline + '</h2>'
+        + '<p class="overlay-text">' + d.body + '</p>'
+        + '<div class="tip-box">' + tipHTML + '</div>';
+
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      overlayScroll.scrollTop = 0;
+    }
+
+    function closeOverlay() {
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      card.addEventListener('click', function() { openOverlay(card.dataset.id); });
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openOverlay(card.dataset.id); }
+      });
+    });
+
+    closeBtn.addEventListener('click', closeOverlay);
+    overlayPhoto.addEventListener('click', closeOverlay);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeOverlay();
+    });
+  </script>
+
+</body>
+</html>
