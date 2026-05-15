@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community | Utah County Relocation Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #2B3D30;
+      --green-mid:   #344A39;
+      --forest-mid:  #344A39;
+      --cream:       #F2E8D5;
+      --cream-dark:  #E4D5BC;
+      --sage:        #99A189;
+      --mocha:       #6B4F3A;
+      --charcoal:    #1C1C1C;
+      --text-dark:   #1C1C1C;
+      --text-light:  rgba(242,232,213,0.72);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* NAV PILL */
+    .nav-wrap {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      width: calc(100% - 48px);
+      max-width: 1080px;
+    }
+    .nav-pill {
+      background: #fff;
+      border-radius: 100px;
+      padding: 10px 12px 10px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+      transition: box-shadow 0.3s;
+    }
+    .nav-pill.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.05); }
+    .nav-back {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--charcoal); }
+    .nav-cta {
+      background: var(--green);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
+
+    /* HERO */
+    .hero {
+      background: var(--green);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 48px 100px;
+    }
+    .hero-body { max-width: 680px; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 8.5vw, 100px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.04;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.78;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* PHOTO CARD GRID */
+    .grid-section {
+      background: #fff;
+      padding: 80px 48px 100px;
+    }
+    .grid-inner { max-width: 1200px; margin: 0 auto; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (min-width: 768px) {
+      .card-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      aspect-ratio: 3 / 4;
+      background: var(--green);
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .card:hover img { transform: scale(1.07); }
+    .card-label-wrap {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 48px 14px 16px;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .card-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.35;
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.32s ease;
+      background: var(--green);
+    }
+    .overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .overlay-inner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transform: translateY(22px);
+      transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .overlay.active .overlay-inner { transform: translateY(0); }
+
+    .overlay-photo {
+      flex: 0 0 33vh;
+      min-height: 180px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+    .overlay-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 55%, rgba(43,61,48,0.55) 100%);
+      pointer-events: none;
+    }
+    .overlay-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .overlay-body {
+      flex: 1;
+      overflow-y: auto;
+      background: var(--green);
+      padding: 44px 56px 64px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .overlay-close {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      z-index: 2001;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      line-height: 1;
+      padding: 0;
+    }
+    .overlay-close:hover { background: rgba(255,255,255,0.22); transform: scale(1.07); }
+
+    .overlay-body-inner { max-width: 660px; margin: 0 auto; }
+    .overlay-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .overlay-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.82;
+      margin-bottom: 28px;
+    }
+    .tip-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(153,161,137,0.22);
+      border-left: 3px solid var(--sage);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .tip-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--sage);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .tip-text {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: rgba(242,232,213,0.82);
+      line-height: 1.75;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--cream);
+      padding: 100px 48px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4.5vw, 58px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      max-width: 580px;
+      margin: 0 auto 16px;
+      line-height: 1.12;
+    }
+    .cta-section p {
+      font-size: 15px;
+      color: #777;
+      max-width: 440px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+      line-height: 1.78;
+    }
+    .btn-green {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 15px 38px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: all 0.22s;
+    }
+    .btn-green:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(43,61,48,0.28);
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 100px 24px 80px; }
+      .grid-section { padding: 56px 16px 72px; }
+      .card-grid { gap: 10px; }
+      .overlay-body { padding: 32px 20px 48px; }
+      .cta-section { padding: 72px 24px; }
+      .nav-pill { padding: 10px 10px 10px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV PILL -->
+  <div class="nav-wrap">
+    <nav class="nav-pill" id="main-nav">
+      <a href="https://utahcountyrelocationguide.netlify.app/" class="nav-back">&#8592; Back to the Guide</a>
+      <a href="https://utahcountyrelocationguide.netlify.app/#contact" class="nav-cta">Work With Me</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-body">
+      <h1 class="hero-title">This is the part they never put in the listing.</h1>
+      <p class="hero-sub">I have lived in 4 states and moved more times than I care to count. Utah County is the first place that made me feel like I actually landed somewhere. Here is what I mean by that.</p>
+    </div>
+  </section>
+
+  <!-- PHOTO CARD GRID -->
+  <section class="grid-section">
+    <div class="grid-inner">
+      <div class="card-grid">
+
+        <div class="card" data-id="local-events" tabindex="0" role="button" aria-label="Open Local Events and Festivals">
+          <img src="fireworks.jpg" alt="Local Events and Festivals">
+          <div class="card-label-wrap"><span class="card-label">Local Events and Festivals</span></div>
+        </div>
+
+        <div class="card" data-id="farmers-markets" tabindex="0" role="button" aria-label="Open Farmers Markets">
+          <img src="farmers-market.jpg" alt="Farmers Markets">
+          <div class="card-label-wrap"><span class="card-label">Farmers Markets</span></div>
+        </div>
+
+        <div class="card" data-id="winter-activities" tabindex="0" role="button" aria-label="Open Winter Activities">
+          <img src="winter.jpg" alt="Winter Activities">
+          <div class="card-label-wrap"><span class="card-label">Winter Activities</span></div>
+        </div>
+
+        <div class="card" data-id="hidden-gems" tabindex="0" role="button" aria-label="Open Hidden Gems: Food and Drinks">
+          <img src="downtown-provo-2.jpeg" alt="Hidden Gems: Food and Drinks">
+          <div class="card-label-wrap"><span class="card-label">Hidden Gems: Food and Drinks</span></div>
+        </div>
+
+        <div class="card" data-id="community-feel" tabindex="0" role="button" aria-label="Open Community Feel">
+          <img src="highschoolfootballgame.jpg" alt="Community Feel">
+          <div class="card-label-wrap"><span class="card-label">Community Feel</span></div>
+        </div>
+
+        <div class="card" data-id="arts-culture" tabindex="0" role="button" aria-label="Open Arts and Culture">
+          <img src="arts-culture.jpg" alt="Arts and Culture">
+          <div class="card-label-wrap"><span class="card-label">Arts and Culture</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="overlay-inner">
+      <div class="overlay-photo" id="overlay-photo">
+        <img id="overlay-img" src="" alt="">
+      </div>
+      <div class="overlay-body" id="overlay-scroll">
+        <div class="overlay-body-inner" id="overlay-body-content"></div>
+      </div>
+    </div>
+    <button class="overlay-close" id="overlay-close" aria-label="Close">&times;</button>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Want to know if this feels like home?</h2>
+    <p>The best way I know to answer that is to show you around. I grew up here, left, came back by choice, and I have never regretted it. Let's talk about what you are looking for.</p>
+    <a href="https://utahcountyrelocationguide.netlify.app/#contact" class="btn-green">Talk to Kelsie.</a>
+  </section>
+
+  <script>
+var mainNav = document.getElementById('main-nav');
+window.addEventListener('scroll', function() {
+  mainNav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+var overlayData = {
+  'local-events': {
+    photo: 'fireworks.jpg',
+    alt: 'Local Events and Festivals',
+    headline: 'The calendar fills up faster than you expect.',
+    body: 'Utah County runs on community events and most of them are free. The Provo Freedom Festival puts on the largest stadium fireworks show in the country outside of Washington DC every July 4th. Steel Days in American Fork in July has been a valley tradition for generations. Strawberry Days in Pleasant Grove in June, the Lehi Roundup Rodeo, and Spanish Fork Fiesta Days in July are the kind of events that feel like the whole city showed up. In late January the Shops at Riverwoods in Provo hosts their annual Fire and Ice Festival with ice sculptures, fire pits, live entertainment and fireworks. It has run for over 14 years and it is genuinely one of the best winter nights in the valley.',
+    tipType: 'text',
+    tip: 'The Utah Valley Marathon happens every June and draws runners from all over the state. If you are a runner this one is worth putting on your calendar your first year.'
+  },
+  'farmers-markets': {
+    photo: 'farmers-market.jpg',
+    alt: 'Farmers Markets',
+    headline: 'Saturday mornings have a whole different feel here.',
+    body: 'The Provo Farmers Market runs through the warmer months downtown and is genuinely good. Fresh produce, local vendors, food trucks, and the kind of slow Saturday morning that reminds you why you moved here. Thanksgiving Point also runs a seasonal market that is worth the drive. American Fork has their own market as well. These are not just places to buy vegetables. They are where you start to recognize faces and feel like you actually live somewhere.',
+    tipType: 'text',
+    tip: 'Go early. The good stuff sells out. Bring cash even if vendors take cards. And bring the kids because it is one of the most low-key enjoyable mornings you can have in Utah County.'
+  },
+  'winter-activities': {
+    photo: 'winter.jpg',
+    alt: 'Winter Activities',
+    headline: 'Winter here is not something you survive. It is something you participate in.',
+    body: 'Sundance Mountain Resort is 20 minutes from most of Utah County and it is a fraction of the crowds of Park City. The skiing is real, the mountain is beautiful, and the lodge and restaurants are genuinely worth the trip even if you do not ski. Beyond Sundance, the Wasatch Range gives you sledding, snowshoeing, and winter hikes within minutes of your neighborhood. Thanksgiving Point does a full holiday lights display in the winter that families come back to every year. The Provo River trail system is walkable year-round and hits different in the snow.',
+    tipType: 'text',
+    tip: 'Utah gets real winters. Snow in the valley is common from November through March. The altitude makes it drier than most places which means the snow is lighter and it melts faster. Invest in a good pair of snow boots your first fall and you will be fine.'
+  },
+  'hidden-gems': {
+    photo: 'downtown-provo-2.jpeg',
+    alt: 'Hidden Gems: Food and Drinks',
+    headline: 'My personal short list after living in 4 states.',
+    body: "This is not a comprehensive dining guide. There are great resources for that. This is my list, the places I actually take people when they visit, and the ones I tell every client about when they move here. You want the real ones. Here they are.<br><br>Guayoyo Cafe in Pleasant Grove is where you start. You know how much I love coffee, so you better believe I have a strong opinion on this one. Venezuelan family-owned on historic Main Street, the coziest little shop you will find in the valley. Get the coffee flight and the La Exquisita empanada (mushroom and goat cheese). Do not skip the smoked garlic sauce. Featured on KUTV Taste Utah and worth every bit of the attention.<br><br>Don Joaquin Street Tacos has several Utah Valley locations and the Tuesday taco special is the best deal in the county. Family-owned, founder from Queretaro Mexico, started with a taco cart 20 years ago. Al pastor, carne asada, lengua. Open late. This is the real deal.<br><br>Sol Agave in American Fork is where you go when you want to impress someone or celebrate something. Family-owned, started as a food truck in California in 2014, now one of the best Mexican restaurants in the state. The award-winning cheese fondue and the carnitas are what people talk about. Make a reservation.<br><br>TRUreligion Pancake and Steakhouse in Orem is locally owned by Jim Leany and it is unlike any breakfast spot you have been to. The interior is filled with original Art Deco furnishings from Salt Lake City's historic Lamb's Grill. Locally sourced Utah eggs, honey, and a custom coffee blend from a local roaster. USDA Prime beef at breakfast. The cat's head biscuits have a family recipe behind them that someone once offered to buy for fifty thousand dollars. They said no. Best of State winner.<br><br>5 Star BBQ in Orem at 70 Geneva Road is slow smoked, homemade, and the kind of place that reminds you that good BBQ does not need to be fancy. Brisket, ribs, pulled pork, funeral potatoes, peach cobbler. Also a live music venue.<br><br>The Kolache Place in Provo and American Fork (formerly Hruska's Kolaches, same team and same recipes) is the grab and go breakfast you did not know you needed. Started in 2014 by a Texas family with Czech roots who came to Utah for school. Hand-packed, baked fresh daily. Featured on Guy Fieri. Get the sausage and gravy or the maple pecan and do not overthink it.",
+    tipType: 'text',
+    tip: 'This list is mine. It reflects what I love about this place. Utah County has more to explore and I am happy to talk through any of it when we work together.'
+  },
+  'community-feel': {
+    photo: 'highschoolfootballgame.jpg',
+    alt: 'Community Feel',
+    headline: 'The thing people do not expect until they live here.',
+    body: 'Utah County has a community density that is hard to explain until you experience it. Neighbors show up. People bring food when something hard happens. Youth sports are a serious cultural institution. Friday night high school football is a community event, not just a game, and the energy in those stands is real. The LDS ward system means most neighborhoods have built-in social structure from day one. If you are not LDS, that takes some navigating but it is not a barrier to finding your people. The non-member community here is active, welcoming, and growing. The pace of life is genuinely different from what most people coming from California or the coast are used to. Slower in the best way. More intentional.',
+    tipType: 'text',
+    tip: 'The best advice I give relocating clients: go to one local event in your first 30 days. Farmers market, high school game, city festival, anything. It accelerates everything about feeling like you belong here.'
+  },
+  'arts-culture': {
+    photo: 'arts-culture.jpg',
+    alt: 'Arts and Culture',
+    headline: 'More culture than people give it credit for.',
+    body: "The SCERA Shell Outdoor Theatre in Orem runs outdoor performances through the summer and it is a genuine Utah County institution. The Covey Center for the Arts in Provo hosts performing arts, visual arts, and community productions year-round. BYU runs a full calendar of events that are open to the public including performances, lectures, and exhibits. The Sundance Film Festival historically brought overflow events and screenings to the area in January, though the festival is transitioning away from Utah after 2026. Downtown Provo's Center Street has been growing its independent restaurant and arts scene steadily and it is worth exploring on a weekend evening.",
+    tipType: 'text',
+    tip: 'The arts scene here is younger and more grassroots than what you might find in a major city. That is not a downgrade. It means the people involved actually care about what they are building.'
+  }
+};
+
+var overlay       = document.getElementById('overlay');
+var overlayImg    = document.getElementById('overlay-img');
+var overlayBody   = document.getElementById('overlay-body-content');
+var overlayScroll = document.getElementById('overlay-scroll');
+var closeBtn      = document.getElementById('overlay-close');
+var overlayPhoto  = document.getElementById('overlay-photo');
+
+function openOverlay(id) {
+  var d = overlayData[id];
+  if (!d) return;
+  overlayImg.src = d.photo;
+  overlayImg.alt = d.alt;
+  var tipHTML = '<p class="tip-label">Local Tip</p><p class="tip-text">' + d.tip + '</p>';
+  overlayBody.innerHTML = '<h2 class="overlay-headline">' + d.headline + '</h2><p class="overlay-text">' + d.body + '</p><div class="tip-box">' + tipHTML + '</div>';
+  overlay.classList.add('active');
+  overlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  overlayScroll.scrollTop = 0;
+}
+
+function closeOverlay() {
+  overlay.classList.remove('active');
+  overlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.card').forEach(function(card) {
+  card.addEventListener('click', function() { openOverlay(card.dataset.id); });
+  card.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openOverlay(card.dataset.id); }
+  });
+});
+
+closeBtn.addEventListener('click', closeOverlay);
+overlayPhoto.addEventListener('click', closeOverlay);
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeOverlay();
+});
+  </script>
+
+</body>
+</html>
