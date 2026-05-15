@@ -421,140 +421,130 @@
   </section>
 
   <script>
-    var mainNav = document.getElementById('main-nav');
-    window.addEventListener('scroll', function() {
-      mainNav.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
+var mainNav = document.getElementById('main-nav');
+window.addEventListener('scroll', function() {
+  mainNav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
 
-    var overlayData = {
-      'timpanogos-cave': {
-        photo: 'timpanogos-cave.jpg',
-        alt: 'Timpanogos Cave National Monument',
-        headline: 'Timpanogos Cave National Monument.',
-        body: "One of the most underrated things to do in Utah County and it's in your backyard. The hike to the cave entrance is 1.5 miles with 1,000 feet of elevation gain, and it earns the experience. Inside you'll find stalactites, stalagmites, and helictite formations unlike anything else in the state. The cave stays at 45 degrees year-round so bring a layer.",
-        tipType: 'text',
-        tip: 'Reservations required. Tickets sell out weeks in advance in summer, so book at recreation.gov before you think you need to. The cave is open May through October only.'
-      },
-      'alpine-loop': {
-        photo: 'alpine-loop.jpg',
-        alt: 'The Alpine Loop Scenic Byway',
-        headline: 'The Alpine Loop Scenic Byway.',
-        body: 'September is when the aspens turn and the Alpine Loop becomes one of the most beautiful drives in the country. The road runs through American Fork Canyon and Provo Canyon connecting the two. Pull over anywhere. You cannot take a bad photo. Snow closes it in winter, so check road conditions before you go.',
-        tipType: 'text',
-        tip: 'Tibble Fork Reservoir is right off the loop and fills up fast on summer weekends. Go on a Tuesday if you want the place to yourself.'
-      },
-      'battle-creek-falls': {
-        photo: 'battle-creek-falls.jpg',
-        alt: 'Battle Creek Falls',
-        headline: 'Battle Creek Falls.',
-        body: "This is the hike you take people on their first week. About 1.5 miles round trip, 300 feet of elevation gain, and ends at a real waterfall. It's in Pleasant Grove and takes about 45 minutes. Family friendly, dog friendly, and genuinely rewarding for the effort. The trailhead fills up on weekends, so get there before 8am or after 5pm.",
-        tipType: 'text',
-        tip: 'This is the warmup. Once your lungs adjust to the altitude, Grove Creek Trail above Pleasant Grove is the next step up.'
-      },
-      'sundance': {
-        photo: 'sundance.jpg',
-        alt: 'Sundance Mountain Resort',
-        headline: 'Sundance Mountain Resort.',
-        body: "Robert Redford's resort sits at the base of Mount Timpanogos and operates year-round. In winter it's a ski resort with runs for all levels and far less crowded than Park City. In summer it's hiking, the Mountain Coaster, the zip line, and the outdoor amphitheater. The restaurants are genuinely good. It's 20 minutes from most of Utah County.",
-        tipType: 'text',
-        tip: 'The Sundance Film Festival is in Park City in January but overflow events and screenings happen at Sundance Resort. Worth putting on your calendar your first year.'
-      },
-      'utah-lake': {
-        photo: 'utah-lake.jpg',
-        alt: 'Utah Lake',
-        headline: 'Utah Lake.',
-        body: "Utah Lake gets overlooked because people are staring at the mountains. That's a mistake. It's the largest freshwater lake in Utah and it sits right in the valley floor. Paddle boarding, kayaking, fishing, and some of the best sunsets in the county happen here. Lindon Marina and Utah Lake State Park are the two main access points.",
-        tipType: 'text',
-        tip: "Water quality varies by season and weather conditions. Check utah.gov before swimming. For paddle boarding and kayaking it's generally fine most of the season."
-      },
-      'tibble-fork': {
-        photo: 'tibble-fork.jpg',
-        alt: 'Tibble Fork Reservoir',
-        headline: 'Tibble Fork Reservoir.',
-        body: 'A high mountain reservoir tucked into American Fork Canyon at about 6,200 feet elevation. Fishing, paddle boarding, and some of the best picnic spots in the county. The drive up the canyon alone is worth it. When people want cooler temps and a mountain setting, Tibble Fork is the answer. Utah Lake and Deer Creek are where people head for boating. Tibble Fork is where they go to slow down, sit by the water, and actually feel like they're in the mountains.',
-        tipType: 'text',
-        tip: 'The road to Tibble Fork is the same road to the Alpine Loop. Combine them into one outing. Go early on weekends. The parking lot fills by 9am in summer.'
-      },
-      'provo-canyon': {
-        photo: 'provo-canyon.jpg',
-        alt: 'Provo Canyon',
-        headline: 'Provo Canyon.',
-        body: "Provo Canyon is one of the most scenic drives in Utah County and it never gets old. The canyon runs between Utah County and Heber Valley with the Provo River running alongside the entire route. In spring and summer the river is a blue ribbon fishery for brown and rainbow trout, and sections of it are floatable by kayak and inflatable. Bridal Veil Falls is right off the road and worth the short walk every single time. In October the aspens turn and Provo Canyon becomes one of the best fall color drives in the state.",
-        tipType: 'text',
-        tip: "The canyon is also the route to Sundance Resort, Deer Creek Reservoir, and Heber City. If you are heading to any of those, stop somewhere along the river on the way back. You will not regret it."
-      },
-      'mighty-5': {
-        photo: 'national-parks.jpg',
-        alt: 'The Mighty 5 National Parks',
-        headline: "Five National Parks Within a Day's Drive.",
-        body: "This is the thing most people don't fully register until they live here. Zion, Bryce Canyon, Arches, Canyonlands, and Capitol Reef are all within a four to five hour drive of Utah County. Most families who move here make it to all five within their first two years. Spring and fall are the best seasons to visit. Summer is hot and crowded.",
-        tipType: 'table',
-        distances: [
-          ['Zion National Park',   '3 hrs 15 min', '240 miles'],
-          ['Bryce Canyon',         '3 hrs 30 min', '255 miles'],
-          ['Capitol Reef',         '3 hrs',        '210 miles'],
-          ['Arches National Park', '4 hrs',        '235 miles'],
-          ['Canyonlands',          '4 hrs 15 min', '250 miles']
-        ]
-      }
-    };
+var overlayData = {
+  'timpanogos-cave': {
+    photo: 'timpanogos-cave.jpg',
+    alt: 'Timpanogos Cave National Monument',
+    headline: 'Timpanogos Cave National Monument.',
+    body: "One of the most underrated things to do in Utah County and it's in your backyard. The hike to the cave entrance is 1.5 miles with 1,000 feet of elevation gain, and it earns the experience. Inside you'll find stalactites, stalagmites, and helictite formations unlike anything else in the state. The cave stays at 45 degrees year-round so bring a layer.",
+    tipType: 'text',
+    tip: 'Reservations required. Tickets sell out weeks in advance in summer, so book at recreation.gov before you think you need to. The cave is open May through October only.'
+  },
+  'alpine-loop': {
+    photo: 'alpine-loop.jpg',
+    alt: 'The Alpine Loop Scenic Byway',
+    headline: 'The Alpine Loop Scenic Byway.',
+    body: 'September is when the aspens turn and the Alpine Loop becomes one of the most beautiful drives in the country. The road runs through American Fork Canyon and Provo Canyon connecting the two. Pull over anywhere. You cannot take a bad photo. Snow closes it in winter, so check road conditions before you go.',
+    tipType: 'text',
+    tip: 'Tibble Fork Reservoir is right off the loop and fills up fast on summer weekends. Go on a Tuesday if you want the place to yourself.'
+  },
+  'battle-creek-falls': {
+    photo: 'battle-creek-falls.jpg',
+    alt: 'Battle Creek Falls',
+    headline: 'Battle Creek Falls.',
+    body: "This is the hike you take people on their first week. About 1.5 miles round trip, 300 feet of elevation gain, and ends at a real waterfall. It's in Pleasant Grove and takes about 45 minutes. Family friendly, dog friendly, and genuinely rewarding for the effort. The trailhead fills up on weekends, so get there before 8am or after 5pm.",
+    tipType: 'text',
+    tip: 'This is the warmup. Once your lungs adjust to the altitude, Grove Creek Trail above Pleasant Grove is the next step up.'
+  },
+  'sundance': {
+    photo: 'sundance.jpg',
+    alt: 'Sundance Mountain Resort',
+    headline: 'Sundance Mountain Resort.',
+    body: "Robert Redford's resort sits at the base of Mount Timpanogos and operates year-round. In winter it's a ski resort with runs for all levels and far less crowded than Park City. In summer it's hiking, the Mountain Coaster, the zip line, and the outdoor amphitheater. The restaurants are genuinely good. It's 20 minutes from most of Utah County.",
+    tipType: 'text',
+    tip: 'The Sundance Film Festival is in Park City in January but overflow events and screenings happen at Sundance Resort. Worth putting on your calendar your first year.'
+  },
+  'utah-lake': {
+    photo: 'utah-lake.jpg',
+    alt: 'Utah Lake',
+    headline: 'Utah Lake.',
+    body: "Utah Lake gets overlooked because people are staring at the mountains. That's a mistake. It's the largest freshwater lake in Utah and it sits right in the valley floor. Paddle boarding, kayaking, fishing, and some of the best sunsets in the county happen here. Lindon Marina and Utah Lake State Park are the two main access points.",
+    tipType: 'text',
+    tip: "Water quality varies by season and weather conditions. Check utah.gov before swimming. For paddle boarding and kayaking it's generally fine most of the season."
+  },
+  'tibble-fork': {
+    photo: 'tibble-fork.jpg',
+    alt: 'Tibble Fork Reservoir',
+    headline: 'Tibble Fork Reservoir.',
+    body: 'A high mountain reservoir tucked into American Fork Canyon at about 6,200 feet elevation. Fishing, paddle boarding, and some of the best picnic spots in the county. The drive up the canyon alone is worth it. When people want cooler temps and a mountain setting, Tibble Fork is the answer. Utah Lake and Deer Creek are where people head for boating. Tibble Fork is where they go to slow down, sit by the water, and actually feel like they are in the mountains.',
+    tipType: 'text',
+    tip: 'The road to Tibble Fork is the same road to the Alpine Loop. Combine them into one outing. Go early on weekends. The parking lot fills by 9am in summer.'
+  },
+  'provo-canyon': {
+    photo: 'provo-canyon.jpg',
+    alt: 'Provo Canyon',
+    headline: 'Provo Canyon.',
+    body: "Provo Canyon is one of the most scenic drives in Utah County and it never gets old. The canyon runs between Utah County and Heber Valley with the Provo River running alongside the entire route. In spring and summer the river is a blue ribbon fishery for brown and rainbow trout, and sections of it are floatable by kayak and inflatable. Bridal Veil Falls is right off the road and worth the short walk every single time. In October the aspens turn and Provo Canyon becomes one of the best fall color drives in the state.",
+    tipType: 'text',
+    tip: 'The canyon is also the route to Sundance Resort, Deer Creek Reservoir, and Heber City. If you are heading to any of those, stop somewhere along the river on the way back. You will not regret it.'
+  },
+  'mighty-5': {
+    photo: 'national-parks.jpg',
+    alt: 'The Mighty 5 National Parks',
+    headline: "Five National Parks Within a Day's Drive.",
+    body: "This is the thing most people don't fully register until they live here. Zion, Bryce Canyon, Arches, Canyonlands, and Capitol Reef are all within a four to five hour drive of Utah County. Most families who move here make it to all five within their first two years. Spring and fall are the best seasons to visit. Summer is hot and crowded.",
+    tipType: 'table',
+    distances: [
+      ['Zion National Park',   '3 hrs 15 min', '240 miles'],
+      ['Bryce Canyon',         '3 hrs 30 min', '255 miles'],
+      ['Capitol Reef',         '3 hrs',        '210 miles'],
+      ['Arches National Park', '4 hrs',        '235 miles'],
+      ['Canyonlands',          '4 hrs 15 min', '250 miles']
+    ]
+  }
+};
 
-    var overlay       = document.getElementById('overlay');
-    var overlayImg    = document.getElementById('overlay-img');
-    var overlayBody   = document.getElementById('overlay-body-content');
-    var overlayScroll = document.getElementById('overlay-scroll');
-    var closeBtn      = document.getElementById('overlay-close');
-    var overlayPhoto  = document.getElementById('overlay-photo');
+var overlay       = document.getElementById('overlay');
+var overlayImg    = document.getElementById('overlay-img');
+var overlayBody   = document.getElementById('overlay-body-content');
+var overlayScroll = document.getElementById('overlay-scroll');
+var closeBtn      = document.getElementById('overlay-close');
+var overlayPhoto  = document.getElementById('overlay-photo');
 
-    function openOverlay(id) {
-      var d = overlayData[id];
-      if (!d) return;
+function openOverlay(id) {
+  var d = overlayData[id];
+  if (!d) return;
+  overlayImg.src = d.photo;
+  overlayImg.alt = d.alt;
+  var tipHTML = '';
+  if (d.tipType === 'table') {
+    var rows = d.distances.map(function(r) {
+      return '<tr><td>' + r[0] + '</td><td>' + r[1] + ' / ' + r[2] + '</td></tr>';
+    }).join('');
+    tipHTML = '<p class="tip-label">Distances from Utah County</p><table class="distance-table">' + rows + '</table>';
+  } else {
+    tipHTML = '<p class="tip-label">Local Tip</p><p class="tip-text">' + d.tip + '</p>';
+  }
+  overlayBody.innerHTML = '<h2 class="overlay-headline">' + d.headline + '</h2><p class="overlay-text">' + d.body + '</p><div class="tip-box">' + tipHTML + '</div>';
+  overlay.classList.add('active');
+  overlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  overlayScroll.scrollTop = 0;
+}
 
-      overlayImg.src = d.photo;
-      overlayImg.alt = d.alt;
+function closeOverlay() {
+  overlay.classList.remove('active');
+  overlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
 
-      var tipHTML = '';
-      if (d.tipType === 'table') {
-        var rows = d.distances.map(function(r) {
-          return '<tr><td>' + r[0] + '</td><td>' + r[1] + ' / ' + r[2] + '</td></tr>';
-        }).join('');
-        tipHTML = '<p class="tip-label">Distances from Utah County</p>'
-                + '<table class="distance-table">' + rows + '</table>';
-      } else {
-        tipHTML = '<p class="tip-label">Local Tip</p>'
-                + '<p class="tip-text">' + d.tip + '</p>';
-      }
+document.querySelectorAll('.card').forEach(function(card) {
+  card.addEventListener('click', function() { openOverlay(card.dataset.id); });
+  card.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openOverlay(card.dataset.id); }
+  });
+});
 
-      overlayBody.innerHTML =
-          '<h2 class="overlay-headline">' + d.headline + '</h2>'
-        + '<p class="overlay-text">' + d.body + '</p>'
-        + '<div class="tip-box">' + tipHTML + '</div>';
-
-      overlay.classList.add('active');
-      overlay.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      overlayScroll.scrollTop = 0;
-    }
-
-    function closeOverlay() {
-      overlay.classList.remove('active');
-      overlay.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('.card').forEach(function(card) {
-      card.addEventListener('click', function() { openOverlay(card.dataset.id); });
-      card.addEventListener('touchend', function(e) { e.preventDefault(); openOverlay(card.dataset.id); });
-      card.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openOverlay(card.dataset.id); }
-      });
-    });
-
-    closeBtn.addEventListener('click', closeOverlay);
-    overlayPhoto.addEventListener('click', closeOverlay);
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeOverlay();
-    });
+closeBtn.addEventListener('click', closeOverlay);
+overlayPhoto.addEventListener('click', closeOverlay);
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeOverlay();
+});
   </script>
 
 </body>
