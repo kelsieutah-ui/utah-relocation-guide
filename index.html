@@ -665,6 +665,7 @@
     }
 
     @media (max-width: 768px) {
+      .nav-wrap { width: calc(100% - 32px); left: 50%; transform: translateX(-50%); }
       nav { padding: 10px 20px; }
       .nav-links { display: none; }
 
@@ -684,7 +685,10 @@
       .area-pillars { grid-template-columns: 1fr; }
       .area-intro { grid-template-columns: 1fr; }
 
-      .zillow-badge img { max-width: 100%; width: 100%; }
+      .zillow-cta-wrap { overflow: hidden; }
+      .zillow-cta-wrap img { max-width: 100%; width: 100%; overflow: hidden; }
+
+      .reviews-grid { grid-template-columns: 1fr; }
 
       .why-section,
       .features-section,
@@ -815,35 +819,41 @@
     </div>
     <div class="features-grid">
 
+      <a href="https://utahcountyrelocationguide.netlify.app/outdoors.html" style="text-decoration:none; color:inherit; display:block;">
       <div class="feature-card">
         <div class="feature-num">01</div>
         <h3 class="feature-title">The Outdoors Are Everything</h3>
         <p class="feature-body">You're 20 minutes from world-class hiking, skiing, and camping. People don't just move here for a house. They move here for mountain access that permanently changes how you spend your weekends.</p>
-        <a href="https://utahcountyrelocationguide.netlify.app/outdoors.html" class="feature-more">
+        <span class="feature-more" style="display:inline-flex; align-items:center; gap:5px; margin-top:22px; font-size:12.5px; font-weight:500; color:var(--green);">
           Explore the Outdoors
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </span>
       </div>
+      </a>
 
+      <a href="https://utahcountyrelocationguide.netlify.app/commute.html" style="text-decoration:none; color:inherit; display:block;">
       <div class="feature-card">
         <div class="feature-num">02</div>
         <h3 class="feature-title">The Commute Is Manageable</h3>
         <p class="feature-body">Salt Lake City is 30 minutes north. The FrontRunner train runs through Utah County. Most families enjoy the space and pace of the county while keeping a city job, which is one of the most underrated parts of living here.</p>
-        <a href="https://utahcountyrelocationguide.netlify.app/commute.html" class="feature-more">
+        <span class="feature-more" style="display:inline-flex; align-items:center; gap:5px; margin-top:22px; font-size:12.5px; font-weight:500; color:var(--green);">
           Explore commute by city
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </span>
       </div>
+      </a>
 
+      <a href="https://utahcountyrelocationguide.netlify.app/schools.html" style="text-decoration:none; color:inherit; display:block;">
       <div class="feature-card">
         <div class="feature-num">03</div>
         <h3 class="feature-title">Schools Are a Real Selling Point</h3>
         <p class="feature-body">School districts here consistently rank among the best in the state. Families who move here are often surprised how much weight this adds to their decision, and how much it shapes neighborhood choice.</p>
-        <a href="https://utahcountyrelocationguide.netlify.app/schools.html" class="feature-more">
+        <span class="feature-more" style="display:inline-flex; align-items:center; gap:5px; margin-top:22px; font-size:12.5px; font-weight:500; color:var(--green);">
           Explore Schools
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </span>
       </div>
+      </a>
 
     </div>
   </section>
