@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schools Guide | Utah County Relocation Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:         #2B3D30;
+      --green-mid:     #344A39;
+      --cream:         #F2E8D5;
+      --cream-dark:    #E4D5BC;
+      --sage:          #99A189;
+      --mocha:         #6B4F3A;
+      --charcoal:      #1C1C1C;
+      --text-dark:     #1C1C1C;
+      --text-light:    rgba(242,232,213,0.72);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* NAV PILL */
+    .nav-wrap {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      width: calc(100% - 48px);
+      max-width: 1080px;
+    }
+    .nav-pill {
+      background: #fff;
+      border-radius: 100px;
+      padding: 10px 12px 10px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+      transition: box-shadow 0.3s;
+    }
+    .nav-pill.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.05); }
+    .nav-back {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--charcoal); }
+    .nav-cta {
+      background: var(--green);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
+
+    /* HERO */
+    .hero {
+      background: var(--green);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 48px 100px;
+    }
+    .hero-body { max-width: 720px; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.07;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.78;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* SHARED SECTION SHELL */
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .section-head { text-align: center; margin-bottom: 48px; }
+    .section-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 46px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .section-head p {
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.68;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* DISTRICT MAP SECTION */
+    .map-section {
+      background: var(--cream);
+      padding: 88px 48px 100px;
+    }
+    .map-section .section-head h2 { color: var(--text-dark); }
+    .map-section .section-head p  { color: #666; }
+    .map-img-wrap { text-align: center; }
+    .map-img-wrap img {
+      max-width: 760px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      display: block;
+      margin: 0 auto 14px;
+    }
+    .map-caption {
+      font-size: 12px;
+      font-weight: 300;
+      color: #aaa;
+      font-style: italic;
+    }
+
+    /* DISTRICT BREAKDOWN SECTION */
+    .districts-section {
+      background: var(--green);
+      padding: 88px 48px 100px;
+    }
+    .districts-section .section-head h2 { color: var(--cream); }
+
+    .district-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .district-cards { grid-template-columns: 1fr; }
+    }
+    .district-card {
+      background: var(--green-mid);
+      border-radius: 12px;
+      padding: 32px 28px;
+    }
+    .district-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--cream);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .district-cities {
+      font-size: 11.5px;
+      font-weight: 400;
+      color: var(--sage);
+      line-height: 1.7;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .district-desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.78;
+      margin-bottom: 22px;
+    }
+    .district-links { display: flex; flex-direction: column; gap: 10px; }
+    .district-link {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--sage);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .district-link:hover { color: var(--cream); }
+    .district-verify {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(242,232,213,0.45);
+      line-height: 1.55;
+    }
+    .district-verify a {
+      color: var(--sage);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .district-verify a:hover { color: var(--cream); }
+
+    /* HONEST REALITY SECTION */
+    .reality-section {
+      background: var(--cream);
+      padding: 88px 48px 100px;
+    }
+    .reality-section .section-head h2 { color: var(--text-dark); }
+
+    .truth-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (max-width: 640px) {
+      .truth-grid { grid-template-columns: 1fr; }
+    }
+    .truth-box {
+      background: #fff;
+      border: 1px solid rgba(43,61,48,0.1);
+      border-left: 3px solid var(--green);
+      border-radius: 8px;
+      padding: 28px 30px;
+    }
+    .truth-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--green);
+      font-weight: 600;
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+    .truth-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.82;
+    }
+    .truth-text a {
+      color: var(--green);
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .truth-text a:hover { opacity: 0.72; }
+
+    /* QUICK REFERENCE TABLE SECTION */
+    .table-section {
+      background: var(--green);
+      padding: 88px 48px 100px;
+    }
+    .table-section .section-head h2 { color: var(--cream); }
+
+    .ref-table-wrap {
+      max-width: 800px;
+      margin: 0 auto 28px;
+    }
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .ref-table th {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--sage);
+      font-weight: 500;
+      padding: 0 16px 14px 0;
+      text-align: left;
+      border-bottom: 2px solid rgba(153,161,137,0.3);
+    }
+    .ref-table th:last-child { padding-right: 0; }
+    .ref-table td {
+      padding: 12px 16px 12px 0;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-light);
+      border-bottom: 1px solid rgba(153,161,137,0.15);
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    .ref-table td:first-child {
+      color: var(--cream);
+      font-weight: 400;
+    }
+    .ref-table td:last-child { padding-right: 0; }
+    .ref-table tr:last-child td { border-bottom: none; }
+    .ref-table a {
+      color: var(--sage);
+      text-decoration: none;
+      font-size: 12.5px;
+      transition: color 0.2s;
+    }
+    .ref-table a:hover { color: var(--cream); }
+
+    .table-note {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 12.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(242,232,213,0.48);
+      line-height: 1.65;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--cream);
+      padding: 100px 48px;
+      text-align: center;
+      border-top: 1px solid var(--cream-dark);
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4.5vw, 58px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      max-width: 580px;
+      margin: 0 auto 16px;
+      line-height: 1.12;
+    }
+    .cta-section p {
+      font-size: 15px;
+      color: #777;
+      max-width: 440px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+      line-height: 1.78;
+    }
+    .btn-green {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 15px 38px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: all 0.22s;
+    }
+    .btn-green:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(43,61,48,0.28);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero { padding: 100px 24px 80px; }
+      .map-section,
+      .districts-section,
+      .reality-section,
+      .table-section { padding: 64px 20px 80px; }
+      .cta-section { padding: 72px 24px; }
+      .nav-pill { padding: 10px 10px 10px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV PILL -->
+  <div class="nav-wrap">
+    <nav class="nav-pill" id="main-nav">
+      <a href="https://utahcountyrelocationguide.netlify.app/" class="nav-back">&#8592; Back to the Guide</a>
+      <a href="https://utahcountyrelocationguide.netlify.app/#contact" class="nav-cta">Work With Me</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-body">
+      <h1 class="hero-title">Where you live decides<br>where your kids go.</h1>
+      <p class="hero-sub">Pick your school district before you pick your neighborhood. And read this before you trust a district rating.</p>
+    </div>
+  </section>
+
+  <!-- DISTRICT MAP -->
+  <section class="map-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Three districts cover Utah County.</h2>
+        <p>Most of Utah County falls under one of three school districts. The boundaries matter more than people expect. Homes on the same street can fall in different districts, and that difference can be significant.</p>
+      </div>
+      <div class="map-img-wrap">
+        <img src="school-district-boundaries-map.jpg" alt="Utah County school district boundary map">
+        <p class="map-caption">Source: Utah State Board of Education</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISTRICT BREAKDOWN -->
+  <section class="districts-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Know your district before you make an offer.</h2>
+      </div>
+      <div class="district-cards">
+
+        <div class="district-card">
+          <p class="district-name">Alpine School District</p>
+          <p class="district-cities">American Fork, Cedar Hills, Eagle Mountain, Highland, Lehi, Lindon, most of Orem, Pleasant Grove, Saratoga Springs</p>
+          <p class="district-desc">Largest district in Utah. Large does not mean bad, but it does mean inconsistent. Do the individual school research, not just the district rating.</p>
+          <div class="district-links">
+            <a href="https://www.alpineschools.org" target="_blank" rel="noopener" class="district-link">alpineschools.org</a>
+            <p class="district-verify">Verify your address boundary at <a href="https://www.alpineschools.org/departments/planning/school-locator/" target="_blank" rel="noopener">alpineschools.org/departments/planning/school-locator</a></p>
+          </div>
+        </div>
+
+        <div class="district-card">
+          <p class="district-name">Nebo School District</p>
+          <p class="district-cities">Spanish Fork, Payson, Salem, Springville, Mapleton, Santaquin</p>
+          <p class="district-desc">Covers the southern end of the county. Generally strong schools with a tighter community feel than the larger Alpine district.</p>
+          <div class="district-links">
+            <a href="https://www.nebo.edu" target="_blank" rel="noopener" class="district-link">nebo.edu</a>
+            <p class="district-verify">Verify your address boundary at <a href="https://www.nebo.edu" target="_blank" rel="noopener">nebo.edu</a></p>
+          </div>
+        </div>
+
+        <div class="district-card">
+          <p class="district-name">Provo City School District</p>
+          <p class="district-cities">Provo and portions of southern Orem</p>
+          <p class="district-desc">City-specific district with strong magnet and arts programs. If you are buying near the Provo or Orem city boundary, verify which district your specific address falls under before you make an offer.</p>
+          <div class="district-links">
+            <a href="https://www.provo.edu" target="_blank" rel="noopener" class="district-link">provo.edu</a>
+            <p class="district-verify">Verify your address boundary at <a href="https://www.provo.edu" target="_blank" rel="noopener">provo.edu</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HONEST REALITY -->
+  <section class="reality-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>What nobody puts in the listing description.</h2>
+      </div>
+      <div class="truth-grid">
+
+        <div class="truth-box">
+          <p class="truth-label">Utah ranks near the bottom nationally in per-pupil spending.</p>
+          <p class="truth-text">Class sizes are large. If you are coming from a well-funded California district you will notice the difference. The individual school quality varies enormously within the same district depending on the principal, the parent community, and the neighborhood. A district rating tells you almost nothing useful.</p>
+        </div>
+
+        <div class="truth-box">
+          <p class="truth-label">Stop looking at district ratings. Start talking to parents.</p>
+          <p class="truth-text">The difference between two elementary schools in the same district can be significant. It comes down to the principal and the parent community more than the funding formula. Before you buy, find a parent in the specific neighborhood and ask them directly.</p>
+        </div>
+
+        <div class="truth-box">
+          <p class="truth-label">Charter school waitlists run one to three years.</p>
+          <p class="truth-text">Popular schools like <a href="https://www.americanprep.org" target="_blank" rel="noopener">American Prep Academy</a>, <a href="https://www.entheosacademy.org" target="_blank" rel="noopener">Entheos Academy</a>, and <a href="https://www.rockwellcharter.org" target="_blank" rel="noopener">Rockwell Charter</a> have waitlists that long. Enrollment opens in January. Get on the list the January before you need it, not the January after you arrive.</p>
+        </div>
+
+        <div class="truth-box">
+          <p class="truth-label">If your child has an IEP, act before their first day.</p>
+          <p class="truth-text">Contact the new district's Special Education department directly, not the front office, before your child's first day. Services can lapse in the transition gap if you wait. Alpine School District Special Education can be reached through <a href="https://www.alpineschools.org/departments/special-education" target="_blank" rel="noopener">alpineschools.org/departments/special-education</a></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK REFERENCE TABLE -->
+  <section class="table-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Which cities are in which district.</h2>
+      </div>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>District</th>
+              <th>Boundary Tool</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>American Fork</td><td>Alpine School District</td><td><a href="https://www.alpineschools.org/departments/planning/school-locator/" target="_blank" rel="noopener">alpineschools.org/school-locator</a></td></tr>
+            <tr><td>Cedar Hills</td><td>Alpine School District</td><td><a href="https://www.alpineschools.org/departments/planning/school-locator/" target="_blank" rel="noopener">alpineschools.org/school-locator</a></td></tr>
+            <tr><td>Eagle Mountain</td><td>Alpine School District</td><td><a href="https://www.alpineschools.org/departments/planning/school-locator/" target="_blank" rel="noopener">alpineschools.org/school-locator</a></td></tr>
+            <tr><td>Highland</td><td>Alpine School District</td><td><a href="https://www.alpineschools.org/departments/planning/school-locator/" target="_blank" rel="noopener">alpineschools.org/school-locator</a></td></tr>
+            <tr><td>Lehi</td><td>Alpine School District</td><td><a href="https://www.alpineschools.org/departments/planning/school-locator/" target="_blank" rel="noopener">alpineschools.org/school-locator</a></td></tr>
+            <tr><td>Lindon</td><td>Alpine School District</td><td><a href="https://www.alpineschools.org/departments/planning/school-locator/" target="_blank" rel="noopener">alpineschools.org/school-locator</a></td></tr>
+            <tr><td>Orem (most)</td><td>Alpine School District</td><td><a href="https://www.alpineschools.org/departments/planning/school-locator/" target="_blank" rel="noopener">alpineschools.org/school-locator</a></td></tr>
+            <tr><td>Pleasant Grove</td><td>Alpine School District</td><td><a href="https://www.alpineschools.org/departments/planning/school-locator/" target="_blank" rel="noopener">alpineschools.org/school-locator</a></td></tr>
+            <tr><td>Saratoga Springs</td><td>Alpine School District</td><td><a href="https://www.alpineschools.org/departments/planning/school-locator/" target="_blank" rel="noopener">alpineschools.org/school-locator</a></td></tr>
+            <tr><td>Provo</td><td>Provo City School District</td><td><a href="https://www.provo.edu" target="_blank" rel="noopener">provo.edu</a></td></tr>
+            <tr><td>Orem (south portions)</td><td>Provo City School District</td><td><a href="https://www.provo.edu" target="_blank" rel="noopener">provo.edu</a></td></tr>
+            <tr><td>Spanish Fork</td><td>Nebo School District</td><td><a href="https://www.nebo.edu" target="_blank" rel="noopener">nebo.edu</a></td></tr>
+            <tr><td>Payson</td><td>Nebo School District</td><td><a href="https://www.nebo.edu" target="_blank" rel="noopener">nebo.edu</a></td></tr>
+            <tr><td>Salem</td><td>Nebo School District</td><td><a href="https://www.nebo.edu" target="_blank" rel="noopener">nebo.edu</a></td></tr>
+            <tr><td>Springville</td><td>Nebo School District</td><td><a href="https://www.nebo.edu" target="_blank" rel="noopener">nebo.edu</a></td></tr>
+            <tr><td>Mapleton</td><td>Nebo School District</td><td><a href="https://www.nebo.edu" target="_blank" rel="noopener">nebo.edu</a></td></tr>
+            <tr><td>Santaquin</td><td>Nebo School District</td><td><a href="https://www.nebo.edu" target="_blank" rel="noopener">nebo.edu</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Orem is split between Alpine and Provo City districts. Always verify your specific address before making an offer.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Schools are one of the first things we talk about.</h2>
+    <p>Tell me the district you want and I will show you exactly which neighborhoods to focus on. It changes the whole search.</p>
+    <a href="https://utahcountyrelocationguide.netlify.app/#contact" class="btn-green">Talk to Kelsie.</a>
+  </section>
+
+  <script>
+    var mainNav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+      mainNav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
