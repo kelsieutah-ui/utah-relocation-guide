@@ -663,6 +663,41 @@
       font-size: 11.5px;
       color: rgba(255,255,255,0.28);
     }
+
+    @media (max-width: 768px) {
+      nav { padding: 10px 20px; }
+      .nav-links { display: none; }
+
+      .stats-bar {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .stat-item { width: 50%; }
+      .stat-num { font-size: clamp(24px, 6vw, 32px); }
+
+      .features-grid { grid-template-columns: 1fr; }
+
+      .split { grid-template-columns: 1fr; }
+      .split-img { height: 280px; }
+      .split-copy { padding: 48px 28px; }
+
+      .area-pillars { grid-template-columns: 1fr; }
+      .area-intro { grid-template-columns: 1fr; }
+
+      .zillow-badge img { max-width: 100%; width: 100%; }
+
+      .why-section,
+      .features-section,
+      .area-section,
+      .zillow-section,
+      .cta-section,
+      .form-section { padding: 72px 24px; }
+
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 220px;
+      }
+    }
   </style>
 </head>
 <body>
