@@ -6,7 +6,7 @@
   <title>Utah County Relocation Guide | Kelsie Jimenez</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -636,6 +636,58 @@
       box-shadow: 0 8px 28px rgba(43,61,48,0.28);
     }
 
+    /* ─── HAMBURGER MENU ─── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+    .nav-dropdown.open { opacity: 1; pointer-events: all; }
+    .nav-dropdown a {
+      display: flex;
+      align-items: center;
+      height: 48px;
+      padding: 0 24px;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .nav-dropdown a:last-child { border-bottom: none; }
+    .nav-dropdown a:hover { background: var(--cream-dark); }
+
     /* ─── FOOTER ─── */
     footer {
       background: var(--charcoal);
@@ -668,6 +720,8 @@
       .nav-wrap { width: calc(100% - 32px); left: 50%; transform: translateX(-50%); }
       nav { padding: 10px 20px; }
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-dropdown { display: block; }
 
       .stats-bar {
         display: flex;
@@ -718,8 +772,19 @@
         <li><a href="https://utahcountyrelocationguide.netlify.app/neighborhoods.html">Neighborhoods</a></li>
         <li><a href="#reviews">Reviews</a></li>
       </ul>
-      <a href="#contact" class="nav-cta">Work With Me</a>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <a href="#contact" class="nav-cta">Work With Me</a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>
+    <div class="nav-dropdown" id="nav-dropdown">
+      <a href="#why-utah">Why Utah</a>
+      <a href="#life-here">Life Here</a>
+      <a href="https://utahcountyrelocationguide.netlify.app/neighborhoods.html">Neighborhoods</a>
+      <a href="#reviews">Reviews</a>
+    </div>
   </div>
 
   <!-- HERO -->
@@ -773,7 +838,6 @@
         </div>
       </div>
     </a>
-    <a href="https://utahcountyrelocationguide.netlify.app/community.html" class="btn-green" style="display:inline-block; margin-top:36px; font-size:13.5px;">Explore Community Life →</a>
   </section>
 
   <!-- FEATURE CARDS with hover Learn More -->
@@ -824,6 +888,38 @@
     </div>
   </section>
 
+  <!-- NEIGHBORHOODS CARD -->
+  <section style="background:var(--green); padding:80px 48px; text-align:center;">
+    <a href="https://utahcountyrelocationguide.netlify.app/neighborhoods.html" style="text-decoration:none; display:block; max-width:900px; margin:0 auto;">
+      <div style="width:100%; height:480px; border-radius:16px; overflow:hidden; position:relative; cursor:pointer;">
+        <img src="neighborhood.jpg" alt="Find Your Neighborhood in Utah County" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div style="position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.55) 100%);"></div>
+        <div style="position:absolute; bottom:32px; left:36px; right:36px; text-align:left;">
+          <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(28px,4vw,48px); color:var(--cream); line-height:1.12; margin-bottom:10px;">Find Your Neighborhood</p>
+          <p style="font-family:'Times New Roman',serif; font-size:15px; font-weight:300; color:var(--cream); line-height:1.65; opacity:0.88;">From Lehi to Santaquin, which part of the county actually fits your life?</p>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- SPLIT: The Community -->
+  <div class="split">
+    <div class="split-img">
+      <img src="highschoolfootballgame.jpg" alt="Utah County community">
+    </div>
+    <div class="split-copy green">
+      <p class="split-eyebrow">The Community</p>
+      <h2 class="split-title">People show up for each other here</h2>
+      <p class="split-body">One of the things new residents say over and over: neighbors actually know each other. Friday night football fills the stands. Local events and farmers markets aren't just on the calendar. People actually go.</p>
+      <ul class="split-list">
+        <li>Strong neighborhood association culture</li>
+        <li>Year-round community events &amp; farmers markets</li>
+        <li>Highly rated parks, rec centers &amp; family programming</li>
+      </ul>
+      <a href="https://utahcountyrelocationguide.netlify.app/community.html" class="btn-green" style="display:inline-block; margin-top:24px; font-size:13.5px;">Explore Community Life →</a>
+    </div>
+  </div>
+
   <!-- SPLIT: The Outdoors -->
   <div class="split">
     <div class="split-img">
@@ -853,55 +949,12 @@
         <li>Established areas with mature trees and character</li>
         <li>Strong appreciation history across the county</li>
       </ul>
+      <a href="#" class="btn-green" style="display:inline-block; margin-top:24px; font-size:13.5px;">Explore the Homes →</a>
     </div>
     <div class="split-img">
       <img src="exteriorhouse.jpg" alt="Utah home exterior">
     </div>
   </div>
-
-  <!-- SPLIT: The Community -->
-  <div class="split">
-    <div class="split-img">
-      <img src="highschoolfootballgame.jpg" alt="Utah County community">
-    </div>
-    <div class="split-copy green">
-      <p class="split-eyebrow">The Community</p>
-      <h2 class="split-title">People show up for each other here</h2>
-      <p class="split-body">One of the things new residents say over and over: neighbors actually know each other. Friday night football fills the stands. Local events and farmers markets aren't just on the calendar. People actually go.</p>
-      <ul class="split-list">
-        <li>Strong neighborhood association culture</li>
-        <li>Year-round community events &amp; farmers markets</li>
-        <li>Highly rated parks, rec centers &amp; family programming</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- AREA CONTEXT -->
-  <section class="area-section" id="neighborhoods">
-    <div class="area-inner">
-      <div class="area-intro">
-        <h2>A county full of variety. Wherever you want to land, it's here.</h2>
-        <p>Utah County stretches from the banks of Utah Lake to the foothills of the Wasatch Front. Whether you're drawn to a lively walkable main street, a quiet cul-de-sac with mountain views, or a brand-new neighborhood with room to grow, you'll find it here. Most of the area sits between 4,500 and 5,000 feet of elevation, with four distinct seasons and clean air year-round.</p>
-      </div>
-      <div class="area-pillars">
-        <div class="area-pillar">
-          <p class="area-pillar-label">Geography</p>
-          <h3>Valley, Foothills, and Lakeside</h3>
-          <p>The county spans from Utah Lake on the west to canyon mouths in the east, giving buyers genuine variety in setting, elevation, and landscape without ever leaving the area.</p>
-        </div>
-        <div class="area-pillar">
-          <p class="area-pillar-label">Housing Stock</p>
-          <h3>New Builds and Established Neighborhoods</h3>
-          <p>You'll find everything from newer subdivisions with modern floor plans to tree-lined streets with homes that have been in families for decades. Both ends of the spectrum offer strong value.</p>
-        </div>
-        <div class="area-pillar">
-          <p class="area-pillar-label">Connectivity</p>
-          <h3>Well-Connected Without Feeling Urban</h3>
-          <p>Interstate 15 runs the length of the county and the FrontRunner commuter rail connects several cities directly to Salt Lake. You get the space of the suburbs without sacrificing access.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ZILLOW -->
   <section class="zillow-section" id="reviews">
@@ -1007,6 +1060,26 @@
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
+
+    const hamburger = document.getElementById('nav-hamburger');
+    const dropdown = document.getElementById('nav-dropdown');
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      hamburger.classList.toggle('open');
+      dropdown.classList.toggle('open');
+    });
+    dropdown.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('open');
+        dropdown.classList.remove('open');
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!document.querySelector('.nav-wrap').contains(e.target)) {
+        hamburger.classList.remove('open');
+        dropdown.classList.remove('open');
+      }
+    });
 
     const leadForm = document.getElementById('lead-form');
     leadForm.addEventListener('submit', function(e) {
