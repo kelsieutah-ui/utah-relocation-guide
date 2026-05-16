@@ -83,6 +83,12 @@
     .city-row-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 500; color: var(--green); margin-bottom: 4px; }
     .city-row-value { font-size: 15px; font-weight: 300; color: #555; line-height: 1.7; }
 
+    /* GEO LIST */
+    .geo-list { list-style: none; margin: 0 auto 28px; max-width: 720px; }
+    .geo-list li { font-size: 15px; font-weight: 300; color: #666; line-height: 1.7; padding: 6px 0 6px 20px; position: relative; border-bottom: 1px solid var(--cream-dark); }
+    .geo-list li:last-child { border-bottom: none; }
+    .geo-list li::before { content: ''; position: absolute; left: 0; top: 14px; width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+
     /* CTA */
     .cta-section { background: var(--cream); padding: 100px 48px; text-align: center; border-top: 1px solid var(--cream-dark); }
     .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4.5vw, 58px); font-weight: 400; font-style: italic; color: var(--text-dark); max-width: 640px; margin: 0 auto 16px; line-height: 1.12; }
@@ -123,7 +129,12 @@
   <section class="geo-section">
     <div class="geo-inner">
       <h2 class="geo-heading">Start with the geography.</h2>
-      <p class="geo-body">Utah County runs north to south along the Wasatch Range. The mountains sit on the east side of every city along the range. The valley floor runs west toward Utah Lake. That east-west position within any given city changes the feel of your neighborhood more than almost anything else. East bench homes back up to the mountains and have trail access. West side homes face the lake and in cities close to the water you will notice the mosquitos in summer. Open plains and desert terrain get dust and wind. These are not complaints. They are geography. Knowing them before you choose a neighborhood puts you ahead of most buyers.</p>
+      <p class="geo-body">Utah County runs north to south along the Wasatch Range. The mountains sit on the east side of every city along the range. The valley floor runs west toward Utah Lake. That east-west position within any given city changes the feel of your neighborhood more than almost anything else.</p>
+      <ul class="geo-list">
+        <li>East bench: mountain views, trail access, canyon wind at the mouth of canyons</li>
+        <li>West side: lake views, flatter terrain, mosquitos near the water in summer</li>
+        <li>Open plains and desert: dust and wind. Eagle Mountain and parts of Saratoga Springs.</li>
+      </ul>
       <p class="geo-body">One thing only locals know: pay attention to which direction your driveway faces before you choose a lot. A driveway that faces north or west stays in shade all winter and you will be shoveling every time it snows. A driveway that faces south or east gets direct sun and the snow melts on its own. It sounds like a small detail until your first February in Utah.</p>
       <p class="geo-body">The zones below are my own grouping. You will not find them on a county map. I created them based on how buyers actually make decisions, where they work, how they want to spend their weekends, what pace of life they are looking for, and what the inventory looks like in each area. These zones are a starting point for the conversation, not a boundary line.</p>
     </div>

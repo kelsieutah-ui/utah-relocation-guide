@@ -258,9 +258,12 @@
 
     .stat-tiles {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
       margin-bottom: 44px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
     }
     @media (max-width: 640px) {
       .stat-tiles { grid-template-columns: 1fr; }
@@ -445,37 +448,37 @@
         <div class="commute-card border-green">
           <p class="card-city">Lehi</p>
           <p class="card-descriptor">Tech corridor</p>
-          <p class="card-time">25<span class="card-time-unit">min</span></p>
+          <p class="card-time"><span class="count-num" data-target="25">0</span><span class="card-time-unit">min</span></p>
         </div>
 
         <div class="commute-card border-green">
           <p class="card-city">American Fork</p>
           <p class="card-descriptor">North county</p>
-          <p class="card-time">28<span class="card-time-unit">min</span></p>
+          <p class="card-time"><span class="count-num" data-target="28">0</span><span class="card-time-unit">min</span></p>
         </div>
 
         <div class="commute-card border-amber">
           <p class="card-city">Pleasant Grove</p>
           <p class="card-descriptor">Mid-county</p>
-          <p class="card-time">38<span class="card-time-unit">min</span></p>
+          <p class="card-time"><span class="count-num" data-target="38">0</span><span class="card-time-unit">min</span></p>
         </div>
 
         <div class="commute-card border-amber">
           <p class="card-city">Provo and Orem</p>
           <p class="card-descriptor">County center</p>
-          <p class="card-time">42<span class="card-time-unit">min</span></p>
+          <p class="card-time"><span class="count-num" data-target="42">0</span><span class="card-time-unit">min</span></p>
         </div>
 
         <div class="commute-card border-red">
           <p class="card-city">Saratoga Springs</p>
           <p class="card-descriptor">Westside</p>
-          <p class="card-time">52<span class="card-time-unit">min</span></p>
+          <p class="card-time"><span class="count-num" data-target="52">0</span><span class="card-time-unit">min</span></p>
         </div>
 
         <div class="commute-card border-red">
           <p class="card-city">Spanish Fork</p>
           <p class="card-descriptor">South county</p>
-          <p class="card-time">55<span class="card-time-unit">min</span></p>
+          <p class="card-time"><span class="count-num" data-target="55">0</span><span class="card-time-unit">min</span></p>
         </div>
 
       </div>
@@ -504,10 +507,6 @@
         <div class="stat-tile">
           <p class="stat-tile-label">Lehi to Qualtrics</p>
           <p class="stat-tile-num">8<span class="stat-tile-unit">min</span></p>
-        </div>
-        <div class="stat-tile">
-          <p class="stat-tile-label">South Jordan to Draper tech corridor</p>
-          <p class="stat-tile-num">12<span class="stat-tile-unit">min</span></p>
         </div>
       </div>
 
@@ -567,6 +566,35 @@
     window.addEventListener('scroll', function() {
       mainNav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
+
+    var countNums = document.querySelectorAll('.count-num');
+    var animated = false;
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+    function animateCounts() {
+      if (animated) return;
+      animated = true;
+      var duration = 1200;
+      var start = null;
+      function step(timestamp) {
+        if (!start) start = timestamp;
+        var elapsed = timestamp - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = easeOut(progress);
+        countNums.forEach(function(el) {
+          var target = parseInt(el.getAttribute('data-target'), 10);
+          el.textContent = Math.round(target * eased);
+        });
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { animateCounts(); observer.disconnect(); }
+      });
+    }, { threshold: 0.2 });
+    var cardGrid = document.querySelector('.card-grid');
+    if (cardGrid) observer.observe(cardGrid);
   </script>
 
 </body>
