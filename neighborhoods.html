@@ -31,7 +31,7 @@
       overflow-x: hidden;
     }
 
-    /* ─── NAV PILL ─── */
+    /* NAV PILL */
     .nav-wrap {
       position: fixed;
       top: 18px;
@@ -74,7 +74,7 @@
     }
     .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
 
-    /* ─── HERO ─── */
+    /* HERO */
     .hero {
       background: var(--green);
       min-height: 100vh;
@@ -103,16 +103,18 @@
       margin: 0 auto;
     }
 
-    /* ─── SHARED SECTION SHELL ─── */
+    /* SHARED SECTION SHELL */
     .section-inner {
-      max-width: 1080px;
+      max-width: 860px;
       margin: 0 auto;
+      width: 100%;
     }
 
-    /* ─── GEOGRAPHY INTRO ─── */
+    /* GEOGRAPHY INTRO */
     .geo-section {
       background: var(--cream);
-      padding: 88px 48px 0;
+      padding: 88px 48px 64px;
+      text-align: center;
     }
     .geo-heading {
       font-family: 'Playfair Display', serif;
@@ -129,19 +131,20 @@
       color: #666;
       line-height: 1.82;
       max-width: 720px;
-      margin-bottom: 56px;
+      margin: 0 auto 40px;
+      text-align: center;
     }
 
-    /* ─── CALLOUT TILES ─── */
+    /* CALLOUT TILES */
     .callout-section {
       background: var(--cream-dark);
-      padding: 52px 48px;
+      padding: 48px 24px;
     }
     .callout-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      max-width: 1080px;
+      max-width: 860px;
       margin: 0 auto;
     }
     @media (max-width: 640px) {
@@ -168,9 +171,10 @@
       line-height: 1.65;
     }
 
-    /* ─── ZONE SECTIONS ─── */
+    /* ZONE SECTIONS */
     .zone-section {
       padding: 88px 48px 100px;
+      text-align: center;
     }
     .zone-green { background: var(--green); }
     .zone-cream { background: var(--cream); border-top: 1px solid var(--cream-dark); }
@@ -201,12 +205,13 @@
       font-weight: 300;
       line-height: 1.82;
       max-width: 720px;
-      margin-bottom: 36px;
+      margin: 0 auto 36px;
+      text-align: center;
     }
     .zone-green .zone-body { color: var(--text-light); }
     .zone-cream .zone-body { color: #666; }
 
-    /* ─── TIP BOX LIGHT ─── */
+    /* TIP BOX LIGHT */
     .tip-box-light {
       background: #fff;
       border: 1px solid rgba(43,61,48,0.1);
@@ -214,6 +219,8 @@
       border-radius: 8px;
       padding: 20px 24px;
       max-width: 720px;
+      margin: 0 auto;
+      text-align: left;
     }
     .tip-box-light .tip-label {
       font-size: 10px;
@@ -230,7 +237,7 @@
       line-height: 1.75;
     }
 
-    /* ─── TIP BOX DARK ─── */
+    /* TIP BOX DARK */
     .tip-box-dark {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(153,161,137,0.22);
@@ -238,6 +245,8 @@
       border-radius: 8px;
       padding: 20px 24px;
       max-width: 720px;
+      margin: 0 auto;
+      text-align: left;
     }
     .tip-box-dark .tip-label {
       font-size: 10px;
@@ -254,7 +263,7 @@
       line-height: 1.75;
     }
 
-    /* ─── CTA ─── */
+    /* CTA */
     .cta-section {
       background: var(--cream);
       padding: 100px 48px;
@@ -297,10 +306,10 @@
       box-shadow: 0 8px 28px rgba(43,61,48,0.28);
     }
 
-    /* ─── RESPONSIVE ─── */
+    /* RESPONSIVE */
     @media (max-width: 600px) {
       .hero { padding: 100px 24px 80px; }
-      .geo-section { padding: 64px 20px 0; }
+      .geo-section { padding: 64px 20px 48px; }
       .callout-section { padding: 40px 20px; }
       .zone-section { padding: 64px 20px 80px; }
       .cta-section { padding: 72px 24px; }
@@ -331,6 +340,8 @@
     <div class="section-inner">
       <h2 class="geo-heading">Start with the geography.</h2>
       <p class="geo-body">Utah County runs north to south along the Wasatch Range. The mountains are on the east side of every city that sits along the range. The valley floor runs west toward Utah Lake. That east-west position within any given city changes the feel of your neighborhood more than almost anything else. East bench homes back up to the mountains, have canyon access, and get wind at the mouth of canyons. West side homes face the lake, have flatter terrain, and in cities close to the water you will notice the mosquitos in summer. Open plains and desert terrain get dust. These are not complaints. They are geography. Knowing them before you choose a neighborhood puts you ahead of most buyers.</p>
+      <p class="geo-body">The zones you will find below are my own grouping. You will not find them on a county map. I created them based on how I actually see buyers make decisions, where they work, how they want to spend their weekends, what pace of life they are looking for, and what the inventory actually looks like in each area. Geography matters but lifestyle fit matters more. These zones are a starting point for the conversation, not a boundary line.</p>
+      <p class="geo-body" style="margin-bottom: 0;">One thing only locals know: pay attention to which direction your driveway faces before you choose a lot. A driveway that faces north or west stays in the shade all winter and you will be shoveling every time it snows. A driveway that faces south or east gets direct sun and the snow melts on its own. It sounds like a small detail until your first February in Utah.</p>
     </div>
   </section>
 
@@ -353,36 +364,36 @@
     <div style="width:100%; max-width:860px; margin:48px auto 0; border-radius:12px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.12);">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d662961.924232863!2d-111.81880783575222!3d40.19058854988684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874d961b01922fd5%3A0xfbd27ed382db18cf!2sUtah%20County%2C%20UT!5e0!3m2!1sen!2sus!4v1778902450336!5m2!1sen!2sus" width="100%" height="450" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <p style="font-family:'Lato',sans-serif; font-size:13px; font-weight:300; color:#888; text-align:center; margin-top:8px;">Utah County, Utah — explore the map to orient yourself before diving into each zone.</p>
+    <p style="font-family:'Lato',sans-serif; font-size:13px; font-weight:300; color:#888; text-align:center; margin-top:8px;">Utah County, Utah. Explore the map to get your bearings before diving into each zone.</p>
   </section>
 
-  <!-- ZONE 1: NORTH CORRIDOR — dark green -->
+  <!-- ZONE 1: NORTH CORRIDOR -->
   <section class="zone-section zone-green">
     <div class="section-inner">
-      <p class="zone-cities">Lehi &middot; Saratoga Springs &middot; Vineyard</p>
+      <p class="zone-cities">Lehi &middot; Saratoga Springs</p>
       <h2 class="zone-heading">The north corridor: where the growth is.</h2>
-      <p class="zone-body">Lehi is where most of the tech jobs are and the housing reflects that demand. The east bench of Lehi sits at the point of the mountain which gives you dramatic views in both directions but also real wind. You are close to every major highway interchange in the county which makes commuting flexible. Saratoga Springs is directly across the valley from Lehi on the west side of I-15. It mirrors Lehi in price point but gives you significantly more square footage per dollar. You are looking out toward Utah Lake and the rolling foothills beyond it. The trade-off is that Redwood Road is the primary artery in and out of south Saratoga, and during peak hours that matters. Being close to the lake means mosquitos are a real seasonal consideration. Vineyard sits between Lehi and Provo on the lake side and is one of the most interesting places to watch right now. Utah City, a 700-acre master-planned development on the old Geneva Steel site, is actively under construction on the east shore of Utah Lake. The Huntsman Cancer Institute broke ground in 2025 on a 272,000 square foot hospital opening in 2028. Utah Valley University is building a campus nearby. The Greenline promenade from the FrontRunner station to the lake shore is under construction now. The first grocery store opened in 2025. Vineyard is earlier in its development than Lehi or Saratoga Springs but the investment going into it is significant and the trajectory is worth paying attention to.</p>
+      <p class="zone-body">Lehi sits at the northern tip of Utah County where it borders Salt Lake County and it is where most of the Silicon Slopes tech jobs are concentrated. The housing reflects that demand. The east bench of Lehi sits at the point of the mountain which gives you dramatic views in both directions but also real wind. You are close to every major highway interchange in the county which makes commuting in any direction flexible. Saratoga Springs sits directly across the valley from Lehi and American Fork on the west side of I-15. It mirrors Lehi in median price but gives you significantly more square footage per dollar. From Saratoga you are looking out toward Utah Lake and the rolling foothills beyond it. The primary artery in and out of south Saratoga is Redwood Road, and during peak hours that matters more than most buyers expect before they move there. Being close to the lake means mosquitos are a real seasonal consideration.</p>
       <div class="tip-box-dark">
         <p class="tip-label">Local Tip</p>
-        <p class="tip-text">If your job is in the Silicon Slopes tech corridor in Lehi, your commute from most of north county is 10 to 20 minutes and mostly against traffic. That changes the math on a lot of neighborhoods.</p>
+        <p class="tip-text">If your job is in the Silicon Slopes tech corridor in Lehi, your commute from most of north county is 10 to 20 minutes and mostly against traffic going the opposite direction of congestion. That changes the math on a lot of neighborhoods.</p>
       </div>
     </div>
   </section>
 
-  <!-- ZONE 2: MID COUNTY — cream -->
+  <!-- ZONE 2: MID COUNTY -->
   <section class="zone-section zone-cream">
     <div class="section-inner">
-      <p class="zone-cities">American Fork &middot; Pleasant Grove &middot; Cedar Hills &middot; Highland &middot; Lindon</p>
+      <p class="zone-cities">American Fork &middot; Pleasant Grove &middot; Cedar Hills &middot; Highland &middot; Lindon &middot; Vineyard</p>
       <h2 class="zone-heading">Mid county: the established core.</h2>
-      <p class="zone-body">This stretch of the county is where you find the most character in the housing stock. Homes here have mature trees, established neighborhoods, and the kind of streets that feel like someone has actually lived on them for a while. Pleasant Grove sits along the east bench with some of the best hiking trail access in the county right from neighborhood streets. The retail scene along the freeway corridor is growing. American Fork is a solid central option if commute flexibility matters to you. It does not have an east bench mountain range the way Pleasant Grove or Cedar Hills does but it is well positioned for getting north or south quickly. Cedar Hills does not have its own freeway exit which is worth knowing before you choose it. What it does have is proximity to the mouth of American Fork Canyon and a good mix of that slower community feel with more amenities nearby than Highland. Highland is its own thing. Larger lots, a slower pace, and a city ordinance that requires businesses including stores and restaurants to close on Sundays. Residents voted 60 percent to keep that ordinance in 2012 and it remains in place. If that sounds appealing, Highland might be your city. If you need a grocery store on Sunday it is about 5 minutes to the next city over. Lindon sits on the east bench and has a quieter, more country feeling than its neighbors. It is a smaller city with less inventory which means when homes come up they tend to move. The views along the east bench in Lindon are genuinely good.</p>
+      <p class="zone-body">This stretch of the county is where you find the most character in the housing stock. Homes here have mature trees, established neighborhoods, and streets that feel like someone has actually lived on them for a while. Pleasant Grove sits along the east bench with some of the best hiking trail access in the county right from neighborhood streets. The retail scene along the freeway corridor is growing. American Fork is a solid central option if commute flexibility matters to you. It does not have an east bench mountain range the way Pleasant Grove or Cedar Hills does but it is well positioned for getting north or south quickly. Cedar Hills does not have its own freeway exit which is worth knowing before you choose it. What it does have is proximity to the mouth of American Fork Canyon and a good mix of that slower community feel with more amenities nearby than Highland. Highland is its own thing. Larger lots, a slower pace, and a city ordinance that requires businesses including stores and restaurants to close on Sundays. Residents voted 60 percent to keep that ordinance in 2012 and it remains in place. If that sounds appealing, Highland might be your city. If you need a grocery store on Sunday it is about 5 minutes to the next city over. Lindon sits on the east bench and has a quieter, more country feeling than its neighbors. It is a smaller city with less inventory which means when homes come up they tend to move. Vineyard sits between Orem and the lake shore on the west side of I-15 and is one of the most interesting cities to watch right now. Utah City, a 700-acre master-planned development on the old Geneva Steel site, is actively under construction on the east shore of Utah Lake. The Huntsman Cancer Institute broke ground in 2025 on a 272,000 square foot hospital opening in 2028. Utah Valley University is building a campus nearby. The Greenline promenade from the FrontRunner station to the lake shore is under construction now. The first grocery store opened in 2025. Vineyard is earlier in its development curve than its neighbors but the investment going in is significant and the trajectory is worth paying attention to.</p>
       <div class="tip-box-light">
         <p class="tip-label">Local Tip</p>
-        <p class="tip-text">Mouths of canyons get wind. If you are looking at a home near the mouth of American Fork Canyon or Provo Canyon, factor that in. It is not a dealbreaker but it is a daily reality.</p>
+        <p class="tip-text">Mouths of canyons get wind. If you are looking at a home near the mouth of American Fork Canyon or Provo Canyon, factor that into your daily reality. It is not a dealbreaker but it is a consistent part of life in those locations.</p>
       </div>
     </div>
   </section>
 
-  <!-- ZONE 3: URBAN CORE — dark green -->
+  <!-- ZONE 3: URBAN CORE -->
   <section class="zone-section zone-green">
     <div class="section-inner">
       <p class="zone-cities">Provo &middot; Orem</p>
@@ -395,7 +406,7 @@
     </div>
   </section>
 
-  <!-- ZONE 4: EAGLE MOUNTAIN — cream -->
+  <!-- ZONE 4: EAGLE MOUNTAIN -->
   <section class="zone-section zone-cream">
     <div class="section-inner">
       <p class="zone-cities">Eagle Mountain</p>
@@ -408,7 +419,7 @@
     </div>
   </section>
 
-  <!-- ZONE 5: SOUTH COUNTY — dark green -->
+  <!-- ZONE 5: SOUTH COUNTY -->
   <section class="zone-section zone-green">
     <div class="section-inner">
       <p class="zone-cities">Spanish Fork &middot; Springville &middot; Mapleton &middot; Salem &middot; Payson &middot; Santaquin</p>
