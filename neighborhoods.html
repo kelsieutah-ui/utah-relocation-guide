@@ -39,6 +39,11 @@
     .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(42px, 7vw, 88px); font-weight: 400; font-style: italic; line-height: 1.07; color: var(--cream); margin-bottom: 28px; }
     .hero-sub { font-size: 16px; font-weight: 300; color: var(--text-light); line-height: 1.78; max-width: 540px; margin: 0 auto; }
 
+    /* GEOGRAPHY HERO IMAGE */
+    .geo-hero { position: relative; height: 80vh; min-height: 520px; overflow: hidden; }
+    .geo-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .geo-hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.40); }
+
     /* GEOGRAPHY INTRO */
     .geo-section { background: var(--cream); padding: 88px 48px 56px; }
     .geo-inner { max-width: 860px; margin: 0 auto; width: 100%; }
@@ -98,6 +103,7 @@
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
+      .geo-hero { height: 70vh; min-height: 420px; }
       .hero { padding: 100px 24px 80px; min-height: 70vh; }
       .geo-section { padding: 64px 20px 48px; }
       .callout-section { padding: 36px 20px; }
@@ -123,6 +129,12 @@
       <h1 class="hero-title">Where you live in Utah County matters more than most people expect.</h1>
       <p class="hero-sub">I grew up here, left for 13 years, lived in 4 states, and came back by choice. This is my honest read on each part of the county, and what it feels like to actually live there.</p>
     </div>
+  </section>
+
+  <!-- GEOGRAPHY HERO -->
+  <section class="geo-hero">
+    <img src="geography-hero.jpg" alt="Utah County geography and terrain">
+    <div class="geo-hero-overlay"></div>
   </section>
 
   <!-- GEOGRAPHY INTRO -->
