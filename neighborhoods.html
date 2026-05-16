@@ -34,7 +34,7 @@
     .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
 
     /* HERO */
-    .hero { background: var(--green); min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 48px 100px; }
+    .hero { background: var(--green); min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 48px 100px; }
     .hero-body { max-width: 720px; }
     .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(42px, 7vw, 88px); font-weight: 400; font-style: italic; line-height: 1.07; color: var(--cream); margin-bottom: 28px; }
     .hero-sub { font-size: 16px; font-weight: 300; color: var(--text-light); line-height: 1.78; max-width: 540px; margin: 0 auto; }
@@ -98,7 +98,7 @@
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
-      .hero { padding: 100px 24px 80px; }
+      .hero { padding: 100px 24px 80px; min-height: 70vh; }
       .geo-section { padding: 64px 20px 48px; }
       .callout-section { padding: 36px 20px; }
       .zone-section { padding: 56px 20px 64px; }
@@ -135,7 +135,10 @@
         <li>West side: lake views, flatter terrain, mosquitos near the water in summer</li>
         <li>Open plains and desert: dust and wind. Eagle Mountain and parts of Saratoga Springs.</li>
       </ul>
-      <p class="geo-body">One thing only locals know: pay attention to which direction your driveway faces before you choose a lot. A driveway that faces north or west stays in shade all winter and you will be shoveling every time it snows. A driveway that faces south or east gets direct sun and the snow melts on its own. It sounds like a small detail until your first February in Utah.</p>
+      <div style="background:var(--green); border-radius:10px; padding:28px 32px; margin:32px 0;">
+        <p style="font-family:'Lato',sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:rgba(242,232,213,0.7); font-weight:400; margin-bottom:12px;">LOCAL INSIDER TIP</p>
+        <p style="font-family:'Lato',sans-serif; font-size:16px; font-weight:300; line-height:1.8; color:var(--cream);">Pay attention to which direction your driveway faces before you choose a lot. A driveway that faces north or west stays in shade all winter and you will be shoveling every time it snows. A driveway that faces south or east gets direct sun and the snow melts on its own. It sounds like a small detail until your first February in Utah.</p>
+      </div>
       <p class="geo-body">The zones below are my own grouping. You will not find them on a county map. I created them based on how buyers actually make decisions, where they work, how they want to spend their weekends, what pace of life they are looking for, and what the inventory looks like in each area. These zones are a starting point for the conversation, not a boundary line.</p>
     </div>
   </section>
