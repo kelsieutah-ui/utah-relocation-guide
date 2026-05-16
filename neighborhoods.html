@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neighborhoods | Utah County Relocation Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #2B3D30;
+      --green-mid:   #344A39;
+      --forest-mid:  #344A39;
+      --cream:       #F2E8D5;
+      --cream-dark:  #E4D5BC;
+      --sage:        #99A189;
+      --mocha:       #6B4F3A;
+      --charcoal:    #1C1C1C;
+      --text-dark:   #1C1C1C;
+      --text-light:  rgba(242,232,213,0.72);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV PILL ─── */
+    .nav-wrap {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      width: calc(100% - 48px);
+      max-width: 1080px;
+    }
+    .nav-pill {
+      background: #fff;
+      border-radius: 100px;
+      padding: 10px 12px 10px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+      transition: box-shadow 0.3s;
+    }
+    .nav-pill.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.05); }
+    .nav-back {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--charcoal); }
+    .nav-cta {
+      background: var(--green);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--green);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 48px 100px;
+    }
+    .hero-body { max-width: 720px; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.07;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.78;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ─── SHARED SECTION SHELL ─── */
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* ─── GEOGRAPHY INTRO ─── */
+    .geo-section {
+      background: var(--cream);
+      padding: 88px 48px 0;
+    }
+    .geo-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 46px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .geo-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.82;
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+
+    /* ─── CALLOUT TILES ─── */
+    .callout-section {
+      background: var(--cream-dark);
+      padding: 52px 48px;
+    }
+    .callout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    @media (max-width: 640px) {
+      .callout-grid { grid-template-columns: 1fr; }
+    }
+    .callout-tile {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 28px 24px;
+      border-left: 3px solid var(--green);
+    }
+    .callout-tile-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .callout-tile-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.65;
+    }
+
+    /* ─── ZONE SECTIONS ─── */
+    .zone-section {
+      padding: 88px 48px 100px;
+    }
+    .zone-green { background: var(--green); }
+    .zone-cream { background: var(--cream); border-top: 1px solid var(--cream-dark); }
+
+    .zone-cities {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .zone-green .zone-cities { color: var(--sage); }
+    .zone-cream .zone-cities { color: var(--green); }
+
+    .zone-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 46px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .zone-green .zone-heading { color: var(--cream); }
+    .zone-cream .zone-heading { color: var(--text-dark); }
+
+    .zone-body {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.82;
+      max-width: 720px;
+      margin-bottom: 36px;
+    }
+    .zone-green .zone-body { color: var(--text-light); }
+    .zone-cream .zone-body { color: #666; }
+
+    /* ─── TIP BOX LIGHT ─── */
+    .tip-box-light {
+      background: #fff;
+      border: 1px solid rgba(43,61,48,0.1);
+      border-left: 3px solid var(--green);
+      border-radius: 8px;
+      padding: 20px 24px;
+      max-width: 720px;
+    }
+    .tip-box-light .tip-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .tip-box-light .tip-text {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.75;
+    }
+
+    /* ─── TIP BOX DARK ─── */
+    .tip-box-dark {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(153,161,137,0.22);
+      border-left: 3px solid var(--sage);
+      border-radius: 8px;
+      padding: 20px 24px;
+      max-width: 720px;
+    }
+    .tip-box-dark .tip-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--sage);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .tip-box-dark .tip-text {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: rgba(242,232,213,0.82);
+      line-height: 1.75;
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      background: var(--cream);
+      padding: 100px 48px;
+      text-align: center;
+      border-top: 1px solid var(--cream-dark);
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4.5vw, 58px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      max-width: 640px;
+      margin: 0 auto 16px;
+      line-height: 1.12;
+    }
+    .cta-section p {
+      font-size: 15px;
+      color: #777;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+      line-height: 1.78;
+    }
+    .btn-green {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 15px 38px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: all 0.22s;
+    }
+    .btn-green:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(43,61,48,0.28);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 600px) {
+      .hero { padding: 100px 24px 80px; }
+      .geo-section { padding: 64px 20px 0; }
+      .callout-section { padding: 40px 20px; }
+      .zone-section { padding: 64px 20px 80px; }
+      .cta-section { padding: 72px 24px; }
+      .nav-pill { padding: 10px 10px 10px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV PILL -->
+  <div class="nav-wrap">
+    <nav class="nav-pill" id="main-nav">
+      <a href="https://utahcountyrelocationguide.netlify.app/" class="nav-back">&#8592; Back to the Guide</a>
+      <a href="https://utahcountyrelocationguide.netlify.app/#contact" class="nav-cta">Work With Me</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-body">
+      <h1 class="hero-title">Where you live in Utah County matters more than most people expect.</h1>
+      <p class="hero-sub">I grew up here, left for 13 years, lived in 4 states, and came back by choice. This is my honest read on each part of the county, and what it feels like to actually live there.</p>
+    </div>
+  </section>
+
+  <!-- GEOGRAPHY INTRO -->
+  <section class="geo-section">
+    <div class="section-inner">
+      <h2 class="geo-heading">Start with the geography.</h2>
+      <p class="geo-body">Utah County runs north to south along the Wasatch Range. The mountains are on the east side of every city that sits along the range. The valley floor runs west toward Utah Lake. That east-west position within any given city changes the feel of your neighborhood more than almost anything else. East bench homes back up to the mountains, have canyon access, and get wind at the mouth of canyons. West side homes face the lake, have flatter terrain, and in cities close to the water you will notice the mosquitos in summer. Open plains and desert terrain get dust. These are not complaints. They are geography. Knowing them before you choose a neighborhood puts you ahead of most buyers.</p>
+    </div>
+  </section>
+
+  <!-- CALLOUT TILES -->
+  <section class="callout-section">
+    <div class="callout-grid">
+      <div class="callout-tile">
+        <p class="callout-tile-label">East of I-15</p>
+        <p class="callout-tile-desc">Mountain views, canyon access, more elevation</p>
+      </div>
+      <div class="callout-tile">
+        <p class="callout-tile-label">West of I-15</p>
+        <p class="callout-tile-desc">Lake views, flatter terrain, newer development corridors</p>
+      </div>
+      <div class="callout-tile">
+        <p class="callout-tile-label">South of Provo</p>
+        <p class="callout-tile-desc">More land, more affordable, longer commute to Salt Lake</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONE 1: NORTH CORRIDOR — dark green -->
+  <section class="zone-section zone-green">
+    <div class="section-inner">
+      <p class="zone-cities">Lehi &middot; Saratoga Springs &middot; Vineyard</p>
+      <h2 class="zone-heading">The north corridor: where the growth is.</h2>
+      <p class="zone-body">Lehi is where most of the tech jobs are and the housing reflects that demand. The east bench of Lehi sits at the point of the mountain which gives you dramatic views in both directions but also real wind. You are close to every major highway interchange in the county which makes commuting flexible. Saratoga Springs is directly across the valley from Lehi on the west side of I-15. It mirrors Lehi in price point but gives you significantly more square footage per dollar. You are looking out toward Utah Lake and the rolling foothills beyond it. The trade-off is that Redwood Road is the primary artery in and out of south Saratoga, and during peak hours that matters. Being close to the lake means mosquitos are a real seasonal consideration. Vineyard sits between Lehi and Provo on the lake side and is one of the most interesting places to watch right now. Utah City, a 700-acre master-planned development on the old Geneva Steel site, is actively under construction on the east shore of Utah Lake. The Huntsman Cancer Institute broke ground in 2025 on a 272,000 square foot hospital opening in 2028. Utah Valley University is building a campus nearby. The Greenline promenade from the FrontRunner station to the lake shore is under construction now. The first grocery store opened in 2025. Vineyard is earlier in its development than Lehi or Saratoga Springs but the investment going into it is significant and the trajectory is worth paying attention to.</p>
+      <div class="tip-box-dark">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">If your job is in the Silicon Slopes tech corridor in Lehi, your commute from most of north county is 10 to 20 minutes and mostly against traffic. That changes the math on a lot of neighborhoods.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONE 2: MID COUNTY — cream -->
+  <section class="zone-section zone-cream">
+    <div class="section-inner">
+      <p class="zone-cities">American Fork &middot; Pleasant Grove &middot; Cedar Hills &middot; Highland &middot; Lindon</p>
+      <h2 class="zone-heading">Mid county: the established core.</h2>
+      <p class="zone-body">This stretch of the county is where you find the most character in the housing stock. Homes here have mature trees, established neighborhoods, and the kind of streets that feel like someone has actually lived on them for a while. Pleasant Grove sits along the east bench with some of the best hiking trail access in the county right from neighborhood streets. The retail scene along the freeway corridor is growing. American Fork is a solid central option if commute flexibility matters to you. It does not have an east bench mountain range the way Pleasant Grove or Cedar Hills does but it is well positioned for getting north or south quickly. Cedar Hills does not have its own freeway exit which is worth knowing before you choose it. What it does have is proximity to the mouth of American Fork Canyon and a good mix of that slower community feel with more amenities nearby than Highland. Highland is its own thing. Larger lots, a slower pace, and a city ordinance that requires businesses including stores and restaurants to close on Sundays. Residents voted 60 percent to keep that ordinance in 2012 and it remains in place. If that sounds appealing, Highland might be your city. If you need a grocery store on Sunday it is about 5 minutes to the next city over. Lindon sits on the east bench and has a quieter, more country feeling than its neighbors. It is a smaller city with less inventory which means when homes come up they tend to move. The views along the east bench in Lindon are genuinely good.</p>
+      <div class="tip-box-light">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">Mouths of canyons get wind. If you are looking at a home near the mouth of American Fork Canyon or Provo Canyon, factor that in. It is not a dealbreaker but it is a daily reality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONE 3: URBAN CORE — dark green -->
+  <section class="zone-section zone-green">
+    <div class="section-inner">
+      <p class="zone-cities">Provo &middot; Orem</p>
+      <h2 class="zone-heading">Provo and Orem: more city, more options.</h2>
+      <p class="zone-body">Provo and Orem together make up the urban center of Utah County. The east bench in both cities runs along the Wasatch Range and has some of the best canyon and trail access in the valley. Provo Canyon runs right out of the east side of the city giving you direct access to the river, Sundance, and Heber Valley. The west side of both cities runs along I-15 with multiple on-ramps and easy freeway access. Orem is a large city that covers a lot of ground. The east bench neighborhoods feel very different from the west side commercial corridors and it is worth being specific about which part of Orem you are looking at. Both cities have a significant university presence with BYU in Provo and UVU in Orem. That energy shapes the area. You get a younger demographic, a more diverse restaurant and retail scene, and more rental inventory in the mix. The housing stock in both cities trends older than north county which means more established neighborhoods but also more variation in condition. For buyers who want more square footage per dollar in a city with real amenities, Provo and Orem consistently deliver.</p>
+      <div class="tip-box-dark">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">Provo's downtown Center Street has been growing its independent restaurant and retail scene. If walkability and urban energy matter to you, the east side of downtown Provo is worth a serious look.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONE 4: EAGLE MOUNTAIN — cream -->
+  <section class="zone-section zone-cream">
+    <div class="section-inner">
+      <p class="zone-cities">Eagle Mountain</p>
+      <h2 class="zone-heading">Eagle Mountain: space, trails, and trade-offs.</h2>
+      <p class="zone-body">Eagle Mountain sits west of Saratoga Springs on higher desert terrain and it has a character that is genuinely different from the rest of the county. The city is large geographically and continues to grow with significant new construction at multiple price points including townhomes, condos, and single family homes that often come in lower than comparable product elsewhere in the county. The lay of the land in Eagle Mountain creates real wind and dust conditions. Tumbleweed storms are not an exaggeration. They happen and they are memorable. The desert soil composition means moisture gets absorbed quickly which is actually a significant advantage for mountain bikers. The trails around Eagle Mountain are rideable almost year-round because the ground dries out fast after rain or snow. If mountain biking is part of your lifestyle this is one of the better setups in the county. The commute to Salt Lake or to the tech corridor in Lehi is longer than most of north county and that is worth modeling before you commit. Eagle Mountain works well for buyers who prioritize space and value and are comfortable with the commute trade-off.</p>
+      <div class="tip-box-light">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">New construction in Eagle Mountain spans a wide range of price points. There is meaningful inventory for first-time buyers and move-up buyers alike. The key is understanding which part of the city you are in since Eagle Mountain covers a large area.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONE 5: SOUTH COUNTY — dark green -->
+  <section class="zone-section zone-green">
+    <div class="section-inner">
+      <p class="zone-cities">Spanish Fork &middot; Springville &middot; Mapleton &middot; Salem &middot; Payson &middot; Santaquin</p>
+      <h2 class="zone-heading">South county: the underrated option.</h2>
+      <p class="zone-body">The cities south of Provo are where you find the most land for the money in Utah County and some of the most genuine small-town character left in the valley. Spanish Fork, Springville, Mapleton, Salem, Payson, and Santaquin each have their own personality but share a slower pace and a stronger sense of community than the faster-growing north county cities. Springville is worth calling out specifically. It is officially known as Art City and is home to Utah's oldest visual arts museum. The Legends Compound, an entertainment complex built from 55 repurposed shipping containers with a speakeasy, ferris wheel, and vintage motorcycle museum, is also in Springville. Salem and Mapleton on the east bench have larger lots and views that rival anything in the county. Payson and Santaquin give you the most square footage per dollar in the county and a commute that gets you to Provo in about 20 minutes on a good day. The trade-off for all of south county is the commute north to Salt Lake City which adds meaningful time compared to Lehi or Pleasant Grove. For buyers whose work is in south or central Utah County, or who work remotely, south county is one of the most compelling value propositions in the entire valley.</p>
+      <div class="tip-box-dark">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">If you are coming from a rural or semi-rural area and want that feeling without giving up Utah County amenities, Salem and Mapleton specifically are worth a serious look. Large lots, mountain views, and close enough to Provo to not feel isolated.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to figure out which part of the county fits your life?</h2>
+    <p>This is the conversation I have with every relocating client. Where you work, how you like to spend your weekends, what you need within 10 minutes. All of it points somewhere specific. Let's talk through it.</p>
+    <a href="https://utahcountyrelocationguide.netlify.app/#contact" class="btn-green">Talk to Kelsie.</a>
+  </section>
+
+  <script>
+    var mainNav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+      mainNav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
