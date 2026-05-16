@@ -79,15 +79,32 @@
 
     /* ─── HERO ─── */
     .hero {
-      background: var(--green);
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 48px 100px;
+      position: relative;
+      height: 80vh;
+      min-height: 520px;
+      overflow: hidden;
     }
-    .hero-body { max-width: 720px; }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero-body {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+      max-width: 720px;
+    }
     .hero-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(42px, 7vw, 88px);
@@ -406,7 +423,7 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 600px) {
-      .hero { padding: 100px 24px 80px; min-height: 70vh; }
+      .hero { height: 70vh; min-height: 420px; }
       .commute-section,
       .slopes-section,
       .frontrunner-section { padding: 64px 20px 80px; }
@@ -429,6 +446,8 @@
 
   <!-- HERO -->
   <section class="hero">
+    <img src="commute-hero.jpg" alt="Utah County highway commute">
+    <div class="hero-overlay"></div>
     <div class="hero-body">
       <h1 class="hero-title">Where you live determines<br>your commute reality.</h1>
       <p class="hero-sub">This is the thing I wish every buyer would ask before they fall in love with a house.</p>
