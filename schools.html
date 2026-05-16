@@ -75,15 +75,31 @@
 
     /* HERO */
     .hero {
-      background: var(--green);
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 48px 100px;
+      position: relative;
+      height: 80vh;
+      min-height: 520px;
+      overflow: hidden;
     }
-    .hero-body { max-width: 720px; }
+    .hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero-body {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+      max-width: 720px;
+    }
     .hero-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(42px, 7vw, 88px);
@@ -92,14 +108,16 @@
       line-height: 1.07;
       color: var(--cream);
       margin-bottom: 28px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
     }
     .hero-sub {
       font-size: 16px;
       font-weight: 300;
-      color: var(--text-light);
+      color: var(--cream);
       line-height: 1.78;
       max-width: 520px;
       margin: 0 auto;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
     }
 
     /* SHARED SECTION SHELL */
@@ -367,7 +385,7 @@
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
-      .hero { padding: 100px 24px 80px; min-height: 70vh; }
+      .hero { height: 70vh; min-height: 420px; }
       .map-section,
       .districts-section,
       .reality-section,
@@ -389,6 +407,8 @@
 
   <!-- HERO -->
   <section class="hero">
+    <img src="schools-hero.jpg" alt="Utah County school district">
+    <div class="hero-overlay"></div>
     <div class="hero-body">
       <h1 class="hero-title">Where you live decides<br>where your kids go.</h1>
       <p class="hero-sub">Pick your school district before you pick your neighborhood. And read this before you trust a district rating.</p>
