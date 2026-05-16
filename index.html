@@ -773,6 +773,9 @@
       #community-split .split-copy { padding-bottom: 60px; }
       .card-overlay-label { font-size: clamp(18px, 4vw, 26px); }
       .card-overlay-sub { font-size: 13px; }
+      #practical-card-text { padding-right: 120px; }
+      #practical-card-text .card-overlay-label { font-size: clamp(20px, 5vw, 28px); font-weight: 500; }
+      #practical-card-text .card-overlay-sub { font-size: 13px; }
 
       .area-pillars { grid-template-columns: 1fr; }
       .area-intro { grid-template-columns: 1fr; }
@@ -1011,8 +1014,8 @@
     <a href="https://guide.kelsiejimenez.com/practical-stuff.html" style="text-decoration:none; display:block; max-width:900px; margin:0 auto;">
       <div style="width:100%; height:380px; border-radius:16px; overflow:hidden; position:relative; cursor:pointer;">
         <img src="practical-hero.jpg" alt="The Stuff Nobody Tells You About Utah County" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div style="position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.55) 100%);"></div>
-        <div class="card-overlay-wrap">
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%);"></div>
+        <div class="card-overlay-wrap" id="practical-card-text">
           <p class="card-overlay-label">The Stuff Nobody Tells You</p>
           <p class="card-overlay-sub" style="font-family:'Lato',sans-serif;">Water bills, inversion, altitude, soda culture, and everything else that will surprise you your first year.</p>
         </div>
