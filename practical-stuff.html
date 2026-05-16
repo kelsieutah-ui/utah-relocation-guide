@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical Stuff | Utah County Relocation Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #2B3D30;
+      --green-mid:   #344A39;
+      --cream:       #F2E8D5;
+      --cream-dark:  #E4D5BC;
+      --sage:        #99A189;
+      --mocha:       #6B4F3A;
+      --charcoal:    #1C1C1C;
+      --text-dark:   #1C1C1C;
+      --text-light:  rgba(242,232,213,0.72);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV PILL ─── */
+    .nav-wrap {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      width: calc(100% - 48px);
+      max-width: 1080px;
+    }
+    .nav-pill {
+      background: #fff;
+      border-radius: 100px;
+      padding: 10px 12px 10px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+      transition: box-shadow 0.3s;
+    }
+    .nav-pill.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.05); }
+    .nav-back {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--charcoal); }
+    .nav-cta {
+      background: var(--green);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 80vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.40);
+    }
+    .hero-body {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+      max-width: 780px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 78px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 24px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(242,232,213,0.88);
+      line-height: 1.78;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ─── SHARED SECTION SHELL ─── */
+    .section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .section-head { margin-bottom: 36px; }
+    .section-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .section-body {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 32px;
+    }
+
+    /* ─── CREAM SECTIONS ─── */
+    .cream-section {
+      background: var(--cream);
+      padding: 88px 48px 100px;
+    }
+    .cream-section .section-head h2 { color: var(--text-dark); }
+    .cream-section .section-body { color: #555; }
+
+    /* ─── GREEN SECTIONS ─── */
+    .green-section {
+      background: var(--green);
+      padding: 88px 48px 100px;
+    }
+    .green-section .section-head h2 { color: var(--cream); }
+    .green-section .section-body { color: var(--text-light); }
+
+    /* ─── TIP BOX LIGHT ─── */
+    .tip-box-light {
+      background: #fff;
+      border: 1px solid rgba(43,61,48,0.1);
+      border-left: 3px solid var(--green);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-top: 32px;
+    }
+    .tip-box-light .tip-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .tip-box-light .tip-text {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.75;
+    }
+
+    /* ─── TIP BOX DARK ─── */
+    .tip-box-dark {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(153,161,137,0.22);
+      border-left: 3px solid var(--sage);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-top: 32px;
+    }
+    .tip-box-dark .tip-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--sage);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .tip-box-dark .tip-text {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: rgba(242,232,213,0.82);
+      line-height: 1.75;
+    }
+
+    /* ─── SECTION IMAGE ─── */
+    .section-img-wrap {
+      margin: 48px auto 0;
+      text-align: center;
+    }
+    .section-img-wrap img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      display: block;
+    }
+    .section-img-wrap.wide { max-width: 860px; }
+    .section-img-wrap.mid  { max-width: 760px; }
+    .img-caption {
+      font-size: 13px;
+      font-weight: 300;
+      color: #999;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    /* ─── TWO-CARD GRID (Section 3) ─── */
+    .info-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .info-card {
+      background: #fff;
+      border-radius: 8px;
+      border-left: 4px solid var(--green);
+      padding: 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .info-card-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .info-card-body {
+      font-size: 14.5px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.78;
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      background: var(--cream);
+      padding: 100px 48px;
+      text-align: center;
+      border-top: 1px solid var(--cream-dark);
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4.5vw, 58px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      max-width: 580px;
+      margin: 0 auto 16px;
+      line-height: 1.12;
+    }
+    .cta-section p {
+      font-size: 15px;
+      color: #777;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+      line-height: 1.78;
+    }
+    .btn-green {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 15px 38px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: all 0.22s;
+    }
+    .btn-green:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(43,61,48,0.28);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .info-card-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero { height: 70vh; min-height: 420px; }
+      .cream-section,
+      .green-section { padding: 64px 20px 80px; }
+      .cta-section { padding: 72px 24px; }
+      .nav-pill { padding: 10px 10px 10px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV PILL -->
+  <div class="nav-wrap">
+    <nav class="nav-pill" id="main-nav">
+      <a href="https://guide.kelsiejimenez.com/" class="nav-back">&#8592; Back to the Guide</a>
+      <a href="https://guide.kelsiejimenez.com/#contact" class="nav-cta">Work With Me</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="practical-hero.jpg" alt="Utah County neighborhood street">
+    <div class="hero-overlay"></div>
+    <div class="hero-body">
+      <h1 class="hero-title">The stuff nobody puts in the listing description.</h1>
+      <p class="hero-sub">Consider this your honest orientation to Utah County life. The things that will catch you off guard, explained before they catch you off guard.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 1: TWO WATER BILLS -->
+  <section class="cream-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Two water bills. Yes, really.</h2>
+      </div>
+      <p class="section-body">Most Utah County homes receive two separate water bills every month and new residents are reliably confused by this the first time it happens. Here is what is actually going on. Your culinary water bill covers treated drinking water, the water that comes out of your kitchen tap and shower. Your secondary water bill covers untreated irrigation water delivered through a separate underground system specifically for watering your lawn and garden. Secondary water is drawn from rivers, reservoirs, and canals. It is not safe to drink but it is perfectly fine for your sprinklers and it costs significantly less than culinary water. Most secondary water systems run seasonally from approximately mid-April through mid-October. Some cities charge a flat monthly fee during that season, others are moving to metered systems. Either way budget for both bills. It is not a mistake when two envelopes show up.</p>
+
+      <div class="tip-box-light">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">Secondary water is why Utah County lawns stay green all summer without the water bills you might expect. It is one of the genuinely smart infrastructure decisions Utah made decades ago.</p>
+      </div>
+
+      <div class="section-img-wrap wide">
+        <img src="inversion.jpg" alt="Winter inversion over Utah Valley">
+        <p class="img-caption">Winter inversion sitting over Utah Valley. Clear sky above, trapped air below.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: THE INVERSION -->
+  <section class="green-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>The inversion. What it is and what to expect.</h2>
+      </div>
+      <p class="section-body">Every winter Utah County experiences temperature inversions. Cold air settles into the valley floor and gets trapped under a layer of warmer air above it. When that happens, vehicle emissions, wood smoke, and other pollutants have nowhere to go. They build up. The air turns gray and hazy and on bad days you can see the pollution layer sitting below the mountain peaks like a blanket. Utah County generally gets less severe inversion conditions than Salt Lake County because the valley is more open to the south, giving pollution more room to disperse. But it still happens and it is worth knowing about before your first January here. A typical winter has around five to six multi-day inversion events. Most last a few days until a storm comes through and clears the air. If you or anyone in your family has asthma or respiratory sensitivities, download the Utah Air app before you arrive. It gives you real-time air quality readings and forecasts.</p>
+
+      <div class="tip-box-dark">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">The mountains above the inversion layer are always clear. One of the stranger experiences of Utah County life is driving up a canyon on a bad air day and breaking through the haze into perfectly clean air a thousand feet above the valley. It is genuinely surreal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: ALTITUDE AND DRY AIR -->
+  <section class="cream-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Altitude and dry air. Two things your body will notice.</h2>
+      </div>
+      <div class="info-card-grid">
+
+        <div class="info-card">
+          <p class="info-card-label">Altitude</p>
+          <p class="info-card-body">Utah County sits between 4,500 and 5,000 feet above sea level. If you are coming from a low-elevation area, your body will notice. The first few weeks you may feel more winded than usual during exercise, get headaches, or feel more tired than expected. This is normal and it passes within a few weeks as your body adjusts. Drink significantly more water than you think you need. Alcohol hits harder at altitude. Baked goods rise differently and most recipes need adjustments. Coffee and other hot liquids boil at a lower temperature which means your coffee maker may need adjustment if you are picky about brew temperature.</p>
+        </div>
+
+        <div class="info-card">
+          <p class="info-card-label">Dry Air</p>
+          <p class="info-card-body">Utah is a high desert. The humidity regularly drops below 20 percent in the winter and even lower in summer. Your skin will feel it, your sinuses will feel it, and your hardwood floors and wood furniture will feel it as the moisture leaves them. Invest in a whole-home humidifier before your first winter. It makes a meaningful difference. Nosebleeds are common for newcomers, especially kids, in the first few weeks. Keep saline spray around. Lip balm becomes a daily necessity. The upside: the dry cold feels significantly less bitter than humid cold at the same temperature. A 20-degree day in Utah feels nothing like a 20-degree day somewhere humid.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: ALCOHOL LAWS -->
+  <section class="green-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Alcohol laws. Different from most states.</h2>
+      </div>
+      <p class="section-body">Utah has a unique relationship with alcohol and if you are used to grabbing a bottle of wine at the grocery store you will need to adjust your habits. Beer, wine, and spirits are sold at state-run DABC stores, the Utah Department of Alcoholic Beverage Control. These are separate from grocery stores and pharmacies. Grocery stores and convenience stores sell beer but with an alcohol content limit. Restaurants serve alcohol but the rules around how it is served have historically been unusual. The so-called Zion Curtain required bartenders to prepare drinks behind a partition, though most of those restrictions have been loosened in recent years. If you enjoy wine with dinner at home, find your nearest DABC store early. They are well-stocked and the staff are knowledgeable.</p>
+
+      <div class="tip-box-dark">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">DABC stores are closed on Sundays in most cities. If you are planning a gathering for the weekend, shop on Saturday. This catches people off guard more than any other alcohol law here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: PIONEER DAY -->
+  <section class="cream-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Pioneer Day. July 24th is a real holiday.</h2>
+      </div>
+      <p class="section-body">Utah celebrates Pioneer Day on July 24th to commemorate the day in 1847 when Brigham Young and the first Mormon pioneers entered the Salt Lake Valley. It is a state holiday, which means government offices, many businesses, and some schools treat it like any other major holiday. Parades, fireworks, and community events happen across Utah County. Steel Days in American Fork overlaps with this period and the whole mid-July to late July stretch is one of the most active community event weeks of the year. If you arrive in July, do not be surprised when things feel quieter than a normal Wednesday because it is not a normal Wednesday to most people here.</p>
+
+      <div class="tip-box-light">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">The Provo Freedom Festival on July 4th and Pioneer Day on July 24th mean Utah County basically has two major fireworks holidays within three weeks of each other. Plan accordingly if you have pets or kids who are sensitive to noise.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: SUNDAY CULTURE -->
+  <section class="green-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Sunday culture. What to expect.</h2>
+      </div>
+      <p class="section-body">Sunday in Utah County is different from Sunday in most other places. A significant portion of the population observes the Sabbath, which means you will notice visibly less traffic, quieter neighborhoods, and some businesses with reduced hours or closed entirely on Sundays. Highland is the most notable example. The city has an ordinance requiring most businesses to close on Sundays and residents have repeatedly voted to keep it. This is not universal across Utah County. Most national chains, restaurants, and retail stores in Lehi, Orem, Provo, and other cities operate normally on Sundays. But if you are in a more residential part of the county on a Sunday morning, the quiet is real and some people find it one of the most appealing things about living here.</p>
+
+      <div class="tip-box-dark">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">If you are not LDS, Sunday is honestly a great day to run errands, hit the trails, or visit restaurants that are open. They are noticeably less crowded than Saturday.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: SODA CULTURE -->
+  <section class="cream-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>The soda culture. It is a whole thing.</h2>
+      </div>
+
+      <div class="section-img-wrap mid">
+        <img src="soda-culture.jpg" alt="Utah specialty soda drinks">
+      </div>
+
+      <p class="section-body" style="margin-top: 36px;">Utah has a thriving specialty soda culture that surprises almost everyone who moves here. Swig, Sodalicious, and dozens of independent drink shops serve enormous customized sodas with flavored syrups, cream, and fruit combinations that have nothing to do with a fountain Coke at a gas station. This culture grew up in part because the LDS community does not drink alcohol, coffee, or tea, so the elaborate specialty drink became the social ritual that a coffee shop or bar would fill elsewhere. The lines at Swig on a Saturday morning are real. People have regular orders they have been refining for years. If you have never had a dirty Dr Pepper with coconut syrup and fresh lime, you have not fully arrived in Utah County.</p>
+
+      <div class="tip-box-light">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">Try it before you judge it. Order the house special at whichever shop is closest to your new neighborhood. This is one of those things that sounds odd until you are standing in line every Tuesday morning with everyone else.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: LANGUAGE -->
+  <section class="green-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>A word about language.</h2>
+      </div>
+      <p class="section-body">This one is worth knowing before your first week. In most parts of the country using expressions like "oh my God" or "Jesus Christ" casually is unremarkable. In Utah County, with its large LDS population, using the Lord's name in that way is considered genuinely offensive, not just mildly impolite but a real cultural transgression. You will not be lectured about it publicly in most cases but you will be noticed and it will affect first impressions. This is not about religion. It is about cultural fluency. Knowing the local norms before you arrive is part of landing well in a new place. No different than learning that you take your shoes off at the door in certain households or that you do not discuss politics at the dinner table in others.</p>
+
+      <div class="tip-box-dark">
+        <p class="tip-label">Local Tip</p>
+        <p class="tip-text">Utah County is genuinely welcoming to newcomers from everywhere. The adjustment is easier than people expect when they come in with curiosity rather than comparison.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Have questions about what to expect?</h2>
+    <p>I have lived this. Moved away, came back by choice, and have helped a lot of people land well in Utah County. If you have questions about what life actually looks like here, reach out.</p>
+    <a href="https://guide.kelsiejimenez.com/#contact" class="btn-green">Talk to Kelsie.</a>
+  </section>
+
+  <script>
+    var mainNav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+      mainNav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
