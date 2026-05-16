@@ -169,27 +169,33 @@
     }
     .btn-ghost:hover { background: rgba(255,255,255,0.12); }
 
-    /* ─── STATS BAR ─── */
-    .stats-bar {
-      background: #fff;
+    /* ─── STATS BAR (hero overlay) ─── */
+    .hero-stats {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 20px 40px;
       display: flex;
-      justify-content: center;
-      gap: 72px;
-      padding: 36px 48px;
-      border-bottom: 1px solid #eee;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
     }
     .stat { text-align: center; }
     .stat-num {
       font-family: 'Playfair Display', serif;
-      font-size: 42px; font-weight: 500;
-      color: var(--green);
+      font-size: 36px; font-weight: 500;
+      color: var(--cream);
       line-height: 1;
     }
     .stat-label {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: #999;
+      color: rgba(242,232,213,0.75);
       margin-top: 7px;
     }
 
@@ -748,12 +754,14 @@
       .nav-hamburger { display: flex; }
       .nav-dropdown { display: block; }
 
-      .stats-bar {
-        display: flex;
-        flex-wrap: wrap;
+      .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        gap: 16px 0;
+        padding: 16px 24px;
       }
-      .stat-item { width: 50%; }
-      .stat-num { font-size: clamp(24px, 6vw, 32px); }
+      .stat-num { font-size: clamp(22px, 5vw, 30px); }
 
       .features-grid { grid-template-columns: 1fr; }
 
@@ -839,27 +847,25 @@
         <a href="#contact" class="btn-ghost">Work With Kelsie</a>
       </div>
     </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">300+</div>
+        <div class="stat-label">Sunny Days a Year</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">30 min</div>
+        <div class="stat-label">To Salt Lake City</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5 National Parks</div>
+        <div class="stat-label">Within a Day's Drive</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Top 5</div>
+        <div class="stat-label">Growth County in the US</div>
+      </div>
+    </div>
   </section>
-
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stat">
-      <div class="stat-num">300+</div>
-      <div class="stat-label">Sunny Days a Year</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">30 min</div>
-      <div class="stat-label">To Salt Lake City</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">5 National Parks</div>
-      <div class="stat-label">Within a Day's Drive</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Top 5</div>
-      <div class="stat-label">Growth County in the US</div>
-    </div>
-  </div>
 
   <!-- WHY UTAH COUNTY -->
   <section class="why-section" id="why-utah">
