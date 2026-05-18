@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Let's Talk | Kelsie Jimenez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:    #1E2D20;
+      --forest-mid:#2C3E2E;
+      --sage:      #99A189;
+      --sage-light:#B7BEA9;
+      --mocha:     #B19F8F;
+      --charcoal:  #1A2124;
+      --cream:     #F7F4F0;
+      --warm-cream:#FCF0E7;
+      --lavender:  #ECE9EF;
+      --text-dark: #1A2124;
+      --text-mid:  #3D4A3E;
+      --border:    #D9D4CC;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, var(--forest) 0%, var(--forest-mid) 60%, #344B36 100%);
+      padding: 52px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(153,161,137,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-name {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 6px;
+    }
+    .hero-brokerage {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(183,190,169,0.65);
+      margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--sage-light);
+    }
+    .hero-sub {
+      font-size: 15px;
+      color: rgba(247,244,240,0.72);
+      font-weight: 300;
+      max-width: 380px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(30,45,32,0.10), 0 1px 4px rgba(30,45,32,0.06);
+      max-width: 520px;
+      margin: -28px auto 0;
+      padding: 36px 32px 40px;
+      position: relative;
+    }
+
+    /* ── STEP INDICATOR ── */
+    .step-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .step-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 0.3s;
+    }
+    .step-dot.active { background: var(--sage); }
+    .step-dot.done   { background: var(--mocha); }
+    .step-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-left: 4px;
+      font-weight: 700;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    /* ── SITUATION TILES ── */
+    .tiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .tile {
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 12px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      background: var(--cream);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .tile:hover {
+      border-color: var(--sage);
+      transform: translateY(-1px);
+    }
+    .tile.selected {
+      border-color: var(--sage);
+      background: #F2F5EF;
+    }
+    .tile-icon { font-size: 1.3rem; }
+    .tile-text { font-size: 13px; font-weight: 700; color: var(--text-dark); line-height: 1.3; }
+    .tile-full {
+      grid-column: 1 / -1;
+    }
+
+    /* ── CONTINUE BUTTON ── */
+    .btn-continue {
+      width: 100%;
+      margin-top: 20px;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+      color: var(--cream);
+      border: none;
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-continue:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-continue:disabled { opacity: 0.4; cursor: default; transform: none; }
+
+    /* ── FORM FIELDS ── */
+    .form-group { margin-bottom: 18px; }
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 7px;
+    }
+    .form-input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      color: var(--text-dark);
+      background: var(--cream);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-input:focus { border-color: var(--sage); background: #fff; }
+    .form-input::placeholder { color: #B0AAA2; }
+
+    /* ── TIMELINE PILLS ── */
+    .timeline-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill {
+      padding: 8px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: var(--cream);
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+    .pill:hover { border-color: var(--sage); }
+    .pill.selected {
+      border-color: var(--sage);
+      background: var(--sage);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* ── GUIDE TILES ── */
+    .guide-section {
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+      padding-top: 24px;
+    }
+    .guide-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mocha);
+      margin-bottom: 14px;
+    }
+    .guide-tiles { display: flex; flex-direction: column; gap: 8px; }
+    .guide-tile {
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--cream);
+    }
+    .guide-tile:hover { border-color: var(--sage); }
+    .guide-tile.selected {
+      border-color: var(--sage);
+      background: #F2F5EF;
+    }
+    .guide-tile-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .guide-tile-text { font-size: 13.5px; font-weight: 700; color: var(--text-dark); }
+    .guide-tile-sub  { font-size: 12px; color: #7A7670; font-weight: 400; margin-top: 2px; }
+
+    /* ── SUBMIT BUTTON ── */
+    .btn-submit {
+      width: 100%;
+      margin-top: 24px;
+      padding: 17px;
+      background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+      color: var(--cream);
+      border: none;
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── SKIP LINK ── */
+    .skip-link {
+      display: block;
+      text-align: center;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--sage);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .skip-link:hover { color: var(--mocha); }
+
+    /* ── LEGAL ── */
+    .legal {
+      text-align: center;
+      margin-top: 28px;
+      padding-bottom: 40px;
+      font-size: 11.5px;
+      color: #9A9590;
+      line-height: 1.7;
+    }
+    .legal a { color: var(--sage); text-decoration: none; }
+
+    /* ── SUCCESS STATE ── */
+    .success-card {
+      display: none;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(30,45,32,0.10);
+      max-width: 520px;
+      margin: -28px auto 0;
+      padding: 52px 32px 48px;
+      text-align: center;
+    }
+    .success-card.visible { display: block; }
+    .success-icon {
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+    }
+    .success-card h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.8rem;
+      font-style: italic;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+    .success-card p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      max-width: 320px;
+      margin: 0 auto 20px;
+    }
+    .success-sig {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--sage);
+    }
+
+    /* ── BACK BUTTON ── */
+    .btn-back {
+      background: none;
+      border: none;
+      color: var(--sage);
+      font-size: 13px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0;
+      font-family: 'Lato', sans-serif;
+    }
+    .btn-back:hover { color: var(--mocha); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 20px 0;
+    }
+
+    @media (max-width: 480px) {
+      .card, .success-card { margin: -20px 16px 0; padding: 28px 22px 32px; }
+      .tiles { grid-template-columns: 1fr; }
+      .tile-full { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-name">Kelsie Jimenez</div>
+    <div class="hero-brokerage">The Perry Group · Real Broker LLC</div>
+    <h1>Let's find you<br><em>the right move.</em></h1>
+    <p class="hero-sub">Tell me a little about where you're at. Takes 60 seconds, zero pressure.</p>
+  </div>
+
+  <!-- MAIN FORM CARD -->
+  <div class="card" id="mainCard">
+
+    <!-- STEP 1 -->
+    <div id="step1">
+      <div class="step-indicator">
+        <div class="step-dot active" id="dot1"></div>
+        <div class="step-dot" id="dot2"></div>
+        <span class="step-label">Step 1 of 2</span>
+      </div>
+
+      <h2 class="section-title">What's your situation right now?</h2>
+
+      <div class="tiles" id="situationTiles">
+        <div class="tile" data-value="downsize">
+          <span class="tile-icon">🔒</span>
+          <span class="tile-text">Ready to downsize</span>
+        </div>
+        <div class="tile" data-value="relocate">
+          <span class="tile-icon">✈️</span>
+          <span class="tile-text">Relocating to Utah</span>
+        </div>
+        <div class="tile" data-value="sell">
+          <span class="tile-icon">🏠</span>
+          <span class="tile-text">Sell my house</span>
+        </div>
+        <div class="tile" data-value="browse">
+          <span class="tile-icon">🤔</span>
+          <span class="tile-text">Just looking around</span>
+        </div>
+        <div class="tile tile-full" data-value="swap">
+          <span class="tile-icon">🔄</span>
+          <span class="tile-text">Sell and buy — house swap</span>
+        </div>
+      </div>
+
+      <button class="btn-continue" id="continueBtn" disabled onclick="goToStep2()">
+        Continue →
+      </button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2" style="display:none;">
+      <button class="btn-back" onclick="goToStep1()">← Back</button>
+
+      <div class="step-indicator">
+        <div class="step-dot done"></div>
+        <div class="step-dot active"></div>
+        <span class="step-label">Step 2 of 2</span>
+      </div>
+
+      <h2 class="section-title">How do I reach you?</h2>
+
+      <div class="form-group">
+        <label class="form-label" for="firstName">First Name</label>
+        <input class="form-input" type="text" id="firstName" placeholder="Just a first name is fine!" autocomplete="given-name" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="phone">Phone</label>
+        <input class="form-input" type="tel" id="phone" placeholder="So I can actually reach you" autocomplete="tel" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-input" type="email" id="email" placeholder="So I can send you that guide!" autocomplete="email" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Timeline</label>
+        <div class="timeline-pills" id="timelinePills">
+          <div class="pill" data-value="asap">ASAP</div>
+          <div class="pill" data-value="1-3mo">1 – 3 months</div>
+          <div class="pill" data-value="3-6mo">3 – 6 months</div>
+          <div class="pill" data-value="browsing">Just browsing</div>
+        </div>
+      </div>
+
+      <!-- GUIDE SELECTION -->
+      <div class="guide-section">
+        <div class="guide-label">Want a free guide while you're here?</div>
+        <div class="guide-tiles" id="guideTiles">
+          <div class="guide-tile" data-value="moving-toolkit">
+            <span class="guide-tile-icon">📦</span>
+            <div>
+              <div class="guide-tile-text">Utah County Moving Toolkit</div>
+              <div class="guide-tile-sub">Utilities setup, packing guide, and address changes — all in one place</div>
+            </div>
+          </div>
+          <div class="guide-tile" data-value="relocation-guide">
+            <span class="guide-tile-icon">🏔️</span>
+            <div>
+              <div class="guide-tile-text">Relocating to Utah County Guide</div>
+              <div class="guide-tile-sub">The stuff nobody tells you before you move here</div>
+            </div>
+          </div>
+          <div class="guide-tile" data-value="transaction-roadmap">
+            <span class="guide-tile-icon">📍</span>
+            <div>
+              <div class="guide-tile-text">Buyer's Transaction Roadmap</div>
+              <div class="guide-tile-sub">Every step from offer to keys, mapped out</div>
+            </div>
+          </div>
+          <div class="guide-tile" data-value="none">
+            <span class="guide-tile-icon">🚫</span>
+            <div>
+              <div class="guide-tile-text">No thanks, I'll skip the guide</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-submit" onclick="handleSubmit()">
+        Send it over ✉️
+      </button>
+
+      <hr class="divider" />
+
+      <a href="#" class="skip-link" onclick="openSMS(event)">💬 Just text me directly</a>
+    </div>
+
+  </div>
+
+  <!-- SUCCESS CARD -->
+  <div class="success-card" id="successCard">
+    <div class="success-icon">🌿</div>
+    <h2>Got it. I'll be in touch.</h2>
+    <p>I personally read every one of these. Talk soon.</p>
+    <div class="success-sig">— Kelsie</div>
+  </div>
+
+  <!-- Hidden form for Netlify Forms detection at deploy time -->
+  <form hidden method='post' name='lead-capture'><input type='hidden' name='form-name' value='lead-capture' />
+    <input type="text"   name="firstName" />
+    <input type="tel"    name="phone" />
+    <input type="email"  name="email" />
+    <input type="text"   name="situation" />
+    <input type="text"   name="timeline" />
+    <input type="text"   name="guide" />
+    <input type="text"   name="bot-field" />
+  </form>
+
+  <!-- LEGAL FOOTER -->
+  <div class="legal">
+    Kelsie Jimenez · Real Broker LLC · License #11407496-SA00<br>
+    <a href="tel:8014202284">(801) 420-2284</a>
+  </div>
+
+  <script>
+    let selectedSituation = null;
+    let selectedTimeline   = null;
+    let selectedGuide      = null;
+
+    // Situation tiles
+    document.querySelectorAll('#situationTiles .tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        document.querySelectorAll('#situationTiles .tile').forEach(t => t.classList.remove('selected'));
+        tile.classList.add('selected');
+        selectedSituation = tile.dataset.value;
+        document.getElementById('continueBtn').disabled = false;
+      });
+    });
+
+    // Timeline pills
+    document.querySelectorAll('#timelinePills .pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('#timelinePills .pill').forEach(p => p.classList.remove('selected'));
+        pill.classList.add('selected');
+        selectedTimeline = pill.dataset.value;
+      });
+    });
+
+    // Guide tiles
+    document.querySelectorAll('#guideTiles .guide-tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        document.querySelectorAll('#guideTiles .guide-tile').forEach(t => t.classList.remove('selected'));
+        tile.classList.add('selected');
+        selectedGuide = tile.dataset.value;
+      });
+    });
+
+    function goToStep2() {
+      document.getElementById('step1').style.display = 'none';
+      document.getElementById('step2').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goToStep1() {
+      document.getElementById('step2').style.display = 'none';
+      document.getElementById('step1').style.display = 'block';
+    }
+
+    function openSMS(e) {
+      e.preventDefault();
+      const firstName = document.getElementById('firstName').value.trim();
+      const phone     = document.getElementById('phone').value.trim();
+      const email     = document.getElementById('email').value.trim();
+
+      const situationMap = {
+        downsize:  'Ready to downsize',
+        relocate:  'Relocating to Utah',
+        sell:      'Sell my house',
+        browse:    'Just looking around',
+        swap:      'Sell and buy — house swap'
+      };
+      const timelineMap = {
+        asap:    'ASAP',
+        '1-3mo': '1–3 months',
+        '3-6mo': '3–6 months',
+        browsing:'Just browsing'
+      };
+      const guideMap = {
+        'moving-toolkit':    'Utah County Moving Toolkit',
+        'relocation-guide':  'Relocating to Utah County Guide',
+        'transaction-roadmap':'Buyer\'s Transaction Roadmap',
+        'none':              'No guide needed'
+      };
+
+      const lines = [
+        'Hi Kelsie! I found you through your website.',
+        '',
+        firstName ? `Name: ${firstName}`          : null,
+        phone     ? `Phone: ${phone}`             : null,
+        email     ? `Email: ${email}`             : null,
+        selectedSituation ? `Situation: ${situationMap[selectedSituation] || selectedSituation}` : null,
+        selectedTimeline  ? `Timeline: ${timelineMap[selectedTimeline]   || selectedTimeline}`   : null,
+        selectedGuide     ? `Guide: ${guideMap[selectedGuide]            || selectedGuide}`      : null,
+      ].filter(l => l !== null);
+
+      const body = encodeURIComponent(lines.join('\n'));
+      window.location.href = `sms:8014202284?body=${body}`;
+    }
+
+    async function handleSubmit() {
+      const firstName = document.getElementById('firstName').value.trim();
+      const phone     = document.getElementById('phone').value.trim();
+      const email     = document.getElementById('email').value.trim();
+
+      if (!firstName && !phone && !email) {
+        alert('Just a name or phone number is all I need to reach you!');
+        return;
+      }
+
+      // Submit to Netlify Forms
+      fetch('https://formspree.io/f/xeedogdp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+        body: new URLSearchParams({
+          firstName,
+          phone,
+          email,
+          situation: selectedSituation || '',
+          timeline: selectedTimeline || '',
+          guide: selectedGuide || ''
+        }).toString()
+      })
+      .then((response) => {
+        if (response.ok) {
+          document.getElementById('mainCard').style.display = 'none';
+          document.getElementById('successCard').classList.add('visible');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(() => {
+        document.getElementById('mainCard').style.display = 'none';
+        document.getElementById('successCard').classList.add('visible');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>
