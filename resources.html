@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources | Utah County Relocation Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:         #2B3D30;
+      --green-mid:     #344A39;
+      --cream:         #F2E8D5;
+      --cream-dark:    #E4D5BC;
+      --sage:          #99A189;
+      --mocha:         #6B4F3A;
+      --charcoal:      #1C1C1C;
+      --text-dark:     #1C1C1C;
+      --text-light:    rgba(242,232,213,0.72);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* NAV PILL */
+    .nav-wrap {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      width: calc(100% - 48px);
+      max-width: 1080px;
+    }
+    .nav-pill {
+      background: #fff;
+      border-radius: 100px;
+      padding: 10px 12px 10px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+      transition: box-shadow 0.3s;
+    }
+    .nav-pill.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.05); }
+    .nav-back {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--charcoal); }
+    .nav-cta {
+      background: var(--green);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 80vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero-body {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+      max-width: 680px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.07;
+      color: var(--cream);
+      margin-bottom: 28px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.78;
+      max-width: 500px;
+      margin: 0 auto;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+
+    /* RESOURCE CARDS SECTION */
+    .resources-section {
+      background: var(--cream);
+      padding: 88px 48px 100px;
+    }
+    .resources-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .section-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 46px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .section-head p {
+      font-size: 14.5px;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.68;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 640px) {
+      .resource-grid { grid-template-columns: 1fr; }
+    }
+
+    .resource-card {
+      background: #fff;
+      border: 1px solid rgba(43,61,48,0.1);
+      border-top: 3px solid var(--green);
+      border-radius: 8px;
+      padding: 32px 30px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .resource-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .resource-card-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.82;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+    .btn-green {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--green);
+      color: #fff;
+      padding: 12px 26px;
+      border-radius: 100px;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: all 0.22s;
+    }
+    .btn-green:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(43,61,48,0.28);
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--cream);
+      padding: 100px 48px;
+      text-align: center;
+      border-top: 1px solid var(--cream-dark);
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4.5vw, 58px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      max-width: 580px;
+      margin: 0 auto 16px;
+      line-height: 1.12;
+    }
+    .cta-section p {
+      font-size: 15px;
+      color: #777;
+      max-width: 440px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+      line-height: 1.78;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero { height: 70vh; min-height: 420px; }
+      .resources-section { padding: 64px 20px 80px; }
+      .cta-section { padding: 72px 24px; }
+      .nav-pill { padding: 10px 10px 10px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV PILL -->
+  <div class="nav-wrap">
+    <nav class="nav-pill" id="main-nav">
+      <a href="https://guide.kelsiejimenez.com/" class="nav-back">&#8592; Back to the Guide</a>
+      <a href="https://guide.kelsiejimenez.com/#contact" class="nav-cta">Work With Me</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="community-hero.jpg" alt="Utah County community">
+    <div class="hero-overlay"></div>
+    <div class="hero-body">
+      <h1 class="hero-title">Tools to make your move easier.</h1>
+      <p class="hero-sub">Everything I send clients — in one place.</p>
+    </div>
+  </section>
+
+  <!-- RESOURCE CARDS -->
+  <section class="resources-section">
+    <div class="resources-inner">
+      <div class="section-head">
+        <h2>Client resources.</h2>
+        <p>These are the guides I walk every buyer through. Bookmark this page and come back to it as you move through the process.</p>
+      </div>
+      <div class="resource-grid">
+
+        <div class="resource-card">
+          <p class="resource-card-title">Moving Resource Guide</p>
+          <p class="resource-card-desc">Checklists, utilities, school enrollment, and everything you need the week of your move.</p>
+          <a href="moving-resource-guide.html" class="btn-green">Open the Guide →</a>
+        </div>
+
+        <div class="resource-card">
+          <p class="resource-card-title">Buyer's Transaction Roadmap</p>
+          <p class="resource-card-desc">A step-by-step walkthrough of the purchase process from offer to keys.</p>
+          <a href="buyers-roadmap.html" class="btn-green">Open the Roadmap →</a>
+        </div>
+
+        <div class="resource-card">
+          <p class="resource-card-title">Due Diligence Guide</p>
+          <p class="resource-card-desc">What to inspect, what to ask, and what to never skip during your due diligence period.</p>
+          <a href="due-diligence-guide.html" class="btn-green">Open the Guide →</a>
+        </div>
+
+        <div class="resource-card">
+          <p class="resource-card-title">Financing and Appraisal Guide</p>
+          <p class="resource-card-desc">How financing works, what appraisals mean for your deal, and what to expect.</p>
+          <a href="financing-appraisal.html" class="btn-green">Open the Guide →</a>
+        </div>
+
+        <div class="resource-card">
+          <p class="resource-card-title">Settlement Day Guide</p>
+          <p class="resource-card-desc">What happens at closing, what to bring, and what to expect on the day you get your keys.</p>
+          <a href="settlement-day.html" class="btn-green">Open the Guide →</a>
+        </div>
+
+        <div class="resource-card">
+          <p class="resource-card-title">New Homeowner Guide</p>
+          <p class="resource-card-desc">What to do in your first 30 days, who to call, and how to protect your investment.</p>
+          <a href="new-homeowner-guide.html" class="btn-green">Open the Guide →</a>
+        </div>
+
+        <div class="resource-card">
+          <p class="resource-card-title">Leave a Review</p>
+          <p class="resource-card-desc">You helped me out. Enter the drawing for a $100 Amazon gift card.</p>
+          <a href="leave-a-review.html" class="btn-green">Enter the Drawing →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Questions along the way?</h2>
+    <p>These guides cover the process, but every transaction is different. Reach out any time.</p>
+    <a href="https://guide.kelsiejimenez.com/#contact" class="btn-green">Talk to Kelsie.</a>
+  </section>
+
+  <script>
+    var mainNav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+      mainNav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
