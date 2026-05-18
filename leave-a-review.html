@@ -590,9 +590,8 @@
         form.style.display = 'none';
         document.getElementById('form-thankyou').style.display = 'block';
       })
-      .catch(() => {
-        form.style.display = 'none';
-        document.getElementById('form-thankyou').style.display = 'block';
+      .catch((error) => {
+        alert('Submission error: ' + error);
       });
   }
 </script>
