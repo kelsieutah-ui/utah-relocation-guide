@@ -585,7 +585,7 @@
     }
     const form = document.getElementById('drawing-form');
     const data = new FormData(form);
-    fetch('/', { method: 'POST', body: data })
+    fetch('https://formspree.io/f/xlgvdblp', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
       .then(() => {
         form.style.display = 'none';
         document.getElementById('form-thankyou').style.display = 'block';
