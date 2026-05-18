@@ -416,6 +416,16 @@
       background: var(--green);
     }
 
+    /* PRICE BY CITY TABLE */
+    .price-by-city { margin-bottom: 48px; }
+    .price-by-city h3 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; font-style: italic; color: var(--cream); margin-bottom: 10px; }
+    .price-note { font-size: 12px; font-weight: 300; color: var(--text-light); line-height: 1.7; margin-bottom: 20px; max-width: 640px; }
+    .city-price-table { width: 100%; max-width: 560px; border-collapse: collapse; font-family: 'Lato', sans-serif; }
+    .city-price-table tr:nth-child(odd)  { background: rgba(242,232,213,0.08); }
+    .city-price-table tr:nth-child(even) { background: rgba(242,232,213,0.04); }
+    .city-price-table td { padding: 10px 16px; font-size: 13.5px; font-weight: 300; color: var(--cream); line-height: 1.5; }
+    .city-price-table td:last-child { text-align: right; color: rgba(242,232,213,0.75); font-size: 13px; }
+
     .section-img-caption {
       font-size: 12.5px;
       font-weight: 300;
@@ -755,7 +765,7 @@
       <div class="tier-grid">
 
         <div class="tier-card">
-          <p class="tier-label">Entry Level</p>
+          <p class="tier-label">Entry Level &nbsp;·&nbsp; ~$400K–$515K</p>
           <p class="tier-desc">Townhomes, condos, and smaller single family homes. Eagle Mountain City Center, south county cities, and parts of Saratoga Springs. Newer construction at accessible price points. The trade-off is usually commute time or lot size.</p>
           <ul class="tier-bullets">
             <li>Townhomes and condos</li>
@@ -766,7 +776,7 @@
         </div>
 
         <div class="tier-card">
-          <p class="tier-label">Move Up</p>
+          <p class="tier-label">Move Up &nbsp;·&nbsp; ~$515K–$600K</p>
           <p class="tier-desc">The heart of the Utah County market. Two-story single family homes, some ramblers, finished basements common. Spread across most of the county with the best selection in mid-county cities and the north corridor.</p>
           <ul class="tier-bullets">
             <li>Single family detached</li>
@@ -777,7 +787,7 @@
         </div>
 
         <div class="tier-card">
-          <p class="tier-label">Premium</p>
+          <p class="tier-label">Premium &nbsp;·&nbsp; ~$600K–$750K</p>
           <p class="tier-desc">Larger lots, better finishes, east bench locations with mountain views. Ramblers become more available at this level. Highland, east bench Pleasant Grove, Lindon, Mapleton, and parts of Alpine.</p>
           <ul class="tier-bullets">
             <li>Rambler floor plans more common</li>
@@ -788,7 +798,7 @@
         </div>
 
         <div class="tier-card">
-          <p class="tier-label">Luxury</p>
+          <p class="tier-label">Luxury &nbsp;·&nbsp; $750K+</p>
           <p class="tier-desc">Custom builds, estate lots, gated communities. Alpine, Suncrest, Mapleton, and Sundance area. Views, privacy, and square footage that is difficult to find anywhere else in the county at comparable prices to coastal markets.</p>
           <ul class="tier-bullets">
             <li>Custom and semi-custom builds</li>
@@ -798,6 +808,24 @@
           </ul>
         </div>
 
+      </div>
+
+      <div class="price-by-city">
+        <h3>Median sold prices by city</h3>
+        <p class="price-note">Sources: Redfin, ATTOM, Utah MLS closed sales data — early 2026. Utah is a non-disclosure state; individual sale prices are not public record. These figures reflect reported medians and shift monthly. Contact Kelsie for current neighborhood-level data.</p>
+        <table class="city-price-table">
+          <tr><td>Eagle Mountain</td><td>~$505K–$515K</td></tr>
+          <tr><td>Spanish Fork</td><td>~$505K</td></tr>
+          <tr><td>Springville</td><td>~$509K</td></tr>
+          <tr><td>Orem</td><td>~$514K</td></tr>
+          <tr><td>Provo</td><td>~$547K</td></tr>
+          <tr><td>Saratoga Springs</td><td>~$576K</td></tr>
+          <tr><td>Lehi</td><td>~$577K</td></tr>
+          <tr><td>Pleasant Grove</td><td>~$585K</td></tr>
+          <tr><td>Cedar Hills</td><td>~$660K–$692K</td></tr>
+          <tr><td>Lindon</td><td>~$744K</td></tr>
+          <tr><td>Mapleton</td><td>~$838K</td></tr>
+        </table>
       </div>
 
       <div class="section-img-wrap">
