@@ -521,7 +521,8 @@
     <h2>You helped me out. Enter the drawing.</h2>
     <p>Check off what you completed, drop your name and number, and you are in. I will reach out to the winner personally when the drawing closes.</p>
 
-    <form class='drawing-form' id='drawing-form' method='POST' name='drawing-entry' onsubmit='handleSubmit(event)'>
+    <form class='drawing-form' id='drawing-form' method='POST' action='https://formspree.io/f/xlgvdblp' name='drawing-entry' onsubmit='handleSubmit(event)'>
+      <input type="hidden" name="_subject" value="New Review Drawing Entry — Kelsie Jimenez">
       <input type="hidden" name="form-name" value="drawing-entry">
       <input type="hidden" name="bot-field" style="display:none">
       <div class="check-card">
