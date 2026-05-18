@@ -585,13 +585,20 @@
     }
     const form = document.getElementById('drawing-form');
     const data = new FormData(form);
+    console.log('Submitting to Formspree...');
     fetch('https://formspree.io/f/xlgvdblp', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
-      .then(() => {
-        form.style.display = 'none';
-        document.getElementById('form-thankyou').style.display = 'block';
+      .then((response) => {
+        console.log('Response status:', response.status);
+        if (response.ok) {
+          console.log('Success — showing thank-you screen.');
+          form.style.display = 'none';
+          document.getElementById('form-thankyou').style.display = 'block';
+        } else {
+          alert('Server error: ' + response.status);
+        }
       })
       .catch((error) => {
-        alert('Submission error: ' + error);
+        alert('Error: ' + JSON.stringify(error));
       });
   }
 </script>
