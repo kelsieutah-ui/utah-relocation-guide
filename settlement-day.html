@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settlement Day Guide · Kelsie Jimenez</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark:#1a1f1a;--green:#2d3d2d;--green-mid:#3d5c3d;
+    --sage:#99a189;--mist:#b7bea9;--taupe:#b19f8f;
+    --cream:#f7f4f0;--warm:#fcf0e7;--linen:#ece9e4;
+    --mid:#6b6158;--light:#9a9188;--white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);font-family:'Jost',sans-serif;color:var(--dark);line-height:1.7}
+
+  /* TOP BAR */
+  .top-bar{background:var(--dark);padding:13px 48px;display:flex;justify-content:space-between;align-items:center}
+  .top-bar-name{font-family:'Jost',sans-serif;font-size:13px;color:var(--linen);font-weight:400;letter-spacing:1px}
+  .top-bar-contact{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:1.5px}
+
+  /* HERO */
+  .hero{background:var(--green);padding:72px 48px 60px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(153,161,137,.1) 0%,transparent 70%);pointer-events:none}
+  .hero-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--mist);font-weight:500;margin-bottom:18px}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5.5vw,66px);font-weight:400;color:var(--cream);line-height:1.07;margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:var(--mist)}
+  .hero-sub{font-size:15px;color:rgba(255,255,255,.6);max-width:560px;font-weight:300;line-height:1.85;margin-bottom:36px}
+  .hero-agent{display:flex;align-items:center;gap:14px}
+  .agent-circle{width:44px;height:44px;border-radius:50%;background:var(--sage);border:2px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;color:white;letter-spacing:1px;flex-shrink:0}
+  .agent-text{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6}
+  .agent-text strong{color:var(--linen);font-weight:500}
+
+  /* INTRO LETTER */
+  .intro-letter{background:var(--warm);border-left:4px solid var(--sage);padding:32px 48px}
+  .letter-quote{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:var(--dark);line-height:1.75;margin-bottom:14px}
+  .letter-sig{font-size:12px;color:var(--light);letter-spacing:1px}
+
+  /* MAIN */
+  .main{max-width:860px;margin:0 auto;padding:64px 48px 80px}
+  .section{margin-bottom:64px}
+  .section-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:12px}
+  .section-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:400;color:var(--dark);line-height:1.15;margin-bottom:16px}
+  .section-title em{font-style:italic;color:var(--taupe)}
+  .section-body{font-size:15px;color:var(--mid);font-weight:300;line-height:1.85;margin-bottom:24px}
+  .section-body strong{color:var(--dark);font-weight:500}
+  .divider{width:48px;height:1px;background:var(--linen);margin:28px 0}
+
+  /* STEPS */
+  .steps{display:flex;flex-direction:column;gap:0;margin:24px 0;border:1px solid var(--linen);background:var(--white)}
+  .step{display:flex;align-items:flex-start;gap:20px;padding:24px 28px;border-bottom:1px solid var(--linen);transition:background .2s}
+  .step:last-child{border-bottom:none}
+  .step:hover{background:var(--cream)}
+  .step-num{width:32px;height:32px;border-radius:50%;background:var(--green);color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;margin-top:2px}
+  .step-num.final{background:var(--sage)}
+  .step-body{flex:1}
+  .step-body strong{display:block;font-size:14px;color:var(--dark);font-weight:500;margin-bottom:4px}
+  .step-body p{font-size:13px;color:var(--mid);font-weight:300;line-height:1.6}
+  .step-final-badge{display:inline-block;background:rgba(153,161,137,.15);color:var(--sage);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:2px;font-weight:600;margin-top:6px}
+
+  /* ALERTS */
+  .alert{padding:20px 24px;margin:20px 0;font-size:14px;line-height:1.75;font-weight:300}
+  .alert-warm{background:var(--warm);border-left:3px solid var(--taupe);color:var(--mid)}
+  .alert-sage{background:rgba(153,161,137,.1);border-left:3px solid var(--sage);color:var(--mid)}
+  .alert-important{background:var(--linen);border-left:3px solid var(--green);color:var(--mid)}
+  .alert strong{color:var(--dark);font-weight:500}
+
+  /* TIMING CARDS */
+  .timing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+  .timing-card{background:var(--white);border:1px solid var(--linen);padding:24px 20px;text-align:center;transition:border-color .2s}
+  .timing-card:hover{border-color:var(--mist)}
+  .timing-icon{font-size:26px;margin-bottom:12px}
+  .timing-title{font-family:'Playfair Display',serif;font-size:14px;color:var(--dark);margin-bottom:8px;font-weight:500}
+  .timing-body{font-size:12px;color:var(--light);line-height:1.7;font-weight:300}
+
+  /* POSSESSION BOX */
+  .possession-box{background:var(--white);border:1px solid var(--linen);padding:28px 32px;margin:20px 0}
+  .possession-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--taupe);font-weight:600;margin-bottom:14px}
+  .possession-text{font-size:15px;color:var(--dark);font-weight:300;line-height:1.75}
+  .possession-text strong{font-weight:500}
+
+  /* BEFORE YOU GO */
+  .prep-list{display:flex;flex-direction:column;gap:12px;margin:20px 0}
+  .prep-item{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--white);border:1px solid var(--linen);transition:border-color .2s}
+  .prep-item:hover{border-color:var(--mist)}
+  .prep-dot{width:8px;height:8px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:5px}
+  .prep-text{font-size:14px;color:var(--dark);font-weight:300;line-height:1.5}
+  .prep-text strong{font-weight:500;color:var(--dark)}
+  .prep-note{font-size:11px;color:var(--light);margin-top:3px}
+
+  /* KELSIE NOTE */
+  .kelsie-note{background:var(--green);padding:44px 48px;margin:48px 0;position:relative;overflow:hidden}
+  .kelsie-note::before{content:'\201C';font-family:'Playfair Display',serif;font-size:140px;color:rgba(255,255,255,.04);position:absolute;top:-16px;left:24px;line-height:1;pointer-events:none}
+  .kelsie-note-text{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--cream);line-height:1.8;margin-bottom:22px;position:relative}
+  .kelsie-note-sig{font-size:11px;color:var(--mist);letter-spacing:2px;text-transform:uppercase}
+
+  /* CHECKLIST */
+  .checklist-wrap{background:var(--dark);padding:44px 48px;margin-top:48px}
+  .checklist-heading{font-family:'Playfair Display',serif;font-size:28px;color:var(--cream);margin-bottom:6px;font-weight:400}
+  .checklist-sub{font-size:13px;color:rgba(255,255,255,.35);margin-bottom:28px;font-weight:300}
+  .progress-wrap{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:14px 20px;display:flex;align-items:center;gap:16px;margin-bottom:32px}
+  .progress-label{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:2px;text-transform:uppercase;white-space:nowrap}
+  .progress-bar{flex:1;height:3px;background:rgba(255,255,255,.08);overflow:hidden}
+  .progress-fill{height:100%;background:var(--sage);transition:width .4s ease;width:0%}
+  .progress-pct{font-size:12px;color:var(--sage);font-weight:500;white-space:nowrap}
+  .checklist-group{margin-bottom:28px}
+  .checklist-group-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--mist);font-weight:600;margin-bottom:12px}
+  .check-item{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer}
+  .check-item:last-child{border-bottom:none}
+  .check-box{width:20px;height:20px;border:1.5px solid rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:11px;color:transparent;background:transparent}
+  .check-item.done .check-box{background:var(--sage);border-color:var(--sage);color:white}
+  .check-item.done .check-text{color:rgba(255,255,255,.25);text-decoration:line-through}
+  .check-text{font-size:14px;color:rgba(255,255,255,.8);font-weight:300;line-height:1.5;transition:all .2s}
+  .check-note{font-size:11px;color:rgba(255,255,255,.25);margin-top:3px}
+
+  /* FOOTER */
+  footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding:32px 48px;display:flex;justify-content:space-between;align-items:center}
+  .footer-brand{font-family:'Jost',sans-serif;font-size:16px;color:var(--linen);font-weight:400;letter-spacing:2px}
+  .footer-right{text-align:right;font-size:11px;color:rgba(255,255,255,.3);letter-spacing:1px;line-height:1.9}
+
+  @media(max-width:680px){
+    .top-bar,.intro-letter,.main,footer{padding-left:24px;padding-right:24px}
+    .hero{padding-left:24px;padding-right:24px}
+    .timing-grid{grid-template-columns:1fr}
+    footer{flex-direction:column;gap:14px;text-align:center}
+    .footer-right{text-align:center}
+    .kelsie-note,.checklist-wrap{padding:32px 24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-name">Kelsie Jimenez · The Perry Group · Real Broker LLC</div>
+  <div class="top-bar-contact">801.420.2284 · kelsie.utah@gmail.com</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Buyer Resource Guide</div>
+  <h1>Settlement Day —<br><em>You're Almost There</em></h1>
+  <p class="hero-sub">We're almost there — and I want to walk you through exactly what to expect, because this part can feel a little confusing if no one explains what's happening behind the scenes.</p>
+  <div class="hero-agent">
+    <div class="agent-circle">KJ</div>
+    <div class="agent-text"><strong>Kelsie Jimenez</strong><br>Your Agent · The Perry Group · Real Broker LLC</div>
+  </div>
+</div>
+
+<!-- INTRO LETTER -->
+<div class="intro-letter">
+  <div class="letter-quote">"Settlement day is exciting — and it can also feel like a lot. My job is to make sure you walk in knowing exactly what's happening, what to expect, and when you actually get your keys. Let's walk through it together."</div>
+  <div class="letter-sig">— Kelsie Jimenez</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- SIGNING DAY -->
+  <div class="section">
+    <div class="section-eyebrow">What to Know First</div>
+    <div class="section-title">Signing Day<br><em>(Settlement)</em></div>
+    <div class="section-body">When you go in to sign, you'll be completing all of your final loan and closing documents. Your signing appointment is a big moment — but it's important to understand what happens next.</div>
+
+    <div class="alert alert-important">
+      <strong>Important:</strong> Signing does not mean you officially own the home yet. It's a major step — but there are still a few things happening behind the scenes before ownership is finalized.
+    </div>
+  </div>
+
+  <!-- WHAT HAPPENS AFTER -->
+  <div class="section">
+    <div class="section-eyebrow">Behind the Scenes</div>
+    <div class="section-title">What Happens<br><em>After You Sign</em></div>
+    <div class="section-body">Once you've put pen to paper, a sequence of events happens in the background. Here's exactly what's taking place while you wait:</div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Your lender sends funds to the title company</strong>
+          <p>The lender wires the loan proceeds to the title company to fund the transaction.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>The title company balances the transaction</strong>
+          <p>All debits and credits are reconciled — making sure every dollar is accounted for correctly.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>The full package is sent to the county recorder</strong>
+          <p>The deed and all required documents are submitted to the county for official recording.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num final">4</div>
+        <div class="step-body">
+          <strong>The deed is officially recorded in your name 🎉</strong>
+          <p>This is the moment ownership transfers. You are now the legal owner of the home.</p>
+          <span class="step-final-badge">This is when you get your keys</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSSESSION & KEYS -->
+  <div class="section">
+    <div class="section-eyebrow">Possession</div>
+    <div class="section-title">Keys &<br><em>Possession</em></div>
+    <div class="section-body">Possession follows the terms outlined in your REPC. Here's what that means in practice:</div>
+
+    <div class="possession-box">
+      <div class="possession-label">If Your Contract States "Possession Upon Recording"</div>
+      <div class="possession-text">The sellers will release keys <strong>only after the deed has been recorded</strong> — not when you finish signing. Recording is the official transfer of ownership, and that's the trigger for key handover.</div>
+    </div>
+
+    <div class="alert alert-sage">
+      <strong>Kelsie will notify you the moment recording is confirmed.</strong> You don't need to guess or wait by the phone — you'll hear from me as soon as it's official and you're clear to get your keys.
+    </div>
+  </div>
+
+  <!-- TIMING -->
+  <div class="section">
+    <div class="section-eyebrow">What to Expect</div>
+    <div class="section-title">Timing &<br><em>Patience</em></div>
+    <div class="section-body">Recording timelines in Utah County depend largely on when your signing takes place. Here's a general guide so you know what to expect:</div>
+
+    <div class="timing-grid">
+      <div class="timing-card">
+        <div class="timing-icon">🌅</div>
+        <div class="timing-title">Morning Signing</div>
+        <div class="timing-body">Earlier signings have the best chance of recording the same day. Still not guaranteed, but very possible.</div>
+      </div>
+      <div class="timing-card">
+        <div class="timing-icon">🌇</div>
+        <div class="timing-title">Afternoon Signing</div>
+        <div class="timing-body">If signing happens later in the day, recording will typically not happen until the following business day.</div>
+      </div>
+      <div class="timing-card">
+        <div class="timing-icon">📅</div>
+        <div class="timing-title">Friday Signing</div>
+        <div class="timing-body">If you sign Friday afternoon and it doesn't record the same day, recording will happen Monday morning.</div>
+      </div>
+    </div>
+
+    <div class="alert alert-warm">
+      The county processes recordings in the order they are received — and unfortunately there's no way to rush this process (as much as we wish there was!). <strong>This final stretch can require a little patience, but you are so close.</strong>
+    </div>
+  </div>
+
+  <!-- BEFORE YOU GO -->
+  <div class="section">
+    <div class="section-eyebrow">Be Prepared</div>
+    <div class="section-title">Before You Head<br><em>to Closing</em></div>
+    <div class="section-body">A few things to have ready before your signing appointment so everything goes smoothly:</div>
+
+    <div class="prep-list">
+      <div class="prep-item">
+        <div class="prep-dot"></div>
+        <div>
+          <div class="prep-text"><strong>Bring a valid government-issued photo ID</strong></div>
+          <div class="prep-note">Driver's license or passport — required to sign closing documents</div>
+        </div>
+      </div>
+      <div class="prep-item">
+        <div class="prep-dot"></div>
+        <div>
+          <div class="prep-text"><strong>Confirm your closing funds amount with the title company</strong></div>
+          <div class="prep-note">Cashier's check or wire — always verify wire instructions by phone, never from email alone</div>
+        </div>
+      </div>
+      <div class="prep-item">
+        <div class="prep-dot"></div>
+        <div>
+          <div class="prep-text"><strong>Schedule your final walkthrough before the signing appointment</strong></div>
+          <div class="prep-note">This is your last chance to confirm the property's condition before closing</div>
+        </div>
+      </div>
+      <div class="prep-item">
+        <div class="prep-dot"></div>
+        <div>
+          <div class="prep-text"><strong>Have utilities set up in your name before closing day</strong></div>
+          <div class="prep-note">Power, water, gas — you'll want these ready to go the moment you get keys</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KELSIE NOTE -->
+  <div class="kelsie-note">
+    <div class="kelsie-note-text">"I'll keep you updated every step of the way and let you know the moment we're officially recorded and ready for keys. You've worked so hard to get here — this is the finish line. I'm so proud of you and honored to have been part of this journey."</div>
+    <div class="kelsie-note-sig">— Kelsie Jimenez &nbsp;·&nbsp; 801.420.2284</div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="checklist-wrap">
+    <div class="checklist-heading">Your Settlement Day Checklist</div>
+    <div class="checklist-sub">Check off as you go — your progress is saved on this device.</div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">Progress</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-pct" id="progress-pct">0%</div>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-group-label">Before Signing</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div>
+          <div class="check-text">Confirm closing funds amount with the title company</div>
+          <div class="check-note">Verify wire instructions by phone — never from email alone</div>
+        </div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div><div class="check-text">Complete your final walkthrough</div></div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div><div class="check-text">Bring valid government-issued photo ID to signing</div></div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div><div class="check-text">Confirm utilities are set up in your name</div></div>
+      </div>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-group-label">At Signing</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div><div class="check-text">Sign all closing and loan documents</div></div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div>
+          <div class="check-text">Submit closing funds (cashier's check or wire)</div>
+          <div class="check-note">Double-check wire instructions with the title company before sending</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-group-label">After Signing</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div>
+          <div class="check-text">Wait for recording confirmation from Kelsie</div>
+          <div class="check-note">Recording = official ownership. Keys are released after this.</div>
+        </div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div><div class="check-text">Receive keys from seller upon recording confirmation 🎉</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Kelsie Jimenez</div>
+  <div class="footer-right">The Perry Group · Real Broker LLC<br>801.420.2284 · kelsie.utah@gmail.com</div>
+</footer>
+
+<script>
+function toggleCheck(item){item.classList.toggle('done');updateProgress();saveState()}
+function updateProgress(){
+  const all=document.querySelectorAll('.check-item');
+  const done=document.querySelectorAll('.check-item.done');
+  const pct=Math.round(done.length/all.length*100);
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-pct').textContent=pct+'%';
+}
+function saveState(){
+  const state=Array.from(document.querySelectorAll('.check-item')).map(i=>i.classList.contains('done'));
+  localStorage.setItem('settlementState',JSON.stringify(state));
+}
+function loadState(){
+  const saved=localStorage.getItem('settlementState');
+  if(saved){
+    JSON.parse(saved).forEach((v,i)=>{if(v)document.querySelectorAll('.check-item')[i].classList.add('done')});
+    updateProgress();
+  }
+}
+loadState();
+</script>
+</body>
+</html>

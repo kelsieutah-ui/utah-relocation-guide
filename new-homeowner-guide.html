@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Homeowner Guide · Kelsie Jimenez</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark:#1a1f1a;--green:#2d3d2d;--green-mid:#3d5c3d;
+    --sage:#99a189;--mist:#b7bea9;--taupe:#b19f8f;
+    --cream:#f7f4f0;--warm:#fcf0e7;--linen:#ece9e4;
+    --mid:#6b6158;--light:#9a9188;--white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);font-family:'Jost',sans-serif;color:var(--dark);line-height:1.7}
+
+  .top-bar{background:var(--dark);padding:13px 48px;display:flex;justify-content:space-between;align-items:center}
+  .top-bar-name{font-family:'Jost',sans-serif;font-size:13px;color:var(--linen);font-weight:400;letter-spacing:1px}
+  .top-bar-contact{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:1.5px}
+
+  .hero{background:var(--green);padding:72px 48px 60px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(153,161,137,.1) 0%,transparent 70%);pointer-events:none}
+  .hero-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--mist);font-weight:500;margin-bottom:18px}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5.5vw,66px);font-weight:400;color:var(--cream);line-height:1.07;margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:var(--mist)}
+  .hero-sub{font-size:15px;color:rgba(255,255,255,.6);max-width:560px;font-weight:300;line-height:1.85;margin-bottom:36px}
+  .hero-agent{display:flex;align-items:center;gap:14px}
+  .agent-circle{width:44px;height:44px;border-radius:50%;background:var(--sage);border:2px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;color:white;letter-spacing:1px;flex-shrink:0}
+  .agent-text{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6}
+  .agent-text strong{color:var(--linen);font-weight:500}
+
+  .intro-letter{background:var(--warm);border-left:4px solid var(--sage);padding:32px 48px}
+  .letter-quote{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:var(--dark);line-height:1.75;margin-bottom:14px}
+  .letter-sig{font-size:12px;color:var(--light);letter-spacing:1px}
+
+  .main{max-width:860px;margin:0 auto;padding:64px 48px 80px}
+  .section{margin-bottom:64px}
+  .section-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:12px}
+  .section-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:400;color:var(--dark);line-height:1.15;margin-bottom:16px}
+  .section-title em{font-style:italic;color:var(--taupe)}
+  .section-body{font-size:15px;color:var(--mid);font-weight:300;line-height:1.85;margin-bottom:24px}
+  .section-body strong{color:var(--dark);font-weight:500}
+  .divider{width:48px;height:1px;background:var(--linen);margin:28px 0}
+
+  /* FIRST 30 DAYS */
+  .task-list{display:flex;flex-direction:column;gap:10px;margin:20px 0}
+  .task-item{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--white);border:1px solid var(--linen);transition:border-color .2s,box-shadow .2s;cursor:pointer}
+  .task-item:hover{border-color:var(--mist);box-shadow:0 2px 12px rgba(45,61,45,.05)}
+  .task-item.done .task-text{color:var(--light);text-decoration:line-through}
+  .task-item.done .task-box{background:var(--sage);border-color:var(--sage);color:white}
+  .task-box{width:20px;height:20px;border:1.5px solid var(--mist);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:11px;color:transparent;background:white}
+  .task-text{font-size:14px;color:var(--dark);font-weight:300;line-height:1.5}
+  .task-text strong{font-weight:500}
+  .task-note{font-size:11px;color:var(--light);margin-top:3px}
+
+  /* SEASONAL GRID */
+  .season-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .season-card{background:var(--white);border:1px solid var(--linen);overflow:hidden;transition:box-shadow .2s}
+  .season-card:hover{box-shadow:0 4px 20px rgba(45,61,45,.07)}
+  .season-header{padding:16px 20px;display:flex;align-items:center;gap:12px}
+  .season-spring .season-header{background:rgba(153,161,137,.15)}
+  .season-summer .season-header{background:rgba(252,240,231,.8)}
+  .season-fall .season-header{background:rgba(177,159,143,.15)}
+  .season-winter .season-header{background:rgba(183,190,169,.15)}
+  .season-icon{font-size:22px}
+  .season-name{font-family:'Playfair Display',serif;font-size:16px;color:var(--dark);font-weight:500}
+  .season-body{padding:16px 20px}
+  .season-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .season-list li{font-size:13px;color:var(--mid);font-weight:300;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+  .season-list li::before{content:'–';color:var(--mist);flex-shrink:0;margin-top:1px}
+
+  /* VENDOR GRID */
+  .vendor-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .vendor-card{background:var(--white);border:1px solid var(--linen);padding:22px 24px;transition:border-color .2s,box-shadow .2s}
+  .vendor-card:hover{border-color:var(--mist);box-shadow:0 4px 16px rgba(45,61,45,.06)}
+  .vendor-category{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:10px}
+  .vendor-name{font-family:'Playfair Display',serif;font-size:16px;color:var(--dark);margin-bottom:3px}
+  .vendor-company{font-size:12px;color:var(--taupe);margin-bottom:10px;font-weight:400}
+  .vendor-detail{font-size:12px;color:var(--mid);font-weight:300;line-height:1.8}
+  .vendor-link{display:inline-block;margin-top:8px;font-size:11px;color:var(--sage);text-decoration:none;letter-spacing:.5px;border-bottom:1px solid transparent;transition:border-color .2s}
+  .vendor-link:hover{border-color:var(--sage)}
+  .vendor-coming{font-size:12px;color:var(--light);font-style:italic;font-weight:300}
+
+  /* ALERTS */
+  .alert{padding:20px 24px;margin:20px 0;font-size:14px;line-height:1.75;font-weight:300}
+  .alert-warm{background:var(--warm);border-left:3px solid var(--taupe);color:var(--mid)}
+  .alert-sage{background:rgba(153,161,137,.1);border-left:3px solid var(--sage);color:var(--mid)}
+  .alert strong{color:var(--dark);font-weight:500}
+
+  /* KELSIE NOTE */
+  .kelsie-note{background:var(--green);padding:44px 48px;margin:48px 0;position:relative;overflow:hidden}
+  .kelsie-note::before{content:'\201C';font-family:'Playfair Display',serif;font-size:140px;color:rgba(255,255,255,.04);position:absolute;top:-16px;left:24px;line-height:1;pointer-events:none}
+  .kelsie-note-text{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--cream);line-height:1.8;margin-bottom:22px;position:relative}
+  .kelsie-note-sig{font-size:11px;color:var(--mist);letter-spacing:2px;text-transform:uppercase}
+
+  footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding:32px 48px;display:flex;justify-content:space-between;align-items:center}
+  .footer-brand{font-family:'Jost',sans-serif;font-size:16px;color:var(--linen);font-weight:400;letter-spacing:2px}
+  .footer-right{text-align:right;font-size:11px;color:rgba(255,255,255,.3);letter-spacing:1px;line-height:1.9}
+
+  @media(max-width:680px){
+    .top-bar,.intro-letter,.main,footer{padding-left:24px;padding-right:24px}
+    .hero{padding-left:24px;padding-right:24px}
+    .season-grid,.vendor-grid{grid-template-columns:1fr}
+    footer{flex-direction:column;gap:14px;text-align:center}
+    .footer-right{text-align:center}
+    .kelsie-note{padding:32px 24px}
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-name">Kelsie Jimenez · The Perry Group · Real Broker LLC</div>
+  <div class="top-bar-contact">801.420.2284 · kelsie.utah@gmail.com</div>
+</div>
+
+<div class="hero">
+  <div class="hero-label">Buyer Resource Guide</div>
+  <h1>Welcome to<br><em>Your New Home</em></h1>
+  <p class="hero-sub">Congratulations — you did it! This guide is your go-to resource for everything that comes after closing. Keep it bookmarked. You'll come back to it more than you think.</p>
+  <div class="hero-agent">
+    <div class="agent-circle">KJ</div>
+    <div class="agent-text"><strong>Kelsie Jimenez</strong><br>Your Agent · The Perry Group · Real Broker LLC</div>
+  </div>
+</div>
+
+<div class="intro-letter">
+  <div class="letter-quote">"Getting you to closing was the goal — but keeping you informed and supported long after is the commitment. This is your home now. Here's everything I wish someone had handed me on day one."</div>
+  <div class="letter-sig">— Kelsie Jimenez</div>
+</div>
+
+<div class="main">
+
+  <!-- FIRST 30 DAYS -->
+  <div class="section">
+    <div class="section-eyebrow">Part One</div>
+    <div class="section-title">Your First 30 Days<br><em>Checklist</em></div>
+    <div class="section-body">These are the things that need to happen right after closing that most new homeowners don't know about. Work through these in your first month and you'll be set up right.</div>
+
+    <div class="task-list">
+      <div class="task-item" onclick="toggleTask(this)">
+        <div class="task-box">✓</div>
+        <div>
+          <div class="task-text"><strong>Change all your locks</strong></div>
+          <div class="task-note">You don't know who has a copy of the previous keys — this is non-negotiable</div>
+        </div>
+      </div>
+      <div class="task-item" onclick="toggleTask(this)">
+        <div class="task-box">✓</div>
+        <div>
+          <div class="task-text"><strong>Locate your main water shutoff valve</strong></div>
+          <div class="task-note">Know where it is before you need it — usually in the basement or utility room</div>
+        </div>
+      </div>
+      <div class="task-item" onclick="toggleTask(this)">
+        <div class="task-box">✓</div>
+        <div>
+          <div class="task-text"><strong>Locate your electrical panel and label the breakers</strong></div>
+          <div class="task-note">Label what each breaker controls — future you will thank present you</div>
+        </div>
+      </div>
+      <div class="task-item" onclick="toggleTask(this)">
+        <div class="task-box">✓</div>
+        <div>
+          <div class="task-text"><strong>Locate your gas shutoff</strong></div>
+          <div class="task-note">Usually near the meter outside — know where it is in case of emergency</div>
+        </div>
+      </div>
+      <div class="task-item" onclick="toggleTask(this)">
+        <div class="task-box">✓</div>
+        <div>
+          <div class="task-text"><strong>Update your address everywhere</strong></div>
+          <div class="task-note">USPS, bank, employer, subscriptions, DMV, voter registration, IRS</div>
+        </div>
+      </div>
+      <div class="task-item" onclick="toggleTask(this)">
+        <div class="task-box">✓</div>
+        <div>
+          <div class="task-text"><strong>Set up homeowner's insurance auto-pay</strong></div>
+          <div class="task-note">Confirm your policy is active and payment is set up — don't let it lapse</div>
+        </div>
+      </div>
+      <div class="task-item" onclick="toggleTask(this)">
+        <div class="task-box">✓</div>
+        <div>
+          <div class="task-text"><strong>Test all smoke and carbon monoxide detectors</strong></div>
+          <div class="task-note">Replace batteries even if they seem fine — start fresh</div>
+        </div>
+      </div>
+      <div class="task-item" onclick="toggleTask(this)">
+        <div class="task-box">✓</div>
+        <div>
+          <div class="task-text"><strong>Change your HVAC air filter</strong></div>
+          <div class="task-note">Do it now and set a reminder every 90 days going forward</div>
+        </div>
+      </div>
+      <div class="task-item" onclick="toggleTask(this)">
+        <div class="task-box">✓</div>
+        <div>
+          <div class="task-text"><strong>Find your HOA contact and review the CC&Rs (if applicable)</strong></div>
+          <div class="task-note">Know the rules before you accidentally break one</div>
+        </div>
+      </div>
+      <div class="task-item" onclick="toggleTask(this)">
+        <div class="task-box">✓</div>
+        <div>
+          <div class="task-text"><strong>Introduce yourself to your neighbors</strong></div>
+          <div class="task-note">Good neighbors are one of the best things about homeownership</div>
+        </div>
+      </div>
+      <div class="task-item" onclick="toggleTask(this)">
+        <div class="task-box">✓</div>
+        <div>
+          <div class="task-text"><strong>Document the condition of everything with photos</strong></div>
+          <div class="task-note">Walk through and photograph every room, appliance, and system for your records</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEASONAL MAINTENANCE -->
+  <div class="section">
+    <div class="section-eyebrow">Part Two</div>
+    <div class="section-title">Seasonal Maintenance<br><em>Calendar</em></div>
+    <div class="section-body">Staying ahead of maintenance is the difference between a home that holds its value and one that doesn't. Here's what to do each season to keep everything running smoothly.</div>
+
+    <div class="season-grid">
+      <div class="season-card season-spring">
+        <div class="season-header">
+          <div class="season-icon">🌸</div>
+          <div class="season-name">Spring</div>
+        </div>
+        <div class="season-body">
+          <ul class="season-list">
+            <li>Service your AC before summer heat hits</li>
+            <li>Clean gutters after winter debris</li>
+            <li>Inspect roof for winter damage</li>
+            <li>Check exterior caulking around windows and doors</li>
+            <li>Turn on irrigation system and inspect heads</li>
+            <li>Reseed or aerate lawn as needed</li>
+            <li>Check sump pump if applicable</li>
+            <li>Deep clean dryer vent</li>
+          </ul>
+        </div>
+      </div>
+      <div class="season-card season-summer">
+        <div class="season-header">
+          <div class="season-icon">☀️</div>
+          <div class="season-name">Summer</div>
+        </div>
+        <div class="season-body">
+          <ul class="season-list">
+            <li>Check irrigation weekly during dry spells</li>
+            <li>Inspect and treat for pests</li>
+            <li>Touch up exterior paint or stain</li>
+            <li>Check deck or patio for wear</li>
+            <li>Clean AC condenser coils</li>
+            <li>Inspect window screens</li>
+            <li>Check attic ventilation for heat buildup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="season-card season-fall">
+        <div class="season-header">
+          <div class="season-icon">🍂</div>
+          <div class="season-name">Fall</div>
+        </div>
+        <div class="season-body">
+          <ul class="season-list">
+            <li>Service furnace or heating system before first use</li>
+            <li>Winterize sprinkler system before first freeze</li>
+            <li>Clean chimney if you have a fireplace</li>
+            <li>Clean gutters after leaves fall</li>
+            <li>Seal gaps around doors and windows</li>
+            <li>Drain and store garden hoses</li>
+            <li>Check roof and flashing before winter</li>
+            <li>Replace HVAC filter</li>
+          </ul>
+        </div>
+      </div>
+      <div class="season-card season-winter">
+        <div class="season-header">
+          <div class="season-icon">❄️</div>
+          <div class="season-name">Winter</div>
+        </div>
+        <div class="season-body">
+          <ul class="season-list">
+            <li>Check insulation in attic and crawl space</li>
+            <li>Reverse ceiling fans to push warm air down</li>
+            <li>Protect exposed pipes from freezing</li>
+            <li>Keep garage door closed to protect pipes</li>
+            <li>Check for ice dams on roof after snow</li>
+            <li>Test smoke and CO detectors</li>
+            <li>Stock emergency supplies in case of storm</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-sage">
+      <strong>Pro tip:</strong> Set a recurring calendar reminder at the start of each season so maintenance never sneaks up on you. 15 minutes of prevention can save thousands in repairs.
+    </div>
+  </div>
+
+  <!-- VENDOR LIST -->
+  <div class="section">
+    <div class="section-eyebrow">Part Three</div>
+    <div class="section-title">Kelsie's Preferred<br><em>Vendor List</em></div>
+    <div class="section-body">These are the people I personally trust and refer to my clients. I only recommend vendors I'd call myself. Bookmark this page — you'll need it eventually.</div>
+
+    <div class="vendor-grid">
+
+      <div class="vendor-card">
+        <div class="vendor-category">Lender</div>
+        <div class="vendor-name">TJ Shelley</div>
+        <div class="vendor-company">First Colony Mortgage · NMLS# 1674331</div>
+        <div class="vendor-detail">
+          📞 (801) 660-8661<br>
+          tjs@firstcolonymortgage.com
+        </div>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-category">Title Company</div>
+        <div class="vendor-name">Jarran Scheid</div>
+        <div class="vendor-company">Novation Title Group</div>
+        <div class="vendor-detail">
+          📞 (801) 406-1254<br>
+          jarran@novationtitlegroup.com
+        </div>
+        <a href="http://novationtitle.com" target="_blank" class="vendor-link">novationtitle.com →</a>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-category">Home Inspector · Plumber · Handyman</div>
+        <div class="vendor-name">Andy Torgerson</div>
+        <div class="vendor-company">360 Home Check</div>
+        <div class="vendor-detail">
+          📞 (801) 735-4642
+        </div>
+        <a href="https://www.360homecheck.com" target="_blank" class="vendor-link">360homecheck.com →</a>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-category">Home Inspector</div>
+        <div class="vendor-name">A1 Utah Home Inspector</div>
+        <div class="vendor-company">A1 Utah</div>
+        <div class="vendor-detail">
+          📞 (435) 757-3363
+        </div>
+        <a href="https://a1utahhomeinspector.com" target="_blank" class="vendor-link">a1utahhomeinspector.com →</a>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-category">Roofer</div>
+        <div class="vendor-name">James Frazier</div>
+        <div class="vendor-company">On Top Roofing · Outside Sales Rep</div>
+        <div class="vendor-detail">
+          📞 (801) 391-9662<br>
+          jfrazier@ontoproofing.com
+        </div>
+        <a href="https://ontoproofing.com" target="_blank" class="vendor-link">ontoproofing.com →</a>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-category">General Contractor</div>
+        <div class="vendor-name">Jared Ochoa</div>
+        <div class="vendor-company">Westlake Home Solutions</div>
+        <div class="vendor-detail">
+          📞 (801) 403-5059
+        </div>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-category">Electrician</div>
+        <div class="vendor-name">Jesus Cantua</div>
+        <div class="vendor-company"></div>
+        <div class="vendor-detail">
+          📞 (801) 259-0827
+        </div>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-category">Flooring</div>
+        <div class="vendor-name">Empresa Floors</div>
+        <div class="vendor-company"></div>
+        <div class="vendor-detail"></div>
+        <a href="https://empresafloors.com" target="_blank" class="vendor-link">empresafloors.com →</a>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-category">Home Warranty</div>
+        <div class="vendor-name">IBEX Home Warranty</div>
+        <div class="vendor-company"></div>
+        <div class="vendor-detail">
+          📞 (801) 668-1016
+        </div>
+        <a href="https://ibexhw.com" target="_blank" class="vendor-link">ibexhw.com →</a>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-category">Home Warranty</div>
+        <div class="vendor-name">Elevate Homescriptions</div>
+        <div class="vendor-company"></div>
+        <div class="vendor-detail">
+          📞 (855) 349-8824
+        </div>
+        <a href="https://elevatehomescriptions.com" target="_blank" class="vendor-link">elevatehomescriptions.com →</a>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-category">Auto & Home Insurance</div>
+        <div class="vendor-name">Jacob Brad Johnson</div>
+        <div class="vendor-company">Rob Jackson Insurance</div>
+        <div class="vendor-detail">
+          Jacob@RobJacksonInsurance.com
+        </div>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-category">Pest Control · HVAC · Landscaper · House Cleaner</div>
+        <div class="vendor-name" style="font-size:14px">More vendors coming soon</div>
+        <div class="vendor-coming">This list is always growing. Text Kelsie for a current referral anytime — 801.420.2284</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- KELSIE NOTE -->
+  <div class="kelsie-note">
+    <div class="kelsie-note-text">"My relationship with you doesn't end at closing. Whether it's a vendor referral, a question about your home, or advice on when to sell — I'm always just a text away. Congratulations again. You earned this."</div>
+    <div class="kelsie-note-sig">— Kelsie Jimenez &nbsp;·&nbsp; 801.420.2284</div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">Kelsie Jimenez</div>
+  <div class="footer-right">The Perry Group · Real Broker LLC<br>801.420.2284 · kelsie.utah@gmail.com</div>
+</footer>
+
+<script>
+function toggleTask(item){item.classList.toggle('done')}
+</script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financing & Appraisal Guide · Kelsie Jimenez</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark:#1a1f1a;--green:#2d3d2d;--green-mid:#3d5c3d;
+    --sage:#99a189;--mist:#b7bea9;--taupe:#b19f8f;
+    --cream:#f7f4f0;--warm:#fcf0e7;--linen:#ece9e4;
+    --mid:#6b6158;--light:#9a9188;--white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);font-family:'Jost',sans-serif;color:var(--dark);line-height:1.7}
+
+  .top-bar{background:var(--dark);padding:13px 48px;display:flex;justify-content:space-between;align-items:center}
+  .top-bar-name{font-family:'Jost',sans-serif;font-size:13px;color:var(--linen);font-weight:400;letter-spacing:1px}
+  .top-bar-contact{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:1.5px}
+
+  .hero{background:var(--green);padding:72px 48px 60px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(153,161,137,.1) 0%,transparent 70%);pointer-events:none}
+  .hero-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--mist);font-weight:500;margin-bottom:18px}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5.5vw,66px);font-weight:400;color:var(--cream);line-height:1.07;margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:var(--mist)}
+  .hero-sub{font-size:15px;color:rgba(255,255,255,.6);max-width:560px;font-weight:300;line-height:1.85;margin-bottom:36px}
+  .hero-agent{display:flex;align-items:center;gap:14px}
+  .agent-circle{width:44px;height:44px;border-radius:50%;background:var(--sage);border:2px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;color:white;letter-spacing:1px;flex-shrink:0}
+  .agent-text{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6}
+  .agent-text strong{color:var(--linen);font-weight:500}
+
+  .intro-letter{background:var(--warm);border-left:4px solid var(--sage);padding:32px 48px}
+  .letter-quote{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:var(--dark);line-height:1.75;margin-bottom:14px}
+  .letter-sig{font-size:12px;color:var(--light);letter-spacing:1px}
+
+  .main{max-width:860px;margin:0 auto;padding:64px 48px 80px}
+  .section{margin-bottom:64px}
+  .section-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:12px}
+  .section-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:400;color:var(--dark);line-height:1.15;margin-bottom:16px}
+  .section-title em{font-style:italic;color:var(--taupe)}
+  .section-body{font-size:15px;color:var(--mid);font-weight:300;line-height:1.85;margin-bottom:24px}
+  .section-body strong{color:var(--dark);font-weight:500}
+  .divider{width:48px;height:1px;background:var(--linen);margin:28px 0}
+
+  /* LENDER STEPS */
+  .steps{display:flex;flex-direction:column;gap:0;margin:24px 0;border:1px solid var(--linen);background:var(--white)}
+  .step{display:flex;align-items:flex-start;gap:20px;padding:24px 28px;border-bottom:1px solid var(--linen);transition:background .2s}
+  .step:last-child{border-bottom:none}
+  .step:hover{background:var(--cream)}
+  .step-num{width:32px;height:32px;border-radius:50%;background:var(--green);color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;margin-top:2px}
+  .step-num.final{background:var(--sage)}
+  .step-body{flex:1}
+  .step-body strong{display:block;font-size:14px;color:var(--dark);font-weight:500;margin-bottom:4px}
+  .step-body p{font-size:13px;color:var(--mid);font-weight:300;line-height:1.6}
+  .step-badge{display:inline-block;background:rgba(153,161,137,.15);color:var(--sage);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:2px;font-weight:600;margin-top:6px}
+
+  /* APPRAISAL OUTCOME CARDS */
+  .outcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+  .outcome-card{background:var(--white);border:1px solid var(--linen);padding:28px 24px;transition:border-color .2s,box-shadow .2s}
+  .outcome-card:hover{border-color:var(--mist);box-shadow:0 4px 16px rgba(45,61,45,.06)}
+  .outcome-icon{font-size:28px;margin-bottom:12px}
+  .outcome-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--dark);margin-bottom:10px}
+  .outcome-body{font-size:13px;color:var(--mid);line-height:1.75;font-weight:300}
+  .outcome-body strong{color:var(--dark);font-weight:500}
+
+  /* DO NOT LIST */
+  .donot-list{display:flex;flex-direction:column;gap:12px;margin:20px 0}
+  .donot-item{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--white);border:1px solid var(--linen);border-left:3px solid #c0392b;transition:border-color .2s}
+  .donot-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+  .donot-text{font-size:14px;color:var(--dark);font-weight:300;line-height:1.5}
+  .donot-text strong{font-weight:500}
+
+  /* DEADLINE BOX */
+  .deadline-box{background:var(--white);border:1px solid var(--linen);border-left:4px solid var(--green);padding:28px 32px;margin:20px 0}
+  .deadline-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:12px}
+  .deadline-title{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark);margin-bottom:12px;font-weight:400}
+  .deadline-body{font-size:14px;color:var(--mid);font-weight:300;line-height:1.8}
+  .deadline-body strong{color:var(--dark);font-weight:500}
+
+  /* ALERTS */
+  .alert{padding:20px 24px;margin:20px 0;font-size:14px;line-height:1.75;font-weight:300}
+  .alert-warm{background:var(--warm);border-left:3px solid var(--taupe);color:var(--mid)}
+  .alert-sage{background:rgba(153,161,137,.1);border-left:3px solid var(--sage);color:var(--mid)}
+  .alert-red{background:#fff8f8;border-left:3px solid #c0392b;color:var(--mid)}
+  .alert strong{color:var(--dark);font-weight:500}
+
+  /* KELSIE NOTE */
+  .kelsie-note{background:var(--green);padding:44px 48px;margin:48px 0;position:relative;overflow:hidden}
+  .kelsie-note::before{content:'\201C';font-family:'Playfair Display',serif;font-size:140px;color:rgba(255,255,255,.04);position:absolute;top:-16px;left:24px;line-height:1;pointer-events:none}
+  .kelsie-note-text{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--cream);line-height:1.8;margin-bottom:22px;position:relative}
+  .kelsie-note-sig{font-size:11px;color:var(--mist);letter-spacing:2px;text-transform:uppercase}
+
+  /* CHECKLIST */
+  .checklist-wrap{background:var(--dark);padding:44px 48px;margin-top:48px}
+  .checklist-heading{font-family:'Playfair Display',serif;font-size:28px;color:var(--cream);margin-bottom:6px;font-weight:400}
+  .checklist-sub{font-size:13px;color:rgba(255,255,255,.35);margin-bottom:28px;font-weight:300}
+  .progress-wrap{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:14px 20px;display:flex;align-items:center;gap:16px;margin-bottom:32px}
+  .progress-label{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:2px;text-transform:uppercase;white-space:nowrap}
+  .progress-bar{flex:1;height:3px;background:rgba(255,255,255,.08);overflow:hidden}
+  .progress-fill{height:100%;background:var(--sage);transition:width .4s ease;width:0%}
+  .progress-pct{font-size:12px;color:var(--sage);font-weight:500;white-space:nowrap}
+  .checklist-group{margin-bottom:28px}
+  .checklist-group-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--mist);font-weight:600;margin-bottom:12px}
+  .check-item{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer}
+  .check-item:last-child{border-bottom:none}
+  .check-box{width:20px;height:20px;border:1.5px solid rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:11px;color:transparent;background:transparent}
+  .check-item.done .check-box{background:var(--sage);border-color:var(--sage);color:white}
+  .check-item.done .check-text{color:rgba(255,255,255,.25);text-decoration:line-through}
+  .check-text{font-size:14px;color:rgba(255,255,255,.8);font-weight:300;line-height:1.5;transition:all .2s}
+  .check-note{font-size:11px;color:rgba(255,255,255,.25);margin-top:3px}
+
+  footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding:32px 48px;display:flex;justify-content:space-between;align-items:center}
+  .footer-brand{font-family:'Jost',sans-serif;font-size:16px;color:var(--linen);font-weight:400;letter-spacing:2px}
+  .footer-right{text-align:right;font-size:11px;color:rgba(255,255,255,.3);letter-spacing:1px;line-height:1.9}
+
+  @media(max-width:680px){
+    .top-bar,.intro-letter,.main,footer{padding-left:24px;padding-right:24px}
+    .hero{padding-left:24px;padding-right:24px}
+    .outcome-grid{grid-template-columns:1fr}
+    footer{flex-direction:column;gap:14px;text-align:center}
+    .footer-right{text-align:center}
+    .kelsie-note,.checklist-wrap{padding:32px 24px}
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-name">Kelsie Jimenez · The Perry Group · Real Broker LLC</div>
+  <div class="top-bar-contact">801.420.2284 · kelsie.utah@gmail.com</div>
+</div>
+
+<div class="hero">
+  <div class="hero-label">Buyer Resource Guide</div>
+  <h1>Financing &<br><em>Appraisal</em></h1>
+  <p class="hero-sub">Your lender is working hard behind the scenes right now. This guide walks you through exactly what's happening, what you need to do, and — just as importantly — what you need to avoid doing during this phase.</p>
+  <div class="hero-agent">
+    <div class="agent-circle">KJ</div>
+    <div class="agent-text"><strong>Kelsie Jimenez</strong><br>Your Agent · The Perry Group · Real Broker LLC</div>
+  </div>
+</div>
+
+<div class="intro-letter">
+  <div class="letter-quote">"This phase can feel quiet from your end — and that quiet can feel unsettling. But there's a lot happening behind the scenes. My job right now is to make sure you know exactly what's going on, stay protected, and don't accidentally do anything that could derail your loan."</div>
+  <div class="letter-sig">— Kelsie Jimenez</div>
+</div>
+
+<div class="main">
+
+  <!-- DEADLINE -->
+  <div class="section">
+    <div class="section-eyebrow">Know This First</div>
+    <div class="section-title">Your Financing &<br><em>Appraisal Deadline</em></div>
+    <div class="section-body">This is one of the most important dates in your entire contract. Understanding what it protects — and what happens if it passes — is critical.</div>
+
+    <div class="deadline-box">
+      <div class="deadline-label">What This Deadline Means</div>
+      <div class="deadline-title">Your Last Day to Cancel & Keep Your Earnest Money</div>
+      <div class="deadline-body">
+        This is the last day you can cancel the contract based on <strong>financing or appraisal issues</strong> and still protect your earnest money. After this deadline passes, your earnest money becomes non-refundable if you back out for financing reasons.
+        <br><br>
+        <strong>Time is of the essence in Utah.</strong> All REPC deadlines are 5:00 PM Mountain Time on the stated date. Extensions must be agreed to in writing — they don't happen automatically.
+      </div>
+    </div>
+
+    <div class="alert alert-sage">
+      Your Financing & Appraisal Deadline is listed in your contract dates. If you're unsure what yours is, <strong>text Kelsie right now</strong> — this date is too important to guess.
+    </div>
+  </div>
+
+  <!-- WHAT YOUR LENDER IS DOING -->
+  <div class="section">
+    <div class="section-eyebrow">Behind the Scenes</div>
+    <div class="section-title">What Your Lender<br><em>Is Doing Right Now</em></div>
+    <div class="section-body">Even when things feel quiet on your end, your lender is actively working through a sequence of steps to get your loan approved. Here's exactly what's happening:</div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Loan application submitted</strong>
+          <p>Already done before your offer was accepted. This kicked off the entire lending process.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Appraisal ordered</strong>
+          <p>An independent appraiser visits the property to confirm its market value. Your lender orders this from a blind pool — neither you nor I choose the appraiser.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Underwriting review</strong>
+          <p>The underwriter reviews your full financial picture. <strong>Respond to any lender document requests immediately</strong> — delays here ripple through everything.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>Conditional approval</strong>
+          <p>You may receive this first. It means underwriting needs a few more items before issuing full approval. Don't panic — this is very common.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num final">5</div>
+        <div class="step-body">
+          <strong>Clear to Close (CTC) 🎉</strong>
+          <p>The finish line for your financing. Your loan is fully approved and you're cleared to schedule settlement.</p>
+          <span class="step-badge">This is what we're working toward</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPRAISAL -->
+  <div class="section">
+    <div class="section-eyebrow">Understanding the Appraisal</div>
+    <div class="section-title">What Is the<br><em>Appraisal?</em></div>
+    <div class="section-body">The appraisal is an independent assessment of the property's market value — ordered by your lender, not by you or me. Your lender will only lend based on the appraised value, not the purchase price. Here's what can happen:</div>
+
+    <div class="outcome-grid">
+      <div class="outcome-card">
+        <div class="outcome-icon">✅</div>
+        <div class="outcome-title">Appraisal Comes In At or Above Purchase Price</div>
+        <div class="outcome-body">Best case scenario. Financing moves forward without issue and we continue toward closing as planned.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">⚠️</div>
+        <div class="outcome-title">Appraisal Comes In Low</div>
+        <div class="outcome-body">Your lender will only lend on the appraised amount. You'll need to <strong>negotiate a price reduction</strong>, pay the difference out of pocket, or cancel within the appraisal deadline. We'll work through this together if it happens.</div>
+      </div>
+    </div>
+
+    <div class="alert alert-warm">
+      A low appraisal isn't the end of the world — it's a negotiation opportunity. If this happens, call Kelsie immediately. We have options.
+    </div>
+  </div>
+
+  <!-- DO NOT DO -->
+  <div class="section">
+    <div class="section-eyebrow">This Is Critical</div>
+    <div class="section-title">What Not to Do<br><em>Right Now</em></div>
+    <div class="section-body">This is the phase where buyers accidentally derail their own loans. <strong>Now is not the time for big financial moves.</strong> Your lender will re-check your credit and financials before closing — anything that changes your financial picture can put your loan at risk.</div>
+
+    <div class="donot-list">
+      <div class="donot-item">
+        <div class="donot-icon">🚫</div>
+        <div class="donot-text"><strong>Do not open new lines of credit</strong> — no new credit cards, car loans, or financing of any kind</div>
+      </div>
+      <div class="donot-item">
+        <div class="donot-icon">🚫</div>
+        <div class="donot-text"><strong>Do not make large purchases</strong> — furniture, appliances, cars — even if you're excited to furnish your new home</div>
+      </div>
+      <div class="donot-item">
+        <div class="donot-icon">🚫</div>
+        <div class="donot-text"><strong>Do not change employers or go self-employed</strong> — employment stability is a key part of your loan approval</div>
+      </div>
+      <div class="donot-item">
+        <div class="donot-icon">🚫</div>
+        <div class="donot-text"><strong>Do not move large sums of money between accounts</strong> without documenting the reason first with your lender</div>
+      </div>
+      <div class="donot-item">
+        <div class="donot-icon">🚫</div>
+        <div class="donot-text"><strong>Do not slow-walk lender document requests</strong> — respond to everything immediately, even if it feels repetitive</div>
+      </div>
+    </div>
+
+    <div class="alert alert-red">
+      When in doubt, <strong>call your lender before doing anything financial.</strong> A 5-minute phone call can save your entire transaction.
+    </div>
+  </div>
+
+  <!-- KELSIE NOTE -->
+  <div class="kelsie-note">
+    <div class="kelsie-note-text">"I know this phase can feel like a lot of waiting and not much doing. But your job right now is simple: respond to your lender fast, don't make any big financial moves, and trust the process. I'm watching every step and I'll flag anything that needs your attention. You're in good hands."</div>
+    <div class="kelsie-note-sig">— Kelsie Jimenez &nbsp;·&nbsp; 801.420.2284</div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="checklist-wrap">
+    <div class="checklist-heading">Your Financing & Appraisal Checklist</div>
+    <div class="checklist-sub">Check off as you go — your progress is saved on this device.</div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">Progress</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-pct" id="progress-pct">0%</div>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-group-label">Know Your Deadline</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div>
+          <div class="check-text">Confirm your Financing & Appraisal Deadline with Kelsie</div>
+          <div class="check-note">5:00 PM Mountain Time on that date — no exceptions</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-group-label">Work with Your Lender</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div><div class="check-text">Respond to all lender document requests immediately</div></div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div><div class="check-text">Review appraisal results with Kelsie when they arrive</div></div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div>
+          <div class="check-text">Receive Clear to Close (CTC) from your lender 🎉</div>
+          <div class="check-note">Full loan approval — you're cleared to close</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-group-label">Protect Your Loan</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div><div class="check-text">No new credit cards, loans, or lines of credit</div></div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div><div class="check-text">No large purchases (furniture, appliances, cars)</div></div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div><div class="check-text">No job changes or going self-employed</div></div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div>
+          <div class="check-text">No large transfers between bank accounts without lender approval</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">Kelsie Jimenez</div>
+  <div class="footer-right">The Perry Group · Real Broker LLC<br>801.420.2284 · kelsie.utah@gmail.com</div>
+</footer>
+
+<script>
+function toggleCheck(item){item.classList.toggle('done');updateProgress();saveState()}
+function updateProgress(){
+  const all=document.querySelectorAll('.check-item');
+  const done=document.querySelectorAll('.check-item.done');
+  const pct=Math.round(done.length/all.length*100);
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-pct').textContent=pct+'%';
+}
+function saveState(){
+  const state=Array.from(document.querySelectorAll('.check-item')).map(i=>i.classList.contains('done'));
+  localStorage.setItem('financeState',JSON.stringify(state));
+}
+function loadState(){
+  const saved=localStorage.getItem('financeState');
+  if(saved){
+    JSON.parse(saved).forEach((v,i)=>{if(v)document.querySelectorAll('.check-item')[i].classList.add('done')});
+    updateProgress();
+  }
+}
+loadState();
+</script>
+</body>
+</html>
