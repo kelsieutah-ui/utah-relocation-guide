@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Construction Guide | Utah County Relocation Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:         #2B3D30;
+      --green-mid:     #344A39;
+      --cream:         #F2E8D5;
+      --cream-dark:    #E4D5BC;
+      --sage:          #99A189;
+      --mocha:         #6B4F3A;
+      --charcoal:      #1C1C1C;
+      --text-dark:     #1C1C1C;
+      --text-light:    rgba(242,232,213,0.72);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* NAV PILL */
+    .nav-wrap {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      width: calc(100% - 48px);
+      max-width: 1080px;
+    }
+    .nav-pill {
+      background: #fff;
+      border-radius: 100px;
+      padding: 10px 12px 10px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+      transition: box-shadow 0.3s;
+    }
+    .nav-pill.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.05); }
+    .nav-back {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--charcoal); }
+    .nav-cta {
+      background: var(--green);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 80vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero-body {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+      max-width: 720px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.07;
+      color: var(--cream);
+      margin-bottom: 28px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.78;
+      max-width: 520px;
+      margin: 0 auto;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+
+    /* SHARED SECTION SHELL */
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .section-head { text-align: center; margin-bottom: 48px; }
+    .section-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 46px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .section-head p {
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.68;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* BUILDER TYPES SECTION */
+    .builders-section {
+      background: var(--cream);
+      padding: 88px 48px 100px;
+    }
+    .builders-section .section-head h2 { color: var(--text-dark); }
+    .builders-section .section-head p  { color: #666; }
+
+    .builder-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .builder-cards { grid-template-columns: 1fr; }
+    }
+    .builder-card {
+      background: #fff;
+      border: 1px solid rgba(43,61,48,0.1);
+      border-top: 3px solid var(--green);
+      border-radius: 8px;
+      padding: 32px 28px;
+    }
+    .builder-type {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .builder-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .builder-examples {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--sage);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .builder-desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.82;
+    }
+
+    /* BUYER TIPS SECTION */
+    .tips-section {
+      background: var(--green);
+      padding: 88px 48px 100px;
+    }
+    .tips-section .section-head h2 { color: var(--cream); }
+    .tips-section .section-head p  { color: var(--text-light); }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (max-width: 640px) {
+      .tips-grid { grid-template-columns: 1fr; }
+    }
+    .tip-box {
+      background: var(--green-mid);
+      border-radius: 12px;
+      padding: 28px 30px;
+    }
+    .tip-number {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--sage);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .tip-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .tip-text {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.82;
+    }
+
+    /* PROCESS SECTION */
+    .process-section {
+      background: var(--cream);
+      padding: 88px 48px 100px;
+    }
+    .process-section .section-head h2 { color: var(--text-dark); }
+    .process-section .section-head p  { color: #666; }
+
+    .truth-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (max-width: 640px) {
+      .truth-grid { grid-template-columns: 1fr; }
+    }
+    .truth-box {
+      background: #fff;
+      border: 1px solid rgba(43,61,48,0.1);
+      border-left: 3px solid var(--green);
+      border-radius: 8px;
+      padding: 28px 30px;
+    }
+    .truth-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--green);
+      font-weight: 600;
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+    .truth-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.82;
+    }
+    .truth-text strong {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    /* QUICK REFERENCE TABLE SECTION */
+    .table-section {
+      background: var(--green);
+      padding: 88px 48px 100px;
+    }
+    .table-section .section-head h2 { color: var(--cream); }
+
+    .ref-table-wrap {
+      max-width: 860px;
+      margin: 0 auto 28px;
+    }
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .ref-table th {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--sage);
+      font-weight: 500;
+      padding: 0 16px 14px 0;
+      text-align: left;
+      border-bottom: 2px solid rgba(153,161,137,0.3);
+    }
+    .ref-table th:last-child { padding-right: 0; }
+    .ref-table td {
+      padding: 12px 16px 12px 0;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-light);
+      border-bottom: 1px solid rgba(153,161,137,0.15);
+      line-height: 1.55;
+      vertical-align: top;
+    }
+    .ref-table td:first-child {
+      color: var(--cream);
+      font-weight: 400;
+      width: 220px;
+    }
+    .ref-table td:last-child { padding-right: 0; }
+    .ref-table tr:last-child td { border-bottom: none; }
+
+    .table-note {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 12.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(242,232,213,0.48);
+      line-height: 1.65;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--cream);
+      padding: 100px 48px;
+      text-align: center;
+      border-top: 1px solid var(--cream-dark);
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4.5vw, 58px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      max-width: 580px;
+      margin: 0 auto 16px;
+      line-height: 1.12;
+    }
+    .cta-section p {
+      font-size: 15px;
+      color: #777;
+      max-width: 440px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+      line-height: 1.78;
+    }
+    .btn-green {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 15px 38px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: all 0.22s;
+    }
+    .btn-green:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(43,61,48,0.28);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero { height: 70vh; min-height: 420px; }
+      .builders-section,
+      .tips-section,
+      .process-section,
+      .table-section { padding: 64px 20px 80px; }
+      .cta-section { padding: 72px 24px; }
+      .nav-pill { padding: 10px 10px 10px 20px; }
+      .ref-table td:first-child { width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV PILL -->
+  <div class="nav-wrap">
+    <nav class="nav-pill" id="main-nav">
+      <a href="https://guide.kelsiejimenez.com/" class="nav-back">&#8592; Back to the Guide</a>
+      <a href="https://guide.kelsiejimenez.com/#contact" class="nav-cta">Work With Me</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="new-construction.jpg" alt="New construction homes in Utah County">
+    <div class="hero-overlay"></div>
+    <div class="hero-body">
+      <h1 class="hero-title">Everything you need to know<br>before you build new.</h1>
+      <p class="hero-sub">The builder's sales agent works for the builder. Here is what they will not volunteer.</p>
+    </div>
+  </section>
+
+  <!-- BUILDER TYPES -->
+  <section class="builders-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Not all new construction is the same.</h2>
+        <p>Before you walk into a model home, know which type of builder you are looking at. It changes the price, the timeline, and how much say you actually have.</p>
+      </div>
+      <div class="builder-cards">
+
+        <div class="builder-card">
+          <p class="builder-type">Tier 1</p>
+          <p class="builder-name">Production Builders</p>
+          <p class="builder-examples">D.R. Horton, Edge Homes, Oakwood Homes</p>
+          <p class="builder-desc">Everything is standardized. Floor plans, finishes, and lot placements are set. You pick from a limited menu of options. This is the lowest price point and the fastest build time. The process is efficient but expect less flexibility. What you see in the model is often fully upgraded — your base price gets you something significantly different.</p>
+        </div>
+
+        <div class="builder-card">
+          <p class="builder-type">Tier 2</p>
+          <p class="builder-name">Semi-Custom Builders</p>
+          <p class="builder-examples">Patterson Homes, Narwhal Homes, Richmond American</p>
+          <p class="builder-desc">More structural and finish selections than production builders, but you are still working within a defined system. Timelines are longer. Prices are higher. You have genuine input on layout modifications and design choices, but full customization is limited. This is the middle ground most buyers in Utah County end up in.</p>
+        </div>
+
+        <div class="builder-card">
+          <p class="builder-type">Tier 3</p>
+          <p class="builder-name">Custom Builders</p>
+          <p class="builder-examples">Bring your own lot, architect, and builder</p>
+          <p class="builder-desc">You own the land, you hire the architect, you hire the builder. Full control over everything. This takes the longest, costs the most, and requires the most management on your end. Most buyers relocating from California do not go this route unless they have done it before or have a specific vision that nothing else can accommodate.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BUYER TIPS -->
+  <section class="tips-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Nine things nobody tells you.</h2>
+        <p>These are the conversations I have with buyers before they step foot in a model home. Read them first.</p>
+      </div>
+      <div class="tips-grid">
+
+        <div class="tip-box">
+          <p class="tip-number">Tip 01</p>
+          <p class="tip-label">Your first model home visit is not a shopping trip.</p>
+          <p class="tip-text">Do not fill out any paperwork, register your name, or sign anything on your first visit. Once you register directly with the builder without a buyer's agent, you may lose your right to representation on that community — permanently. Call me before you walk in. It costs you nothing to have an agent, and the builder pays that commission regardless.</p>
+        </div>
+
+        <div class="tip-box">
+          <p class="tip-number">Tip 02</p>
+          <p class="tip-label">Base price is the starting point, not what you will pay.</p>
+          <p class="tip-text">The home you tour in the model is typically $80,000 to $120,000 above base price in upgrades. Lot premiums, structural options, and design center selections add up fast. When you see an advertised price, ask the sales rep what the model home is actually priced at versus the base. The gap will tell you everything.</p>
+        </div>
+
+        <div class="tip-box">
+          <p class="tip-number">Tip 03</p>
+          <p class="tip-label">Change orders after signing are expensive.</p>
+          <p class="tip-text">Once you sign your purchase contract and selections are locked in, any changes cost significantly more than they would have before. Know what you want before you get to the design center appointment. Make a prioritized list. Decide what matters and what you can live without before you are sitting in front of someone whose job is to sell you everything.</p>
+        </div>
+
+        <div class="tip-box">
+          <p class="tip-number">Tip 04</p>
+          <p class="tip-label">Budget 15 to 20 percent above base for the design center.</p>
+          <p class="tip-text">Design centers are designed to be overwhelming in the best possible way. The options are beautiful and the experience is fun. Go in with a firm budget and a written list of your non-negotiables versus nice-to-haves. The flooring, countertops, and cabinets have the biggest visual impact. The built-in wine fridge does not.</p>
+        </div>
+
+        <div class="tip-box">
+          <p class="tip-number">Tip 05</p>
+          <p class="tip-label">Concrete cracks. That is normal. Structural cracks are not.</p>
+          <p class="tip-text">Minor shrinkage cracks in a concrete foundation are standard and expected. Horizontal cracks, stair-step cracks along block, or cracks wider than a quarter inch are different. Know the difference before your walkthrough. Your inspector should call out anything structural. Do not let a sales rep dismiss foundation cracks without a specific explanation.</p>
+        </div>
+
+        <div class="tip-box">
+          <p class="tip-number">Tip 06</p>
+          <p class="tip-label">Quick move-in homes are worth a serious look.</p>
+          <p class="tip-text">Builders carry inventory — homes under construction or recently completed that are move-in ready or close to it. You get less customization but a faster possession date, and builders are often motivated to move inventory. You can sometimes negotiate more on a quick move-in than on a to-be-built home because the builder's carrying costs are already running.</p>
+        </div>
+
+        <div class="tip-box">
+          <p class="tip-number">Tip 07</p>
+          <p class="tip-label">Understand your 2-10 warranty before you close.</p>
+          <p class="tip-text">Most production builders offer a 2-10 Home Buyers Warranty: one year on workmanship and materials, two years on mechanical systems like HVAC plumbing and electrical, ten years on structural defects. Read what voids each coverage tier before you start doing any modifications. Some finishes and structural work done without builder approval can void warranty coverage on related systems.</p>
+        </div>
+
+        <div class="tip-box">
+          <p class="tip-number">Tip 08</p>
+          <p class="tip-label">The builder's lender incentive is real but so is the trade-off.</p>
+          <p class="tip-text">Builders will offer you closing cost credits or upgrades to use their preferred lender. That can be worth thousands. It can also mean a slightly higher rate or less flexibility on your loan terms. Get a competing quote from your own lender before you decide. Sometimes the builder incentive wins. Sometimes it does not. You will not know unless you compare.</p>
+        </div>
+
+        <div class="tip-box">
+          <p class="tip-number">Tip 09</p>
+          <p class="tip-label">Walk the site on a Sunday when nobody is there.</p>
+          <p class="tip-text">Visit your lot and the surrounding streets on a weekend when workers are not present. Look at drainage patterns, neighboring lots, what is being built next door, and how the grading is coming together. You see things on a quiet Sunday that you miss on a scheduled tour. Take photos. Note anything that looks off and bring it to your preconstruction meeting.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROCESS -->
+  <section class="process-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Three meetings that actually matter.</h2>
+        <p>Most buyers know about the final walkthrough. Here are the three checkpoints that protect you throughout the build — and what to do at each one.</p>
+      </div>
+      <div class="truth-grid">
+
+        <div class="truth-box">
+          <p class="truth-label">Preconstruction Meeting</p>
+          <p class="truth-text">This happens before they break ground. You sit down with the site superintendent and review the plans together. Confirm your lot, your floor plan, your structural options, and your design selections. Bring your Sunday site walk photos. Ask about drainage, neighboring lots, and the build timeline. This is your last clean opportunity to catch anything before concrete is poured.</p>
+        </div>
+
+        <div class="truth-box">
+          <p class="truth-label">The 4-Way Inspection</p>
+          <p class="truth-text">This is the inspection that happens after framing is up but before the drywall goes in. You can see the rough plumbing, rough electrical, HVAC runs, and structural framing all at once. Hire your own inspector to come with you — not just rely on the builder's inspector. This is your best window to catch issues that will be hidden for the life of the home.</p>
+        </div>
+
+        <div class="truth-box">
+          <p class="truth-label">Blue Tape Walkthrough</p>
+          <p class="truth-text">The final walkthrough before closing. You walk the completed home with the superintendent and mark anything that needs attention with blue painter's tape. Be thorough. Check every door, every window, every grout line, every paint edge. Bring a phone charger to test outlets. Run every faucet. Flush every toilet. Anything not on the blue tape list is harder to get fixed after you close.</p>
+        </div>
+
+        <div class="truth-box">
+          <p class="truth-label">Deposit Timeline</p>
+          <p class="truth-text">New construction deposits work differently than a resale purchase. You typically put down an earnest money deposit at contract signing, then a separate design center deposit after your selections appointment. <strong>Not all of this is always refundable.</strong> Understand exactly what portion of your deposits is at risk if you need to walk away before closing, and at what point in the timeline refundability ends.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK REFERENCE TABLE -->
+  <section class="table-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Questions to ask before you sign anything.</h2>
+      </div>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Ask About</th>
+              <th>What You Are Actually Finding Out</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>What does the model home price out at?</td>
+              <td>The real gap between base price and the home you are standing in, so you know what finishing the way you want will actually cost.</td>
+            </tr>
+            <tr>
+              <td>What lot premiums apply to this lot?</td>
+              <td>Corner lots, view lots, and cul-de-sac lots carry premiums that are not reflected in the advertised base price.</td>
+            </tr>
+            <tr>
+              <td>What are the HOA fees and what do they cover?</td>
+              <td>Whether you are paying for a community pool that exists, a community pool that is planned, or just landscaping maintenance you could do yourself.</td>
+            </tr>
+            <tr>
+              <td>What is the estimated completion date — and what happens if it slips?</td>
+              <td>Builders routinely push timelines. Know whether your contract has a guaranteed close date or a target date, and what your options are if the build runs long.</td>
+            </tr>
+            <tr>
+              <td>Is the builder's lender incentive rate-locked or credit-based?</td>
+              <td>Whether the incentive is tied to using a specific rate (which could be above market) or is a flat closing cost credit that applies regardless of rate.</td>
+            </tr>
+            <tr>
+              <td>How long is the 2-10 warranty and what voids structural coverage?</td>
+              <td>Specifically what modifications, finished basements, or landscaping work done independently could affect warranty coverage on the structure or systems.</td>
+            </tr>
+            <tr>
+              <td>What infrastructure is still being built in the community?</td>
+              <td>Parks, schools, retail, and road access that are on a future plan but do not exist yet when you move in.</td>
+            </tr>
+            <tr>
+              <td>Can I bring my own agent?</td>
+              <td>Yes, always. If the sales agent says no or that it affects your deal, that is a red flag. Builder commissions are paid by the builder, not subtracted from your purchase.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">A builder's sales agent is not your advocate. That is not a criticism — it is just the structure. Bring your own representation.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>New construction is my specialty.</h2>
+    <p>I have walked dozens of buyers through Utah County builder communities. I know which builders deliver and where the traps are. Let's talk before you register anywhere.</p>
+    <a href="https://guide.kelsiejimenez.com/#contact" class="btn-green">Talk to Kelsie.</a>
+  </section>
+
+  <script>
+    var mainNav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+      mainNav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
