@@ -91,40 +91,12 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .nav-ticker-track { animation: none; }
-      .hero-ticker-track { animation: none; }
     }
 
-    /* Mobile: ticker leaves the nav and runs along the hero's bottom edge */
+    /* Mobile: nav ticker hidden; no hero ticker on small screens */
     .hero-ticker { display: none; }
     @media (max-width: 760px) {
       .nav-ticker { display: none; }
-      .hero-ticker {
-        display: flex;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 38px;
-        align-items: center;
-        background: rgba(0,0,0,0.5);
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-        border-top: 1px solid rgba(242,232,213,0.18);
-        overflow: hidden;
-      }
-      .hero-ticker-track {
-        display: inline-flex;
-        white-space: nowrap;
-        animation: city-scroll 30s linear infinite;
-      }
-      .hero-ticker-track span {
-        font-size: 11px;
-        letter-spacing: 0.18em;
-        color: rgba(242,232,213,0.85);
-        font-weight: 300;
-      }
-      .hero-stats { bottom: 38px; }
-      .hero-body { padding-bottom: 150px; }
     }
     .nav-cta {
       background: linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62));
@@ -1102,12 +1074,6 @@
       <div class="stat">
         <div class="stat-num">Top 5</div>
         <div class="stat-label">Growth County in the US</div>
-      </div>
-    </div>
-    <div class="hero-ticker" aria-hidden="true">
-      <div class="hero-ticker-track">
-        <span>LEHI&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SARATOGA SPRINGS&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;EAGLE MOUNTAIN&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;AMERICAN FORK&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PLEASANT GROVE&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;LINDON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;OREM&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PROVO&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;VINEYARD&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SPRINGVILLE&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SPANISH FORK&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;MAPLETON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PAYSON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SALEM&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SANTAQUIN&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;</span>
-        <span>LEHI&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SARATOGA SPRINGS&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;EAGLE MOUNTAIN&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;AMERICAN FORK&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PLEASANT GROVE&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;LINDON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;OREM&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PROVO&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;VINEYARD&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SPRINGVILLE&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SPANISH FORK&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;MAPLETON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PAYSON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SALEM&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SANTAQUIN&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;</span>
       </div>
     </div>
   </section>
