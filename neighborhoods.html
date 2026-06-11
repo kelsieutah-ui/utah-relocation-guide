@@ -22,16 +22,45 @@
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: var(--cream); overflow-x: hidden; }
+    body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: #FDFCFA; overflow-x: hidden; }
 
     /* NAV PILL */
     .nav-wrap { position: fixed; top: 18px; left: 50%; transform: translateX(-50%); z-index: 999; width: calc(100% - 48px); max-width: 1080px; }
-    .nav-pill { background: #fff; border-radius: 100px; padding: 10px 12px 10px 28px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04); transition: box-shadow 0.3s; }
-    .nav-pill.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.05); }
-    .nav-back { font-size: 13.5px; font-weight: 400; color: #666; text-decoration: none; transition: color 0.2s; }
-    .nav-back:hover { color: var(--charcoal); }
-    .nav-cta { background: var(--green); color: #fff; padding: 10px 22px; border-radius: 100px; font-size: 13.5px; font-weight: 500; text-decoration: none; letter-spacing: 0.01em; transition: background 0.2s, transform 0.15s; white-space: nowrap; }
-    .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
+    .nav-pill { background: transparent; border-radius: 100px; padding: 10px 12px 10px 28px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04); transition: box-shadow 0.3s; }
+    .nav-pill.scrolled {
+      background: rgba(43,61,48,0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+      border: 1px solid rgba(242,232,213,0.18);
+    }
+    .nav-back {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-dark, #1C1C1C);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-back:hover { opacity: 0.8; }
+    .nav-cta {
+      background: linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(242,232,213,0.45);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 2px 10px rgba(43,61,48,0.18);
+      color: var(--cream);
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: linear-gradient(135deg, rgba(43,61,48,0.95), rgba(43,61,48,0.78)); transform: scale(1.02); }
 
     /* HERO */
     .hero { background: var(--green); min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 48px 100px; }
@@ -45,32 +74,32 @@
     .geo-hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.40); }
 
     /* GEOGRAPHY INTRO */
-    .geo-section { background: var(--cream); padding: 88px 48px 56px; }
+    .geo-section { background: #FDFCFA; padding: 88px 48px 56px; }
     .geo-inner { max-width: 860px; margin: 0 auto; width: 100%; }
-    .geo-heading { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.5vw, 46px); font-weight: 400; font-style: italic; color: var(--text-dark); line-height: 1.15; margin-bottom: 24px; }
+    .geo-heading { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.5vw, 46px); font-weight: 400;  color: var(--text-dark); line-height: 1.15; margin-bottom: 24px; }
     .geo-body { font-size: 15px; font-weight: 300; color: #666; line-height: 1.82; margin-bottom: 28px; }
     .geo-body:last-child { margin-bottom: 0; }
 
     /* CALLOUT TILES */
-    .callout-section { background: var(--cream-dark); padding: 40px 24px; }
+    .callout-section { background: #F1ECE0; padding: 40px 24px; }
     .callout-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 860px; margin: 0 auto; }
     @media (max-width: 640px) { .callout-grid { grid-template-columns: 1fr; } }
-    .callout-tile { background: var(--cream); border-radius: 10px; padding: 28px 24px; border-left: 3px solid var(--green); }
+    .callout-tile { background: #FDFCFA; border-radius: 10px; padding: 28px 24px; border-left: 3px solid var(--green); }
     .callout-tile-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--green); font-weight: 500; margin-bottom: 10px; }
     .callout-tile-desc { font-size: 14px; font-weight: 300; color: #555; line-height: 1.65; }
 
     /* ZONE SECTIONS */
     .zone-section { padding: 80px 48px 88px; }
-    .zone-green { background: var(--green); }
-    .zone-cream { background: var(--cream); border-top: 1px solid var(--cream-dark); }
+    .zone-green { background: #FFFFFF; }
+    .zone-cream { background: #FDFCFA; border-top: 1px solid var(--cream-dark); }
     .zone-inner { max-width: 860px; margin: 0 auto; width: 100%; }
 
-    .zone-heading { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 36px); font-weight: 400; font-style: italic; line-height: 1.15; margin-bottom: 14px; }
-    .zone-green .zone-heading { color: var(--cream); }
+    .zone-heading { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 36px); font-weight: 400;  line-height: 1.15; margin-bottom: 14px; }
+    .zone-green .zone-heading { color: var(--text-dark, #1C1C1C); }
     .zone-cream .zone-heading { color: var(--text-dark); }
 
     .zone-intro { font-size: 15px; font-weight: 300; line-height: 1.82; margin-bottom: 40px; max-width: 720px; }
-    .zone-green .zone-intro { color: var(--text-light); }
+    .zone-green .zone-intro { color: #555; }
     .zone-cream .zone-intro { color: #666; }
 
     /* CITY CARD GRID */
@@ -78,7 +107,7 @@
     @media (max-width: 640px) { .city-grid { grid-template-columns: 1fr; } }
 
     .city-card { border-radius: 10px; padding: 20px 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
-    .zone-green .city-card { background: var(--cream); }
+    .zone-green .city-card { background: #FDFCFA; }
     .zone-cream .city-card { background: #fff; border: 1px solid rgba(43,61,48,0.08); }
 
     .city-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; font-style: normal; color: var(--text-dark); margin-bottom: 18px; line-height: 1.2; }
@@ -95,11 +124,11 @@
     .geo-list li::before { content: ''; position: absolute; left: 0; top: 14px; width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
 
     /* CTA */
-    .cta-section { background: var(--cream); padding: 100px 48px; text-align: center; border-top: 1px solid var(--cream-dark); }
-    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4.5vw, 58px); font-weight: 400; font-style: italic; color: var(--text-dark); max-width: 640px; margin: 0 auto 16px; line-height: 1.12; }
+    .cta-section { background: #FFFFFF; padding: 100px 48px; text-align: center; }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4.5vw, 58px); font-weight: 400;  color: var(--text-dark, #1C1C1C); max-width: 640px; margin: 0 auto 16px; line-height: 1.12; }
     .cta-section p { font-size: 15px; color: #777; max-width: 480px; margin: 0 auto 36px; font-weight: 300; line-height: 1.78; }
-    .btn-green { display: inline-block; background: var(--green); color: #fff; padding: 15px 38px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; letter-spacing: 0.02em; transition: all 0.22s; }
-    .btn-green:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(43,61,48,0.28); }
+    .btn-green { display: inline-block; background: var(--cream); color: var(--green); padding: 15px 38px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; letter-spacing: 0.02em; transition: all 0.22s; }
+    .btn-green:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
@@ -111,6 +140,7 @@
       .cta-section { padding: 72px 24px; }
       .nav-pill { padding: 10px 10px 10px 20px; }
     }
+      h1 em, h2 em, h3 em { font-style: italic; }
   </style>
 </head>
 <body>
@@ -126,7 +156,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-body">
-      <h1 class="hero-title">Where you live in Utah County matters more than most people expect.</h1>
+      <h1 class="hero-title">Where you live in Utah County matters more than most people <em>expect</em>.</h1>
       <p class="hero-sub">I grew up here, left for 13 years, lived in 4 states, and came back by choice. This is my honest read on each part of the county, and what it feels like to actually live there.</p>
     </div>
   </section>

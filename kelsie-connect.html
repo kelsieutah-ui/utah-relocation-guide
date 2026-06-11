@@ -27,7 +27,7 @@
 
     body {
       font-family: 'Lato', sans-serif;
-      background: var(--cream);
+      background: #FDFCFA;
       color: var(--text-dark);
       min-height: 100vh;
     }
@@ -116,7 +116,7 @@
       font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--sage);
+      color: var(--green);
       margin-left: 4px;
       font-weight: 700;
     }
@@ -144,18 +144,18 @@
       padding: 14px 12px;
       cursor: pointer;
       transition: border-color 0.2s, background 0.2s, transform 0.15s;
-      background: var(--cream);
+      background: #FDFCFA;
       text-align: left;
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
     .tile:hover {
-      border-color: var(--sage);
+      border-color: var(--green);
       transform: translateY(-1px);
     }
     .tile.selected {
-      border-color: var(--sage);
+      border-color: var(--green);
       background: #F2F5EF;
     }
     .tile-icon { font-size: 1.3rem; }
@@ -202,11 +202,11 @@
       font-family: 'Lato', sans-serif;
       font-size: 15px;
       color: var(--text-dark);
-      background: var(--cream);
+      background: #FDFCFA;
       transition: border-color 0.2s;
       outline: none;
     }
-    .form-input:focus { border-color: var(--sage); background: #fff; }
+    .form-input:focus { border-color: var(--green); background: #fff; }
     .form-input::placeholder { color: #B0AAA2; }
 
     /* ── TIMELINE PILLS ── */
@@ -254,11 +254,11 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      background: var(--cream);
+      background: #FDFCFA;
     }
-    .guide-tile:hover { border-color: var(--sage); }
+    .guide-tile:hover { border-color: var(--green); }
     .guide-tile.selected {
-      border-color: var(--sage);
+      border-color: var(--green);
       background: #F2F5EF;
     }
     .guide-tile-icon { font-size: 1.4rem; flex-shrink: 0; }
@@ -293,7 +293,7 @@
       text-align: center;
       margin-top: 14px;
       font-size: 13px;
-      color: var(--sage);
+      color: var(--green);
       text-decoration: none;
       letter-spacing: 0.04em;
     }
@@ -308,7 +308,7 @@
       color: #9A9590;
       line-height: 1.7;
     }
-    .legal a { color: var(--sage); text-decoration: none; }
+    .legal a { color: var(--green); text-decoration: none; }
 
     /* ── SUCCESS STATE ── */
     .success-card {
@@ -329,7 +329,7 @@
     .success-card h2 {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 1.8rem;
-      font-style: italic;
+      
       color: var(--text-dark);
       margin-bottom: 12px;
     }
@@ -344,7 +344,7 @@
       font-family: 'Playfair Display', Georgia, serif;
       font-style: italic;
       font-size: 1.1rem;
-      color: var(--sage);
+      color: var(--green);
     }
 
     /* ── BACK BUTTON ── */
@@ -375,6 +375,7 @@
       .tiles { grid-template-columns: 1fr; }
       .tile-full { grid-column: 1; }
     }
+      h1 em, h2 em, h3 em { font-style: italic; }
   </style>
 </head>
 <body>
@@ -419,7 +420,7 @@
         </div>
         <div class="tile tile-full" data-value="swap">
           <span class="tile-icon">🔄</span>
-          <span class="tile-text">Sell and buy — house swap</span>
+          <span class="tile-text">Sell and buy, house swap</span>
         </div>
       </div>
 
@@ -473,7 +474,7 @@
             <span class="guide-tile-icon">📦</span>
             <div>
               <div class="guide-tile-text">Utah County Moving Toolkit</div>
-              <div class="guide-tile-sub">Utilities setup, packing guide, and address changes — all in one place</div>
+              <div class="guide-tile-sub">Utilities setup, packing guide, and address changes, all in one place</div>
             </div>
           </div>
           <div class="guide-tile" data-value="relocation-guide">
@@ -515,7 +516,7 @@
     <div class="success-icon">🌿</div>
     <h2>Got it. I'll be in touch.</h2>
     <p>I personally read every one of these. Talk soon.</p>
-    <div class="success-sig">— Kelsie</div>
+    <div class="success-sig">,  Kelsie</div>
   </div>
 
   <!-- Hidden form for Netlify Forms detection at deploy time -->
@@ -590,7 +591,7 @@
         relocate:  'Relocating to Utah',
         sell:      'Sell my house',
         browse:    'Just looking around',
-        swap:      'Sell and buy — house swap'
+        swap:      'Sell and buy, house swap'
       };
       const timelineMap = {
         asap:    'ASAP',

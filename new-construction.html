@@ -26,7 +26,7 @@
     body {
       font-family: 'Lato', sans-serif;
       color: var(--text-dark);
-      background: var(--cream);
+      background: #FDFCFA;
       overflow-x: hidden;
     }
 
@@ -41,7 +41,7 @@
       max-width: 1080px;
     }
     .nav-pill {
-      background: #fff;
+      background: transparent;
       border-radius: 100px;
       padding: 10px 12px 10px 28px;
       display: flex;
@@ -50,28 +50,40 @@
       box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
       transition: box-shadow 0.3s;
     }
-    .nav-pill.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.05); }
-    .nav-back {
-      font-size: 13.5px;
-      font-weight: 400;
-      color: #666;
-      text-decoration: none;
-      transition: color 0.2s;
+    .nav-pill.scrolled {
+      background: rgba(43,61,48,0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+      border: 1px solid rgba(242,232,213,0.18);
     }
-    .nav-back:hover { color: var(--charcoal); }
+    .nav-back {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-dark, #1C1C1C);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-back:hover { opacity: 0.8; }
     .nav-cta {
-      background: var(--green);
-      color: #fff;
+      background: linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(242,232,213,0.45);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 2px 10px rgba(43,61,48,0.18);
+      color: var(--cream);
       padding: 10px 22px;
       border-radius: 100px;
-      font-size: 13.5px;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
       font-weight: 500;
       text-decoration: none;
-      letter-spacing: 0.01em;
       transition: background 0.2s, transform 0.15s;
       white-space: nowrap;
     }
-    .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
+    .nav-cta:hover { background: linear-gradient(135deg, rgba(43,61,48,0.95), rgba(43,61,48,0.78)); transform: scale(1.02); }
 
     /* HERO */
     .hero {
@@ -130,7 +142,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(26px, 3.5vw, 46px);
       font-weight: 400;
-      font-style: italic;
+      
       line-height: 1.15;
       margin-bottom: 12px;
     }
@@ -144,7 +156,7 @@
 
     /* BUILDER TYPES SECTION */
     .builders-section {
-      background: var(--cream);
+      background: #FDFCFA;
       padding: 88px 48px 100px;
     }
     .builders-section .section-head h2 { color: var(--text-dark); }
@@ -185,7 +197,7 @@
     .builder-examples {
       font-size: 12px;
       font-weight: 500;
-      color: var(--sage);
+      color: var(--green);
       margin-bottom: 16px;
       line-height: 1.6;
     }
@@ -198,11 +210,11 @@
 
     /* BUYER TIPS SECTION */
     .tips-section {
-      background: var(--green);
+      background: #FFFFFF;
       padding: 88px 48px 100px;
     }
-    .tips-section .section-head h2 { color: var(--cream); }
-    .tips-section .section-head p  { color: var(--text-light); }
+    .tips-section .section-head h2 { color: var(--text-dark, #1C1C1C); }
+    .tips-section .section-head p  { color: #555; }
 
     .tips-grid {
       display: grid;
@@ -215,7 +227,7 @@
       .tips-grid { grid-template-columns: 1fr; }
     }
     .tip-box {
-      background: var(--green-mid);
+      background: #F8F5EE;
       border-radius: 12px;
       padding: 28px 30px;
     }
@@ -223,27 +235,27 @@
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--sage);
+      color: var(--green);
       font-weight: 600;
       margin-bottom: 10px;
     }
     .tip-label {
       font-size: 15px;
       font-weight: 600;
-      color: var(--cream);
+      color: var(--text-dark, #1C1C1C);
       line-height: 1.4;
       margin-bottom: 12px;
     }
     .tip-text {
       font-size: 13.5px;
       font-weight: 300;
-      color: var(--text-light);
+      color: #555;
       line-height: 1.82;
     }
 
     /* PROCESS SECTION */
     .process-section {
-      background: var(--cream);
+      background: #FDFCFA;
       padding: 88px 48px 100px;
     }
     .process-section .section-head h2 { color: var(--text-dark); }
@@ -288,10 +300,10 @@
 
     /* QUICK REFERENCE TABLE SECTION */
     .table-section {
-      background: var(--green);
+      background: #FFFFFF;
       padding: 88px 48px 100px;
     }
-    .table-section .section-head h2 { color: var(--cream); }
+    .table-section .section-head h2 { color: var(--text-dark, #1C1C1C); }
 
     .ref-table-wrap {
       max-width: 860px;
@@ -305,24 +317,24 @@
       font-size: 10.5px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: var(--sage);
+      color: var(--green);
       font-weight: 500;
       padding: 0 16px 14px 0;
       text-align: left;
-      border-bottom: 2px solid rgba(153,161,137,0.3);
+      border-bottom: 2px solid rgba(0,0,0,0.1);
     }
     .ref-table th:last-child { padding-right: 0; }
     .ref-table td {
       padding: 12px 16px 12px 0;
       font-size: 14px;
       font-weight: 300;
-      color: var(--text-light);
-      border-bottom: 1px solid rgba(153,161,137,0.15);
+      color: #555;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
       line-height: 1.55;
       vertical-align: top;
     }
     .ref-table td:first-child {
-      color: var(--cream);
+      color: var(--text-dark, #1C1C1C);
       font-weight: 400;
       width: 220px;
     }
@@ -336,23 +348,22 @@
       font-size: 12.5px;
       font-style: italic;
       font-weight: 300;
-      color: rgba(242,232,213,0.48);
+      color: #777;
       line-height: 1.65;
     }
 
     /* CTA */
     .cta-section {
-      background: var(--cream);
+      background: #FFFFFF;
       padding: 100px 48px;
       text-align: center;
-      border-top: 1px solid var(--cream-dark);
     }
     .cta-section h2 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(32px, 4.5vw, 58px);
       font-weight: 400;
-      font-style: italic;
-      color: var(--text-dark);
+      
+      color: var(--text-dark, #1C1C1C);
       max-width: 580px;
       margin: 0 auto 16px;
       line-height: 1.12;
@@ -367,8 +378,8 @@
     }
     .btn-green {
       display: inline-block;
-      background: var(--green);
-      color: #fff;
+      background: var(--cream);
+      color: var(--green);
       padding: 15px 38px;
       border-radius: 100px;
       font-size: 14px;
@@ -377,11 +388,7 @@
       letter-spacing: 0.02em;
       transition: all 0.22s;
     }
-    .btn-green:hover {
-      background: var(--green-mid);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(43,61,48,0.28);
-    }
+    .btn-green:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
@@ -394,6 +401,7 @@
       .nav-pill { padding: 10px 10px 10px 20px; }
       .ref-table td:first-child { width: auto; }
     }
+      h1 em, h2 em, h3 em { font-style: italic; }
   </style>
 </head>
 <body>
@@ -411,7 +419,7 @@
     <img src="newconstruction2.jpg" alt="New construction homes in Utah County">
     <div class="hero-overlay"></div>
     <div class="hero-body">
-      <h1 class="hero-title">Everything you need to know<br>before you build new.</h1>
+      <h1 class="hero-title">Everything you need to know<br>before you build <em>new</em>.</h1>
       <p class="hero-sub">The builder's sales agent works for the builder. Here is what they will not volunteer.</p>
     </div>
   </section>
@@ -429,7 +437,7 @@
           <p class="builder-type">Tier 1</p>
           <p class="builder-name">Production Builders</p>
           <p class="builder-examples">D.R. Horton, Edge Homes, Oakwood Homes</p>
-          <p class="builder-desc">Everything is standardized. Floor plans, finishes, and lot placements are set. You pick from a limited menu of options. This is the lowest price point and the fastest build time. The process is efficient but expect less flexibility. What you see in the model is often fully upgraded — your base price gets you something significantly different.</p>
+          <p class="builder-desc">Everything is standardized. Floor plans, finishes, and lot placements are set. You pick from a limited menu of options. This is the lowest price point and the fastest build time. The process is efficient but expect less flexibility. What you see in the model is often fully upgraded, your base price gets you something significantly different.</p>
         </div>
 
         <div class="builder-card">
@@ -462,7 +470,7 @@
         <div class="tip-box">
           <p class="tip-number">Tip 01</p>
           <p class="tip-label">Your first model home visit is not a shopping trip.</p>
-          <p class="tip-text">Do not fill out any paperwork, register your name, or sign anything on your first visit. Once you register directly with the builder without a buyer's agent, you may lose your right to representation on that community — permanently. Call me before you walk in. It costs you nothing to have an agent, and the builder pays that commission regardless.</p>
+          <p class="tip-text">Do not fill out any paperwork, register your name, or sign anything on your first visit. Once you register directly with the builder without a buyer's agent, you may lose your right to representation on that community, permanently. Call me before you walk in. It costs you nothing to have an agent, and the builder pays that commission regardless.</p>
         </div>
 
         <div class="tip-box">
@@ -492,7 +500,7 @@
         <div class="tip-box">
           <p class="tip-number">Tip 06</p>
           <p class="tip-label">Quick move-in homes are worth a serious look.</p>
-          <p class="tip-text">Builders carry inventory — homes under construction or recently completed that are move-in ready or close to it. You get less customization but a faster possession date, and builders are often motivated to move inventory. You can sometimes negotiate more on a quick move-in than on a to-be-built home because the builder's carrying costs are already running.</p>
+          <p class="tip-text">Builders carry inventory, homes under construction or recently completed that are move-in ready or close to it. You get less customization but a faster possession date, and builders are often motivated to move inventory. You can sometimes negotiate more on a quick move-in than on a to-be-built home because the builder's carrying costs are already running.</p>
         </div>
 
         <div class="tip-box">
@@ -522,7 +530,7 @@
     <div class="section-inner">
       <div class="section-head">
         <h2>Three meetings that actually matter.</h2>
-        <p>Most buyers know about the final walkthrough. Here are the three checkpoints that protect you throughout the build — and what to do at each one.</p>
+        <p>Most buyers know about the final walkthrough. Here are the three checkpoints that protect you throughout the build, and what to do at each one.</p>
       </div>
       <div class="truth-grid">
 
@@ -533,7 +541,7 @@
 
         <div class="truth-box">
           <p class="truth-label">The 4-Way Inspection</p>
-          <p class="truth-text">This is the inspection that happens after framing is up but before the drywall goes in. You can see the rough plumbing, rough electrical, HVAC runs, and structural framing all at once. Hire your own inspector to come with you — not just rely on the builder's inspector. This is your best window to catch issues that will be hidden for the life of the home.</p>
+          <p class="truth-text">This is the inspection that happens after framing is up but before the drywall goes in. You can see the rough plumbing, rough electrical, HVAC runs, and structural framing all at once. Hire your own inspector to come with you, not just rely on the builder's inspector. This is your best window to catch issues that will be hidden for the life of the home.</p>
         </div>
 
         <div class="truth-box">
@@ -578,7 +586,7 @@
               <td>Whether you are paying for a community pool that exists, a community pool that is planned, or just landscaping maintenance you could do yourself.</td>
             </tr>
             <tr>
-              <td>What is the estimated completion date — and what happens if it slips?</td>
+              <td>What is the estimated completion date, and what happens if it slips?</td>
               <td>Builders routinely push timelines. Know whether your contract has a guaranteed close date or a target date, and what your options are if the build runs long.</td>
             </tr>
             <tr>
@@ -600,7 +608,7 @@
           </tbody>
         </table>
       </div>
-      <p class="table-note">A builder's sales agent is not your advocate. That is not a criticism — it is just the structure. Bring your own representation.</p>
+      <p class="table-note">A builder's sales agent is not your advocate. That is not a criticism, it is just the structure. Bring your own representation.</p>
     </div>
   </section>
 

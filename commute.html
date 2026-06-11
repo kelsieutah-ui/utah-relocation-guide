@@ -30,7 +30,7 @@
     body {
       font-family: 'Lato', sans-serif;
       color: var(--text-dark);
-      background: var(--cream);
+      background: #FDFCFA;
       overflow-x: hidden;
     }
 
@@ -45,7 +45,7 @@
       max-width: 1080px;
     }
     .nav-pill {
-      background: #fff;
+      background: transparent;
       border-radius: 100px;
       padding: 10px 12px 10px 28px;
       display: flex;
@@ -54,28 +54,40 @@
       box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
       transition: box-shadow 0.3s;
     }
-    .nav-pill.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.05); }
-    .nav-back {
-      font-size: 13.5px;
-      font-weight: 400;
-      color: #666;
-      text-decoration: none;
-      transition: color 0.2s;
+    .nav-pill.scrolled {
+      background: rgba(43,61,48,0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+      border: 1px solid rgba(242,232,213,0.18);
     }
-    .nav-back:hover { color: var(--charcoal); }
+    .nav-back {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-dark, #1C1C1C);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-back:hover { opacity: 0.8; }
     .nav-cta {
-      background: var(--green);
-      color: #fff;
+      background: linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(242,232,213,0.45);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 2px 10px rgba(43,61,48,0.18);
+      color: var(--cream);
       padding: 10px 22px;
       border-radius: 100px;
-      font-size: 13.5px;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
       font-weight: 500;
       text-decoration: none;
-      letter-spacing: 0.01em;
       transition: background 0.2s, transform 0.15s;
       white-space: nowrap;
     }
-    .nav-cta:hover { background: var(--green-mid); transform: scale(1.02); }
+    .nav-cta:hover { background: linear-gradient(135deg, rgba(43,61,48,0.95), rgba(43,61,48,0.78)); transform: scale(1.02); }
 
     /* ─── HERO ─── */
     .hero {
@@ -133,7 +145,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(26px, 3.5vw, 46px);
       font-weight: 400;
-      font-style: italic;
+      
       line-height: 1.15;
       margin-bottom: 12px;
     }
@@ -147,7 +159,7 @@
 
     /* ─── COMMUTE GRID SECTION ─── */
     .commute-section {
-      background: var(--cream);
+      background: #FDFCFA;
       padding: 88px 48px 100px;
     }
     .commute-section .section-head h2 { color: var(--text-dark); }
@@ -210,7 +222,7 @@
       vertical-align: middle;
     }
 
-    /* ─── TIP BOX — light (cream/white bg sections) ─── */
+    /* ─── TIP BOX, light (cream/white bg sections) ─── */
     .tip-box-light {
       background: #fff;
       border: 1px solid rgba(43,61,48,0.1);
@@ -233,7 +245,7 @@
       line-height: 1.75;
     }
 
-    /* ─── TIP BOX — dark (green bg sections) ─── */
+    /* ─── TIP BOX, dark (green bg sections) ─── */
     .tip-box-dark {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(153,161,137,0.22);
@@ -245,28 +257,28 @@
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--sage);
+      color: var(--green);
       font-weight: 500;
       margin-bottom: 10px;
     }
     .tip-box-dark .tip-text {
       font-size: 13.5px;
       font-weight: 300;
-      color: rgba(242,232,213,0.82);
+      color: #777;
       line-height: 1.75;
     }
 
     /* ─── SILICON SLOPES SECTION ─── */
     .slopes-section {
-      background: var(--green);
+      background: #FFFFFF;
       padding: 88px 48px 100px;
     }
-    .slopes-section .section-head h2 { color: var(--cream); }
+    .slopes-section .section-head h2 { color: var(--text-dark, #1C1C1C); }
 
     .slopes-body {
       font-size: 15px;
       font-weight: 300;
-      color: var(--text-light);
+      color: #555;
       line-height: 1.82;
       max-width: 680px;
       margin: 0 auto 44px;
@@ -319,7 +331,7 @@
 
     /* ─── FRONTRUNNER SECTION ─── */
     .frontrunner-section {
-      background: var(--cream);
+      background: #FDFCFA;
       padding: 88px 48px 100px;
       border-top: 1px solid var(--cream-dark);
     }
@@ -380,17 +392,16 @@
 
     /* ─── CTA ─── */
     .cta-section {
-      background: var(--cream);
+      background: #FFFFFF;
       padding: 100px 48px;
       text-align: center;
-      border-top: 1px solid var(--cream-dark);
     }
     .cta-section h2 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(32px, 4.5vw, 58px);
       font-weight: 400;
-      font-style: italic;
-      color: var(--text-dark);
+      
+      color: var(--text-dark, #1C1C1C);
       max-width: 580px;
       margin: 0 auto 16px;
       line-height: 1.12;
@@ -405,8 +416,8 @@
     }
     .btn-green {
       display: inline-block;
-      background: var(--green);
-      color: #fff;
+      background: var(--cream);
+      color: var(--green);
       padding: 15px 38px;
       border-radius: 100px;
       font-size: 14px;
@@ -415,11 +426,7 @@
       letter-spacing: 0.02em;
       transition: all 0.22s;
     }
-    .btn-green:hover {
-      background: var(--green-mid);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(43,61,48,0.28);
-    }
+    .btn-green:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 600px) {
@@ -432,6 +439,7 @@
       .card-time { font-size: 44px; }
       .stat-tile-num { font-size: 44px; }
     }
+      h1 em, h2 em, h3 em { font-style: italic; }
   </style>
 </head>
 <body>
@@ -449,7 +457,7 @@
     <img src="commute-hero.jpg" alt="Utah County highway commute">
     <div class="hero-overlay"></div>
     <div class="hero-body">
-      <h1 class="hero-title">Where you live determines<br>your commute reality.</h1>
+      <h1 class="hero-title">Where you live determines<br>your commute <em>reality</em>.</h1>
       <p class="hero-sub">This is the thing I wish every buyer would ask before they fall in love with a house.</p>
     </div>
   </section>

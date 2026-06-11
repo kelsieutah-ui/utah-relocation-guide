@@ -21,7 +21,7 @@
   --amber: #b07d3a;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
+body { font-family: 'DM Sans', sans-serif; background: #FDFCFA; color: var(--text); }
 
 /* ── HERO ── */
 .hero { background: var(--green); position: relative; overflow: hidden; }
@@ -93,7 +93,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   display: flex; align-items: center; justify-content: center;
   transition: all 0.2s; flex-shrink: 0;
 }
-.phase-tab.active { color: var(--cream); border-bottom-color: #a8c5b0; }
+.phase-tab.active { color: var(--text-dark, #1C1C1C); border-bottom-color: #a8c5b0; }
 .phase-tab.active .pnum { background: #a8c5b0; color: var(--green); }
 .phase-tab.completed { color: rgba(245,240,232,0.55); }
 .phase-tab.completed .pnum { background: rgba(168,197,176,0.25); color: #a8c5b0; }
@@ -136,12 +136,12 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 
 /* CONTRACT DATES WIDGET */
 .dates-card {
-  background: var(--green); border-radius: 12px;
+  background: #FFFFFF; border-radius: 12px;
   padding: 20px 24px; margin-bottom: 28px;
 }
 .dates-card-title {
   font-family: 'Playfair Display', serif;
-  font-size: 15px; font-weight: 700; color: var(--cream);
+  font-size: 15px; font-weight: 700; color: var(--text-dark, #1C1C1C);
   margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
 }
 .dates-grid {
@@ -158,7 +158,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   width: 100%; padding: 8px 10px;
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 7px; color: var(--cream);
+  border-radius: 7px; color: var(--text-dark, #1C1C1C);
   font-family: 'DM Sans', sans-serif;
   font-size: 13px; font-weight: 400;
   outline: none; transition: border 0.15s;
@@ -275,7 +275,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 /* INSPECTOR */
 .inspector-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
 @media (max-width: 520px) { .inspector-grid { grid-template-columns: 1fr; } }
-.inspector-card { background: var(--cream); border: 1px solid var(--oat); border-radius: 8px; padding: 12px 14px; }
+.inspector-card { background: #FDFCFA; border: 1px solid var(--oat); border-radius: 8px; padding: 12px 14px; }
 .inspector-name { font-size: 14px; font-weight: 600; color: var(--green); }
 .inspector-co { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
 .inspector-phone { font-size: 14px; color: var(--text); }
@@ -291,7 +291,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   .main { padding: 24px 16px 48px; }
   .save-bar { padding: 10px 16px; }
 }
-</style>
+    h1 em, h2 em, h3 em { font-style: italic; }
+  </style>
 </head>
 <body>
 
@@ -301,7 +302,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     <div class="hero-text">
       <div class="brand-tag">Kelsie Jimenez <span class="bt-dot">●</span> The Perry Group <span class="bt-dot">●</span> Real Broker LLC <span class="bt-sep">|</span> 801.420.2284 <span class="bt-sep">|</span> kelsie.utah@gmail.com</div>
       <h1>Your Buyer's<br><em>Transaction Roadmap</em></h1>
-      <p class="hero-sub">You're under contract — congratulations. This guide walks you through every phase from here to keys. Bookmark it and come back whenever you need it.</p>
+      <p class="hero-sub">You're under contract, congratulations. This guide walks you through every phase from here to keys. Bookmark it and come back whenever you need it.</p>
     </div>
   </div>
 
@@ -355,7 +356,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
         <input type="date" id="date-settlement" placeholder="MM/DD/YYYY" onchange="saveDates()">
       </div>
       </div>
-    <div class="dates-note">⚠️ All REPC deadlines are 5:00 PM Mountain Time on the stated date. Fill these in from your contract — refer back to this section any time.</div>
+    <div class="dates-note">⚠️ All REPC deadlines are 5:00 PM Mountain Time on the stated date. Fill these in from your contract, refer back to this section any time.</div>
   </div>
 
   <!-- ══ PHASE 1 ══ -->
@@ -365,14 +366,14 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <div class="phase-icon-big">🎉</div>
       <div>
         <div class="phase-eyebrow">Phase 1 of 5</div>
-        <div class="phase-title">Congratulations — You're Under Contract</div>
+        <div class="phase-title">Congratulations, You're Under Contract</div>
         <div class="phase-tagline">First up: getting your earnest money submitted on time.</div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title"><span>💰</span> What Is Earnest Money?</div>
-      <p>Earnest money is a good-faith deposit that shows the seller you're serious. It's held by the title company and credited back to you at closing — it's not an extra cost, it's part of your purchase price.</p>
+      <p>Earnest money is a good-faith deposit that shows the seller you're serious. It's held by the title company and credited back to you at closing, it's not an extra cost, it's part of your purchase price.</p>
       <div class="warn"><strong>⏰ Deadline:</strong> Earnest money must be submitted within <strong>4 calendar days</strong> of contract acceptance. Missing this deadline puts your contract at risk.</div>
     </div>
 
@@ -383,14 +384,14 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
         <div class="step"><div class="step-num">2</div><div><div class="step-label">Wire Transfer</div><div class="step-note">Send funds electronically. Wire fees may apply. Read the wire fraud warning below before doing this.</div></div></div>
         <div class="step"><div class="step-num">3</div><div><div class="step-label">Mobile Deposit via the Earnest App</div><div class="step-note">A convenient digital option. Fees may apply. Kelsie can send the deposit request link directly to you.</div></div></div>
       </div>
-      <div class="tip"><strong>Reply to Kelsie with your preferred method</strong> — she'll send the Earnest App link or coordinate wire instructions with the title company.</div>
+      <div class="tip"><strong>Reply to Kelsie with your preferred method</strong>, she'll send the Earnest App link or coordinate wire instructions with the title company.</div>
     </div>
 
     <div class="card" style="border-left:3px solid #c0392b;">
-      <div class="card-title"><span>🚨</span> Wire Fraud Warning — Please Read</div>
+      <div class="card-title"><span>🚨</span> Wire Fraud Warning, Please Read</div>
       <p>Wire fraud specifically targets homebuyers. Before sending any money:</p>
       <ul class="blist">
-        <li><div class="bdot" style="background:#c0392b"></div><div>Call the title company directly to verify wire instructions — use their publicly listed number, not one from an email.</div></li>
+        <li><div class="bdot" style="background:#c0392b"></div><div>Call the title company directly to verify wire instructions, use their publicly listed number, not one from an email.</div></li>
         <li><div class="bdot" style="background:#c0392b"></div><div>Never trust wire instructions sent only via email without calling to confirm.</div></li>
         <li><div class="bdot" style="background:#c0392b"></div><div>Never trust a phone call from someone claiming to be from the title company who provides "updated" instructions.</div></li>
         <li><div class="bdot" style="background:#c0392b"></div><div>When in doubt, call Kelsie first. Slow down and verify before you send a single dollar.</div></li>
@@ -399,9 +400,9 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 
     <div class="card">
       <div class="card-title"><span>🎬</span> REPC Walkthrough Video</div>
-      <p>Want to understand the full purchase contract before diving in? Kelsie has a recorded walkthrough of the entire REPC — every section, what it protects, and what to watch for.</p>
-      <div class="video-btn-coming">▶ Full REPC Walkthrough — Coming Soon</div>
-      <div class="video-btn-coming" style="margin-top:8px;">▶ Earnest Money Section Deep Dive — Coming Soon</div>
+      <p>Want to understand the full purchase contract before diving in? Kelsie has a recorded walkthrough of the entire REPC, every section, what it protects, and what to watch for.</p>
+      <div class="video-btn-coming">▶ Full REPC Walkthrough, Coming Soon</div>
+      <div class="video-btn-coming" style="margin-top:8px;">▶ Earnest Money Section Deep Dive, Coming Soon</div>
     </div>
 
     <div class="card">
@@ -409,15 +410,15 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <ul class="blist" style="margin-top:8px;">
         <li><div class="bdot"></div><div>Seller will send their <strong>Seller Property Condition Disclosure (SPCD)</strong></div></li>
         <li><div class="bdot"></div><div>Title will send the <strong>plat map, ownership record, and any recorded liens</strong></div></li>
-        <li><div class="bdot"></div><div>You'll need to <strong>schedule inspections right away</strong> — your due diligence window is already running</div></li>
+        <li><div class="bdot"></div><div>You'll need to <strong>schedule inspections right away</strong>, your due diligence window is already running</div></li>
       </ul>
-      <div class="tip">Head to Phase 3 now to get inspections scheduled — don't wait for Phase 2 documents to arrive first.</div>
+      <div class="tip">Head to Phase 3 now to get inspections scheduled, don't wait for Phase 2 documents to arrive first.</div>
     </div>
 
     <div class="sdiv">Your To-Do List</div>
     <div class="card">
       <div class="checklist" id="cl-0">
-        <div class="ci" data-id="0-3" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Fill in your contract dates in the table above</div><div class="ci-note">Acceptance date, earnest deadline, due diligence, financing &amp; appraisal, and settlement — refer back to this any time</div></div></div>
+        <div class="ci" data-id="0-3" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Fill in your contract dates in the table above</div><div class="ci-note">Acceptance date, earnest deadline, due diligence, financing &amp; appraisal, and settlement, refer back to this any time</div></div></div>
         <div class="ci" data-id="0-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Reply to Kelsie with your preferred earnest money method</div></div></div>
         <div class="ci" data-id="0-1" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Submit earnest money within 4 calendar days of acceptance</div><div class="ci-note">Verify wire instructions by phone before sending any funds</div></div></div>
         <div class="ci" data-id="0-2" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Get a receipt or confirmation of your deposit</div></div></div>
@@ -447,35 +448,35 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <div class="card-title"><span>📄</span> Seller Property Condition Disclosure (SPCD)</div>
       <p>The seller is required to disclose any known issues with the property. When it arrives:</p>
       <ul class="blist">
-        <li><div class="bdot"></div><div><strong>Sign and initial to confirm receipt.</strong> This does NOT mean you agree with the condition — it only documents that you received it.</div></li>
-        <li><div class="bdot"></div><div>If anything raises a flag, forward it to Kelsie immediately — this feeds into your due diligence decisions.</div></li>
+        <li><div class="bdot"></div><div><strong>Sign and initial to confirm receipt.</strong> This does NOT mean you agree with the condition, it only documents that you received it.</div></li>
+        <li><div class="bdot"></div><div>If anything raises a flag, forward it to Kelsie immediately, this feeds into your due diligence decisions.</div></li>
       </ul>
-      <div class="video-btn-coming" style="margin-top:14px;">▶ Seller Disclosures Walkthrough — Coming Soon</div>
+      <div class="video-btn-coming" style="margin-top:14px;">▶ Seller Disclosures Walkthrough, Coming Soon</div>
     </div>
 
     <div class="card">
       <div class="card-title"><span>🏘️</span> HOA Documents &amp; CC&Rs <span style="font-size:12px;font-weight:400;color:var(--muted)">(if applicable)</span></div>
       <p>If the property is in an HOA, read these carefully. They outline fees, restrictions on the property, and rules that could affect how you use your home.</p>
-      <div class="tip">No signature required — just read them. Flag anything unusual for Kelsie before your due diligence deadline closes.</div>
+      <div class="tip">No signature required, just read them. Flag anything unusual for Kelsie before your due diligence deadline closes.</div>
     </div>
 
     <div class="card">
       <div class="card-title"><span>🏛️</span> Preliminary Title Report</div>
       <p>The title company will send the plat map, ownership on record, and any recorded liens, judgments, or easements.</p>
       <div class="steps" style="margin-top:12px;">
-        <div class="step"><div class="step-num">1</div><div><div class="step-label">Open and read it</div><div class="step-note">Look for anything unexpected — easements or liens you weren't aware of.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div><div class="step-label">Open and read it</div><div class="step-note">Look for anything unexpected, easements or liens you weren't aware of.</div></div></div>
         <div class="step"><div class="step-num">2</div><div><div class="step-label">Reply to the title company's email to confirm receipt</div></div></div>
         <div class="step"><div class="step-num">3</div><div><div class="step-label">Forward anything confusing to Kelsie</div></div></div>
       </div>
-      <div class="video-btn-coming" style="margin-top:14px;">▶ Title &amp; Title Insurance Walkthrough — Coming Soon</div>
+      <div class="video-btn-coming" style="margin-top:14px;">▶ Title &amp; Title Insurance Walkthrough, Coming Soon</div>
     </div>
 
     <div class="sdiv">Your To-Do List</div>
     <div class="card">
       <div class="checklist" id="cl-1">
-        <div class="ci" data-id="1-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Sign and initial the SPCD when it arrives</div><div class="ci-note">Confirms receipt only — not agreement with condition</div></div></div>
+        <div class="ci" data-id="1-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Sign and initial the SPCD when it arrives</div><div class="ci-note">Confirms receipt only, not agreement with condition</div></div></div>
         <div class="ci" data-id="1-1" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Read the HOA documents and CC&Rs (if applicable)</div></div></div>
-        <div class="ci" data-id="1-2" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Open the Preliminary Title Report and reply to the title company or your Transaction Coordinator to confirm receipt</div><div class="ci-note">Don't just open it — they need written confirmation from you</div></div></div>
+        <div class="ci" data-id="1-2" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Open the Preliminary Title Report and reply to the title company or your Transaction Coordinator to confirm receipt</div><div class="ci-note">Don't just open it, they need written confirmation from you</div></div></div>
         <div class="ci" data-id="1-3" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Forward anything confusing to Kelsie</div></div></div>
       </div>
     </div>
@@ -493,7 +494,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <div class="phase-icon-big">🔍</div>
       <div>
         <div class="phase-eyebrow">Phase 3 of 5</div>
-        <div class="phase-title">Due Diligence — Don't Skip This Part</div>
+        <div class="phase-title">Due Diligence, Don't Skip This Part</div>
         <div class="phase-tagline">Your window to dig in. Once it closes, your options get a lot more limited.</div>
       </div>
     </div>
@@ -503,7 +504,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     </div>
 
     <div class="card">
-      <div class="card-title"><span>🏠</span> Step 1: Get Inspections Scheduled — Now</div>
+      <div class="card-title"><span>🏠</span> Step 1: Get Inspections Scheduled, Now</div>
       <p>Most time-sensitive item on the list. Don't wait. A general home inspection covers the structural, mechanical, and overall condition of the property.</p>
       <div class="sdiv" style="margin-top:16px;">Inspectors Our Clients Have Loved</div>
       <div class="inspector-grid">
@@ -517,7 +518,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
         <li><div class="bdot"></div><div>Pest &amp; Termite Inspection</div></li>
         <li><div class="bdot"></div><div>Sewer Scope Inspection</div></li>
       </ul>
-      <div class="video-btn-coming" style="margin-top:14px;">▶ Buyer's Due Diligence Walkthrough — Coming Soon</div>
+      <div class="video-btn-coming" style="margin-top:14px;">▶ Buyer's Due Diligence Walkthrough, Coming Soon</div>
     </div>
 
     <div class="card">
@@ -544,15 +545,15 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <ul class="blist" style="margin-top:10px;">
         <li><div class="bdot"></div><div><strong>Move forward as-is</strong></div></li>
         <li><div class="bdot"></div><div><strong>Request repairs or concessions</strong> from the seller</div></li>
-        <li><div class="bdot"></div><div><strong>Walk away</strong> — that's what this period is for</div></li>
+        <li><div class="bdot"></div><div><strong>Walk away</strong>, that's what this period is for</div></li>
       </ul>
-      <div class="tip">Reply to Kelsie as soon as you have inspection results — even just "all clear." The sooner she knows, the more options you have.</div>
+      <div class="tip">Reply to Kelsie as soon as you have inspection results, even just "all clear." The sooner she knows, the more options you have.</div>
     </div>
 
     <div class="sdiv">Your To-Do List</div>
     <div class="card">
       <div class="checklist" id="cl-2">
-        <div class="ci" data-id="2-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Schedule general home inspection — do this today</div></div></div>
+        <div class="ci" data-id="2-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Schedule general home inspection, do this today</div></div></div>
         <div class="ci" data-id="2-1" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Consider optional add-on inspections</div></div></div>
         <div class="ci" data-id="2-2" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Research the property and neighborhood</div></div></div>
         <div class="ci" data-id="2-3" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Review inspection report when it arrives</div></div></div>
@@ -574,16 +575,16 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <div>
         <div class="phase-eyebrow">Phase 4 of 5</div>
         <div class="phase-title">Financing &amp; Appraisal</div>
-        <div class="phase-tagline">Your lender is working. Here's what's happening and what you need — or need to avoid — doing.</div>
+        <div class="phase-tagline">Your lender is working. Here's what's happening and what you need, or need to avoid, doing.</div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title"><span>📅</span> The Financing &amp; Appraisal Deadline</div>
       <p>This is one of the most important dates in your contract. It's the last day you can cancel based on financing or appraisal issues and still protect your earnest money. After this deadline, your earnest money becomes non-refundable if you back out for financing reasons.</p>
-      <div class="warn"><strong>Time is of the essence in Utah.</strong> All REPC deadlines are 5:00 PM Mountain Time. Extensions must be agreed to in writing — they don't happen automatically.</div>
-      <div class="video-btn-coming" style="margin-top:14px;">▶ Financing Condition Walkthrough — Coming Soon</div>
-      <div class="video-btn-coming" style="margin-top:8px;">▶ Appraisal Condition Walkthrough — Coming Soon</div>
+      <div class="warn"><strong>Time is of the essence in Utah.</strong> All REPC deadlines are 5:00 PM Mountain Time. Extensions must be agreed to in writing, they don't happen automatically.</div>
+      <div class="video-btn-coming" style="margin-top:14px;">▶ Financing Condition Walkthrough, Coming Soon</div>
+      <div class="video-btn-coming" style="margin-top:8px;">▶ Appraisal Condition Walkthrough, Coming Soon</div>
     </div>
 
     <div class="card">
@@ -591,8 +592,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <div class="steps">
         <div class="step"><div class="step-num">1</div><div><div class="step-label">Loan application submitted</div><div class="step-note">Already done before your offer was accepted.</div></div></div>
         <div class="step"><div class="step-num">2</div><div><div class="step-label">Appraisal ordered</div><div class="step-note">An independent appraiser visits the property to confirm its market value. Ordered by your lender from a blind pool.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div><div class="step-label">Underwriting review</div><div class="step-note">Respond to lender document requests immediately — delays here delay everything.</div></div></div>
-        <div class="step"><div class="step-num">4</div><div><div class="step-label">Conditional approval</div><div class="step-note">You may receive this first — underwriting needs a few more items before full approval.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div><div class="step-label">Underwriting review</div><div class="step-note">Respond to lender document requests immediately, delays here delay everything.</div></div></div>
+        <div class="step"><div class="step-num">4</div><div><div class="step-label">Conditional approval</div><div class="step-note">You may receive this first, underwriting needs a few more items before full approval.</div></div></div>
         <div class="step"><div class="step-num">5</div><div><div class="step-label">Clear to Close (CTC)</div><div class="step-note">The finish line. Financing is fully approved and you're ready to schedule settlement.</div></div></div>
       </div>
     </div>
@@ -601,7 +602,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <div class="card-title"><span>🏡</span> What Is the Appraisal?</div>
       <p>An independent assessment of the property's market value ordered by your lender.</p>
       <div class="steps" style="margin-top:12px;">
-        <div class="step"><div class="step-num">1</div><div><div class="step-label">Appraisal comes in at or above purchase price</div><div class="step-note">Best case — financing moves forward without issue.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div><div class="step-label">Appraisal comes in at or above purchase price</div><div class="step-note">Best case, financing moves forward without issue.</div></div></div>
         <div class="step"><div class="step-num">2</div><div><div class="step-label">Appraisal comes in low</div><div class="step-note">Your lender will only lend on the appraised amount. You'll need to negotiate a price reduction, pay the difference, or cancel within the appraisal deadline.</div></div></div>
       </div>
       <div class="tip"><strong>Now is not the time for big financial moves.</strong> No new credit cards, large purchases, job changes, or moving large sums between accounts.</div>
@@ -642,7 +643,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <div class="phase-icon-big">🏁</div>
       <div>
         <div class="phase-eyebrow">Phase 5 of 5</div>
-        <div class="phase-title">Settlement Day — You're Almost There</div>
+        <div class="phase-title">Settlement Day, You're Almost There</div>
         <div class="phase-tagline">The finish line is in sight. Here's what actually happens and when you get your keys.</div>
       </div>
     </div>
@@ -650,8 +651,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     <div class="card">
       <div class="card-title"><span>✍️</span> Signing Day (Settlement)</div>
       <p>You'll sign all final loan and closing documents. Important distinction:</p>
-      <div class="warn"><strong>Signing does not mean you officially own the home yet.</strong> Ownership is finalized at recording — not at signing.</div>
-      <div class="video-btn-coming" style="margin-top:14px;">▶ Settlement &amp; Closing Walkthrough — Coming Soon</div>
+      <div class="warn"><strong>Signing does not mean you officially own the home yet.</strong> Ownership is finalized at recording, not at signing.</div>
+      <div class="video-btn-coming" style="margin-top:14px;">▶ Settlement &amp; Closing Walkthrough, Coming Soon</div>
     </div>
 
     <div class="card">
@@ -666,7 +667,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 
     <div class="card">
       <div class="card-title"><span>🔑</span> Possession &amp; Keys</div>
-      <p>Possession follows the terms in your REPC. If your contract states <strong>"possession upon recording,"</strong> sellers release keys only after the deed records — not when you finish signing.</p>
+      <p>Possession follows the terms in your REPC. If your contract states <strong>"possession upon recording,"</strong> sellers release keys only after the deed records, not when you finish signing.</p>
     </div>
 
     <div class="card">
@@ -675,7 +676,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
         <li><div class="bdot"></div><div>Earlier signing → may record same day</div></li>
         <li><div class="bdot"></div><div>Later afternoon signing → recording likely next business day</div></li>
         <li><div class="bdot"></div><div><strong>Friday afternoon signing</strong> → recording happens Monday morning</div></li>
-        <li><div class="bdot"></div><div>County processes in order received — no way to rush this</div></li>
+        <li><div class="bdot"></div><div>County processes in order received, no way to rush this</div></li>
       </ul>
       <div class="tip">Kelsie will let you know the moment recording is confirmed. That's when it's keys time.</div>
     </div>
@@ -684,7 +685,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <div class="card-title"><span>📦</span> Before You Head to Closing</div>
       <ul class="blist">
         <li><div class="bdot"></div><div>Bring a valid government-issued photo ID</div></li>
-        <li><div class="bdot"></div><div>Confirm closing funds amount with title (cashier's check or wire) — verify wire instructions by phone</div></li>
+        <li><div class="bdot"></div><div>Confirm closing funds amount with title (cashier's check or wire), verify wire instructions by phone</div></li>
         <li><div class="bdot"></div><div>Schedule your final walkthrough before the signing appointment</div></li>
         <li><div class="bdot"></div><div>Utilities should already be set up in your name</div></li>
       </ul>
@@ -694,11 +695,11 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     <div class="sdiv">Final Checklist</div>
     <div class="card">
       <div class="checklist" id="cl-4">
-        <div class="ci" data-id="4-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Confirm closing funds with title company</div><div class="ci-note">Verify wire instructions by phone — never from email alone</div></div></div>
+        <div class="ci" data-id="4-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Confirm closing funds with title company</div><div class="ci-note">Verify wire instructions by phone, never from email alone</div></div></div>
         <div class="ci" data-id="4-1" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Complete final walkthrough before signing</div></div></div>
         <div class="ci" data-id="4-2" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Bring valid photo ID to signing</div></div></div>
         <div class="ci" data-id="4-3" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Sign all closing documents</div></div></div>
-        <div class="ci" data-id="4-4" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Wait for recording confirmation from Kelsie — then keys! 🎉</div></div></div>
+        <div class="ci" data-id="4-4" onclick="toggleCI(this)"><div class="cbox"><span class="cmark">✓</span></div><div class="ci-body"><div class="ci-label">Wait for recording confirmation from Kelsie, then keys! 🎉</div></div></div>
       </div>
     </div>
     <div class="nav-btns"><button class="btn-prev" onclick="goTo(3)">← Financing &amp; Appraisal</button></div>
