@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utah County Relocation Guide | Kelsie Jimenez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #2B3D30;
+      --green-mid:   #344A39;
+      --cream:       #F2E8D5;
+      --cream-dark:  #E4D5BC;
+      --sage:        #99A189;
+      --charcoal:    #1C1C1C;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Times New Roman', sans-serif;
+      color: var(--charcoal);
+      background: #FDFCFA;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV PILL (LearnHub reference) ─── */
+    .nav-wrap {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      width: calc(100% - 48px);
+      max-width: 1200px;
+    }
+    nav {
+      background: transparent;
+      border-radius: 100px;
+      padding: 10px 12px 10px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid rgba(242,232,213,0.0);
+      transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(43,61,48,0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-color: rgba(242,232,213,0.18);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--cream);
+      text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-ticker {
+      flex: 1;
+      overflow: hidden;
+      margin: 0 20px;
+      display: flex;
+      align-items: center;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+    }
+    .nav-ticker-track {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: city-scroll 32s linear infinite;
+    }
+    .nav-ticker-track span {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      font-weight: 300;
+      color: rgba(242,232,213,0.85);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+    }
+    @keyframes city-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .nav-ticker-track { animation: none; }
+    }
+    .nav-cta {
+      background: linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(242,232,213,0.45);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 2px 10px rgba(43,61,48,0.18);
+      color: var(--cream);
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      background: linear-gradient(135deg, rgba(43,61,48,0.95), rgba(43,61,48,0.78));
+      transform: scale(1.02);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 3px 14px rgba(43,61,48,0.26);
+    }
+
+    h1 em, h2 em, h3 em, .split-title em { font-style: italic; }
+
+    /* ─── PILL LABELS ─── */
+    .pill {
+      display: inline-block;
+      padding: 0;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin-bottom: 22px;
+    }
+    .pill-dark  { color: var(--green); }
+    .pill-light { color: rgba(242,232,213,0.8); }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.55) 100%);
+    }
+    .hero-body {
+      position: absolute;
+      bottom: 9%;
+      left: 50%; transform: translateX(-50%);
+      text-align: center;
+      color: #fff;
+      width: 90%;
+      max-width: 760px;
+      padding-bottom: 120px;
+    }
+    .hero-eyebrow {
+      font-size: 11.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      font-weight: 300;
+      margin-bottom: 18px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(56px, 9vw, 108px);
+      font-weight: 400;
+      line-height: 1.02;
+      margin-bottom: 22px;
+    }
+    .hero-sub {
+      font-size: 15.5px;
+      font-weight: 300;
+      opacity: 0.88;
+      line-height: 1.65;
+      max-width: 460px;
+      margin: 0 auto 36px;
+    }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-cream {
+      display: inline-block;
+      background: var(--cream);
+      color: var(--charcoal);
+      padding: 13px 30px;
+      border-radius: 100px;
+      font-size: 13.5px; font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-cream:hover { background: #fff; transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.55);
+      color: #fff;
+      padding: 13px 30px;
+      border-radius: 100px;
+      font-size: 13.5px; font-weight: 400;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+
+    /* ─── STATS BAR (hero overlay) ─── */
+    .hero-stats {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 14px 40px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 500;
+      color: var(--cream);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(242,232,213,0.75);
+      margin-top: 7px;
+    }
+
+    /* ─── WHY UTAH COUNTY: green bg + photo grid (Royal + tennis reference) ─── */
+    .why-section {
+      background: #FDFCFA;
+      padding: 100px 48px 80px;
+      text-align: center;
+    }
+    .why-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 5vw, 66px);
+      font-weight: 400;
+      color: var(--charcoal);
+      max-width: 680px;
+      margin: 0 auto 16px;
+      line-height: 1.12;
+    }
+    .why-section > p {
+      color: #6E6E68;
+      font-size: 15px; font-weight: 300;
+      max-width: 520px;
+      margin: 0 auto 56px;
+      line-height: 1.75;
+    }
+
+    /* Photo grid with hover overlays (tennis reference) */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      grid-template-rows: 280px 280px;
+      gap: 12px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .photo-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .photo-card:first-child { grid-row: 1 / 3; }
+    .photo-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+      display: block;
+    }
+    .photo-card:hover img { transform: scale(1.06); }
+    .photo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.32s;
+      display: flex;
+      align-items: flex-end;
+      padding: 22px 20px;
+    }
+    .photo-card:hover .photo-overlay { opacity: 1; }
+    .photo-info {
+      color: #fff;
+      transform: translateY(6px);
+      transition: transform 0.32s;
+    }
+    .photo-card:hover .photo-info { transform: translateY(0); }
+    .photo-tag {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.75;
+      margin-bottom: 5px;
+    }
+    .photo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px; font-weight: 400; font-style: italic;
+      line-height: 1.2;
+    }
+
+    /* ─── MEET KELSIE ─── */
+    .meet-section {
+      background: #FFFFFF;
+      padding: 100px 48px;
+    }
+    .meet-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 5fr 6fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .meet-photo {
+      aspect-ratio: 4 / 5;
+      border-radius: 16px;
+      background: #F1ECE2;
+      border: 1px dashed #C9BFA8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      color: #9A917D;
+      font-size: 13px;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+    }
+    .meet-copy h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 3.4vw, 46px);
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.16;
+      margin-bottom: 20px;
+    }
+    .meet-copy p {
+      font-size: 15px; font-weight: 300;
+      color: #666; line-height: 1.8;
+      margin-bottom: 18px;
+      max-width: 480px;
+    }
+    .meet-stats {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin: 30px 0 34px;
+    }
+    .meet-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: var(--green);
+      line-height: 1;
+    }
+    .meet-stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #999;
+      margin-top: 7px;
+    }
+    .btn-meet {
+      display: inline-block;
+      border: 1px solid var(--green);
+      color: var(--green);
+      padding: 13px 32px;
+      border-radius: 100px;
+      font-size: 13.5px; font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-meet:hover { background: var(--green); color: #fff; }
+    @media (max-width: 900px) {
+      .meet-inner { grid-template-columns: 1fr; gap: 36px; }
+      .meet-section { padding: 72px 24px; }
+      .meet-photo { max-width: 380px; margin: 0 auto; }
+    }
+
+    /* ─── INTERACTIVE COUNTY MAP ─── */
+    .xm-section { background: #FDFCFA; padding: 100px 48px; }
+    .xm-head { text-align: center; margin-bottom: 48px; }
+    .xm-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 54px);
+      font-weight: 400; line-height: 1.18;
+      margin-bottom: 12px;
+    }
+    .xm-head p { font-size: 15px; color: #888; font-weight: 300; max-width: 480px; margin: 0 auto; line-height: 1.7; }
+    .xm-wrap { position: relative; max-width: 680px; margin: 0 auto; }
+    .xm-wrap svg { width: 100%; height: auto; display: block; }
+    .xm-lake { fill: #D7E0DB; }
+    .xm-city { fill: #E8E6DF; stroke: #FDFCFA; stroke-width: 1.2; cursor: pointer; transition: fill .18s ease; outline: none; }
+    .xm-city:hover { fill: #C9D4C6; }
+    .xm-city:focus-visible { stroke: var(--green); stroke-width: 2; }
+    .xm-city.active { fill: var(--green); }
+    .xm-lbl { font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .8px; fill: #8B8B84; text-anchor: middle; pointer-events: none; }
+    .xm-lbl.on { fill: #fff; }
+    .xm-lakelbl { font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; fill: #9FB0A8; text-anchor: middle; pointer-events: none; letter-spacing: 2px; }
+    .xm-card {
+      position: absolute; width: min(290px, calc(100% - 12px));
+      background: rgba(255,255,255,.8); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(28,28,26,.1); border-radius: 12px; padding: 16px 18px;
+      box-shadow: 0 8px 28px rgba(28,28,26,.08);
+      opacity: 0; transform: translateY(8px);
+      transition: opacity .22s ease, transform .22s ease; pointer-events: none;
+    }
+    .xm-card.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .xm-card.tl { left: 6px; top: 6px; }
+    .xm-card.tr { right: 6px; top: 6px; }
+    .xm-close {
+      position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border: 0; border-radius: 50%;
+      background: rgba(28,28,26,.07); color: #6E6E68; font-size: 15px; line-height: 28px;
+      text-align: center; cursor: pointer; padding: 0;
+    }
+    .xm-close:hover { background: rgba(28,28,26,.14); }
+    .xm-place { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 21px; color: var(--charcoal); margin-bottom: 6px; }
+    .xm-desc { font-size: 13px; line-height: 1.55; color: var(--charcoal); margin-bottom: 12px; }
+    .xm-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(28,28,26,.1); padding-top: 10px; margin-bottom: 10px; }
+    .xm-price { font-size: 17px; font-weight: 500; }
+    .xm-price small { display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 1px; }
+    .xm-explore { font-size: 13px; color: var(--charcoal); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+    .xm-cta {
+      display: block; text-align: center; background: var(--green); color: #fff; font-size: 13px; font-weight: 500;
+      text-decoration: none; border-radius: 100px; padding: 11px 16px; transition: opacity .15s ease;
+    }
+    .xm-cta:hover { opacity: .88; }
+    .xm-nudge {
+      position: absolute; left: 14px; bottom: 14px; background: rgba(255,255,255,.8);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(28,28,26,.1); border-radius: 100px; padding: 9px 16px;
+      font-size: 13px; color: #6E6E68; transition: opacity .3s ease;
+    }
+    .xm-nudge.hide { opacity: 0; pointer-events: none; }
+    .xm-foot { margin-top: 18px; font-size: 12px; color: #999; text-align: center; }
+    @media (max-width: 640px) {
+      .xm-section { padding: 72px 18px; }
+      .xm-card, .xm-card.tl, .xm-card.tr {
+        position: fixed; left: 0; right: 0; bottom: 0; top: auto; width: auto;
+        border-radius: 16px 16px 0 0; border-bottom: 0;
+        padding: 18px 20px calc(18px + env(safe-area-inset-bottom));
+        transform: translateY(100%); box-shadow: 0 -8px 28px rgba(28,28,26,.14); z-index: 500;
+      }
+      .xm-card.show { transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .xm-city, .xm-card, .xm-nudge { transition: none; }
+    }
+
+    /* ─── FEATURE CARDS with hover "Learn More" (LearnHub reference) ─── */
+    .features-section {
+      background: #fff;
+      padding: 100px 48px;
+    }
+    .features-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .features-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 4vw, 54px);
+      font-weight: 500;
+      line-height: 1.18;
+      margin-bottom: 12px;
+    }
+    .features-head p {
+      font-size: 15px; color: #888; font-weight: 300;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: #F8F5EE;
+      border-radius: 16px;
+      padding: 38px 32px 32px;
+      position: relative;
+      transition: transform 0.22s, box-shadow 0.22s;
+      cursor: default;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 48px rgba(0,0,0,0.09);
+    }
+    .feature-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px; font-weight: 300;
+      color: rgba(43,61,48,0.10);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .feature-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 23px; font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 11px;
+    }
+    .feature-body {
+      font-size: 13.5px; color: #666;
+      line-height: 1.75; font-weight: 300;
+    }
+    /* Hover "Learn More" card (LearnHub reference) */
+    .feature-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 22px;
+      font-size: 12.5px; font-weight: 500;
+      color: var(--green);
+      text-decoration: none;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity 0.22s, transform 0.22s;
+    }
+    .feature-more svg { width: 14px; height: 14px; }
+    .feature-card:hover .feature-more {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── SPLIT SECTIONS (The Royal reference) ─── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 580px;
+    }
+    .split-img { overflow: hidden; }
+    .split-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s ease;
+      display: block;
+    }
+    .split-img:hover img { transform: scale(1.04); }
+
+    .split-copy {
+      padding: 80px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .split-copy.green  { background: #FFFFFF; }
+    .split-copy.cream  { background: #F8F5EE; }
+
+    .split-eyebrow {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin-bottom: 18px;
+    }
+    .split-copy.green .split-eyebrow { color: var(--green); }
+    .split-copy.cream .split-eyebrow { color: var(--green); }
+
+    .split-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 3.2vw, 50px);
+      font-weight: 400;
+      line-height: 1.18;
+      margin-bottom: 20px;
+    }
+    .split-copy.green .split-title { color: var(--charcoal); }
+    .split-copy.cream .split-title { color: var(--charcoal); }
+
+    .split-body {
+      font-size: 14.5px; font-weight: 300;
+      line-height: 1.82;
+      margin-bottom: 30px;
+    }
+    .split-copy.green .split-body { color: #666; }
+    .split-copy.cream .split-body { color: #666; }
+
+    .split-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .split-list li {
+      display: flex; align-items: flex-start; gap: 14px;
+      font-size: 13.5px; font-weight: 300; line-height: 1.5;
+    }
+    .split-copy.green .split-list li { color: #555; }
+    .split-copy.cream .split-list li { color: #555; }
+    .split-list li::before {
+      content: '';
+      width: 22px; height: 1px;
+      flex-shrink: 0;
+      margin-top: 9px;
+    }
+    .split-copy.green .split-list li::before { background: var(--green); }
+    .split-copy.cream .split-list li::before { background: var(--green); }
+
+    /* ─── AREA CONTEXT SECTION ─── */
+    .area-section {
+      background: #FDFCFA;
+      padding: 100px 48px;
+    }
+    .area-inner { max-width: 1080px; margin: 0 auto; }
+    .area-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-bottom: 64px;
+    }
+    .area-intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 3.5vw, 50px);
+      font-weight: 400; font-style: italic;
+      line-height: 1.18;
+    }
+    .area-intro p {
+      font-size: 15px; color: #666;
+      font-weight: 300; line-height: 1.82;
+      padding-top: 6px;
+    }
+    .area-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .area-pillar { border-top: 2px solid var(--green); padding-top: 20px; }
+    .area-pillar-label {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+    .area-pillar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; font-weight: 500;
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .area-pillar p { font-size: 13.5px; color: #666; font-weight: 300; line-height: 1.72; }
+
+    /* ─── ZILLOW SECTION ─── */
+    .zillow-section {
+      background: #fff;
+      padding: 100px 48px;
+    }
+    .zillow-head { text-align: center; margin-bottom: 48px; }
+    .zillow-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 54px);
+      font-weight: 400;
+      margin-bottom: 12px; line-height: 1.18;
+    }
+    .zillow-head p { font-size: 15px; color: #888; font-weight: 300; }
+    .house-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 260px);
+      gap: 12px;
+      max-width: 1080px;
+      margin: 0 auto 48px;
+    }
+    .house-card { border-radius: 10px; overflow: hidden; }
+    .house-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .house-card:hover img { transform: scale(1.05); }
+    .zillow-cta-wrap { text-align: center; margin-bottom: 80px; }
+    .btn-zillow {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 100px;
+      font-size: 14.5px; font-weight: 400;
+      font-family: 'Times New Roman', Georgia, serif;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: all 0.22s;
+    }
+    .btn-zillow:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(43,61,48,0.28);
+    }
+    .zillow-reviews-head { text-align: center; margin-bottom: 36px; }
+    .zillow-reviews-head h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 400;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .rcard { background: #F8F5EE; border-radius: 12px; padding: 30px 26px; }
+    .rcard-stars { color: var(--sage); font-size: 14px; margin-bottom: 14px; }
+    .rcard-text {
+      font-size: 14px; font-style: italic;
+      color: #555; font-weight: 300; line-height: 1.78;
+      margin-bottom: 20px;
+    }
+    .rcard-name { font-size: 13px; font-weight: 500; color: var(--green); letter-spacing: 0.04em; }
+    .rcard-location { font-size: 11.5px; color: #aaa; margin-top: 3px; }
+
+    /* ─── LEAD CAPTURE FORM ─── */
+    .form-section {
+      background: var(--green);
+      padding: 100px 48px;
+    }
+    .form-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+    .form-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 50px);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 12px; line-height: 1.15;
+    }
+    .form-inner > p {
+      font-size: 15px; color: rgba(242,232,213,0.62);
+      font-weight: 300; line-height: 1.72;
+      margin-bottom: 44px;
+    }
+    .lead-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field label {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(242,232,213,0.55);
+    }
+    .form-field input,
+    .form-field select {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(242,232,213,0.2);
+      border-radius: 8px;
+      padding: 13px 16px;
+      font-size: 14px;
+      color: var(--cream);
+      font-family: 'Times New Roman', serif;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-field input::placeholder { color: rgba(242,232,213,0.3); }
+    .form-field input:focus,
+    .form-field select:focus {
+      border-color: var(--sage);
+      background: rgba(255,255,255,0.11);
+    }
+    .form-field select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F2E8D5' stroke-opacity='0.4' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .form-field select option { background: #2B3D30; color: #F2E8D5; }
+    .btn-submit {
+      margin-top: 8px;
+      background: var(--cream);
+      color: var(--charcoal);
+      border: none;
+      padding: 15px 40px;
+      border-radius: 100px;
+      font-size: 14px; font-weight: 500;
+      font-family: 'Times New Roman', serif;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      align-self: center;
+      transition: all 0.22s;
+    }
+    .btn-submit:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    /* ─── ZILLOW INLINE CTA ─── */
+    .zillow-cta-inline {
+      background-color: #F7F4F0;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .zillow-cta-inline-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .zillow-inline-btn {
+      display: inline-block;
+      background-color: #2D4A35;
+      color: #F7F4F0;
+      font-family: 'Times New Roman', serif;
+      font-size: 1.1rem;
+      padding: 16px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .zillow-inline-btn:hover {
+      background-color: #99A189;
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      background: #FDFCFA;
+      padding: 120px 48px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 5vw, 72px);
+      font-weight: 400; font-style: italic;
+      color: var(--charcoal);
+      max-width: 680px;
+      margin: 0 auto 18px;
+      line-height: 1.08;
+    }
+    .cta-section p {
+      font-size: 15px; color: #777;
+      max-width: 500px;
+      margin: 0 auto 40px;
+      font-weight: 300; line-height: 1.75;
+    }
+    .btn-green {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 15px 38px;
+      border-radius: 100px;
+      font-size: 14px; font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: all 0.22s;
+    }
+    .btn-green:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(43,61,48,0.28);
+    }
+
+    /* ─── CLICKABLE CARD OVERLAY TEXT ─── */
+    .card-overlay-wrap {
+      position: absolute;
+      bottom: 32px;
+      left: 36px;
+      right: 36px;
+      text-align: left;
+      padding-right: 130px;
+    }
+    .card-overlay-label {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(28px, 4vw, 48px);
+      color: var(--cream);
+      line-height: 1.12;
+      margin-bottom: 10px;
+    }
+    .card-overlay-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.65;
+      opacity: 0.88;
+    }
+
+    /* ─── HAMBURGER MENU ─── */
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--cream);
+      border-radius: 2px;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.35));
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .nav-dropdown {
+      display: block;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+    @media (min-width: 901px) {
+      .nav-dropdown { left: auto; width: 300px; }
+    }
+    .nav-dropdown.open { opacity: 1; pointer-events: all; }
+    .nav-dropdown a {
+      display: flex;
+      align-items: center;
+      height: 48px;
+      padding: 0 24px;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .nav-dropdown a:last-child { border-bottom: none; }
+    .nav-dropdown a:hover { background: var(--cream-dark); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--charcoal);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Times New Roman', serif;
+      font-size: 19px; font-weight: 500; font-style: italic;
+      color: var(--cream);
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-copy {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.28);
+    }
+
+    @media (max-width: 768px) {
+      .nav-wrap { width: calc(100% - 32px); left: 50%; transform: translateX(-50%); }
+      nav { padding: 10px 20px; }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        gap: 16px 0;
+        padding: 12px 16px;
+      }
+      .stat-num { font-size: clamp(20px, 5vw, 28px); }
+
+      .features-grid { grid-template-columns: 1fr; }
+
+      .split { grid-template-columns: 1fr; }
+      .split-img { height: 280px; }
+      .split-copy { padding: 48px 28px; }
+      #community-split .split-title { font-size: clamp(20px, 4vw, 32px); }
+      #community-split .split-copy { padding-bottom: 60px; }
+      .card-overlay-label { font-size: clamp(18px, 4vw, 26px); }
+      .card-overlay-sub { font-size: 13px; }
+      #practical-card-text { padding-right: 120px; }
+      #practical-card-text .card-overlay-label { font-size: clamp(20px, 5vw, 28px); font-weight: 500; }
+      #practical-card-text .card-overlay-sub { font-size: 13px; }
+
+      .area-pillars { grid-template-columns: 1fr; }
+      .area-intro { grid-template-columns: 1fr; }
+
+      .zillow-cta-wrap { overflow: hidden; }
+      .zillow-cta-wrap img { max-width: 100%; width: 100%; overflow: hidden; }
+
+      .reviews-grid { grid-template-columns: 1fr; }
+
+      .why-section,
+      .features-section,
+      .area-section,
+      .zillow-section,
+      .cta-section,
+      .form-section { padding: 72px 24px; }
+
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 220px;
+      }
+
+      .feature-more { opacity: 1; visibility: visible; margin-top: 20px; display: inline-flex; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAV PILL -->
+  <div class="nav-wrap">
+    <nav id="main-nav">
+      <a href="#" class="nav-logo">Kelsie Jimenez</a>
+      <div class="nav-ticker" aria-hidden="true">
+        <div class="nav-ticker-track">
+          <span>LEHI&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SARATOGA SPRINGS&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;EAGLE MOUNTAIN&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;AMERICAN FORK&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PLEASANT GROVE&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;LINDON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;OREM&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PROVO&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;VINEYARD&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SPRINGVILLE&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SPANISH FORK&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;MAPLETON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PAYSON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SALEM&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SANTAQUIN&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;</span>
+          <span>LEHI&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SARATOGA SPRINGS&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;EAGLE MOUNTAIN&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;AMERICAN FORK&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PLEASANT GROVE&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;LINDON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;OREM&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PROVO&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;VINEYARD&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SPRINGVILLE&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SPANISH FORK&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;MAPLETON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;PAYSON&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SALEM&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;SANTAQUIN&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <a href="#contact" class="nav-cta">Work With Me</a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="nav-dropdown" id="nav-dropdown">
+      <a href="#why-utah">Why Utah</a>
+      <a href="#meet-kelsie">Meet Kelsie</a>
+      <a href="#life-here">Life Here</a>
+      <a href="https://guide.kelsiejimenez.com/neighborhoods.html">Neighborhoods</a>
+      <a href="https://guide.kelsiejimenez.com/community.html">Community</a>
+      <a href="https://guide.kelsiejimenez.com/outdoors.html">Outdoors</a>
+      <a href="https://guide.kelsiejimenez.com/homes.html">Homes</a>
+      <a href="https://guide.kelsiejimenez.com/new-construction.html">New Construction</a>
+      <a href="https://guide.kelsiejimenez.com/commute.html">Commute</a>
+      <a href="https://guide.kelsiejimenez.com/schools.html">Schools</a>
+      <a href="https://guide.kelsiejimenez.com/practical-stuff.html">The Utah Learning Curve</a>
+      <a href="#reviews">Reviews</a>
+      <a href="https://guide.kelsiejimenez.com/resources.html">Resources</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="hero.jpg" alt="Utah County landscape">
+    <div class="hero-overlay"></div>
+    <div class="hero-body">
+      <p class="hero-eyebrow">Your complete guide to Utah County</p>
+      <h1 class="hero-title"><em>Life</em> in<br>Utah County</h1>
+      <p class="hero-sub">Everything you need to know before you make the move, from a local who loves it here and knows this market inside and out.</p>
+
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">300+</div>
+        <div class="stat-label">Sunny Days a Year</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">30 min</div>
+        <div class="stat-label">To Salt Lake City</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5 National Parks</div>
+        <div class="stat-label">Within a Day's Drive</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Top 5</div>
+        <div class="stat-label">Growth County in the US</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY UTAH COUNTY -->
+  <section class="why-section" id="why-utah">
+    <span class="pill pill-dark">Why Utah County</span>
+    <h2>More than a place to live,<br>it's a place to <em>belong</em></h2>
+    <p>Utah County has a way of surprising people. The mountains, the community, the pace of life. It adds up to something most people didn't know they were looking for until they found it.</p>
+
+    <a href="https://guide.kelsiejimenez.com/community.html" style="text-decoration:none; display:block; max-width:900px; margin:0 auto;">
+      <div style="width:100%; height:480px; border-radius:16px; overflow:hidden; position:relative; cursor:pointer;">
+        <img src="downtownprovo.jpg" alt="Community Life in Utah County" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div style="position:absolute; inset:0; background:linear-gradient(to bottom, transparent 45%, rgba(0,0,0,0.4) 100%);"></div>
+        <div class="card-overlay-wrap">
+          <p class="card-overlay-label">Community Life in Utah County</p>
+          <p class="card-overlay-sub" style="font-family:'Lato',sans-serif;">Tap to explore events, hidden gems, local culture, and what makes this place feel like home.</p>
+        </div>
+        <span style="position:absolute; bottom:20px; right:20px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.6); color:#F2E8D5; font-family:'Lato',sans-serif; font-size:13px; font-weight:400; padding:8px 16px; border-radius:20px; letter-spacing:0.05em;">Explore →</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- MEET KELSIE -->
+  <section class="meet-section" id="meet-kelsie">
+    <div class="meet-inner">
+      <div class="meet-photo">
+        PHOTO PLACEHOLDER<br><br>
+        Kelsie + the goldendoodles<br>
+        plain forest green backdrop<br>
+        vertical crop, 4:5
+      </div>
+      <div class="meet-copy">
+        <span class="pill pill-dark">Meet Kelsie</span>
+        <h2>I moved 10 times before <em>choosing</em> Utah County</h2>
+        <p>Utah, Wyoming, California, Colorado. I grew up in Pleasant Grove, spent thirteen years living everywhere else, and came back on purpose. That's the part most agents can't say: I know exactly what it costs to land somewhere new, because I've done it ten times.</p>
+        <p>Now I help people move here without the mistakes I made, and I walk every home like the contractor's kid I am.</p>
+        <div class="meet-stats">
+          <div><div class="meet-stat-num">10</div><div class="meet-stat-label">Moves Survived</div></div>
+          <div><div class="meet-stat-num">4</div><div class="meet-stat-label">States Lived In</div></div>
+          <div><div class="meet-stat-num">1</div><div class="meet-stat-label">Place Chosen Twice</div></div>
+        </div>
+        <a href="#contact" class="btn-meet">Say Hello</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE CARDS with hover Learn More -->
+  <section class="features-section" id="life-here">
+    <div class="features-head">
+      <span class="pill pill-dark">Life Here</span>
+      <h2>What to expect when<br>you <em>land</em> in Utah County</h2>
+      <p>The honest truth, from someone who actually lives it.</p>
+    </div>
+    <div class="features-grid">
+
+      <a href="https://guide.kelsiejimenez.com/outdoors.html" style="text-decoration:none; color:inherit; display:block;">
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <h3 class="feature-title">The Outdoors Are Everything</h3>
+        <p class="feature-body">You're 20 minutes from world-class hiking, skiing, and camping. People don't just move here for a house. They move here for mountain access that permanently changes how you spend your weekends.</p>
+        <span class="feature-more" style="display:inline-flex; align-items:center; gap:5px; margin-top:22px; font-size:12.5px; font-weight:500; color:var(--green);">
+          Explore the Outdoors
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </span>
+      </div>
+      </a>
+
+      <a href="https://guide.kelsiejimenez.com/commute.html" style="text-decoration:none; color:inherit; display:block;">
+      <div class="feature-card">
+        <div class="feature-num">02</div>
+        <h3 class="feature-title">The Commute Is Manageable</h3>
+        <p class="feature-body">Salt Lake City is 30 minutes north. The FrontRunner train runs through Utah County. Most families enjoy the space and pace of the county while keeping a city job, which is one of the most underrated parts of living here.</p>
+        <span class="feature-more" style="display:inline-flex; align-items:center; gap:5px; margin-top:22px; font-size:12.5px; font-weight:500; color:var(--green);">
+          Explore commute by city
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </span>
+      </div>
+      </a>
+
+      <a href="https://guide.kelsiejimenez.com/schools.html" style="text-decoration:none; color:inherit; display:block;">
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <h3 class="feature-title">Schools Are a Real Selling Point</h3>
+        <p class="feature-body">School districts here consistently rank among the best in the state. Families who move here are often surprised how much weight this adds to their decision, and how much it shapes neighborhood choice.</p>
+        <span class="feature-more" style="display:inline-flex; align-items:center; gap:5px; margin-top:22px; font-size:12.5px; font-weight:500; color:var(--green);">
+          Explore Schools
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </span>
+      </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ZILLOW INLINE CTA -->
+  <section class="zillow-cta-inline">
+    <div class="zillow-cta-inline-inner">
+      <a href="https://www.zillow.com/profile/kelsie%20jimenez" target="_blank" rel="noopener" class="zillow-inline-btn">
+        Searching homes on Zillow? Make sure inquiries reach me →
+      </a>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE COUNTY MAP -->
+  <section class="xm-section" id="explore-map">
+    <div class="xm-head">
+      <span class="pill pill-dark">Find Your Neighborhood</span>
+      <h2>Tap a city. See what <em>life</em> costs there.</h2>
+      <p>Real city boundaries, not dots on a map. Utah County is bigger and more varied than most people expect, and where you land changes everything.</p>
+    </div>
+    <div class="xm-wrap">
+      <svg viewBox="0 0 760 886.9" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Interactive map of Utah County cities">
+        <path class="xm-lake" d="M578.9 416.7L583.0 423.9L584.0 433.7L582.0 444.0L577.7 452.4L571.7 458.2L555.5 461.4L538.0 469.4L522.3 465.8L512.6 466.7L506.4 475.2L501.8 488.2L495.0 498.0L486.5 504.2L476.1 505.1L443.9 498.4L425.6 500.2L409.4 514.9L398.7 527.9L394.3 535.5L380.6 579.2L379.1 589.5L379.8 597.5L385.6 606.9L385.6 610.0L380.0 620.3L365.1 635.5L362.6 644.4L360.0 662.3L355.7 668.1L346.9 673.0L328.6 679.2L323.9 679.2L322.3 674.8L326.6 640.8L341.1 633.3L347.4 624.8L342.5 614.5L321.3 595.7L315.9 586.8L315.2 577.0L317.7 558.2L316.2 551.6L302.7 540.4L295.7 530.1L294.4 516.3L302.2 499.8L354.0 422.5L375.5 369.8L383.7 341.3L384.7 324.3L380.0 307.8L352.5 249.3L334.4 221.6L332.4 215.4L336.1 209.1L345.5 201.5L360.5 195.7L381.3 194.4L403.1 199.3L458.0 218.9L469.1 226.5L478.3 237.2L483.4 249.3L486.0 280.5L489.2 296.2L496.4 307.8L514.8 324.3L520.1 332.8L519.2 341.3L511.6 356.9L510.7 364.5L516.5 385.9L516.8 400.2L518.9 410.5L526.6 410.9L537.5 407.3L546.8 406.9L563.9 409.1L572.1 411.8L578.9 416.7Z"/>
+        <path class="xm-city" d="M265.4 139.3L265.4 133.8L279.8 133.6L281.6 122.7L287.4 122.6L294.2 113.2L295.3 109.0L294.8 105.1L292.3 102.2L295.3 99.1L296.9 94.9L298.5 94.8L299.7 92.5L302.2 93.0L309.4 89.1L321.8 89.0L321.7 67.9L326.7 67.1L327.8 64.1L332.5 61.4L333.2 59.0L336.9 56.0L349.2 55.8L349.1 66.9L363.5 66.9L360.3 72.5L358.9 78.7L355.9 83.3L356.1 89.9L358.9 94.7L364.5 97.0L364.5 94.6L375.5 94.6L375.5 100.1L386.6 100.1L386.6 97.3L391.8 95.9L391.7 89.0L397.6 88.9L397.6 93.7L400.7 93.0L403.2 90.7L403.1 94.7L408.6 94.7L408.7 105.5L406.2 105.5L406.0 108.7L408.0 116.1L413.6 116.9L409.8 118.6L405.2 123.2L401.6 123.8L401.6 126.9L403.2 126.9L403.2 128.2L397.9 127.7L398.0 135.9L400.4 133.3L403.3 133.1L403.4 140.1L400.7 141.3L400.8 144.0L407.7 144.1L407.7 149.7L403.6 149.7L403.7 152.5L402.3 152.5L402.3 157.9L400.9 157.9L401.4 166.3L400.2 167.3L400.2 171.7L401.6 171.6L402.3 159.4L403.6 159.4L403.6 161.0L408.7 161.9L408.3 165.7L409.2 165.7L409.2 163.9L412.0 164.9L411.0 166.2L405.7 166.5L405.9 177.3L407.0 177.3L406.9 179.1L408.4 180.5L408.1 182.7L403.3 181.8L402.3 188.5L400.5 192.5L401.2 195.4L402.7 195.4L402.7 198.9L400.0 198.9L400.0 200.0L396.7 199.2L396.8 202.6L394.3 203.9L392.2 208.1L391.1 212.6L394.0 212.7L392.5 232.4L362.6 224.8L362.6 217.7L355.6 217.7L355.6 211.9L349.9 212.0L349.9 209.3L358.4 206.5L358.4 203.8L352.7 203.8L352.7 206.5L349.9 206.5L347.4 209.1L348.1 213.3L338.7 213.9L338.7 212.0L335.8 212.6L334.9 209.3L333.0 209.3L333.1 199.5L331.7 199.5L331.7 198.1L327.4 198.2L327.4 196.7L320.9 197.0L320.9 202.6L315.4 202.6L316.8 216.5L313.1 216.5L309.5 211.8L310.7 211.2L307.2 208.1L311.8 201.7L306.6 198.9L306.6 196.9L301.4 195.8L301.1 194.5L310.0 186.3L314.0 187.1L314.7 185.4L310.6 184.4L309.9 180.0L311.0 177.9L308.8 178.0L308.6 176.1L297.8 177.6L296.7 172.7L301.7 166.9L300.1 166.1L303.5 163.8L303.5 155.7L297.6 155.7L298.5 150.2L287.4 150.3L287.4 144.8L286.5 144.8L285.9 139.2L265.4 139.3Z" data-slug="lehi" tabindex="0" role="button" aria-label="Lehi"/><path class="xm-city" d="M226.6 172.3L226.6 164.7L228.1 164.0L240.2 161.2L254.1 161.6L254.2 166.4L265.1 166.9L265.4 139.3L285.9 139.2L286.5 144.8L287.4 144.8L287.4 150.3L298.5 150.2L297.6 155.7L303.5 155.7L303.5 163.8L300.1 166.1L301.7 166.9L296.7 172.7L297.8 177.6L308.6 176.1L308.8 178.0L311.0 177.9L309.9 180.0L310.6 184.4L314.7 185.4L314.0 187.1L310.0 186.3L301.1 194.5L301.4 195.8L306.6 196.9L306.6 198.9L311.8 201.7L307.2 208.1L310.7 211.2L309.5 211.8L313.1 216.5L316.8 216.5L315.4 202.6L320.9 202.6L320.9 197.0L327.4 196.7L327.4 198.2L331.7 198.1L331.7 199.5L333.1 199.5L333.1 202.1L326.4 201.9L326.4 206.6L333.0 206.5L333.0 209.3L334.9 209.3L335.8 212.6L338.7 212.0L338.8 215.0L344.3 215.0L341.8 215.6L341.8 217.7L350.8 217.7L350.8 214.8L355.6 213.4L355.6 217.7L362.6 217.7L362.6 224.8L333.9 224.3L321.2 227.6L316.4 233.8L313.7 241.5L306.8 250.1L304.2 258.4L318.8 268.7L321.9 274.4L322.7 280.6L330.2 288.8L335.7 297.3L335.9 301.2L340.6 308.3L368.6 364.5L345.3 365.1L345.3 370.4L341.2 370.4L341.0 376.0L333.5 376.0L333.5 359.6L317.1 359.6L317.1 354.1L310.7 354.1L310.7 326.7L299.4 326.7L299.4 321.3L293.9 321.3L293.6 303.9L293.6 299.4L299.3 299.4L299.3 304.9L310.7 304.8L310.7 288.4L287.9 288.4L287.9 269.6L286.5 268.8L286.7 266.5L276.5 266.5L276.4 255.5L254.2 255.4L254.1 266.5L248.6 266.5L248.7 249.8L265.2 249.9L265.1 222.3L248.7 222.1L247.6 212.5L243.3 211.1L243.3 206.0L254.3 189.4L254.3 178.2L259.8 178.1L259.8 172.6L226.6 172.3Z" data-slug="saratoga-springs" tabindex="0" role="button" aria-label="Saratoga Springs"/><path class="xm-city" d="M51.0 308.0L84.9 307.8L86.7 319.3L106.5 319.1L106.5 308.0L150.8 308.1L150.8 266.2L155.0 266.0L155.4 200.0L166.4 200.1L166.6 189.1L177.7 189.2L177.7 178.1L224.5 178.2L226.6 177.9L226.6 172.3L259.8 172.6L259.8 178.1L254.3 178.2L254.3 189.4L243.3 206.0L243.3 211.1L247.6 212.5L248.7 222.1L265.1 222.3L265.2 244.5L243.2 244.2L243.1 266.5L239.5 266.5L239.5 269.6L242.3 269.6L242.3 275.1L250.4 275.1L250.5 286.1L245.0 286.1L245.0 280.6L239.5 280.6L239.4 353.0L260.9 353.0L260.9 374.8L239.4 374.8L239.4 396.9L217.1 396.9L217.0 418.8L195.0 419.1L195.0 396.8L150.7 396.8L150.8 352.4L128.6 352.4L128.6 341.1L117.3 341.3L117.4 349.7L94.4 349.2L94.9 341.3L67.7 341.4L67.7 330.1L51.1 330.0L51.0 308.0Z" data-slug="eagle-mountain" tabindex="0" role="button" aria-label="Eagle Mountain"/><path class="xm-city" d="M399.9 225.3L405.5 225.2L405.5 221.9L407.1 221.9L407.2 219.0L408.2 219.0L408.4 223.3L411.4 223.3L411.1 238.1L399.8 234.0L399.9 225.3ZM391.1 212.6L394.3 203.9L396.8 202.6L396.7 199.2L400.0 200.0L400.0 198.9L402.7 198.9L402.7 195.4L401.2 195.4L400.5 192.5L402.3 188.5L403.3 181.8L408.1 182.7L408.5 179.5L405.9 177.3L405.7 166.5L411.5 166.1L416.5 160.4L419.6 160.3L420.1 158.3L422.0 158.3L422.0 155.2L424.1 155.1L424.5 157.0L428.0 155.9L428.0 157.4L435.0 156.3L434.3 158.8L436.1 155.0L438.0 154.9L437.9 156.7L444.6 155.0L445.7 151.8L452.9 151.3L453.8 155.1L464.1 155.0L464.1 149.6L465.2 149.5L464.1 146.9L466.8 146.7L466.0 153.4L469.6 153.6L470.3 155.7L474.6 156.9L474.0 171.3L475.3 171.4L475.4 187.3L474.0 190.2L474.6 198.7L472.0 198.7L471.9 201.6L469.0 200.4L470.0 201.5L469.0 201.5L468.7 212.7L467.8 212.7L467.9 219.4L462.9 219.3L462.8 217.2L455.7 217.2L455.7 221.2L459.1 221.2L459.0 226.9L463.1 226.8L464.3 236.1L463.0 235.0L462.9 244.0L454.6 244.0L454.6 246.9L453.8 246.9L454.4 252.7L450.8 252.5L450.8 249.6L444.9 249.6L444.9 254.1L438.7 251.1L438.7 249.5L436.8 249.5L436.7 247.0L431.3 247.0L431.3 245.0L435.1 245.0L435.1 243.8L426.2 244.1L423.3 246.2L421.4 245.0L421.4 243.6L424.8 243.6L424.4 234.4L421.5 234.4L421.6 232.3L427.5 232.3L427.5 227.7L421.6 227.7L420.4 219.3L420.8 215.0L421.7 214.5L420.4 214.5L420.3 211.2L417.5 211.6L417.6 209.6L413.0 208.0L412.8 214.2L409.4 214.2L409.4 210.8L407.2 210.8L407.2 205.9L409.1 206.0L409.1 202.6L404.4 201.3L404.3 205.7L402.9 205.9L402.9 207.5L405.7 207.5L405.7 218.5L404.3 219.9L402.9 219.9L402.9 215.7L400.3 215.7L400.3 217.6L393.9 217.6L394.0 212.7L391.1 212.6ZM431.2 239.9L433.7 240.0L433.8 232.5L438.7 232.6L438.8 229.8L444.3 229.7L444.3 232.4L448.4 232.5L447.8 231.6L450.0 231.6L450.0 228.7L449.0 228.7L450.0 227.0L447.2 224.4L447.1 229.1L445.4 229.2L441.1 223.4L440.3 217.1L438.7 216.3L438.7 219.4L435.0 214.5L432.2 214.5L431.7 217.9L433.2 218.8L431.7 218.8L431.7 232.5L431.2 237.4L430.0 237.4L430.0 242.5L431.2 242.4L431.2 239.9Z" data-slug="american-fork" tabindex="0" role="button" aria-label="American Fork"/><path class="xm-city" d="M463.1 223.6L466.6 223.6L466.6 219.4L467.9 219.4L469.0 201.5L472.5 201.6L472.5 198.7L474.6 198.7L474.7 195.9L476.1 195.9L476.1 190.2L474.7 190.3L475.3 171.4L474.0 171.3L473.9 165.9L474.6 156.9L482.1 158.3L482.7 154.7L481.0 152.4L481.0 150.1L488.6 149.4L488.6 147.9L489.8 147.9L489.2 146.3L486.1 145.3L484.7 146.3L485.4 147.7L483.4 147.1L484.5 145.8L483.4 143.7L486.1 145.0L488.9 143.7L491.6 146.9L491.6 148.8L490.1 148.8L491.6 150.6L488.7 151.1L488.8 152.3L491.2 153.0L493.5 157.8L492.5 157.8L491.8 155.6L489.9 157.5L488.9 154.7L486.2 154.7L486.2 158.5L493.8 161.5L494.1 162.5L492.8 162.5L495.8 167.9L497.4 167.6L496.0 168.7L496.7 170.8L501.5 176.1L508.3 176.6L508.4 182.6L516.1 194.0L519.8 193.2L519.8 191.2L520.7 191.2L522.8 193.2L522.7 196.1L525.6 198.9L541.1 198.3L536.6 203.0L542.6 215.8L544.6 215.8L544.6 217.3L543.2 217.3L545.9 223.0L545.1 219.1L547.7 217.3L547.7 214.9L553.4 215.5L553.4 220.3L549.4 220.3L546.0 223.3L552.8 237.5L515.6 237.1L514.7 238.6L512.0 237.2L484.4 237.2L484.4 238.2L479.8 238.5L479.8 248.9L466.9 238.3L468.0 238.3L466.6 237.5L466.6 232.6L463.2 232.6L463.1 223.6Z" data-slug="pleasant-grove" tabindex="0" role="button" aria-label="Pleasant Grove"/><path class="xm-city" d="M457.3 244.0L462.9 244.0L463.0 235.0L479.8 248.9L479.8 238.5L484.4 238.2L484.4 237.2L512.0 237.2L514.7 238.6L515.4 237.1L517.4 237.0L597.3 237.5L597.3 265.0L525.7 265.2L525.8 271.1L523.6 271.1L525.9 276.3L514.6 276.4L503.8 276.5L503.7 270.9L487.1 269.3L487.1 265.5L479.7 265.6L475.6 268.0L477.6 271.2L477.3 276.5L464.6 276.6L464.8 254.1L457.3 244.0Z" data-slug="lindon" tabindex="0" role="button" aria-label="Lindon"/><path class="xm-city" d="M487.8 342.1L493.4 342.7L493.1 341.3L495.4 339.9L493.6 337.6L495.6 336.3L496.6 331.6L498.9 332.0L499.8 334.1L504.6 334.2L504.6 342.6L511.4 342.4L510.2 339.5L507.5 340.4L507.4 337.3L510.0 337.3L510.0 331.8L502.6 331.8L502.5 328.8L498.8 326.9L498.8 324.0L506.5 324.0L510.0 330.1L510.2 310.0L505.5 276.5L525.9 276.3L523.6 271.1L525.8 271.1L525.7 265.2L578.6 265.0L581.1 268.8L581.2 276.1L586.6 276.1L586.7 278.2L589.4 278.2L589.4 281.6L603.0 281.4L603.0 275.9L614.0 275.5L613.8 270.2L624.7 270.1L624.8 274.3L623.0 272.6L618.6 273.1L614.8 280.0L608.6 283.7L608.8 292.3L601.9 292.8L600.0 298.1L600.7 303.6L597.9 303.6L597.9 301.6L595.1 298.7L591.4 304.8L587.7 314.3L587.3 321.4L584.0 326.8L584.1 331.4L586.8 331.9L587.1 333.9L585.1 336.8L585.2 346.3L586.7 348.4L585.3 348.4L585.3 353.9L587.8 357.4L587.8 363.7L584.7 363.4L582.5 368.4L581.0 365.6L581.1 360.0L575.2 374.9L572.8 376.4L563.4 376.0L560.2 379.5L555.1 379.0L555.1 381.4L548.0 381.9L537.2 370.6L538.6 369.0L535.0 364.7L532.0 364.7L535.3 369.0L532.9 369.0L538.1 375.8L530.2 375.8L526.4 368.9L521.8 369.1L521.4 365.3L519.3 365.9L522.8 362.5L520.7 359.4L506.4 359.5L506.4 358.1L505.0 358.0L501.0 352.6L499.1 352.6L499.4 351.3L493.6 348.6L487.8 342.1Z" data-slug="orem" tabindex="0" role="button" aria-label="Orem"/><path class="xm-city" d="M501.7 411.7L503.9 406.3L511.3 408.6L511.3 411.2L513.0 410.1L516.3 411.1L519.5 413.2L518.7 415.3L523.7 415.0L524.4 410.0L528.1 413.1L532.0 410.8L531.8 409.5L533.1 408.5L533.2 395.1L529.6 395.1L529.7 397.5L528.4 396.9L518.6 383.8L516.4 379.3L516.4 376.1L542.1 375.8L548.0 381.9L555.1 381.4L555.1 379.0L560.2 379.5L563.4 376.0L572.8 376.4L574.9 375.1L581.1 360.0L581.0 365.6L582.5 368.4L584.0 365.9L585.6 365.9L585.4 363.5L587.8 363.7L587.8 357.4L585.3 353.9L585.3 348.4L586.7 348.4L585.2 346.3L585.1 336.8L587.1 333.9L586.8 331.9L584.1 331.4L584.0 326.8L587.3 321.4L587.7 314.3L595.1 298.7L597.9 301.6L597.9 303.6L600.7 303.6L600.0 298.1L601.6 293.3L608.8 292.3L608.6 283.7L614.8 280.0L617.3 274.2L619.2 272.9L623.2 272.6L625.9 274.6L632.4 273.3L632.4 275.4L629.8 277.8L634.2 278.0L635.8 280.8L635.9 286.1L641.4 286.2L641.4 291.7L619.7 292.3L619.9 298.2L608.9 298.1L609.1 306.3L601.3 306.3L600.8 310.5L602.5 311.8L608.7 311.8L609.0 313.1L606.2 313.2L606.2 314.3L602.2 314.3L602.3 316.0L609.1 315.5L610.5 313.1L622.8 314.0L622.8 319.3L625.7 319.2L625.9 342.0L623.1 342.0L623.1 348.0L621.5 348.4L623.9 349.6L624.9 353.1L626.2 353.1L627.4 358.7L629.0 358.7L629.0 364.1L659.5 363.0L659.4 357.5L664.9 357.1L664.7 346.1L676.1 346.5L676.1 341.0L687.0 341.5L686.9 335.9L703.2 335.6L703.2 341.2L714.4 341.1L714.3 346.6L725.8 346.5L725.8 352.0L738.0 353.5L737.9 375.2L731.6 375.2L731.6 396.9L720.6 396.8L720.6 402.4L698.5 402.3L698.5 408.0L676.5 408.0L676.6 413.7L643.8 414.1L644.5 465.5L641.7 467.3L640.1 465.7L650.4 479.9L652.3 487.6L649.0 487.6L649.0 489.6L641.2 488.8L628.8 458.9L631.0 457.4L629.8 455.6L626.4 455.3L624.3 452.6L620.7 452.7L620.7 454.7L615.0 452.7L618.8 469.1L611.4 470.1L600.0 468.3L600.0 474.9L512.5 475.1L512.3 432.3L503.8 422.1L502.7 418.4L505.0 415.4L502.8 413.0L505.0 412.1L501.7 411.7Z" data-slug="provo" tabindex="0" role="button" aria-label="Provo"/><path class="xm-city" d="M465.0 276.6L477.3 276.5L477.6 271.2L475.6 268.0L479.7 265.6L487.1 265.5L487.1 269.3L503.7 270.9L503.8 276.5L505.6 277.0L510.2 310.0L510.0 330.1L506.5 324.0L498.8 324.0L498.8 326.9L502.5 328.8L502.6 331.8L510.0 331.8L510.0 337.3L507.4 337.3L507.5 340.4L510.2 339.5L511.4 342.4L504.6 342.6L504.6 334.2L499.8 334.1L498.9 332.0L496.4 331.6L495.6 336.3L493.5 337.8L494.8 338.0L495.4 339.9L493.1 341.3L493.4 342.7L487.8 342.1L491.8 346.6L464.8 346.4L465.0 276.6Z" data-slug="vineyard" tabindex="0" role="button" aria-label="Vineyard"/><path class="xm-city" d="M578.9 497.2L600.8 497.1L600.8 485.7L613.8 485.7L611.6 482.6L611.6 478.4L613.9 478.4L613.9 476.9L636.6 477.1L641.3 489.0L645.3 489.7L649.0 489.7L649.0 487.6L652.6 487.6L650.5 479.9L655.8 479.8L655.8 485.3L660.1 493.9L666.7 493.9L666.8 496.4L672.3 496.3L672.4 501.9L669.3 501.9L673.1 507.4L683.2 507.5L683.1 514.3L686.0 514.4L686.2 518.5L694.3 518.5L694.3 524.0L695.7 524.0L697.2 529.6L700.0 529.6L700.1 535.2L705.4 535.2L705.4 532.1L711.3 532.1L711.3 540.4L727.7 540.4L727.7 545.9L713.0 545.8L710.7 546.4L710.7 548.2L706.0 546.9L700.1 548.4L690.0 547.0L686.3 544.1L686.1 545.0L679.8 544.9L679.5 546.1L678.2 545.1L670.6 545.8L666.9 544.2L665.5 551.7L661.6 551.8L664.8 557.2L664.5 560.1L661.7 560.1L661.8 562.9L656.4 562.9L656.4 568.4L653.4 569.7L653.5 571.4L650.6 571.4L650.5 568.7L649.2 568.6L658.7 551.7L654.7 551.8L642.1 574.2L628.9 573.1L628.9 565.3L631.9 563.1L628.9 563.1L628.9 560.4L623.3 562.9L625.0 557.8L623.3 557.5L624.7 555.2L623.3 554.2L623.1 551.9L611.3 551.4L611.2 546.1L607.2 546.1L607.3 537.9L604.5 537.9L604.5 534.7L594.1 534.8L592.0 533.2L592.0 530.8L584.6 530.9L584.4 499.4L578.9 501.0L578.9 497.2Z" data-slug="springville" tabindex="0" role="button" aria-label="Springville"/><path class="xm-city" d="M556.1 626.2L578.2 603.3L578.2 605.1L581.0 602.0L583.8 601.9L583.8 599.4L587.6 599.4L586.7 595.6L579.8 588.9L578.8 586.1L595.1 573.8L595.1 570.9L589.7 570.6L589.4 573.4L586.4 570.6L584.0 570.6L584.0 567.9L579.5 569.4L579.3 546.9L571.6 548.2L570.6 537.3L584.6 536.2L584.6 530.9L592.0 530.8L592.0 533.2L594.1 534.8L604.5 534.7L604.5 537.9L607.3 537.9L607.2 546.1L610.2 546.1L611.3 569.0L612.3 567.1L617.3 564.6L617.7 562.6L619.7 562.6L619.6 556.5L618.4 556.5L617.8 554.7L619.4 552.1L623.3 552.1L623.3 554.2L624.7 555.2L623.3 557.5L625.0 557.8L623.3 562.9L628.9 560.4L628.9 563.1L631.9 563.1L628.9 565.3L628.9 573.1L639.1 573.1L638.4 574.1L641.6 574.9L640.4 577.0L642.6 576.9L642.7 579.6L647.9 579.6L663.5 607.4L657.1 607.4L658.2 613.1L659.9 613.1L662.1 615.6L662.1 618.5L658.7 618.4L658.9 623.7L657.1 623.7L657.1 625.3L667.7 632.4L667.6 623.8L672.3 623.7L675.8 632.7L677.3 644.5L691.3 662.5L690.3 662.5L694.2 670.4L692.9 670.8L689.2 666.9L681.2 664.6L680.4 663.4L682.8 663.3L682.4 660.0L679.6 660.6L673.6 656.9L673.5 651.4L668.0 651.4L667.7 673.9L662.3 673.9L662.5 668.2L657.1 668.2L657.1 653.1L658.9 651.1L662.9 651.3L659.5 647.2L656.8 649.9L656.0 642.1L652.8 644.5L645.8 645.9L644.8 647.6L626.5 641.7L623.6 639.4L623.3 636.9L620.8 635.1L620.1 635.9L618.6 632.5L617.5 633.2L615.6 630.3L615.4 627.4L611.9 625.0L609.0 619.1L607.8 619.1L607.7 621.1L610.0 625.1L610.0 627.3L611.5 629.1L614.3 629.6L615.0 632.1L605.9 630.9L602.7 626.1L600.2 627.3L601.7 628.6L602.1 633.2L604.1 635.8L601.8 637.9L601.9 639.5L607.5 640.5L606.5 643.0L605.2 642.6L603.1 649.2L607.8 651.5L607.0 654.3L602.2 652.6L602.0 650.7L600.7 651.5L599.5 647.8L597.7 646.7L597.3 648.5L589.9 646.0L589.4 643.7L591.1 643.6L591.0 636.1L589.3 637.2L588.7 635.9L585.2 635.9L587.0 638.8L578.5 644.6L574.3 641.9L568.2 641.9L568.2 630.6L562.8 630.6L562.8 627.9L559.3 627.9L559.2 626.2L556.1 626.2Z" data-slug="spanish-fork" tabindex="0" role="button" aria-label="Spanish Fork"/><path class="xm-city" d="M647.3 573.8L649.4 568.6L650.5 568.7L650.6 571.4L653.5 571.4L653.4 569.7L656.4 568.4L656.4 562.9L661.8 562.9L661.7 560.1L664.5 560.1L664.8 557.2L661.6 551.8L665.5 551.7L666.9 544.2L671.1 545.9L687.6 545.0L693.4 548.0L700.1 548.4L706.0 546.9L710.7 548.2L710.7 546.4L716.1 545.6L732.5 545.8L732.2 617.9L711.0 617.7L710.9 634.6L705.6 634.6L705.6 646.0L701.0 646.0L700.9 651.5L695.6 651.5L694.8 662.5L691.3 662.5L680.9 647.8L677.9 645.9L674.6 628.3L657.4 596.1L667.6 596.0L667.5 592.2L661.6 592.3L661.5 589.7L654.3 589.9L647.4 578.4L647.3 573.8Z" data-slug="mapleton" tabindex="0" role="button" aria-label="Mapleton"/><path class="xm-city" d="M415.4 709.5L437.1 709.3L437.1 714.9L448.1 714.7L448.1 717.5L450.2 717.5L450.3 715.4L456.3 715.4L456.3 711.1L458.4 711.1L458.4 713.5L463.1 713.4L463.0 709.0L476.5 708.5L477.0 706.4L478.9 707.0L479.6 705.1L478.9 704.6L479.8 704.9L480.0 697.7L475.9 697.8L475.8 695.3L481.0 695.3L481.0 693.8L482.4 693.7L482.4 697.4L486.4 697.4L489.1 694.0L501.7 694.1L501.8 691.9L504.7 691.9L504.7 686.4L507.6 686.4L507.2 675.0L508.9 675.0L508.8 665.7L510.0 664.0L524.5 664.2L524.5 666.4L534.4 666.6L534.4 664.1L539.8 664.0L541.0 672.6L538.4 675.2L550.0 674.9L551.1 673.8L551.2 691.7L544.7 693.3L546.1 700.4L537.8 702.2L538.3 716.3L541.1 716.4L540.1 720.3L534.8 719.9L532.7 718.3L532.9 717.0L530.8 717.0L533.1 724.7L537.5 730.4L541.5 738.8L543.7 741.3L548.5 741.8L549.2 746.8L564.1 744.8L564.5 757.7L563.7 756.6L562.4 757.6L564.5 759.4L564.5 763.2L559.1 763.2L559.1 765.9L559.2 768.7L564.6 768.6L564.6 774.1L561.5 774.1L561.0 771.1L559.3 769.8L559.2 774.2L548.5 774.4L548.2 771.1L546.6 772.0L543.3 766.3L545.4 765.7L548.3 770.4L548.0 752.3L544.7 752.4L536.8 743.5L531.2 734.5L530.3 730.5L523.4 731.2L523.9 735.5L523.0 734.8L523.1 737.9L525.8 742.2L520.7 741.7L520.6 745.6L511.5 745.8L510.0 756.7L509.2 755.1L497.6 755.2L496.1 754.9L498.7 744.0L497.6 747.5L490.1 747.4L490.0 752.9L486.2 753.1L485.2 746.3L481.2 746.2L481.2 742.9L476.0 742.9L476.0 746.9L470.1 746.9L469.0 742.9L459.5 742.9L459.5 740.9L462.4 740.9L462.5 739.5L460.6 739.5L460.6 737.0L458.5 736.9L458.4 731.1L448.3 731.2L448.2 725.7L415.6 726.3L415.4 709.5Z" data-slug="payson" tabindex="0" role="button" aria-label="Payson"/><path class="xm-city" d="M529.1 663.5L547.6 641.9L574.3 641.9L578.5 644.6L577.2 645.5L589.8 645.5L590.9 654.6L591.8 654.9L591.4 660.7L592.7 661.7L594.3 657.7L596.3 657.9L597.6 656.0L599.7 656.4L599.2 660.7L601.9 661.2L602.0 663.5L596.2 663.5L596.3 665.3L599.2 666.2L599.2 669.0L601.8 669.0L602.0 674.5L597.7 674.5L597.7 676.6L593.2 676.5L593.3 679.5L601.8 680.5L601.4 687.6L605.1 687.6L598.4 692.8L602.2 696.7L608.6 696.6L607.8 703.9L609.4 705.0L612.6 704.1L620.2 698.2L619.7 695.1L625.4 694.1L625.6 711.5L629.7 711.6L629.7 713.4L628.0 712.4L624.3 713.1L624.4 719.6L619.0 719.5L619.1 729.5L623.9 729.6L623.9 731.7L624.7 731.7L624.7 751.6L623.0 751.6L622.9 753.8L617.8 753.8L619.1 751.6L616.2 749.1L616.2 745.8L613.2 745.8L608.3 737.5L607.8 729.7L605.3 729.7L605.3 724.4L602.5 724.3L602.6 729.6L597.0 729.8L597.0 723.4L586.0 723.5L586.0 722.1L580.7 722.1L580.8 729.9L578.9 729.9L569.6 729.9L569.5 723.4L567.4 724.9L563.8 724.6L564.0 719.3L558.5 719.3L558.4 706.7L565.4 706.8L565.5 702.6L569.1 703.2L569.1 700.4L567.0 700.3L567.1 697.0L561.3 697.1L561.3 702.5L555.6 702.5L555.6 701.0L552.7 701.0L553.6 699.0L552.9 697.2L551.1 697.3L551.5 663.2L541.0 672.6L539.8 664.0L529.1 663.5Z" data-slug="salem" tabindex="0" role="button" aria-label="Salem"/><path class="xm-city" d="M383.4 809.6L394.4 809.4L394.5 820.4L405.6 820.2L405.5 814.8L410.9 814.7L411.0 816.3L413.3 816.3L413.6 813.0L418.4 807.5L416.3 807.0L416.2 798.7L422.3 797.8L422.3 796.5L418.3 793.6L422.0 793.9L425.5 796.0L427.1 795.2L427.6 797.8L435.7 800.9L435.7 796.8L437.0 797.1L436.6 789.3L438.7 788.8L438.7 780.4L437.9 780.2L438.7 778.2L444.3 777.4L448.9 778.2L448.9 779.4L455.6 777.5L455.6 779.1L457.5 779.8L457.5 777.5L459.8 777.5L459.8 775.4L470.8 775.4L470.7 764.3L476.7 764.3L476.0 775.4L488.5 775.2L487.5 780.7L503.2 772.3L502.5 773.8L503.9 773.8L503.9 775.2L509.5 775.0L509.5 780.5L503.9 780.6L503.8 786.0L498.5 786.1L498.6 797.1L492.4 797.0L492.4 800.6L480.0 800.5L480.1 797.3L476.5 797.4L476.7 808.2L482.2 808.2L482.2 819.1L471.2 819.2L471.3 825.3L465.7 825.3L464.8 824.1L453.5 825.5L453.8 826.9L457.0 826.9L458.0 831.2L460.5 831.2L458.0 831.5L459.9 834.3L465.9 834.9L465.9 841.4L460.4 841.5L460.4 836.1L454.9 836.2L454.9 841.7L429.2 842.9L427.4 844.5L428.8 845.3L427.5 848.7L421.8 857.6L417.0 858.5L417.0 855.8L414.1 855.8L414.1 859.1L409.1 856.9L405.5 850.7L402.1 851.4L397.9 861.4L406.5 861.3L406.6 864.6L384.7 864.9L383.4 809.6ZM411.1 825.7L411.3 836.7L427.6 835.3L427.6 830.8L428.8 828.7L431.0 826.7L430.9 828.3L434.5 826.4L433.9 820.0L435.5 820.0L434.6 818.9L435.5 814.6L438.2 814.5L438.2 809.0L436.4 809.0L436.5 806.5L432.5 806.5L434.0 803.9L429.7 800.4L421.6 811.8L418.6 811.0L418.9 809.1L414.1 813.2L413.7 816.3L417.4 816.3L416.0 824.3L415.6 825.7L411.1 825.7Z" data-slug="santaquin" tabindex="0" role="button" aria-label="Santaquin"/><path class="xm-city" d="M398.0 127.7L403.2 128.2L403.2 126.9L401.6 126.9L401.6 123.8L405.2 123.2L409.8 118.6L413.6 116.9L408.7 117.0L406.0 108.7L406.2 105.5L408.7 105.5L408.6 94.4L419.6 94.3L419.6 88.8L414.4 88.9L414.4 84.0L419.6 81.7L419.6 83.3L430.7 83.0L430.7 77.5L424.3 77.6L424.0 75.5L426.4 73.3L424.9 66.5L430.7 66.5L430.7 72.0L435.7 73.1L436.4 91.2L435.7 94.9L437.2 98.1L435.1 99.1L434.1 96.8L430.9 96.8L430.9 99.4L437.5 101.9L437.5 105.0L447.3 105.0L449.6 101.8L449.6 103.8L451.3 103.8L451.2 105.2L475.0 104.9L475.6 110.8L478.8 110.8L479.1 107.9L486.1 107.9L486.1 110.5L497.0 110.5L497.1 127.1L491.5 127.1L491.5 116.2L482.5 116.1L482.6 121.7L475.1 121.7L475.1 132.8L467.4 132.9L467.4 138.3L464.0 138.4L464.1 155.0L453.8 155.1L452.9 151.3L448.1 151.4L445.7 151.8L444.6 155.0L437.9 156.7L438.0 154.9L435.4 155.0L434.3 158.8L435.0 156.3L428.0 157.4L428.0 155.9L424.5 157.0L424.1 155.1L422.3 155.1L421.4 155.2L422.0 158.3L420.2 158.3L419.1 155.3L416.9 155.3L416.4 159.5L410.5 158.7L410.8 161.5L409.2 161.3L409.1 156.8L403.6 157.1L402.8 159.2L402.3 152.5L403.7 152.5L403.6 149.7L407.7 149.7L407.7 144.1L403.5 144.0L403.3 133.1L398.0 133.1L398.0 127.7Z" data-slug="highland" tabindex="0" role="button" aria-label="Highland"/><path class="xm-city" d="M434.7 72.0L437.6 72.0L437.5 61.1L447.3 61.0L447.3 50.0L452.7 49.8L452.7 39.0L441.7 38.9L441.7 22.0L463.7 22.0L463.7 27.7L474.8 27.7L475.0 42.0L477.7 42.0L477.3 44.1L496.9 44.0L497.0 55.0L486.1 55.2L486.0 60.7L491.5 60.7L491.6 68.4L485.3 68.5L487.2 71.0L491.6 71.2L491.6 77.5L497.1 77.6L497.1 83.1L491.6 83.0L491.5 85.8L491.6 88.5L497.1 88.5L497.1 99.5L486.1 99.4L486.1 107.9L478.5 107.8L478.5 105.2L475.0 104.9L451.2 105.2L451.3 103.8L449.6 103.8L449.6 101.8L447.3 105.0L437.5 105.0L437.4 98.0L435.7 94.9L436.2 79.1L435.7 73.1L434.7 72.0Z" data-slug="alpine" tabindex="0" role="button" aria-label="Alpine"/><path class="xm-city" d="M464.0 138.4L467.4 138.3L467.4 132.9L475.1 132.8L475.1 121.7L482.6 121.7L482.5 116.4L491.5 116.2L491.5 127.1L508.1 127.2L508.1 132.7L497.0 132.7L497.1 143.5L502.6 143.7L502.7 160.1L508.3 160.1L508.4 176.6L501.5 176.1L496.7 170.8L496.0 168.7L497.4 167.6L495.8 167.9L492.8 162.5L494.1 162.5L493.8 161.5L486.2 158.5L486.2 154.7L488.9 154.7L489.9 157.5L491.8 155.6L492.5 157.8L493.5 157.8L491.2 153.0L488.8 152.3L488.7 151.1L491.6 150.6L490.1 148.8L491.6 148.8L490.2 144.3L487.5 143.7L487.6 144.9L486.1 145.0L483.4 143.7L484.5 145.8L483.3 147.1L485.4 147.7L484.7 146.3L486.1 145.3L489.2 146.3L489.8 147.9L488.6 147.9L488.6 149.4L481.0 150.1L481.0 152.4L482.7 154.7L482.1 158.3L476.2 157.3L470.3 155.7L469.6 153.6L466.0 153.4L466.8 146.7L464.1 146.9L464.0 138.4Z" data-slug="cedar-hills" tabindex="0" role="button" aria-label="Cedar Hills"/><path class="xm-city" d="M583.7 729.9L591.6 729.8L591.5 723.2L597.0 723.4L597.0 729.8L602.6 729.6L602.5 724.3L605.3 724.4L605.3 729.7L607.8 729.7L608.6 738.1L613.2 745.8L616.2 745.8L616.2 749.1L619.1 751.6L610.9 767.3L611.0 778.4L603.0 778.4L602.9 773.4L591.4 773.7L590.3 771.4L591.3 771.4L591.3 769.1L587.6 762.9L586.4 763.0L586.2 735.7L587.0 735.3L583.7 729.9Z" data-slug="woodland-hills" tabindex="0" role="button" aria-label="Woodland Hills"/><path class="xm-city" d="M547.8 741.4L550.6 741.4L550.6 738.2L554.8 737.1L554.9 741.3L558.8 741.3L558.7 733.3L563.4 733.3L563.5 730.3L566.0 730.1L566.5 725.9L569.5 724.5L569.6 729.9L580.8 729.9L583.8 736.4L586.2 735.7L586.4 740.0L586.4 763.0L581.0 763.1L581.0 768.8L591.3 769.1L581.1 770.1L581.1 774.0L599.1 773.5L599.7 796.0L595.5 796.0L595.1 780.9L581.3 781.3L581.2 779.5L566.8 779.6L566.8 774.1L564.6 774.1L564.6 768.6L559.2 768.7L559.1 763.2L564.5 763.2L564.5 759.4L562.4 757.6L563.7 756.6L564.5 757.7L564.1 744.8L549.2 746.8L549.2 743.0L547.8 741.4Z" data-slug="elk-ridge" tabindex="0" role="button" aria-label="Elk Ridge"/><path class="xm-city" d="M338.9 688.8L372.0 688.3L371.8 710.6L382.8 710.5L382.8 721.6L404.3 720.8L404.6 732.2L412.7 732.1L412.8 737.5L415.5 737.5L415.5 743.0L418.2 742.9L418.3 745.6L421.0 745.6L420.9 734.7L423.6 734.6L423.6 740.1L426.3 740.1L426.5 751.0L429.3 751.0L429.3 753.7L432.1 753.6L432.1 759.1L430.3 759.1L427.6 763.1L430.5 764.7L415.7 764.9L416.3 798.3L405.2 798.2L405.2 803.7L399.8 803.8L399.2 799.1L379.2 808.8L377.9 810.2L377.9 815.3L373.9 815.2L372.5 816.7L372.7 832.0L383.7 831.7L384.2 842.7L367.4 843.1L366.9 798.7L361.4 798.7L361.2 786.0L361.2 776.8L366.7 776.8L366.5 754.7L339.2 754.8L338.9 688.8Z" data-slug="genola" tabindex="0" role="button" aria-label="Genola"/><path class="xm-city" d="M306.8 842.6L312.4 842.5L312.4 829.7L323.4 830.5L323.3 860.0L315.3 859.8L315.1 862.6L312.3 862.6L312.3 860.0L314.9 860.0L314.9 855.1L306.9 855.1L306.8 842.6Z" data-slug="goshen" tabindex="0" role="button" aria-label="Goshen"/><path class="xm-city" d="M22.0 243.4L22.1 199.7L66.1 199.8L66.1 177.9L88.8 177.3L89.0 199.8L94.3 199.5L94.0 221.1L110.6 221.3L110.5 232.9L121.7 233.0L121.6 255.0L132.6 254.8L132.4 266.0L128.5 266.0L128.6 308.1L106.5 308.0L106.5 319.1L86.7 319.3L84.9 307.8L40.0 307.9L40.1 275.2L29.1 275.3L29.1 265.7L33.1 265.7L32.9 244.0L22.0 243.4Z" data-slug="cedar-fort" tabindex="0" role="button" aria-label="Cedar Fort"/><path class="xm-city" d="M40.6 441.1L40.2 341.1L94.9 341.3L94.4 349.2L117.4 349.7L117.3 341.3L128.6 341.1L128.6 352.4L150.8 352.4L150.7 396.8L195.0 396.8L195.0 419.1L173.0 419.2L172.8 441.3L128.6 441.0L128.7 463.2L106.4 463.4L106.5 441.7L40.6 441.1Z" data-slug="fairfield" tabindex="0" role="button" aria-label="Fairfield"/>
+        <text class="xm-lakelbl" x="444.3" y="403.7">UTAH LAKE</text>
+        <text class="xm-lbl" data-for="lehi" x="320.4" y="126.7">LEHI</text><text class="xm-lbl" data-for="saratoga-springs" x="394" y="292" style="font-size:10.5px">SARATOGA SPRINGS</text><text class="xm-lbl" data-for="eagle-mountain" x="193.7" y="330.2">EAGLE MOUNTAIN</text><text class="xm-lbl" data-for="american-fork" x="441.2" y="195.5" style="font-size:10.5px">AMERICAN FORK</text><text class="xm-lbl" data-for="pleasant-grove" x="470.3" y="224.3" style="font-size:10.5px">PLEASANT GROVE</text><text class="xm-lbl" data-for="orem" x="547.2" y="318.6">OREM</text><text class="xm-lbl" data-for="provo" x="580.6" y="425.2">PROVO</text><text class="xm-lbl" data-for="springville" x="638.7" y="523.2">SPRINGVILLE</text><text class="xm-lbl" data-for="spanish-fork" x="644.3" y="601.9">SPANISH FORK</text><text class="xm-lbl" data-for="payson" x="491.8" y="721.9">PAYSON</text><text class="xm-lbl" data-for="santaquin" x="438" y="858" style="font-size:10.5px">SANTAQUIN</text>
+      </svg>
+      <div class="xm-nudge" id="xm-nudge">Tap a city to explore it</div>
+      <div class="xm-card tl" id="xm-card" role="status">
+        <button class="xm-close" id="xm-close" aria-label="Close">&#215;</button>
+        <p class="xm-place" id="xm-place"></p>
+        <p class="xm-desc" id="xm-desc"></p>
+        <div class="xm-meta">
+          <span class="xm-price" id="xm-price"></span>
+          <a class="xm-explore" href="https://guide.kelsiejimenez.com/neighborhoods.html">Explore this area</a>
+        </div>
+        <a class="xm-cta" id="xm-cta" href="#contact">Start shopping here</a>
+      </div>
+    </div>
+    <p class="xm-foot">Prices are sample figures only, pending verification before launch.</p>
+  </section>
+
+  <!-- SPLIT: The Community -->
+  <div class="split" id="community-split">
+    <div class="split-img">
+      <img src="community-hero.jpg" alt="Utah County community">
+    </div>
+    <div class="split-copy green">
+      <p class="split-eyebrow">The Community</p>
+      <h2 class="split-title">People show up for each other <em>here</em></h2>
+      <p class="split-body">One of the things new residents say over and over: neighbors actually know each other. Friday night football fills the stands. Local events and farmers markets aren't just on the calendar. People actually go.</p>
+      <ul class="split-list">
+        <li>Strong neighborhood association culture</li>
+        <li>Year-round community events &amp; farmers markets</li>
+        <li>Highly rated parks, rec centers &amp; family programming</li>
+      </ul>
+      <a href="https://guide.kelsiejimenez.com/community.html" class="btn-green" style="display:inline-block; margin-top:24px; font-size:13.5px;">Explore Community Life →</a>
+    </div>
+  </div>
+
+  <!-- SPLIT: The Outdoors -->
+  <div class="split">
+    <div class="split-copy cream">
+      <p class="split-eyebrow">The Outdoors</p>
+      <h2 class="split-title">You won't believe how <em>close</em> the mountains are</h2>
+      <p class="split-body">Utah County sits at the base of the Wasatch Range. From most neighborhoods, you're looking directly at 11,000-foot peaks. Summers here are lake days and canyon hikes. Winters are powder and snowshoeing. It doesn't have an off-season.</p>
+      <ul class="split-list">
+        <li>Timpanogos Caves &amp; Bridal Veil Falls, just minutes away</li>
+        <li>Sundance Mountain Resort in your backyard</li>
+        <li>Utah Lake for paddle boarding, fishing &amp; sunsets</li>
+      </ul>
+      <a href="https://guide.kelsiejimenez.com/outdoors.html" class="btn-green" style="display:inline-block; margin-top:24px; font-size:13.5px;">Explore the Outdoors →</a>
+    </div>
+    <div class="split-img">
+      <img src="outdoors-hero.jpg" alt="Utah mountains and outdoors">
+    </div>
+  </div>
+
+  <!-- SPLIT: The Homes (reversed) -->
+  <div class="split">
+    <div class="split-copy green">
+      <p class="split-eyebrow">The Homes</p>
+      <h2 class="split-title">More space. More value. More <em>house</em> for your money.</h2>
+      <p class="split-body">Compared to most metros, Utah County offers genuinely more square footage for the price. Newer builds throughout the county regularly surprise buyers coming from higher-cost markets.</p>
+      <ul class="split-list">
+        <li>New construction neighborhoods with room to grow</li>
+        <li>Established areas with mature trees and character</li>
+        <li>Strong appreciation history across the county</li>
+      </ul>
+      <a href="https://guide.kelsiejimenez.com/homes.html" class="btn-green" style="display:inline-block; margin-top:24px; font-size:13.5px;">Explore the Homes →</a>
+    </div>
+    <div class="split-img">
+      <img src="homes-hero.jpg" alt="Utah home exterior">
+    </div>
+  </div>
+
+  <!-- PRACTICAL STUFF CARD -->
+  <section style="background:#FDFCFA; padding:80px 48px; text-align:center;">
+    <a href="https://guide.kelsiejimenez.com/practical-stuff.html" style="text-decoration:none; display:block; max-width:900px; margin:0 auto;">
+      <div style="width:100%; height:380px; border-radius:16px; overflow:hidden; position:relative; cursor:pointer;">
+        <img src="practical-hero.jpg" alt="The Stuff Nobody Tells You About Utah County" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0.05) 100%);"></div>
+        <div class="card-overlay-wrap" id="practical-card-text">
+          <p class="card-overlay-label">The Stuff Nobody Tells You</p>
+          <p class="card-overlay-sub" style="font-family:'Lato',sans-serif;">Water bills, inversion, altitude, soda culture, and everything else that will surprise you your first year.</p>
+        </div>
+        <span style="position:absolute; bottom:20px; right:20px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.6); color:#F2E8D5; font-family:'Lato',sans-serif; font-size:13px; font-weight:400; padding:8px 16px; border-radius:20px; letter-spacing:0.05em;">Explore →</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- ZILLOW -->
+  <section class="zillow-section" id="reviews">
+    <div class="zillow-head">
+      <span class="pill pill-dark">Real Homes. Real Clients.</span>
+      <h2 style="font-family: 'Times New Roman', Georgia, serif; font-style: normal;">Shop homes with Kelsie on Zillow</h2>
+    </div>
+
+    <div class="zillow-cta-wrap">
+      <h3 style="font-family:'Playfair Display',serif; font-size:clamp(24px,3vw,36px); font-weight:400; font-style:italic; margin-bottom:16px;">Ready to start touring?</h3>
+      <p style="font-size:15px; color:#666; font-weight:300; line-height:1.75; max-width:520px; margin:0 auto 32px;">Click the agent connection link below and add Kelsie as your agent on Zillow. Then start favoriting homes and let her know which ones you want to see, and she can get you in right away.</p>
+      <a href="https://www.zillow.com/profile/kelsie%20jimenez" class="btn-zillow" target="_blank" rel="noopener">Add Kelsie as Your Agent on Zillow</a>
+      <img src="zillow-profile.jpg" alt="Kelsie Jimenez on Zillow" style="max-width:560px; display:block; margin:32px auto 0; border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,0.10);">
+    </div>
+
+    <div class="zillow-reviews-head">
+      <span class="pill pill-dark">Client Reviews</span>
+      <h3>What Kelsie's clients are <em>saying</em></h3>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Kelsie was amazing assisting us with the sale of our previous home and the purchase of our new home. She was so patient to explain everything we didn't understand. She is so kind and really makes sure she is doing what is best for her clients."</p>
+        <p class="rcard-name">Savanna Lierd</p>
+        <p class="rcard-location">Bought &amp; Sold in Spanish Fork, UT</p>
+      </div>
+
+      <div class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Kelsie was exceptional! She was available to show us a home immediately and did her homework. When we found the right house she really stepped it up and went above and beyond to negotiate. I will recommend her to anyone looking for someone to work with."</p>
+        <p class="rcard-name">Erica Fowler</p>
+        <p class="rcard-location">Bought a Home in 2024</p>
+      </div>
+
+      <div class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Kelsie was extremely professional and knowledgeable during the purchase of our home. She was diligent in finding locations based on our needs, prices within our budget range and got us into our forever home!"</p>
+        <p class="rcard-name">matsonni92</p>
+        <p class="rcard-location">Bought a Home in Eagle Mountain, UT</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LEAD CAPTURE FORM -->
+  <section class="form-section" id="contact">
+    <div class="form-inner">
+      <span class="pill pill-light">Stay in Touch</span>
+      <h2>Ready to talk about your <em>move</em>?</h2>
+      <p>No pitch, no pressure. Just a conversation.</p>
+      <form class="lead-form" id="lead-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Your first name">
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone <span style="opacity:0.45;font-size:9.5px;letter-spacing:0.08em;">OPTIONAL</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+        </div>
+        <div class="form-field">
+          <label for="reason">What brings you to Utah County?</label>
+          <select id="reason" name="reason">
+            <option value="" disabled selected>Select one...</option>
+            <option value="job">Job or career relocation</option>
+            <option value="family">Moving closer to family</option>
+            <option value="lifestyle">Lifestyle change</option>
+            <option value="investment">Real estate investment</option>
+            <option value="school">Schools and education</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit">Send My Info</button>
+      </form>
+      <div id="form-thanks" style="display:none; padding: 48px 0;">
+        <p style="font-size:36px; margin-bottom:16px;">&#10003;</p>
+        <p style="font-family:'Playfair Display',serif; font-size:clamp(22px,3vw,32px); font-style:italic; color:var(--cream); margin-bottom:12px;">Got it. I'll be in touch soon.</p>
+        <p style="font-size:14px; color:rgba(242,232,213,0.6); font-weight:300;">Keep an eye on your inbox.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Kelsie Jimenez</span>
+    <nav class="footer-links">
+      <a href="#why-utah">Why Utah</a>
+      <a href="#meet-kelsie">Meet Kelsie</a>
+      <a href="#life-here">Life Here</a>
+      <a href="#neighborhoods">Neighborhoods</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <span class="footer-copy">© 2026 Kelsie Jimenez · Utah County Realtor</span>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+
+    // Interactive county map
+    const XM_META = {"lehi": {"n": "Lehi", "o": "Tech money, new builds, and more traffic than it planned for.", "p": 565}, "saratoga-springs": {"n": "Saratoga Springs", "o": "Lakeside growth machine. New everything, including the neighbors.", "p": 540}, "eagle-mountain": {"n": "Eagle Mountain", "o": "Space, stars, and new construction. Bring patience for the commute.", "p": 470}, "american-fork": {"n": "American Fork", "o": "Central, established, and closer to the canyon than people expect.", "p": 545}, "pleasant-grove": {"n": "Pleasant Grove", "o": "Strawberry Days, old trees, and my hometown. I'm biased and correct.", "p": 530}, "lindon": {"n": "Lindon", "o": "Horse property next to highway access. A weird, wonderful holdout.", "p": 600}, "orem": {"n": "Orem", "o": "Family City USA. Established yards, real amenities, zero pretense.", "p": 480}, "provo": {"n": "Provo", "o": "College town energy, historic homes, and the county's best food.", "p": 450}, "vineyard": {"n": "Vineyard", "o": "Brand new city on the lake. Young, dense, and still figuring itself out.", "p": 460}, "springville": {"n": "Springville", "o": "Art City. Small-town feel with Provo ten minutes up the road.", "p": 500}, "spanish-fork": {"n": "Spanish Fork", "o": "Rodeo town turned commuter favorite. Wind is real, value is too.", "p": 510}, "mapleton": {"n": "Mapleton", "o": "Big lots at the base of the mountain. Quietly expensive, on purpose.", "p": 740}, "payson": {"n": "Payson", "o": "South county value play. Canyon access and room to breathe.", "p": 460}, "salem": {"n": "Salem", "o": "Pond town. Slow, pretty, and fiercely loved by people who live there.", "p": 540}, "santaquin": {"n": "Santaquin", "o": "Orchards and the county's southern edge. Value if you can commute.", "p": 450}, "highland": {"n": "Highland", "o": "Large lots, large homes, and an unspoken HOA of expectations.", "p": 850}, "alpine": {"n": "Alpine", "o": "Tucked against the mountain. Gorgeous, exclusive, priced like it.", "p": 980}, "cedar-hills": {"n": "Cedar Hills", "o": "Golf course bench living with Timpanogos out the back window.", "p": 640}, "woodland-hills": {"n": "Woodland Hills", "o": "A mountainside hideaway. Views for days, one road in.", "p": 780}, "elk-ridge": {"n": "Elk Ridge", "o": "Forested bench above Payson. Feels like a cabin town with sidewalks.", "p": 600}, "genola": {"n": "Genola", "o": "Farmland and quiet. If you know, you know.", "p": 520}, "goshen": {"n": "Goshen", "o": "Rural west side. Horses outnumber stoplights.", "p": 430}, "cedar-fort": {"n": "Cedar Fort", "o": "Cedar Valley frontier. True rural living west of the mountain.", "p": 450}, "fairfield": {"n": "Fairfield", "o": "Historic Camp Floyd country. Tiny, and proud of it.", "p": 440}};
+    const xmCard=document.getElementById('xm-card'), xmPlace=document.getElementById('xm-place'),
+          xmDesc=document.getElementById('xm-desc'), xmPrice=document.getElementById('xm-price'),
+          xmCta=document.getElementById('xm-cta'), xmNudge=document.getElementById('xm-nudge');
+    const xmSvg=document.querySelector('#explore-map svg');
+    const xmVB=xmSvg.viewBox.baseVal;
+    let xmActive=null;
+    function xmPlaceCard(el) {
+      const b=el.getBBox();
+      const cx=b.x+b.width/2, cy=b.y+b.height/2;
+      xmCard.classList.remove('tl','tr');
+      xmCard.classList.add((cx < xmVB.width*0.42 && cy < xmVB.height*0.5) ? 'tr' : 'tl');
+    }
+    function xmDismiss() {
+      document.querySelectorAll('.xm-city.active').forEach(a=>a.classList.remove('active'));
+      document.querySelectorAll('.xm-lbl.on').forEach(a=>a.classList.remove('on'));
+      xmCard.classList.remove('show');
+      xmNudge.classList.remove('hide');
+      xmActive=null;
+    }
+    function xmShow(slug, el) {
+      const m=XM_META[slug];
+      xmPlaceCard(el);
+      xmPlace.textContent=m.n; xmDesc.textContent=m.o;
+      xmPrice.innerHTML='$'+m.p+'K<small>median sale price &middot; sample</small>';
+      xmCta.textContent='Start shopping in '+m.n;
+      xmNudge.classList.add('hide');
+      xmCard.classList.add('show');
+      document.querySelectorAll('.xm-city.active').forEach(a=>a.classList.remove('active'));
+      document.querySelectorAll('.xm-lbl.on').forEach(a=>a.classList.remove('on'));
+      el.classList.add('active');
+      const lb=document.querySelector('.xm-lbl[data-for="'+slug+'"]');
+      if(lb) lb.classList.add('on');
+      xmActive=slug;
+    }
+    document.querySelectorAll('.xm-city').forEach(el => {
+      const slug=el.dataset.slug;
+      el.addEventListener('click', () => {
+        if(xmActive===slug) { xmDismiss(); return; }
+        xmShow(slug, el);
+      });
+      el.addEventListener('keydown', e => {
+        if(e.key==='Enter'||e.key===' ') { e.preventDefault(); el.click(); }
+      });
+    });
+    document.getElementById('xm-close').addEventListener('click', xmDismiss);
+    document.addEventListener('keydown', e => { if(e.key==='Escape' && xmActive) xmDismiss(); });
+
+    const hamburger = document.getElementById('nav-hamburger');
+    const dropdown = document.getElementById('nav-dropdown');
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      hamburger.classList.toggle('open');
+      dropdown.classList.toggle('open');
+    });
+    dropdown.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('open');
+        dropdown.classList.remove('open');
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!document.querySelector('.nav-wrap').contains(e.target)) {
+        hamburger.classList.remove('open');
+        dropdown.classList.remove('open');
+      }
+    });
+
+    const leadForm = document.getElementById('lead-form');
+    leadForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      leadForm.style.display = 'none';
+      document.getElementById('form-thanks').style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
