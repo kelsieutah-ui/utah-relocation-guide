@@ -138,181 +138,7 @@
     }
 
     /* PHOTO CARD GRID */
-    .grid-section {
-      background: #fff;
-      padding: 80px 48px 100px;
-    }
-    .grid-inner { max-width: 1200px; margin: 0 auto; }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
     @media (min-width: 768px) {
-      .card-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-    .card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      cursor: pointer;
-      aspect-ratio: 3 / 4;
-      background: #FFFFFF;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .card img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .card:hover img { transform: scale(1.07); }
-    .card-label-wrap {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 48px 14px 16px;
-      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
-      pointer-events: none;
-    }
-    .card-label {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-dark, #1C1C1C);
-      line-height: 1.35;
-    }
-
-    /* OVERLAY */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.32s ease;
-      background: var(--green);
-    }
-    .overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    .overlay-inner {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      transform: translateY(22px);
-      transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .overlay.active .overlay-inner { transform: translateY(0); }
-
-    .overlay-photo {
-      flex: 0 0 33vh;
-      min-height: 180px;
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-    }
-    .overlay-photo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 55%, rgba(43,61,48,0.55) 100%);
-      pointer-events: none;
-    }
-    .overlay-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .overlay-body {
-      flex: 1;
-      overflow-y: auto;
-      background: var(--green);
-      padding: 44px 56px 64px;
-      -webkit-overflow-scrolling: touch;
-    }
-    .overlay-close {
-      position: fixed;
-      top: 16px;
-      right: 20px;
-      z-index: 2001;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s, transform 0.15s;
-      line-height: 1;
-      padding: 0;
-    }
-    .overlay-close:hover { background: rgba(255,255,255,0.22); transform: scale(1.07); }
-
-    .overlay-body-inner { max-width: 660px; margin: 0 auto; }
-    .overlay-headline {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 3.5vw, 40px);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--cream);
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .overlay-text {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--text-light);
-      line-height: 1.82;
-      margin-bottom: 28px;
-    }
-    .tip-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(153,161,137,0.22);
-      border-left: 3px solid var(--sage);
-      border-radius: 8px;
-      padding: 20px 24px;
-    }
-    .tip-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--green);
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-    .tip-text {
-      font-size: 13.5px;
-      font-weight: 300;
-      color: #777;
-      line-height: 1.75;
-    }
-    .distance-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .distance-table tr + tr td { border-top: 1px solid rgba(153,161,137,0.15); }
-    .distance-table td {
-      font-size: 13.5px;
-      font-weight: 300;
-      color: #777;
-      padding: 9px 0;
-      line-height: 1.4;
-      vertical-align: middle;
-    }
-    .distance-table td:first-child {
-      font-weight: 400;
-      color: var(--text-dark, #1C1C1C);
-      padding-right: 16px;
-    }
-    .distance-table td:last-child {
-      text-align: right;
-      color: var(--green);
-      white-space: nowrap;
     }
 
     /* CTA */
@@ -355,13 +181,34 @@
 
     @media (max-width: 600px) {
       .hero { height: 70vh; min-height: 420px; }
-      .grid-section { padding: 56px 16px 72px; }
-      .card-grid { gap: 10px; }
-      .overlay-body { padding: 32px 20px 48px; }
       .cta-section { padding: 72px 24px; }
       .nav-pill { padding: 10px 10px 10px 20px; }
     }
       h1 em, h2 em, h3 em { font-style: italic; }
+
+    /* ─── EDITORIAL SECTIONS ─── */
+    .ed-section { padding: 54px 48px; }
+    .ed-section:nth-of-type(odd) { background: #FFFFFF; }
+    .ed-row { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; }
+    .ed-row.flip .ed-photo { order: 2; }
+    .ed-photo img { width: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; border-radius: 14px; display: block; box-shadow: 0 14px 40px rgba(28,28,26,0.1); }
+    .ed-kicker { font-family: 'Lato', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A8474; margin-bottom: 12px; }
+    .ed-head { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(24px, 2.9vw, 34px); line-height: 1.2; color: var(--text-dark, #1C1C1C); margin-bottom: 16px; }
+    .ed-body { font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 300; color: #444; line-height: 1.85; }
+    .ed-body .hl { color: var(--green); font-weight: 600; }
+    .ed-tip { margin-top: 20px; background: #F8F5EE; border-left: 3px solid var(--green); border-radius: 8px; padding: 14px 18px; }
+    .ed-tip .tip-label { font-family: 'Lato', sans-serif; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 5px; }
+    .ed-tip p { font-family: 'Lato', sans-serif; font-size: 13.5px; font-weight: 300; color: #4A463C; line-height: 1.7; }
+    .ed-table { margin-top: 20px; border: 1px solid #E3DCCB; border-radius: 10px; overflow: hidden; background: #fff; }
+    .ed-table .row { display: flex; justify-content: space-between; gap: 12px; padding: 11px 16px; border-bottom: 1px solid #EFEAE0; font-family: 'Lato', sans-serif; font-size: 13.5px; }
+    .ed-table .row:last-child { border-bottom: 0; }
+    .ed-table .park { font-weight: 600; color: #1C1C1C; }
+    .ed-table .dist { color: #8A8474; white-space: nowrap; font-weight: 300; }
+    @media (max-width: 860px) {
+      .ed-section { padding: 40px 22px; }
+      .ed-row { grid-template-columns: 1fr; gap: 24px; }
+      .ed-row.flip .ed-photo { order: 0; }
+    }
   </style>
 </head>
 <body>
@@ -385,68 +232,104 @@
   </section>
 
   <!-- PHOTO CARD GRID -->
-  <section class="grid-section">
-    <div class="grid-inner">
-      <div class="card-grid">
 
-        <div class="card" data-id="timpanogos-cave" tabindex="0" role="button" aria-label="Open Timpanogos Cave">
-          <img src="timpanogos-cave.jpg" alt="Timpanogos Cave">
-          <div class="card-label-wrap"><span class="card-label">Timpanogos Cave</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row">
+      <div class="ed-photo"><img src="timpanogos-cave.jpg" alt="Timpanogos Cave National Monument" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">National Monument</p>
+        <h2 class="ed-head">Timpanogos Cave National Monument.</h2>
+        <p class="ed-body">One of the most underrated things to do in Utah County and it's in your backyard. The hike to the cave entrance is 1.5 miles with 1,000 feet of elevation gain, and it earns the experience. Inside you'll find stalactites, stalagmites, and helictite formations unlike anything else in the state. The cave stays at 45 degrees year-round so bring a layer.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>Reservations required. Tickets sell out weeks in advance in summer, so book at recreation.gov before you think you need to. The cave is open May through October only.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="alpine-loop" tabindex="0" role="button" aria-label="Open Alpine Loop">
-          <img src="alpine-loop.jpg" alt="Alpine Loop">
-          <div class="card-label-wrap"><span class="card-label">Alpine Loop</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row flip">
+      <div class="ed-photo"><img src="alpine-loop.jpg" alt="The Alpine Loop Scenic Byway" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">Scenic Byway</p>
+        <h2 class="ed-head">The Alpine Loop Scenic Byway.</h2>
+        <p class="ed-body">September is when the aspens turn and the Alpine Loop becomes one of the most beautiful drives in the country. The road runs through American Fork Canyon and Provo Canyon connecting the two. Pull over anywhere. You cannot take a bad photo. Snow closes it in winter, so check road conditions before you go.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>Tibble Fork Reservoir is right off the loop and fills up fast on summer weekends. Go on a Tuesday if you want the place to yourself.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="battle-creek-falls" tabindex="0" role="button" aria-label="Open Battle Creek Falls">
-          <img src="battle-creek-falls.jpg" alt="Battle Creek Falls">
-          <div class="card-label-wrap"><span class="card-label">Battle Creek Falls</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row">
+      <div class="ed-photo"><img src="battle-creek-falls.jpg" alt="Battle Creek Falls" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">Trailhead</p>
+        <h2 class="ed-head">Battle Creek Falls.</h2>
+        <p class="ed-body">This is the hike you take people on their first week. About 1.5 miles round trip, 300 feet of elevation gain, and ends at a real waterfall. It's in Pleasant Grove and takes about 45 minutes. Family friendly, dog friendly, and genuinely rewarding for the effort. The trailhead fills up on weekends, so get there before 8am or after 5pm.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>This is the warmup. Once your lungs adjust to the altitude, Grove Creek Trail above Pleasant Grove is the next step up.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="sundance" tabindex="0" role="button" aria-label="Open Sundance Mountain Resort">
-          <img src="sundance.jpg" alt="Sundance Mountain Resort">
-          <div class="card-label-wrap"><span class="card-label">Sundance Mountain Resort</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row flip">
+      <div class="ed-photo"><img src="sundance.jpg" alt="Sundance Mountain Resort" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">Ski and Summer Resort</p>
+        <h2 class="ed-head">Sundance Mountain Resort.</h2>
+        <p class="ed-body">Robert Redford's resort sits at the base of Mount Timpanogos and operates year-round. In winter it's a ski resort with runs for all levels and far less crowded than Park City. In summer it's hiking, the Mountain Coaster, the zip line, and the outdoor amphitheater. The restaurants are genuinely good. It's 20 minutes from most of Utah County.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>The Sundance Film Festival is in Park City in January but overflow events and screenings happen at Sundance Resort. Worth putting on your calendar your first year.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="utah-lake" tabindex="0" role="button" aria-label="Open Utah Lake">
-          <img src="utah-lake.jpg" alt="Utah Lake">
-          <div class="card-label-wrap"><span class="card-label">Utah Lake</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row">
+      <div class="ed-photo"><img src="utah-lake.jpg" alt="Utah Lake" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">On the Water</p>
+        <h2 class="ed-head">Utah Lake.</h2>
+        <p class="ed-body">Utah Lake gets overlooked because people are staring at the mountains. That's a mistake. It's the largest freshwater lake in Utah and it sits right in the valley floor. Paddle boarding, kayaking, fishing, and some of the best sunsets in the county happen here. Lindon Marina and Utah Lake State Park are the two main access points.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>Water quality varies by season and weather conditions. Check utah.gov before swimming. For paddle boarding and kayaking it's generally fine most of the season.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="tibble-fork" tabindex="0" role="button" aria-label="Open Tibble Fork Reservoir">
-          <img src="tibble-fork.jpg" alt="Tibble Fork Reservoir">
-          <div class="card-label-wrap"><span class="card-label">Tibble Fork Reservoir</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row flip">
+      <div class="ed-photo"><img src="tibble-fork.jpg" alt="Tibble Fork Reservoir" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">Reservoir</p>
+        <h2 class="ed-head">Tibble Fork Reservoir.</h2>
+        <p class="ed-body">A high mountain reservoir tucked into American Fork Canyon at about 6,200 feet elevation. Fishing, paddle boarding, and some of the best picnic spots in the county. The drive up the canyon alone is worth it. When people want cooler temps and a mountain setting, Tibble Fork is the answer. Utah Lake and Deer Creek are where people head for boating. Tibble Fork is where they go to slow down, sit by the water, and actually feel like they are in the mountains.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>The road to Tibble Fork is the same road to the Alpine Loop. Combine them into one outing. Go early on weekends. The parking lot fills by 9am in summer.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="provo-canyon" tabindex="0" role="button" aria-label="Open Provo Canyon">
-          <img src="provo-canyon.jpg" alt="Provo Canyon">
-          <div class="card-label-wrap"><span class="card-label">Provo Canyon</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row">
+      <div class="ed-photo"><img src="provo-canyon.jpg" alt="Provo Canyon" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">The Canyon</p>
+        <h2 class="ed-head">Provo Canyon.</h2>
+        <p class="ed-body">Provo Canyon is one of the most scenic drives in Utah County and it never gets old. The canyon runs between Utah County and Heber Valley with the Provo River running alongside the entire route. In spring and summer the river is a blue ribbon fishery for brown and rainbow trout, and sections of it are floatable by kayak and inflatable. Bridal Veil Falls is right off the road and worth the short walk every single time. In October the aspens turn and Provo Canyon becomes one of the best fall color drives in the state.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>The canyon is also the route to Sundance Resort, Deer Creek Reservoir, and Heber City. If you are heading to any of those, stop somewhere along the river on the way back. You will not regret it.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="mighty-5" tabindex="0" role="button" aria-label="Open The Mighty 5 National Parks">
-          <img src="national-parks.jpg" alt="The Mighty 5 National Parks">
-          <div class="card-label-wrap"><span class="card-label">The Mighty 5 National Parks</span></div>
-        </div>
-
+  <section class="ed-section">
+    <div class="ed-row flip">
+      <div class="ed-photo"><img src="national-parks.jpg" alt="The Mighty 5 National Parks" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">Road Trips</p>
+        <h2 class="ed-head">Five National Parks Within a Day's <em>Drive</em>.</h2>
+        <p class="ed-body">This is the thing most people don't fully register until they live here. Zion, Bryce Canyon, Arches, Canyonlands, and Capitol Reef are all within a four to five hour drive of Utah County. Most families who move here make it to all five within their first two years. Spring and fall are the best seasons to visit. Summer is hot and crowded.</p>
+        <div class="ed-table"><div class="row"><span class="park">Zion National Park</span><span class="dist">3 hrs 15 min &middot; 240 miles</span></div><div class="row"><span class="park">Bryce Canyon</span><span class="dist">3 hrs 30 min &middot; 255 miles</span></div><div class="row"><span class="park">Capitol Reef</span><span class="dist">3 hrs &middot; 210 miles</span></div><div class="row"><span class="park">Arches National Park</span><span class="dist">4 hrs &middot; 235 miles</span></div><div class="row"><span class="park">Canyonlands</span><span class="dist">4 hrs 15 min &middot; 250 miles</span></div></div>
       </div>
     </div>
   </section>
 
   <!-- OVERLAY -->
-  <div class="overlay" id="overlay" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="overlay-inner">
-      <div class="overlay-photo" id="overlay-photo">
-        <img id="overlay-img" src="" alt="">
-      </div>
-      <div class="overlay-body" id="overlay-scroll">
-        <div class="overlay-body-inner" id="overlay-body-content"></div>
-      </div>
-    </div>
-    <button class="overlay-close" id="overlay-close" aria-label="Close">&times;</button>
-  </div>
-
-  <!-- CTA -->
   <section class="cta-section">
     <h2>Ready to find your neighborhood?</h2>
     <p>The right neighborhood puts you close to everything that matters to you. Let's talk about what that looks like.</p>
@@ -458,127 +341,7 @@ var mainNav = document.getElementById('main-nav');
 window.addEventListener('scroll', function() {
   mainNav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
-
-var overlayData = {
-  'timpanogos-cave': {
-    photo: 'timpanogos-cave.jpg',
-    alt: 'Timpanogos Cave National Monument',
-    headline: 'Timpanogos Cave National Monument.',
-    body: "One of the most underrated things to do in Utah County and it's in your backyard. The hike to the cave entrance is 1.5 miles with 1,000 feet of elevation gain, and it earns the experience. Inside you'll find stalactites, stalagmites, and helictite formations unlike anything else in the state. The cave stays at 45 degrees year-round so bring a layer.",
-    tipType: 'text',
-    tip: 'Reservations required. Tickets sell out weeks in advance in summer, so book at recreation.gov before you think you need to. The cave is open May through October only.'
-  },
-  'alpine-loop': {
-    photo: 'alpine-loop.jpg',
-    alt: 'The Alpine Loop Scenic Byway',
-    headline: 'The Alpine Loop Scenic Byway.',
-    body: 'September is when the aspens turn and the Alpine Loop becomes one of the most beautiful drives in the country. The road runs through American Fork Canyon and Provo Canyon connecting the two. Pull over anywhere. You cannot take a bad photo. Snow closes it in winter, so check road conditions before you go.',
-    tipType: 'text',
-    tip: 'Tibble Fork Reservoir is right off the loop and fills up fast on summer weekends. Go on a Tuesday if you want the place to yourself.'
-  },
-  'battle-creek-falls': {
-    photo: 'battle-creek-falls.jpg',
-    alt: 'Battle Creek Falls',
-    headline: 'Battle Creek Falls.',
-    body: "This is the hike you take people on their first week. About 1.5 miles round trip, 300 feet of elevation gain, and ends at a real waterfall. It's in Pleasant Grove and takes about 45 minutes. Family friendly, dog friendly, and genuinely rewarding for the effort. The trailhead fills up on weekends, so get there before 8am or after 5pm.",
-    tipType: 'text',
-    tip: 'This is the warmup. Once your lungs adjust to the altitude, Grove Creek Trail above Pleasant Grove is the next step up.'
-  },
-  'sundance': {
-    photo: 'sundance.jpg',
-    alt: 'Sundance Mountain Resort',
-    headline: 'Sundance Mountain Resort.',
-    body: "Robert Redford's resort sits at the base of Mount Timpanogos and operates year-round. In winter it's a ski resort with runs for all levels and far less crowded than Park City. In summer it's hiking, the Mountain Coaster, the zip line, and the outdoor amphitheater. The restaurants are genuinely good. It's 20 minutes from most of Utah County.",
-    tipType: 'text',
-    tip: 'The Sundance Film Festival is in Park City in January but overflow events and screenings happen at Sundance Resort. Worth putting on your calendar your first year.'
-  },
-  'utah-lake': {
-    photo: 'utah-lake.jpg',
-    alt: 'Utah Lake',
-    headline: 'Utah Lake.',
-    body: "Utah Lake gets overlooked because people are staring at the mountains. That's a mistake. It's the largest freshwater lake in Utah and it sits right in the valley floor. Paddle boarding, kayaking, fishing, and some of the best sunsets in the county happen here. Lindon Marina and Utah Lake State Park are the two main access points.",
-    tipType: 'text',
-    tip: "Water quality varies by season and weather conditions. Check utah.gov before swimming. For paddle boarding and kayaking it's generally fine most of the season."
-  },
-  'tibble-fork': {
-    photo: 'tibble-fork.jpg',
-    alt: 'Tibble Fork Reservoir',
-    headline: 'Tibble Fork Reservoir.',
-    body: 'A high mountain reservoir tucked into American Fork Canyon at about 6,200 feet elevation. Fishing, paddle boarding, and some of the best picnic spots in the county. The drive up the canyon alone is worth it. When people want cooler temps and a mountain setting, Tibble Fork is the answer. Utah Lake and Deer Creek are where people head for boating. Tibble Fork is where they go to slow down, sit by the water, and actually feel like they are in the mountains.',
-    tipType: 'text',
-    tip: 'The road to Tibble Fork is the same road to the Alpine Loop. Combine them into one outing. Go early on weekends. The parking lot fills by 9am in summer.'
-  },
-  'provo-canyon': {
-    photo: 'provo-canyon.jpg',
-    alt: 'Provo Canyon',
-    headline: 'Provo Canyon.',
-    body: "Provo Canyon is one of the most scenic drives in Utah County and it never gets old. The canyon runs between Utah County and Heber Valley with the Provo River running alongside the entire route. In spring and summer the river is a blue ribbon fishery for brown and rainbow trout, and sections of it are floatable by kayak and inflatable. Bridal Veil Falls is right off the road and worth the short walk every single time. In October the aspens turn and Provo Canyon becomes one of the best fall color drives in the state.",
-    tipType: 'text',
-    tip: 'The canyon is also the route to Sundance Resort, Deer Creek Reservoir, and Heber City. If you are heading to any of those, stop somewhere along the river on the way back. You will not regret it.'
-  },
-  'mighty-5': {
-    photo: 'national-parks.jpg',
-    alt: 'The Mighty 5 National Parks',
-    headline: "Five National Parks Within a Day's Drive.",
-    body: "This is the thing most people don't fully register until they live here. Zion, Bryce Canyon, Arches, Canyonlands, and Capitol Reef are all within a four to five hour drive of Utah County. Most families who move here make it to all five within their first two years. Spring and fall are the best seasons to visit. Summer is hot and crowded.",
-    tipType: 'table',
-    distances: [
-      ['Zion National Park',   '3 hrs 15 min', '240 miles'],
-      ['Bryce Canyon',         '3 hrs 30 min', '255 miles'],
-      ['Capitol Reef',         '3 hrs',        '210 miles'],
-      ['Arches National Park', '4 hrs',        '235 miles'],
-      ['Canyonlands',          '4 hrs 15 min', '250 miles']
-    ]
-  }
-};
-
-var overlay       = document.getElementById('overlay');
-var overlayImg    = document.getElementById('overlay-img');
-var overlayBody   = document.getElementById('overlay-body-content');
-var overlayScroll = document.getElementById('overlay-scroll');
-var closeBtn      = document.getElementById('overlay-close');
-var overlayPhoto  = document.getElementById('overlay-photo');
-
-function openOverlay(id) {
-  var d = overlayData[id];
-  if (!d) return;
-  overlayImg.src = d.photo;
-  overlayImg.alt = d.alt;
-  var tipHTML = '';
-  if (d.tipType === 'table') {
-    var rows = d.distances.map(function(r) {
-      return '<tr><td>' + r[0] + '</td><td>' + r[1] + ' / ' + r[2] + '</td></tr>';
-    }).join('');
-    tipHTML = '<p class="tip-label">Distances from Utah County</p><table class="distance-table">' + rows + '</table>';
-  } else {
-    tipHTML = '<p class="tip-label">Local Tip</p><p class="tip-text">' + d.tip + '</p>';
-  }
-  overlayBody.innerHTML = '<h2 class="overlay-headline">' + d.headline + '</h2><p class="overlay-text">' + d.body + '</p><div class="tip-box">' + tipHTML + '</div>';
-  overlay.classList.add('active');
-  overlay.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-  overlayScroll.scrollTop = 0;
-}
-
-function closeOverlay() {
-  overlay.classList.remove('active');
-  overlay.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-}
-
-document.querySelectorAll('.card').forEach(function(card) {
-  card.addEventListener('click', function() { openOverlay(card.dataset.id); });
-  card.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openOverlay(card.dataset.id); }
-  });
-});
-
-closeBtn.addEventListener('click', closeOverlay);
-overlayPhoto.addEventListener('click', closeOverlay);
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeOverlay();
-});
-  </script>
+</script>
 
 </body>
 </html>
