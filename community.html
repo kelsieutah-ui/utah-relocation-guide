@@ -143,155 +143,6 @@
       padding: 80px 48px 100px;
     }
     .grid-inner { max-width: 1200px; margin: 0 auto; }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-    @media (min-width: 768px) {
-      .card-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      cursor: pointer;
-      aspect-ratio: 3 / 4;
-      background: #FFFFFF;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .card img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .card:hover img { transform: scale(1.07); }
-    .card-label-wrap {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 48px 14px 16px;
-      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
-      pointer-events: none;
-    }
-    .card-label {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-dark, #1C1C1C);
-      line-height: 1.35;
-    }
-
-    /* OVERLAY */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.32s ease;
-      background: var(--green);
-    }
-    .overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    .overlay-inner {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      transform: translateY(22px);
-      transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .overlay.active .overlay-inner { transform: translateY(0); }
-
-    .overlay-photo {
-      flex: 0 0 33vh;
-      min-height: 180px;
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-    }
-    .overlay-photo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 55%, rgba(43,61,48,0.55) 100%);
-      pointer-events: none;
-    }
-    .overlay-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .overlay-body {
-      flex: 1;
-      overflow-y: auto;
-      background: var(--green);
-      padding: 44px 56px 64px;
-      -webkit-overflow-scrolling: touch;
-    }
-    .overlay-close {
-      position: fixed;
-      top: 16px;
-      right: 20px;
-      z-index: 2001;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s, transform 0.15s;
-      line-height: 1;
-      padding: 0;
-    }
-    .overlay-close:hover { background: rgba(255,255,255,0.22); transform: scale(1.07); }
-
-    .overlay-body-inner { max-width: 660px; margin: 0 auto; }
-    .overlay-headline {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 3.5vw, 40px);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--cream);
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .overlay-text {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--text-light);
-      line-height: 1.82;
-      margin-bottom: 28px;
-    }
-    .tip-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(153,161,137,0.22);
-      border-left: 3px solid var(--sage);
-      border-radius: 8px;
-      padding: 20px 24px;
-    }
-    .tip-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--green);
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-    .tip-text {
-      font-size: 13.5px;
-      font-weight: 300;
-      color: #777;
-      line-height: 1.75;
-    }
-
     /* CTA */
     .cta-section {
       background: #FFFFFF;
@@ -334,11 +185,29 @@
       .hero { height: 70vh; min-height: 420px; }
       .grid-section { padding: 56px 16px 72px; }
       .card-grid { gap: 10px; }
-      .overlay-body { padding: 32px 20px 48px; }
       .cta-section { padding: 72px 24px; }
       .nav-pill { padding: 10px 10px 10px 20px; }
     }
       h1 em, h2 em, h3 em { font-style: italic; }
+
+    /* ─── EDITORIAL SECTIONS ─── */
+    .ed-section { padding: 54px 48px; }
+    .ed-section:nth-of-type(odd) { background: #FFFFFF; }
+    .ed-row { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; }
+    .ed-row.flip .ed-photo { order: 2; }
+    .ed-photo img { width: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; border-radius: 14px; display: block; box-shadow: 0 14px 40px rgba(28,28,26,0.1); }
+    .ed-kicker { font-family: 'Lato', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A8474; margin-bottom: 12px; }
+    .ed-head { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(24px, 2.9vw, 34px); line-height: 1.2; color: var(--text-dark, #1C1C1C); margin-bottom: 16px; }
+    .ed-body { font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 300; color: #444; line-height: 1.85; }
+    .ed-body .hl { color: var(--green); font-weight: 600; }
+    .ed-tip { margin-top: 20px; background: #F8F5EE; border-left: 3px solid var(--green); border-radius: 8px; padding: 14px 18px; }
+    .ed-tip .tip-label { font-family: 'Lato', sans-serif; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 5px; }
+    .ed-tip p { font-family: 'Lato', sans-serif; font-size: 13.5px; font-weight: 300; color: #4A463C; line-height: 1.7; }
+    @media (max-width: 860px) {
+      .ed-section { padding: 40px 22px; }
+      .ed-row { grid-template-columns: 1fr; gap: 24px; }
+      .ed-row.flip .ed-photo { order: 0; }
+    }
   </style>
 </head>
 <body>
@@ -354,7 +223,6 @@
   <!-- HERO -->
   <section class="hero">
     <img src="community-hero.jpg" alt="Utah County community life">
-    <div class="hero-overlay"></div>
     <div class="hero-body">
       <h1 class="hero-title">This is the part they never put in the <em>listing</em>.</h1>
       <p class="hero-sub">I have lived in 4 states and moved more times than I care to count. Utah County is the first place that made me feel like I actually landed somewhere. Here is what I mean by that.</p>
@@ -362,58 +230,80 @@
   </section>
 
   <!-- PHOTO CARD GRID -->
-  <section class="grid-section">
-    <div class="grid-inner">
-      <div class="card-grid">
 
-        <div class="card" data-id="local-events" tabindex="0" role="button" aria-label="Open Local Events and Festivals">
-          <img src="fireworks.jpg" alt="Local Events and Festivals">
-          <div class="card-label-wrap"><span class="card-label">Local Events and Festivals</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row">
+      <div class="ed-photo"><img src="fireworks.jpg" alt="Local Events and Festivals" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">Local Events and Festivals</p>
+        <h2 class="ed-head">The calendar fills up <em>faster</em> than you expect.</h2>
+        <p class="ed-body">Utah County runs on community events and most of them are free. The Provo Freedom Festival puts on the largest stadium fireworks show in the country outside of Washington DC every July 4th. Steel Days in American Fork in July has been a valley tradition for generations. Strawberry Days in Pleasant Grove in June, the Lehi Roundup Rodeo, and Spanish Fork Fiesta Days in July are the kind of events that feel like the whole city showed up. In late January the Shops at Riverwoods in Provo hosts their annual Fire and Ice Festival with ice sculptures, fire pits, live entertainment and fireworks. It has run for over 14 years and it is genuinely one of the best winter nights in the valley.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>The Utah Valley Marathon happens every June and draws runners from all over the state. If you are a runner this one is worth putting on your calendar your first year.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="farmers-markets" tabindex="0" role="button" aria-label="Open Farmers Markets">
-          <img src="farmers-market-hero.jpg" alt="Farmers Markets">
-          <div class="card-label-wrap"><span class="card-label">Farmers Markets</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row flip">
+      <div class="ed-photo"><img src="farmers-market-hero.jpg" alt="Farmers Markets" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">Farmers Markets</p>
+        <h2 class="ed-head">Saturday mornings have a whole different <em>feel</em> here.</h2>
+        <p class="ed-body">The Provo Farmers Market runs through the warmer months downtown and is genuinely good. Fresh produce, local vendors, food trucks, and the kind of slow Saturday morning that reminds you why you moved here. Thanksgiving Point also runs a seasonal market that is worth the drive. American Fork has their own market as well. These are not just places to buy vegetables. They are where you start to recognize faces and feel like you actually live somewhere.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>Go early. The good stuff sells out. Bring cash even if vendors take cards. And bring the kids because it is one of the most low-key enjoyable mornings you can have in Utah County.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="winter-activities" tabindex="0" role="button" aria-label="Open Winter Activities">
-          <img src="winter.jpg" alt="Winter Activities">
-          <div class="card-label-wrap"><span class="card-label">Winter Activities</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row">
+      <div class="ed-photo"><img src="winter.jpg" alt="Winter Activities" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">Winter</p>
+        <h2 class="ed-head">Winter here is not something you survive. It is something you <em>participate</em> in.</h2>
+        <p class="ed-body">Sundance Mountain Resort is 20 minutes from most of Utah County and it is a fraction of the crowds of Park City. The skiing is real, the mountain is beautiful, and the lodge and restaurants are genuinely worth the trip even if you do not ski. Beyond Sundance, the Wasatch Range gives you sledding, snowshoeing, and winter hikes within minutes of your neighborhood. Thanksgiving Point does a full holiday lights display in the winter that families come back to every year. The Provo River trail system is walkable year-round and hits different in the snow.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>Utah gets real winters. Snow in the valley is common from November through March. The altitude makes it drier than most places which means the snow is lighter and it melts faster. Invest in a good pair of snow boots your first fall and you will be fine.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="hidden-gems" tabindex="0" role="button" aria-label="Open Hidden Gems: Food and Drinks">
-          <img src="coffeevibes.jpg" alt="Hidden Gems: Food and Drinks">
-          <div class="card-label-wrap"><span class="card-label">Hidden Gems: Food and Drinks</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row flip">
+      <div class="ed-photo"><img src="coffeevibes.jpg" alt="Hidden Gems: Food and Drinks" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">Food and Drink</p>
+        <h2 class="ed-head">My <em>personal</em> short list after living in 4 states.</h2>
+        <p class="ed-body">This is not a comprehensive dining guide. There are great resources for that. This is my list, the places I actually take people when they visit, and the ones I tell every client about when they move here. You want the real ones. Here they are.</p><p class="ed-body" style="margin-top:12px;"><span class="hl">Guayoyo Cafe</span> in Pleasant Grove is where you start. You know how much I love coffee, so you better believe I have a strong opinion on this one. Venezuelan family-owned on historic Main Street, the coziest little shop you will find in the valley. Get the coffee flight and the La Exquisita empanada (mushroom and goat cheese). Do not skip the smoked garlic sauce. Featured on KUTV Taste Utah and worth every bit of the attention.</p><p class="ed-body" style="margin-top:12px;"><span class="hl">Don Joaquin Street Tacos</span> has several Utah Valley locations and the Tuesday taco special is the best deal in the county. Family-owned, founder from Queretaro Mexico, started with a taco cart 20 years ago. Al pastor, carne asada, lengua. Open late. This is the real deal.</p><p class="ed-body" style="margin-top:12px;"><span class="hl">Sol Agave</span> in American Fork is where you go when you want to impress someone or celebrate something. Family-owned, started as a food truck in California in 2014, now one of the best Mexican restaurants in the state. The award-winning cheese fondue and the carnitas are what people talk about. Make a reservation.</p><p class="ed-body" style="margin-top:12px;"><span class="hl">TRUreligion Pancake and Steakhouse</span> in Orem is locally owned by Jim Leany and it is unlike any breakfast spot you have been to. The interior is filled with original Art Deco furnishings from Salt Lake City's historic Lamb's Grill. Locally sourced Utah eggs, honey, and a custom coffee blend from a local roaster. USDA Prime beef at breakfast. The cat's head biscuits have a family recipe behind them that someone once offered to buy for fifty thousand dollars. They said no. Best of State winner.</p><p class="ed-body" style="margin-top:12px;"><span class="hl">5 Star BBQ</span> in Orem at 70 Geneva Road is slow smoked, homemade, and the kind of place that reminds you that good BBQ does not need to be fancy. Brisket, ribs, pulled pork, funeral potatoes, peach cobbler. Also a live music venue.</p><p class="ed-body" style="margin-top:12px;"><span class="hl">The Kolache Place</span> in Provo and American Fork (formerly Hruska's Kolaches, same team and same recipes) is the grab and go breakfast you did not know you needed. Started in 2014 by a Texas family with Czech roots who came to Utah for school. Hand-packed, baked fresh daily. Featured on Guy Fieri. Get the sausage and gravy or the maple pecan and do not overthink it.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>This list is mine. It reflects what I love about this place. Utah County has more to explore and I am happy to talk through any of it when we work together.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="community-feel" tabindex="0" role="button" aria-label="Open Community Feel">
-          <img src="community-park.jpg" alt="Community Feel">
-          <div class="card-label-wrap"><span class="card-label">Community Feel</span></div>
-        </div>
+  <section class="ed-section">
+    <div class="ed-row">
+      <div class="ed-photo"><img src="community-park.jpg" alt="Community Feel" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">Community Feel</p>
+        <h2 class="ed-head">The thing people do not <em>expect</em> until they live here.</h2>
+        <p class="ed-body">Utah County has a community density that is hard to explain until you experience it. Neighbors show up. People bring food when something hard happens. Youth sports are a serious cultural institution. Friday night high school football is a community event, not just a game, and the energy in those stands is real. The LDS ward system means most neighborhoods have built-in social structure from day one. If you are not LDS, that takes some navigating but it is not a barrier to finding your people. The non-member community here is active, welcoming, and growing. The pace of life is genuinely different from what most people coming from California or the coast are used to. Slower in the best way. More intentional.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>The best advice I give relocating clients: go to one local event in your first 30 days. Farmers market, high school game, city festival, anything. It accelerates everything about feeling like you belong here.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card" data-id="arts-culture" tabindex="0" role="button" aria-label="Open Arts and Culture">
-          <img src="arts-culture.jpg" alt="Arts and Culture">
-          <div class="card-label-wrap"><span class="card-label">Arts and Culture</span></div>
-        </div>
-
+  <section class="ed-section">
+    <div class="ed-row flip">
+      <div class="ed-photo"><img src="arts-culture.jpg" alt="Arts and Culture" loading="lazy"></div>
+      <div>
+        <p class="ed-kicker">Arts and Culture</p>
+        <h2 class="ed-head">More culture than people give it <em>credit</em> for.</h2>
+        <p class="ed-body">The SCERA Shell Outdoor Theatre in Orem runs live performances through the summer and it is a genuine Utah County institution that has been around for decades. The Covey Center for the Arts in Provo hosts performing arts, visual arts, and community productions year-round. BYU runs a full calendar of events open to the public including performances, lectures, and exhibits worth putting on your radar. Springville is officially known as Art City and it earns the name. The Springville Museum of Art is Utah's oldest visual arts museum, founded in 1903, with 29 galleries, a sculpture garden, and over 2,600 works. Admission is free. And if you have not been to the Legends Compound in Springville, put it on your list. It is an entire shopping and entertainment complex built from 55 repurposed shipping containers. Speakeasy with a weekly password, ferris wheel, vintage motorcycle museum, Cargo Cinema with $4 movie tickets on weekends, restaurants, and more. It is one of the most genuinely unexpected things in Utah County and people who live here walk past it like it is normal.</p>
+        <div class="ed-tip"><p class="tip-label">Kelsie's tip</p><p>The Springville Museum of Art is free to visit Tuesday through Saturday. The Legends Compound is at 533 S 1750 W in Springville. Go on a Friday or Saturday evening when the cinema is open and the speakeasy is running.</p></div>
       </div>
     </div>
   </section>
 
   <!-- OVERLAY -->
-  <div class="overlay" id="overlay" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="overlay-inner">
-      <div class="overlay-photo" id="overlay-photo">
-        <img id="overlay-img" src="" alt="">
-      </div>
-      <div class="overlay-body" id="overlay-scroll">
-        <div class="overlay-body-inner" id="overlay-body-content"></div>
-      </div>
-    </div>
-    <button class="overlay-close" id="overlay-close" aria-label="Close">&times;</button>
-  </div>
-
-  <!-- CTA -->
   <section class="cta-section">
     <h2>Want to know if this feels like home?</h2>
     <p>The best way I know to answer that is to show you around. I grew up here, left, came back by choice, and I have never regretted it. Let's talk about what you are looking for.</p>
@@ -425,97 +315,7 @@ var mainNav = document.getElementById('main-nav');
 window.addEventListener('scroll', function() {
   mainNav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
-
-var overlayData = {
-  'local-events': {
-    photo: 'fireworks.jpg',
-    alt: 'Local Events and Festivals',
-    headline: 'The calendar fills up faster than you expect.',
-    body: 'Utah County runs on community events and most of them are free. The Provo Freedom Festival puts on the largest stadium fireworks show in the country outside of Washington DC every July 4th. Steel Days in American Fork in July has been a valley tradition for generations. Strawberry Days in Pleasant Grove in June, the Lehi Roundup Rodeo, and Spanish Fork Fiesta Days in July are the kind of events that feel like the whole city showed up. In late January the Shops at Riverwoods in Provo hosts their annual Fire and Ice Festival with ice sculptures, fire pits, live entertainment and fireworks. It has run for over 14 years and it is genuinely one of the best winter nights in the valley.',
-    tipType: 'text',
-    tip: 'The Utah Valley Marathon happens every June and draws runners from all over the state. If you are a runner this one is worth putting on your calendar your first year.'
-  },
-  'farmers-markets': {
-    photo: 'farmers-market-hero.jpg',
-    alt: 'Farmers Markets',
-    headline: 'Saturday mornings have a whole different feel here.',
-    body: 'The Provo Farmers Market runs through the warmer months downtown and is genuinely good. Fresh produce, local vendors, food trucks, and the kind of slow Saturday morning that reminds you why you moved here. Thanksgiving Point also runs a seasonal market that is worth the drive. American Fork has their own market as well. These are not just places to buy vegetables. They are where you start to recognize faces and feel like you actually live somewhere.',
-    tipType: 'text',
-    tip: 'Go early. The good stuff sells out. Bring cash even if vendors take cards. And bring the kids because it is one of the most low-key enjoyable mornings you can have in Utah County.'
-  },
-  'winter-activities': {
-    photo: 'winter.jpg',
-    alt: 'Winter Activities',
-    headline: 'Winter here is not something you survive. It is something you participate in.',
-    body: 'Sundance Mountain Resort is 20 minutes from most of Utah County and it is a fraction of the crowds of Park City. The skiing is real, the mountain is beautiful, and the lodge and restaurants are genuinely worth the trip even if you do not ski. Beyond Sundance, the Wasatch Range gives you sledding, snowshoeing, and winter hikes within minutes of your neighborhood. Thanksgiving Point does a full holiday lights display in the winter that families come back to every year. The Provo River trail system is walkable year-round and hits different in the snow.',
-    tipType: 'text',
-    tip: 'Utah gets real winters. Snow in the valley is common from November through March. The altitude makes it drier than most places which means the snow is lighter and it melts faster. Invest in a good pair of snow boots your first fall and you will be fine.'
-  },
-  'hidden-gems': {
-    photo: 'coffeevibes.jpg',
-    alt: 'Hidden Gems: Food and Drinks',
-    headline: 'My personal short list after living in 4 states.',
-    body: "This is not a comprehensive dining guide. There are great resources for that. This is my list, the places I actually take people when they visit, and the ones I tell every client about when they move here. You want the real ones. Here they are.<br><br><span style=\"color:#fff; font-weight:600;\">Guayoyo Cafe</span> in Pleasant Grove is where you start. You know how much I love coffee, so you better believe I have a strong opinion on this one. Venezuelan family-owned on historic Main Street, the coziest little shop you will find in the valley. Get the coffee flight and the La Exquisita empanada (mushroom and goat cheese). Do not skip the smoked garlic sauce. Featured on KUTV Taste Utah and worth every bit of the attention.<br><br><span style=\"color:#fff; font-weight:600;\">Don Joaquin Street Tacos</span> has several Utah Valley locations and the Tuesday taco special is the best deal in the county. Family-owned, founder from Queretaro Mexico, started with a taco cart 20 years ago. Al pastor, carne asada, lengua. Open late. This is the real deal.<br><br><span style=\"color:#fff; font-weight:600;\">Sol Agave</span> in American Fork is where you go when you want to impress someone or celebrate something. Family-owned, started as a food truck in California in 2014, now one of the best Mexican restaurants in the state. The award-winning cheese fondue and the carnitas are what people talk about. Make a reservation.<br><br><span style=\"color:#fff; font-weight:600;\">TRUreligion Pancake and Steakhouse</span> in Orem is locally owned by Jim Leany and it is unlike any breakfast spot you have been to. The interior is filled with original Art Deco furnishings from Salt Lake City's historic Lamb's Grill. Locally sourced Utah eggs, honey, and a custom coffee blend from a local roaster. USDA Prime beef at breakfast. The cat's head biscuits have a family recipe behind them that someone once offered to buy for fifty thousand dollars. They said no. Best of State winner.<br><br><span style=\"color:#fff; font-weight:600;\">5 Star BBQ</span> in Orem at 70 Geneva Road is slow smoked, homemade, and the kind of place that reminds you that good BBQ does not need to be fancy. Brisket, ribs, pulled pork, funeral potatoes, peach cobbler. Also a live music venue.<br><br><span style=\"color:#fff; font-weight:600;\">The Kolache Place</span> in Provo and American Fork (formerly Hruska's Kolaches, same team and same recipes) is the grab and go breakfast you did not know you needed. Started in 2014 by a Texas family with Czech roots who came to Utah for school. Hand-packed, baked fresh daily. Featured on Guy Fieri. Get the sausage and gravy or the maple pecan and do not overthink it.",
-    tipType: 'text',
-    tip: 'This list is mine. It reflects what I love about this place. Utah County has more to explore and I am happy to talk through any of it when we work together.'
-  },
-  'community-feel': {
-    photo: 'community-park.jpg',
-    alt: 'Community Feel',
-    headline: 'The thing people do not expect until they live here.',
-    body: 'Utah County has a community density that is hard to explain until you experience it. Neighbors show up. People bring food when something hard happens. Youth sports are a serious cultural institution. Friday night high school football is a community event, not just a game, and the energy in those stands is real. The LDS ward system means most neighborhoods have built-in social structure from day one. If you are not LDS, that takes some navigating but it is not a barrier to finding your people. The non-member community here is active, welcoming, and growing. The pace of life is genuinely different from what most people coming from California or the coast are used to. Slower in the best way. More intentional.',
-    tipType: 'text',
-    tip: 'The best advice I give relocating clients: go to one local event in your first 30 days. Farmers market, high school game, city festival, anything. It accelerates everything about feeling like you belong here.'
-  },
-  'arts-culture': {
-    photo: 'arts-culture.jpg',
-    alt: 'Arts and Culture',
-    headline: 'More culture than people give it credit for.',
-    body: "The SCERA Shell Outdoor Theatre in Orem runs live performances through the summer and it is a genuine Utah County institution that has been around for decades. The Covey Center for the Arts in Provo hosts performing arts, visual arts, and community productions year-round. BYU runs a full calendar of events open to the public including performances, lectures, and exhibits worth putting on your radar. Springville is officially known as Art City and it earns the name. The Springville Museum of Art is Utah's oldest visual arts museum, founded in 1903, with 29 galleries, a sculpture garden, and over 2,600 works. Admission is free. And if you have not been to the Legends Compound in Springville, put it on your list. It is an entire shopping and entertainment complex built from 55 repurposed shipping containers. Speakeasy with a weekly password, ferris wheel, vintage motorcycle museum, Cargo Cinema with $4 movie tickets on weekends, restaurants, and more. It is one of the most genuinely unexpected things in Utah County and people who live here walk past it like it is normal.",
-    tipType: 'text',
-    tip: 'The Springville Museum of Art is free to visit Tuesday through Saturday. The Legends Compound is at 533 S 1750 W in Springville. Go on a Friday or Saturday evening when the cinema is open and the speakeasy is running.'
-  }
-};
-
-var overlay       = document.getElementById('overlay');
-var overlayImg    = document.getElementById('overlay-img');
-var overlayBody   = document.getElementById('overlay-body-content');
-var overlayScroll = document.getElementById('overlay-scroll');
-var closeBtn      = document.getElementById('overlay-close');
-var overlayPhoto  = document.getElementById('overlay-photo');
-
-function openOverlay(id) {
-  var d = overlayData[id];
-  if (!d) return;
-  overlayImg.src = d.photo;
-  overlayImg.alt = d.alt;
-  var tipHTML = '<p class="tip-label">Local Tip</p><p class="tip-text">' + d.tip + '</p>';
-  overlayBody.innerHTML = '<h2 class="overlay-headline">' + d.headline + '</h2><p class="overlay-text">' + d.body + '</p><div class="tip-box">' + tipHTML + '</div>';
-  overlay.classList.add('active');
-  overlay.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-  overlayScroll.scrollTop = 0;
-}
-
-function closeOverlay() {
-  overlay.classList.remove('active');
-  overlay.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-}
-
-document.querySelectorAll('.card').forEach(function(card) {
-  card.addEventListener('click', function() { openOverlay(card.dataset.id); });
-  card.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openOverlay(card.dataset.id); }
-  });
-});
-
-closeBtn.addEventListener('click', closeOverlay);
-overlayPhoto.addEventListener('click', closeOverlay);
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeOverlay();
-});
-  </script>
+</script>
 
 </body>
 </html>
