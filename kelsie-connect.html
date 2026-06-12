@@ -9,8 +9,8 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --forest:    #1E2D20;
-      --forest-mid:#2C3E2E;
+      --forest:    #1E3D2F;
+      --forest-mid:#2B4A3A;
       --sage:      #99A189;
       --sage-light:#B7BEA9;
       --mocha:     #B19F8F;
@@ -287,6 +287,27 @@
     }
     .btn-submit:hover { opacity: 0.88; transform: translateY(-1px); }
 
+    /* ── GUIDE DELIVERY BUTTON ── */
+    .btn-guide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 340px;
+      margin: 22px auto 10px;
+      padding: 16px;
+      background: var(--forest);
+      color: var(--cream);
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-guide:hover { opacity: 0.9; transform: translateY(-1px); }
+
     /* ── SKIP LINK ── */
     .skip-link {
       display: block;
@@ -514,9 +535,10 @@
   <!-- SUCCESS CARD -->
   <div class="success-card" id="successCard">
     <div class="success-icon">🌿</div>
-    <h2>Got it. I'll be in touch.</h2>
-    <p>I personally read every one of these. Talk soon.</p>
-    <div class="success-sig">,  Kelsie</div>
+    <h2 id="successHead">Done! Your guide is ready.</h2>
+    <p id="successSub">It's all yours, right now. I'll also reach out personally to say hi.</p>
+    <a class="btn-guide" id="guideBtn" href="https://guide.kelsiejimenez.com/" target="_blank" rel="noopener" style="display:none;">Open the Guide</a>
+    <div class="success-sig">Kelsie</div>
   </div>
 
   <!-- Hidden form for Netlify Forms detection at deploy time -->
@@ -621,6 +643,25 @@
       window.location.href = `sms:8014202284?body=${body}`;
     }
 
+    function deliverGuide() {
+      const map = {
+        'relocation-guide':    ['Open the Relocation Guide', 'https://guide.kelsiejimenez.com/'],
+        'moving-toolkit':      ['Open the Moving Toolkit', 'https://guide.kelsiejimenez.com/moving-resource-guide.html'],
+        'transaction-roadmap': ["Open the Buyer's Roadmap", 'https://guide.kelsiejimenez.com/buyers-roadmap.html']
+      };
+      const btn = document.getElementById('guideBtn');
+      if (selectedGuide && map[selectedGuide]) {
+        btn.textContent = map[selectedGuide][0];
+        btn.href = map[selectedGuide][1];
+      } else {
+        document.getElementById('successHead').textContent = "Got it. I'll be in touch.";
+        document.getElementById('successSub').textContent = "I personally read every one of these. In the meantime, the guide is open to you anytime.";
+        btn.textContent = 'Explore the Utah County Guide';
+        btn.href = 'https://guide.kelsiejimenez.com/';
+      }
+      btn.style.display = 'flex';
+    }
+
     async function handleSubmit() {
       const firstName = document.getElementById('firstName').value.trim();
       const phone     = document.getElementById('phone').value.trim();
@@ -647,6 +688,7 @@
       .then((response) => {
         if (response.ok) {
           document.getElementById('mainCard').style.display = 'none';
+          deliverGuide();
           document.getElementById('successCard').classList.add('visible');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
@@ -655,6 +697,7 @@
       })
       .catch(() => {
         document.getElementById('mainCard').style.display = 'none';
+        deliverGuide();
         document.getElementById('successCard').classList.add('visible');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
