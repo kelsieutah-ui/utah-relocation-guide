@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seller Net Sheet Calculator | Utah County | Kelsie Jimenez</title>
+<meta name="description" content="Estimate what you'll actually walk away with when you sell your Utah County home, and compare multiple offers side by side by net proceeds.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --green:#2B3D30; --cream:#F2E8D5; --charcoal:#1C1C1C; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Lato',sans-serif; background:#FDFCFA; color:var(--charcoal); }
+  h1 em, h2 em, h3 em { font-style:italic; }
+  .nav-wrap { position:fixed; top:16px; left:16px; right:16px; z-index:100; }
+  .nav-pill { max-width:1100px; margin:0 auto; background:rgba(43,61,48,0.72); backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px); border:1px solid rgba(242,232,213,0.18); box-shadow:0 4px 32px rgba(0,0,0,0.18);
+    border-radius:100px; padding:10px 12px 10px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-back { font-size:13px; color:var(--cream); text-decoration:none; }
+  .nav-cta { background:linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62)); border:1px solid rgba(242,232,213,0.45);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.25); color:var(--cream); padding:9px 20px; border-radius:100px;
+    font-size:13px; font-weight:500; text-decoration:none; white-space:nowrap; }
+  .hero { position:relative; min-height:46vh; display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:130px 24px 80px; background:url('homes-hero.jpg') center/cover no-repeat; }
+  .hero::before { content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(15,20,16,0.46) 0%, rgba(15,20,16,0.38) 60%, rgba(15,20,16,0.34) 100%); }
+  .hero > * { position:relative; z-index:1; }
+  .hero .kicker { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(242,232,213,0.85); margin-bottom:14px; }
+  .hero h1 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(30px,5vw,52px); line-height:1.15;
+    color:var(--cream); text-shadow:0 2px 18px rgba(0,0,0,0.45); }
+  .hero-bar { position:absolute; left:0; right:0; bottom:0; z-index:2; background:rgba(18,24,19,0.45);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-top:1px solid rgba(242,232,213,0.16); padding:14px 22px; }
+  .hero-bar p { max-width:760px; margin:0 auto; text-align:center; font-size:13.5px; font-weight:300;
+    color:rgba(242,232,213,0.95); line-height:1.65; }
+  .mode-strip { background:#FDFCFA; border-bottom:1px solid #EFEAE0; padding:16px; text-align:center; }
+  .mode-btn { background:none; border:1px solid #D8D3C4; color:#5C564A; font-family:'Lato',sans-serif; font-size:13px;
+    font-weight:500; padding:11px 22px; border-radius:100px; cursor:pointer; margin:0 5px; }
+  .mode-btn.active { background:var(--green); border-color:var(--green); color:var(--cream); }
+  .wrap { max-width:880px; margin:0 auto; padding:34px 20px 20px; }
+  .panel { display:none; } .panel.active { display:block; }
+  .group { background:#fff; border:1px solid #E3DCCB; border-radius:12px; padding:22px; margin-bottom:18px; }
+  .group h3 { font-family:'Playfair Display',serif; font-weight:500; font-size:19px; margin-bottom:14px; }
+  .frow { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .field label { display:block; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#8A8474; margin-bottom:6px; }
+  .field input { width:100%; padding:12px 13px; border:1px solid #DDD6C4; border-radius:9px; background:#FDFCFA;
+    font-family:'Lato',sans-serif; font-size:15px; color:#1C1C1C; }
+  .field input:focus { outline:none; border-color:var(--green); background:#fff; }
+  .field .note { font-size:11px; color:#A8A493; margin-top:4px; font-weight:300; }
+  .result { background:var(--green); border-radius:14px; padding:28px 24px; text-align:center; color:var(--cream); margin:24px 0 10px; }
+  .result .lbl { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(242,232,213,0.7); margin-bottom:6px; }
+  .result .big { font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(34px,5vw,48px); }
+  .breakdown { max-width:520px; margin:18px auto 0; text-align:left; border-top:1px solid rgba(242,232,213,0.2); padding-top:14px; }
+  .brow { display:flex; justify-content:space-between; font-size:13px; font-weight:300; color:rgba(242,232,213,0.85); padding:4px 0; }
+  .brow.total { border-top:1px solid rgba(242,232,213,0.25); margin-top:6px; padding-top:9px; font-weight:700; color:var(--cream); }
+  /* multi-offer */
+  .offers { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .offer { background:#fff; border:1px solid #E3DCCB; border-radius:12px; padding:18px; transition:border-color .3s, box-shadow .3s; }
+  .offer.best { border-color:var(--green); box-shadow:0 0 0 2px var(--green); }
+  .offer h4 { font-family:'Playfair Display',serif; font-weight:500; font-size:17px; margin-bottom:12px; }
+  .offer .field { margin-bottom:10px; }
+  .onet { background:#F8F5EE; border-radius:9px; text-align:center; padding:12px; margin-top:8px; }
+  .onet .lbl { font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#8A8474; }
+  .onet .num { font-family:'Playfair Display',serif; font-size:24px; font-weight:500; color:var(--green); }
+  .onet .tag { font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:#B8882A; margin-top:3px; min-height:13px; }
+  .lesson { text-align:center; font-size:14px; color:#5C564A; font-weight:300; margin-top:18px; line-height:1.7; min-height:22px; }
+  .lesson strong { color:var(--green); }
+  .fine { font-size:11.5px; font-weight:300; color:#999; text-align:center; max-width:640px; margin:26px auto 0; line-height:1.75; }
+  .cta { text-align:center; padding:34px 20px 60px; }
+  .cta a { display:inline-block; background:var(--green); color:var(--cream); font-size:14px; font-weight:500;
+    padding:15px 30px; border-radius:100px; text-decoration:none; }
+  .cta a small { display:block; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,232,213,0.65); margin-bottom:3px; }
+  @media (max-width:760px) { .offers { grid-template-columns:1fr; } .frow { grid-template-columns:1fr; } .hero { min-height:42vh; } }
+</style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="nav-pill">
+      <a class="nav-back" href="https://guide.kelsiejimenez.com/sellers.html">&larr; Seller Resources</a>
+      <a class="nav-cta" href="https://guide.kelsiejimenez.com/#contact">Work With Me</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div>
+      <p class="kicker">Seller Tool &middot; Net Proceeds</p>
+      <h1>What do you actually <em>walk away</em> with?</h1>
+    </div>
+    <div class="hero-bar"><p>The sale price is not the number that hits your account. Net out your payoffs, fees, and concessions, then compare offers by what they're really worth.</p></div>
+  </section>
+
+  <div class="mode-strip">
+    <button class="mode-btn active" id="mb-single" onclick="setMode('single')">Net Sheet</button>
+    <button class="mode-btn" id="mb-multi" onclick="setMode('multi')">Compare Offers</button>
+  </div>
+
+  <div class="wrap">
+    <!-- SHARED COSTS -->
+    <div class="group">
+      <h3>Your payoffs and fees</h3>
+      <div class="frow">
+        <div class="field"><label for="payoff1">Mortgage payoff</label><input type="number" id="payoff1" value="320000" step="1000" inputmode="numeric"></div>
+        <div class="field"><label for="payoff2">Second loan / HELOC payoff</label><input type="number" id="payoff2" value="0" step="1000" inputmode="numeric"></div>
+        <div class="field"><label for="hoa">HOA payoff, transfer and reconveyance fees</label><input type="number" id="hoa" value="0" step="50" inputmode="numeric"><div class="note">Ask your HOA for its demand statement. Transfer and doc fees vary.</div></div>
+        <div class="field"><label for="taxes">Prorated property taxes and utilities</label><input type="number" id="taxes" value="1500" step="100" inputmode="numeric"></div>
+        <div class="field"><label for="commL">Listing commission %</label><input type="number" id="commL" value="3" step="0.25" inputmode="decimal"><div class="note">Commissions are negotiable. Enter what you've agreed to.</div></div>
+        <div class="field"><label for="commB">Buyer agent commission %</label><input type="number" id="commB" value="2.5" step="0.25" inputmode="decimal"><div class="note">If you've agreed to offer one. Also negotiable.</div></div>
+        <div class="field"><label for="title">Title and escrow fees</label><input type="number" id="title" value="2400" step="100" inputmode="numeric"><div class="note">Owner's title policy plus settlement fee. Estimate.</div></div>
+        <div class="field"><label for="other">Other (warranty, repairs already agreed, misc.)</label><input type="number" id="other" value="0" step="100" inputmode="numeric"></div>
+      </div>
+    </div>
+
+    <!-- SINGLE MODE -->
+    <div class="panel active" id="panel-single">
+      <div class="group">
+        <h3>The sale</h3>
+        <div class="frow">
+          <div class="field"><label for="price">Expected sale price</label><input type="number" id="price" value="600000" step="5000" inputmode="numeric"></div>
+          <div class="field"><label for="conc">Seller concessions to buyer</label><input type="number" id="conc" value="0" step="500" inputmode="numeric"><div class="note">Closing cost credits, rate buydown help, etc.</div></div>
+        </div>
+      </div>
+      <div class="result">
+        <p class="lbl">Estimated net proceeds</p>
+        <p class="big" id="net-single">$0</p>
+        <div class="breakdown" id="bd-single"></div>
+      </div>
+    </div>
+
+    <!-- MULTI MODE -->
+    <div class="panel" id="panel-multi">
+      <div class="offers">
+        <div class="offer" id="offer-a">
+          <h4>Offer A</h4>
+          <div class="field"><label for="pa">Offer price</label><input type="number" id="pa" value="600000" step="5000" inputmode="numeric"></div>
+          <div class="field"><label for="ca">Concessions requested</label><input type="number" id="ca" value="0" step="500" inputmode="numeric"></div>
+          <div class="field"><label for="ra">Repair credits expected</label><input type="number" id="ra" value="0" step="500" inputmode="numeric"></div>
+          <div class="onet"><p class="lbl">Your net</p><p class="num" id="na">$0</p><p class="tag" id="ta"></p></div>
+        </div>
+        <div class="offer" id="offer-b">
+          <h4>Offer B</h4>
+          <div class="field"><label for="pb">Offer price</label><input type="number" id="pb" value="612000" step="5000" inputmode="numeric"></div>
+          <div class="field"><label for="cb">Concessions requested</label><input type="number" id="cb" value="15000" step="500" inputmode="numeric"></div>
+          <div class="field"><label for="rb">Repair credits expected</label><input type="number" id="rb" value="0" step="500" inputmode="numeric"></div>
+          <div class="onet"><p class="lbl">Your net</p><p class="num" id="nb">$0</p><p class="tag" id="tb"></p></div>
+        </div>
+        <div class="offer" id="offer-c">
+          <h4>Offer C</h4>
+          <div class="field"><label for="pc">Offer price</label><input type="number" id="pc" value="595000" step="5000" inputmode="numeric"></div>
+          <div class="field"><label for="cc">Concessions requested</label><input type="number" id="cc" value="0" step="500" inputmode="numeric"></div>
+          <div class="field"><label for="rc">Repair credits expected</label><input type="number" id="rc" value="0" step="500" inputmode="numeric"></div>
+          <div class="onet"><p class="lbl">Your net</p><p class="num" id="nc">$0</p><p class="tag" id="tc"></p></div>
+        </div>
+      </div>
+      <p class="lesson" id="lesson"></p>
+    </div>
+
+    <p class="fine">These are estimates for planning, not a settlement statement. Exact title fees, payoff amounts, prorations, and HOA demands come from your title company and lender. Terms matter too: financing type, appraisal risk, and timelines can be worth more than dollars. When you're ready for a real net sheet on your actual house, that's a fifteen minute conversation.</p>
+  </div>
+
+  <div class="cta">
+    <a href="sms:8014202284"><small>Want the real numbers?</small>Text me READY and I'll run your actual net sheet &rarr;</a>
+  </div>
+
+  <div style="text-align:center; padding:0 24px 50px; font-size:11.5px; color:#999; line-height:1.7;">
+    Kelsie Jimenez &middot; Real Broker LLC &middot; License #11407496-SA00
+  </div>
+
+<script>
+  const $ = id => document.getElementById(id);
+  const V = id => Math.max(0, parseFloat($(id).value) || 0);
+  const fmt = n => '$' + Math.round(n).toLocaleString();
+
+  function costsFor(price, conc, repairs) {
+    const comm = price * (V('commL') + V('commB')) / 100;
+    const fixed = V('payoff1') + V('payoff2') + V('hoa') + V('taxes') + V('title') + V('other');
+    return { comm, fixed, net: price - comm - fixed - conc - repairs };
+  }
+
+  function calcSingle() {
+    const price = V('price'), conc = V('conc');
+    const c = costsFor(price, conc, 0);
+    $('net-single').textContent = fmt(c.net);
+    $('bd-single').innerHTML =
+      row('Sale price', price) + row('Commissions', -c.comm) +
+      row('Loan and HOA payoffs', -(V('payoff1')+V('payoff2')+V('hoa'))) +
+      row('Taxes, title, escrow, other', -(V('taxes')+V('title')+V('other'))) +
+      row('Concessions to buyer', -conc) +
+      '<div class="brow total"><span>Estimated net</span><span>' + fmt(c.net) + '</span></div>';
+  }
+  function row(l,n){ return '<div class="brow"><span>'+l+'</span><span>'+(n<0?'\u2212 '+fmt(-n):fmt(n))+'</span></div>'; }
+
+  function calcMulti() {
+    const offers = [
+      { p:V('pa'), c:V('ca'), r:V('ra'), n:'na', t:'ta', card:'offer-a', name:'Offer A' },
+      { p:V('pb'), c:V('cb'), r:V('rb'), n:'nb', t:'tb', card:'offer-b', name:'Offer B' },
+      { p:V('pc'), c:V('cc'), r:V('rc'), n:'nc', t:'tc', card:'offer-c', name:'Offer C' },
+    ];
+    let bestNet=-1, bestIdx=0, bestPrice=-1, priceIdx=0;
+    offers.forEach((o,i) => {
+      o.net = costsFor(o.p, o.c, o.r).net;
+      $(o.n).textContent = fmt(o.net);
+      $(o.t).textContent = '';
+      document.getElementById(o.card).classList.remove('best');
+      if(o.net > bestNet){ bestNet=o.net; bestIdx=i; }
+      if(o.p > bestPrice){ bestPrice=o.p; priceIdx=i; }
+    });
+    document.getElementById(offers[bestIdx].card).classList.add('best');
+    $(offers[bestIdx].t).textContent = 'Highest net';
+    if(priceIdx !== bestIdx) {
+      $(offers[priceIdx].t).textContent = 'Highest price';
+      $('lesson').innerHTML = '<strong>' + offers[priceIdx].name + '</strong> has the highest price, but <strong>' + offers[bestIdx].name + '</strong> puts ' + fmt(bestNet - offers[priceIdx].net) + ' more in your pocket. The biggest number on page one is not always the biggest number at closing.';
+    } else {
+      $('lesson').textContent = 'Right now the highest price is also the highest net. Watch what happens when one offer asks for concessions.';
+    }
+  }
+
+  function setMode(m) {
+    $('panel-single').classList.toggle('active', m==='single');
+    $('panel-multi').classList.toggle('active', m==='multi');
+    $('mb-single').classList.toggle('active', m==='single');
+    $('mb-multi').classList.toggle('active', m==='multi');
+    recalc();
+  }
+  function recalc(){ calcSingle(); calcMulti(); }
+  document.querySelectorAll('input').forEach(i => i.addEventListener('input', recalc));
+  recalc();
+</script>
+</body>
+</html>

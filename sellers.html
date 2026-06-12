@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seller Resources | Utah County | Kelsie Jimenez</title>
+<meta name="description" content="Seller tools from a Utah County listing specialist: net sheet calculator, multi-offer comparison, listing prep, and contract walkthroughs.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --green:#2B3D30; --cream:#F2E8D5; --charcoal:#1C1C1C; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Lato',sans-serif; background:#FDFCFA; color:var(--charcoal); }
+  h1 em, h2 em { font-style:italic; }
+  .nav-wrap { position:fixed; top:16px; left:16px; right:16px; z-index:100; }
+  .nav-pill { max-width:1100px; margin:0 auto; background:rgba(43,61,48,0.72); backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px); border:1px solid rgba(242,232,213,0.18); box-shadow:0 4px 32px rgba(0,0,0,0.18);
+    border-radius:100px; padding:10px 12px 10px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-back { font-size:13px; color:var(--cream); text-decoration:none; }
+  .nav-cta { background:linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62)); border:1px solid rgba(242,232,213,0.45);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.25); color:var(--cream); padding:9px 20px; border-radius:100px;
+    font-size:13px; font-weight:500; text-decoration:none; white-space:nowrap; }
+  .hero { position:relative; min-height:56vh; display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:140px 24px 86px; background:url('geography-hero.jpg') center/cover no-repeat; }
+  .hero::before { content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(15,20,16,0.46) 0%, rgba(15,20,16,0.38) 60%, rgba(15,20,16,0.34) 100%); }
+  .hero > * { position:relative; z-index:1; }
+  .hero .kicker { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(242,232,213,0.85); margin-bottom:14px; }
+  .hero h1 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(32px,5.4vw,56px); line-height:1.15;
+    color:var(--cream); text-shadow:0 2px 18px rgba(0,0,0,0.45); }
+  .hero-bar { position:absolute; left:0; right:0; bottom:0; z-index:2; background:rgba(18,24,19,0.45);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-top:1px solid rgba(242,232,213,0.16); padding:14px 22px; }
+  .hero-bar p { max-width:760px; margin:0 auto; text-align:center; font-size:13.5px; font-weight:300;
+    color:rgba(242,232,213,0.95); line-height:1.65; }
+  .grid-head { text-align:center; padding:60px 24px 10px; }
+  .grid-head h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(26px,3.6vw,38px); }
+  .grid-head p { font-size:14.5px; font-weight:300; color:#666; max-width:560px; margin:10px auto 0; line-height:1.7; }
+  .card-grid { max-width:1020px; margin:30px auto 70px; padding:0 24px; display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  .rcard { background:#fff; border:1px solid #E3DCCB; border-top:3px solid var(--green); border-radius:12px; padding:28px; }
+  .rcard h3 { font-family:'Playfair Display',serif; font-weight:500; font-size:22px; margin-bottom:8px; }
+  .rcard p { font-size:14px; font-weight:300; color:#555; line-height:1.7; margin-bottom:18px; }
+  .rcard a { display:inline-block; background:var(--cream); color:var(--green); font-size:13.5px; font-weight:700;
+    padding:12px 22px; border-radius:100px; text-decoration:none; }
+  .rcard a:hover { background:#EBDFC4; }
+  .rcard .soon { display:inline-block; background:#F4F1E8; color:#8A8474; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; padding:8px 16px; border-radius:100px; }
+  @media (max-width:760px) { .card-grid { grid-template-columns:1fr; } .hero { min-height:48vh; } }
+</style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="nav-pill">
+      <a class="nav-back" href="https://guide.kelsiejimenez.com/">&larr; Utah County Guide</a>
+      <a class="nav-cta" href="https://guide.kelsiejimenez.com/#contact">Work With Me</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div>
+      <p class="kicker">Seller Resources &middot; Utah County</p>
+      <h1>Selling a house is math <em>and</em> strategy.<br>Here are both.</h1>
+    </div>
+    <div class="hero-bar"><p>Tools I built for my sellers, open to you. Run your numbers, compare offers, and understand every page you sign.</p></div>
+  </section>
+
+  <div class="grid-head">
+    <h2>The seller <em>toolkit</em>.</h2>
+    <p>I'm a listing specialist with a construction background. These are the tools and walkthroughs I use with every seller.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="rcard">
+      <h3>Seller Net Sheet Calculator</h3>
+      <p>What you actually walk away with. Payoffs, HOA fees, commissions, title, and concessions, all netted out live. Includes a side-by-side multi-offer comparison.</p>
+      <a href="seller-net-sheet.html">Run Your Numbers &rarr;</a>
+    </div>
+    <div class="rcard">
+      <h3>REPC Walkthrough</h3>
+      <p>The Utah purchase contract, explained page by page. Know exactly what an offer is asking you to agree to before you sign it.</p>
+      <a href="repc-walkthrough.html">Watch the Walkthrough &rarr;</a>
+    </div>
+    <div class="rcard">
+      <h3>Listing Prep Guide</h3>
+      <p>What buyers' inspectors flag, what to fix versus disclose, and where prep money actually comes back to you. Room by room.</p>
+      <span class="soon">In the works</span>
+    </div>
+    <div class="rcard">
+      <h3>DIY Quick CMA</h3>
+      <p>How to sanity-check any price opinion, including mine. Solds versus actives, adjustments, and why the Zestimate misses.</p>
+      <span class="soon">In the works</span>
+    </div>
+    <div class="rcard">
+      <h3>ERS Walkthrough</h3>
+      <p>The listing agreement itself, explained before you hire anyone. What you're signing, what's negotiable, and what to ask.</p>
+      <span class="soon">In the works</span>
+    </div>
+    <div class="rcard">
+      <h3>Thinking about timing?</h3>
+      <p>Every seller situation is different. If you want a real net sheet and an honest read on your timing, that's literally my job.</p>
+      <a href="sms:8014202284">Text Kelsie &rarr;</a>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:0 24px 50px; font-size:11.5px; color:#999; line-height:1.7;">
+    Kelsie Jimenez &middot; Real Broker LLC &middot; License #11407496-SA00 &middot; <a href="tel:8014202284" style="color:#777;">(801) 420-2284</a>
+  </div>
+</body>
+</html>
