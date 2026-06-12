@@ -584,6 +584,24 @@
     .hb-sw { width: 13px; height: 13px; border-radius: 3px; display: inline-block; border: 1px solid rgba(0,0,0,.06); }
     .hb-fine { font-family: 'Lato', sans-serif; font-size: 11.5px; font-weight: 300; color: #999; text-align: center; max-width: 560px; margin: 14px auto 0; line-height: 1.7; }
     @media (max-width: 640px) { .hb-controls { grid-template-columns: 1fr; } }
+
+    /* ─── QUIRK FLIP CARDS ─── */
+    .qflip { perspective: 1100px; cursor: pointer; outline: none; min-height: 350px; }
+    .qflip-inner { position: relative; width: 100%; height: 100%; min-height: 350px;
+      transition: transform .55s cubic-bezier(.4,.1,.2,1); transform-style: preserve-3d; }
+    .qflip.flipped .qflip-inner { transform: rotateY(180deg); }
+    .qflip:focus-visible .qflip-inner { box-shadow: 0 0 0 2px var(--green, #2B3D30); border-radius: 10px; }
+    .qface { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      border-radius: 10px; padding: 24px; box-sizing: border-box; }
+    .qfront { background: #F8F5EE; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; gap: 10px; }
+    .qfront .qnum { font-family: 'Playfair Display', serif; font-style: italic; font-size: 34px; color: #C9C2AE; line-height: 1; }
+    .qfront .quirk-label { margin: 0; }
+    .qhint { font-family: 'Lato', sans-serif; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #A89F87; }
+    .qback { background: var(--green, #2B3D30); transform: rotateY(180deg); overflow: auto; }
+    .qback .quirk-label { color: #D8CDB4; margin-bottom: 10px; }
+    .qback .quirk-desc { color: rgba(242,232,213,0.92); }
+    @media (max-width: 700px) { .qflip, .qflip-inner { min-height: 300px; } }
   </style>
 </head>
 <body>
@@ -669,52 +687,123 @@
       </div>
 
       <div class="quirk-grid">
-
-        <div class="quirk-card">
-          <p class="quirk-label">Food Storage Rooms</p>
-          <p class="quirk-desc">A dedicated room for storing a year or more of food is standard in many Utah County homes. It is a cultural practice with deep roots here. Out-of-state buyers find it either fascinating or excessive. Either way, it is genuinely useful extra storage.</p>
+        <div class="qflip" role="button" tabindex="0" aria-expanded="false" aria-label="Food Storage Rooms: tap to reveal">
+          <div class="qflip-inner">
+            <div class="qface qfront">
+              <span class="qnum">01</span>
+              <p class="quirk-label">Food Storage Rooms</p>
+              <span class="qhint">Tap to flip</span>
+            </div>
+            <div class="qface qback">
+              <p class="quirk-label">Food Storage Rooms</p>
+              <p class="quirk-desc">A dedicated room for storing a year or more of food is standard in many Utah County homes. It is a cultural practice with deep roots here. Out-of-state buyers find it either fascinating or excessive. Either way, it is genuinely useful extra storage.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="quirk-card">
-          <p class="quirk-label">Laundry Is Inside</p>
-          <p class="quirk-desc">Washers and dryers live inside the home here, always. Usually a dedicated laundry room, often on the main floor or near the bedrooms. Never in the garage. If you are used to garage laundry this is a welcome upgrade.</p>
+        <div class="qflip" role="button" tabindex="0" aria-expanded="false" aria-label="Laundry Is Inside: tap to reveal">
+          <div class="qflip-inner">
+            <div class="qface qfront">
+              <span class="qnum">02</span>
+              <p class="quirk-label">Laundry Is Inside</p>
+              <span class="qhint">Tap to flip</span>
+            </div>
+            <div class="qface qback">
+              <p class="quirk-label">Laundry Is Inside</p>
+              <p class="quirk-desc">Washers and dryers live inside the home here, always. Usually a dedicated laundry room, often on the main floor or near the bedrooms. Never in the garage. If you are used to garage laundry this is a welcome upgrade.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="quirk-card">
-          <p class="quirk-label">Three Car Garages</p>
-          <p class="quirk-desc">Standard in mid-range and above homes throughout the county. The outdoor recreation culture means most families have a boat, ATV, trailer, or all three. The garage is not just for cars.</p>
+        <div class="qflip" role="button" tabindex="0" aria-expanded="false" aria-label="Three Car Garages: tap to reveal">
+          <div class="qflip-inner">
+            <div class="qface qfront">
+              <span class="qnum">03</span>
+              <p class="quirk-label">Three Car Garages</p>
+              <span class="qhint">Tap to flip</span>
+            </div>
+            <div class="qface qback">
+              <p class="quirk-label">Three Car Garages</p>
+              <p class="quirk-desc">Standard in mid-range and above homes throughout the county. The outdoor recreation culture means most families have a boat, ATV, trailer, or all three. The garage is not just for cars.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="quirk-card">
-          <p class="quirk-label">Cold Storage</p>
-          <p class="quirk-desc">Unheated concrete rooms, often tucked under the front porch, built for canning, root vegetables, and food preservation. Common in older homes, occasionally included in newer builds. Completely foreign to most out-of-state buyers and genuinely useful once you understand it.</p>
+        <div class="qflip" role="button" tabindex="0" aria-expanded="false" aria-label="Cold Storage: tap to reveal">
+          <div class="qflip-inner">
+            <div class="qface qfront">
+              <span class="qnum">04</span>
+              <p class="quirk-label">Cold Storage</p>
+              <span class="qhint">Tap to flip</span>
+            </div>
+            <div class="qface qback">
+              <p class="quirk-label">Cold Storage</p>
+              <p class="quirk-desc">Unheated concrete rooms, often tucked under the front porch, built for canning, root vegetables, and food preservation. Common in older homes, occasionally included in newer builds. Completely foreign to most out-of-state buyers and genuinely useful once you understand it.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="quirk-card">
-          <p class="quirk-label">Mother-In-Law Apartments</p>
-          <p class="quirk-desc">Basement apartments with separate entrances are extremely common. The family culture here means multi-generational living is normal, not an exception. Many buyers end up renting theirs out as well. If a home has a legal ADU, factor that into your analysis.</p>
+        <div class="qflip" role="button" tabindex="0" aria-expanded="false" aria-label="Mother-In-Law Apartments: tap to reveal">
+          <div class="qflip-inner">
+            <div class="qface qfront">
+              <span class="qnum">05</span>
+              <p class="quirk-label">Mother-In-Law Apartments</p>
+              <span class="qhint">Tap to flip</span>
+            </div>
+            <div class="qface qback">
+              <p class="quirk-label">Mother-In-Law Apartments</p>
+              <p class="quirk-desc">Basement apartments with separate entrances are extremely common. The family culture here means multi-generational living is normal, not an exception. Many buyers end up renting theirs out as well. If a home has a legal ADU, factor that into your analysis.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="quirk-card">
-          <p class="quirk-label">Swamp Coolers vs Central Air</p>
-          <p class="quirk-desc">Older homes sometimes use evaporative coolers instead of traditional AC. They work beautifully in Utah's dry summers but have limitations on humid days. If you are touring an older home, ask what the cooling system is before you fall in love with the kitchen.</p>
+        <div class="qflip" role="button" tabindex="0" aria-expanded="false" aria-label="Swamp Coolers vs Central Air: tap to reveal">
+          <div class="qflip-inner">
+            <div class="qface qfront">
+              <span class="qnum">06</span>
+              <p class="quirk-label">Swamp Coolers vs Central Air</p>
+              <span class="qhint">Tap to flip</span>
+            </div>
+            <div class="qface qback">
+              <p class="quirk-label">Swamp Coolers vs Central Air</p>
+              <p class="quirk-desc">Older homes sometimes use evaporative coolers instead of traditional AC. They work beautifully in Utah's dry summers but have limitations on humid days. If you are touring an older home, ask what the cooling system is before you fall in love with the kitchen.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="quirk-card">
-          <p class="quirk-label">RV Parking</p>
-          <p class="quirk-desc">A significant number of Utah County homes have dedicated RV parking pads or extended driveways. If you have a boat, trailer, or RV, this is worth specifically searching for. Many HOAs prohibit street parking of recreational vehicles.</p>
+        <div class="qflip" role="button" tabindex="0" aria-expanded="false" aria-label="RV Parking: tap to reveal">
+          <div class="qflip-inner">
+            <div class="qface qfront">
+              <span class="qnum">07</span>
+              <p class="quirk-label">RV Parking</p>
+              <span class="qhint">Tap to flip</span>
+            </div>
+            <div class="qface qback">
+              <p class="quirk-label">RV Parking</p>
+              <p class="quirk-desc">A significant number of Utah County homes have dedicated RV parking pads or extended driveways. If you have a boat, trailer, or RV, this is worth specifically searching for. Many HOAs prohibit street parking of recreational vehicles.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="quirk-card">
-          <p class="quirk-label">Mudrooms</p>
-          <p class="quirk-desc">Well-built Utah County homes almost always have a mudroom. Snow, hiking boots, ski gear, kids coming in from the backyard. The mudroom earns its square footage every single day of the year.</p>
+        <div class="qflip" role="button" tabindex="0" aria-expanded="false" aria-label="Mudrooms: tap to reveal">
+          <div class="qflip-inner">
+            <div class="qface qfront">
+              <span class="qnum">08</span>
+              <p class="quirk-label">Mudrooms</p>
+              <span class="qhint">Tap to flip</span>
+            </div>
+            <div class="qface qback">
+              <p class="quirk-label">Mudrooms</p>
+              <p class="quirk-desc">Well-built Utah County homes almost always have a mudroom. Snow, hiking boots, ski gear, kids coming in from the backyard. The mudroom earns its square footage every single day of the year.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="quirk-card">
-          <p class="quirk-label">Sprinkler Blowouts</p>
-          <p class="quirk-desc">Every fall before the ground freezes, Utah County homeowners pay a technician to blow compressed air through their irrigation lines. It prevents the pipes from freezing and cracking over winter. If you are moving from a climate without hard freezes this will be a new concept. Budget around $50 to $100 annually and book early in September because everyone needs it done at the same time.</p>
+        <div class="qflip" role="button" tabindex="0" aria-expanded="false" aria-label="Sprinkler Blowouts: tap to reveal">
+          <div class="qflip-inner">
+            <div class="qface qfront">
+              <span class="qnum">09</span>
+              <p class="quirk-label">Sprinkler Blowouts</p>
+              <span class="qhint">Tap to flip</span>
+            </div>
+            <div class="qface qback">
+              <p class="quirk-label">Sprinkler Blowouts</p>
+              <p class="quirk-desc">Every fall before the ground freezes, Utah County homeowners pay a technician to blow compressed air through their irrigation lines. It prevents the pipes from freezing and cracking over winter. If you are moving from a climate without hard freezes this will be a new concept. Budget around $50 to $100 annually and book early in September because everyone needs it done at the same time.</p>
+            </div>
+          </div>
         </div>
-
       </div>
 
       <div class="section-img-wrap">
@@ -976,6 +1065,17 @@
     });
     [hbM,hbD,hbR].forEach(i=>i.addEventListener('input', hbPaint));
     hbPaint();
+  </script>
+
+  <script>
+    document.querySelectorAll('.qflip').forEach(card => {
+      function flip() {
+        card.classList.toggle('flipped');
+        card.setAttribute('aria-expanded', card.classList.contains('flipped') ? 'true' : 'false');
+      }
+      card.addEventListener('click', flip);
+      card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') { e.preventDefault(); flip(); } });
+    });
   </script>
 </body>
 </html>
