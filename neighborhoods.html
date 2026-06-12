@@ -146,10 +146,17 @@
     .xm-wrap { position: relative; max-width: 680px; margin: 48px auto 0; }
     .xm-wrap svg { width: 100%; height: auto; display: block; }
     .xm-lake { fill: #D7E0DB; }
-    .xm-city { fill: #E8E6DF; stroke: #FDFCFA; stroke-width: 1.2; cursor: pointer; transition: fill .18s ease; outline: none; }
-    .xm-city:hover { fill: #C9D4C6; }
+    .xm-city { fill: #E8E6DF; stroke: #FDFCFA; stroke-width: 1.2; cursor: pointer; transition: filter .18s ease; outline: none; }
+    .xm-zc-north-corridor { fill: #D2DFCE; }
+    .xm-zc-mid-county { fill: #E6EBD8; }
+    .xm-zc-urban-core { fill: #DDE2E7; }
+    .xm-zc-eagle-mountain { fill: #DEE6E2; }
+    .xm-zc-south-county { fill: #EAE3D4; }
+    .xm-zc-alpine-suncrest { fill: #E8E0D2; }
+    .xm-city:hover { filter: brightness(0.93); }
+    .xm-city.zon { filter: brightness(0.88); }
     .xm-city:focus-visible { stroke: var(--green); stroke-width: 2; }
-    .xm-city.active { fill: var(--green); }
+    .xm-city.active { fill: var(--green); filter: none; }
     .xm-lbl { font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .8px; fill: #8B8B84; text-anchor: middle; pointer-events: none; }
     .xm-lbl.on { fill: #fff; }
     .xm-lakelbl { font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; fill: #9FB0A8; text-anchor: middle; pointer-events: none; letter-spacing: 2px; }
@@ -258,7 +265,7 @@
         <text class="xm-lakelbl" x="444.3" y="403.7">UTAH LAKE</text>
         <text class="xm-lbl" data-for="lehi" x="320.4" y="126.7">LEHI</text><text class="xm-lbl" data-for="saratoga-springs" x="394" y="292" style="font-size:10.5px">SARATOGA SPRINGS</text><text class="xm-lbl" data-for="eagle-mountain" x="193.7" y="330.2">EAGLE MOUNTAIN</text><text class="xm-lbl" data-for="american-fork" x="441.2" y="195.5" style="font-size:10.5px">AMERICAN FORK</text><text class="xm-lbl" data-for="pleasant-grove" x="470.3" y="224.3" style="font-size:10.5px">PLEASANT GROVE</text><text class="xm-lbl" data-for="orem" x="547.2" y="318.6">OREM</text><text class="xm-lbl" data-for="provo" x="580.6" y="425.2">PROVO</text><text class="xm-lbl" data-for="springville" x="638.7" y="523.2">SPRINGVILLE</text><text class="xm-lbl" data-for="spanish-fork" x="644.3" y="601.9">SPANISH FORK</text><text class="xm-lbl" data-for="payson" x="491.8" y="721.9">PAYSON</text><text class="xm-lbl" data-for="santaquin" x="438" y="858" style="font-size:10.5px">SANTAQUIN</text>
       </svg>
-      <div class="xm-nudge" id="xm-nudge">Tap a city, then jump to its zone</div>
+      <div class="xm-nudge" id="xm-nudge">Tap a city to light up its zone</div>
       <div class="xm-card tl" id="xm-card" role="status">
         <button class="xm-close" id="xm-close" aria-label="Close">&#215;</button>
         <p class="xm-place" id="xm-place"></p>
@@ -269,6 +276,7 @@
         </div>
       </div>
     </div>
+<div style="display:flex; flex-wrap:wrap; gap:14px 18px; justify-content:center; margin-top:14px;"><span style="display:inline-flex; align-items:center; gap:6px; font-family:'Lato',sans-serif; font-size:12px; color:#777;"><span style="width:13px;height:13px;border-radius:3px;background:#D2DFCE;border:1px solid rgba(0,0,0,.06);"></span>The North Corridor</span><span style="display:inline-flex; align-items:center; gap:6px; font-family:'Lato',sans-serif; font-size:12px; color:#777;"><span style="width:13px;height:13px;border-radius:3px;background:#E6EBD8;border:1px solid rgba(0,0,0,.06);"></span>Mid County</span><span style="display:inline-flex; align-items:center; gap:6px; font-family:'Lato',sans-serif; font-size:12px; color:#777;"><span style="width:13px;height:13px;border-radius:3px;background:#DDE2E7;border:1px solid rgba(0,0,0,.06);"></span>The Urban Core</span><span style="display:inline-flex; align-items:center; gap:6px; font-family:'Lato',sans-serif; font-size:12px; color:#777;"><span style="width:13px;height:13px;border-radius:3px;background:#DEE6E2;border:1px solid rgba(0,0,0,.06);"></span>Eagle Mountain</span><span style="display:inline-flex; align-items:center; gap:6px; font-family:'Lato',sans-serif; font-size:12px; color:#777;"><span style="width:13px;height:13px;border-radius:3px;background:#EAE3D4;border:1px solid rgba(0,0,0,.06);"></span>South County</span><span style="display:inline-flex; align-items:center; gap:6px; font-family:'Lato',sans-serif; font-size:12px; color:#777;"><span style="width:13px;height:13px;border-radius:3px;background:#E8E0D2;border:1px solid rgba(0,0,0,.06);"></span>Alpine and Suncrest</span></div>
     <p style="font-family:'Lato',sans-serif; font-size:13px; font-weight:300; color:#888; text-align:center; margin-top:14px;">Tap any city for the honest one-liner, then jump straight to its zone below. Prices are sample figures pending verification.</p>
 
   </section>
@@ -697,6 +705,7 @@
 
 
   <script>
+    const XM_ZINFO = {'#north-corridor': ['The North Corridor', "Tech corridor energy. New everything, fast growth, and freeway access in every direction."],'#mid-county': ['Mid County', "The established middle. Mature trees, settled streets, and the classic Utah County life."],'#urban-core': ['The Urban Core', "Provo. College town pulse, walkability, and the county's most urban living."],'#eagle-mountain': ['Eagle Mountain', "Space and sky. The most house for the money, with a longer drive for everything else."],'#south-county': ['South County', "Small town Utah. Quiet, rooted, and increasingly discovered."],'#alpine-suncrest': ['Alpine and Suncrest', "The high bench. Views, estates, and the county's most exclusive addresses."]};
     const XM_META = {"lehi": {"n": "Lehi", "o": "Tech money, new builds, and more traffic than it planned for.", "p": 565, "z": "#north-corridor"}, "saratoga-springs": {"n": "Saratoga Springs", "o": "Lakeside growth machine. New everything, including the neighbors.", "p": 540, "z": "#north-corridor"}, "eagle-mountain": {"n": "Eagle Mountain", "o": "Space, stars, and new construction. Bring patience for the commute.", "p": 470, "z": "#eagle-mountain"}, "american-fork": {"n": "American Fork", "o": "Central, established, and closer to the canyon than people expect.", "p": 545, "z": "#mid-county"}, "pleasant-grove": {"n": "Pleasant Grove", "o": "Strawberry Days, old trees, and my hometown. I'm biased and correct.", "p": 530, "z": "#mid-county"}, "lindon": {"n": "Lindon", "o": "Horse property next to highway access. A weird, wonderful holdout.", "p": 600, "z": "#mid-county"}, "orem": {"n": "Orem", "o": "Family City USA. Established yards, real amenities, zero pretense.", "p": 480, "z": "#mid-county"}, "provo": {"n": "Provo", "o": "College town energy, historic homes, and the county's best food.", "p": 450, "z": "#urban-core"}, "vineyard": {"n": "Vineyard", "o": "Brand new city on the lake. Young, dense, and still figuring itself out.", "p": 460, "z": "#mid-county"}, "springville": {"n": "Springville", "o": "Art City. Small-town feel with Provo ten minutes up the road.", "p": 500, "z": "#south-county"}, "spanish-fork": {"n": "Spanish Fork", "o": "Rodeo town turned commuter favorite. Wind is real, value is too.", "p": 510, "z": "#south-county"}, "mapleton": {"n": "Mapleton", "o": "Big lots at the base of the mountain. Quietly expensive, on purpose.", "p": 740, "z": "#south-county"}, "payson": {"n": "Payson", "o": "South county value play. Canyon access and room to breathe.", "p": 460, "z": "#south-county"}, "salem": {"n": "Salem", "o": "Pond town. Slow, pretty, and fiercely loved by people who live there.", "p": 540, "z": "#south-county"}, "santaquin": {"n": "Santaquin", "o": "Orchards and the county's southern edge. Value if you can commute.", "p": 450, "z": "#south-county"}, "highland": {"n": "Highland", "o": "Large lots, large homes, and an unspoken HOA of expectations.", "p": 850, "z": "#mid-county"}, "alpine": {"n": "Alpine", "o": "Tucked against the mountain. Gorgeous, exclusive, priced like it.", "p": 980, "z": "#alpine-suncrest"}, "cedar-hills": {"n": "Cedar Hills", "o": "Golf course bench living with Timpanogos out the back window.", "p": 640, "z": "#mid-county"}, "woodland-hills": {"n": "Woodland Hills", "o": "A mountainside hideaway. Views for days, one road in.", "p": 780, "z": "#south-county"}, "elk-ridge": {"n": "Elk Ridge", "o": "Forested bench above Payson. Feels like a cabin town with sidewalks.", "p": 600, "z": "#south-county"}, "genola": {"n": "Genola", "o": "Farmland and quiet. If you know, you know.", "p": 520, "z": "#south-county"}, "goshen": {"n": "Goshen", "o": "Rural west side. Horses outnumber stoplights.", "p": 430, "z": "#south-county"}, "cedar-fort": {"n": "Cedar Fort", "o": "Cedar Valley frontier. True rural living west of the mountain.", "p": 450, "z": "#eagle-mountain"}, "fairfield": {"n": "Fairfield", "o": "Historic Camp Floyd country. Tiny, and proud of it.", "p": 440, "z": "#eagle-mountain"}};
     const xmCard=document.getElementById('xm-card'), xmPlace=document.getElementById('xm-place'),
           xmDesc=document.getElementById('xm-desc'), xmPrice=document.getElementById('xm-price'),
@@ -706,6 +715,7 @@
     let xmActive=null;
     function xmDismiss() {
       document.querySelectorAll('.xm-city.active').forEach(a=>a.classList.remove('active'));
+      document.querySelectorAll('.xm-city.zon').forEach(a=>a.classList.remove('zon'));
       document.querySelectorAll('.xm-lbl.on').forEach(a=>a.classList.remove('on'));
       xmCard.classList.remove('show');
       xmNudge.classList.remove('hide');
@@ -713,18 +723,24 @@
     }
     document.querySelectorAll('.xm-city').forEach(el => {
       const slug=el.dataset.slug;
+      el.classList.add('xm-zc-'+XM_META[slug].z.slice(1));
       el.addEventListener('click', () => {
         if(xmActive===slug) { xmDismiss(); return; }
         const b=el.getBBox(), cx=b.x+b.width/2, cy=b.y+b.height/2;
         xmCard.classList.remove('tl','tr');
         xmCard.classList.add((cx < xmVB.width*0.42 && cy < xmVB.height*0.5) ? 'tr' : 'tl');
         const m=XM_META[slug];
-        xmPlace.textContent=m.n; xmDesc.textContent=m.o;
-        xmPrice.innerHTML='$'+m.p+'K<small>median sale price &middot; sample</small>';
+        const zi=XM_ZINFO[m.z];
+        xmPlace.textContent=zi[0];
+        xmDesc.innerHTML='<strong>'+m.n+'</strong> &middot; '+zi[1];
+        xmPrice.innerHTML='$'+m.p+'K<small>'+m.n+' median &middot; sample</small>';
         xmExplore.href=m.z;
         xmNudge.classList.add('hide');
         document.querySelectorAll('.xm-city.active').forEach(a=>a.classList.remove('active'));
+        document.querySelectorAll('.xm-city.zon').forEach(a=>a.classList.remove('zon'));
         document.querySelectorAll('.xm-lbl.on').forEach(a=>a.classList.remove('on'));
+        document.querySelectorAll('.xm-city').forEach(a=>{ if(XM_META[a.dataset.slug].z===m.z) a.classList.add('zon'); });
+        el.classList.remove('zon');
         el.classList.add('active');
         const lb=document.querySelector('.xm-lbl[data-for="'+slug+'"]');
         if(lb) lb.classList.add('on');
