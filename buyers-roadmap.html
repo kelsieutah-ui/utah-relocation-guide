@@ -308,6 +308,23 @@ body { font-family: 'Lato', sans-serif; background: #FDFCFA; color: var(--text);
     .section-icon { display: none !important; }
     body { font-family: 'Lato', sans-serif; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    /* ─── ROADMAP HERO RESTRUCTURE ─── */
+    .hero { min-height: 48vh !important; padding: 130px 24px 80px !important; }
+    .hero-inner { display: block !important; max-width: 900px; margin: 0 auto; }
+    .hero-text { margin: 0 auto !important; }
+    .hero h1 { font-size: clamp(34px, 5vw, 56px) !important; }
+    .brand-tag { font-size: 11px !important; letter-spacing: 0.18em !important; color: rgba(242,232,213,0.85) !important;
+      text-transform: uppercase; margin-bottom: 14px !important; }
+    .hero-sub { position: static !important; background: none !important; border: none !important; backdrop-filter: none !important; }
+    .hero-bar2 { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+      background: rgba(18,24,19,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(242,232,213,0.16); padding: 14px 22px; }
+    .hero-bar2 p { max-width: 760px; margin: 0 auto; text-align: center; font-family: 'Lato', sans-serif;
+      font-size: 13.5px; font-weight: 300; color: rgba(242,232,213,0.95); line-height: 1.65; }
+    .phase-strip2 { background: #FDFCFA; border-bottom: 1px solid #EFEAE0; padding: 14px 16px; }
+    .phase-strip2 .phase-nav-wrap { position: static !important; background: none !important; margin: 0 auto; max-width: 1000px; }
+    .phase-strip2 .phase-tab { color: #2B3D30 !important; }
 </style>
 </head>
 <body>
@@ -323,13 +340,14 @@ body { font-family: 'Lato', sans-serif; background: #FDFCFA; color: var(--text);
 <!-- ═══ HERO ═══ -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-text">
-      <div class="brand-tag">Kelsie Jimenez <span class="bt-dot">●</span> The Perry Group <span class="bt-dot">●</span> Real Broker LLC <span class="bt-sep">|</span> 801.420.2284 <span class="bt-sep">|</span> kelsie.utah@gmail.com</div>
+    <div class="hero-text" style="text-align:center;">
+      <div class="brand-tag" style="background:none !important; border:none !important; padding:0 !important;">Kelsie Jimenez &middot; The Perry Group &middot; Real Broker LLC</div>
       <h1>Your Buyer's<br><em>Transaction Roadmap</em></h1>
-      <p class="hero-sub">You're under contract, congratulations. This guide walks you through every phase from here to keys. Bookmark it and come back whenever you need it.</p>
     </div>
   </div>
-
+  <div class="hero-bar2"><p>You're under contract, congratulations. This guide walks you through every phase from here to keys. Bookmark it and come back whenever you need it.</p></div>
+</div>
+<div class="phase-strip2">
   <div class="phase-nav-wrap">
     <div class="phase-nav">
       <button class="phase-tab active" onclick="goTo(0)"><span class="pnum">1</span> Earnest Money</button>
