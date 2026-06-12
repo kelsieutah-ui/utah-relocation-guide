@@ -586,22 +586,32 @@
     @media (max-width: 640px) { .hb-controls { grid-template-columns: 1fr; } }
 
     /* ─── QUIRK FLIP CARDS ─── */
-    .qflip { perspective: 1100px; cursor: pointer; outline: none; min-height: 350px; }
-    .qflip-inner { position: relative; width: 100%; height: 100%; min-height: 350px;
+    .qflip { perspective: 1100px; cursor: pointer; outline: none; min-height: 225px; }
+    .qflip-inner { position: relative; width: 100%; height: 100%; min-height: 225px;
       transition: transform .55s cubic-bezier(.4,.1,.2,1); transform-style: preserve-3d; }
     .qflip.flipped .qflip-inner { transform: rotateY(180deg); }
     .qflip:focus-visible .qflip-inner { box-shadow: 0 0 0 2px var(--green, #2B3D30); border-radius: 10px; }
     .qface { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
-      border-radius: 10px; padding: 24px; box-sizing: border-box; }
+      border-radius: 10px; padding: 16px; box-sizing: border-box; }
     .qfront { background: #F8F5EE; display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center; gap: 10px; }
-    .qfront .qnum { font-family: 'Playfair Display', serif; font-style: italic; font-size: 34px; color: #C9C2AE; line-height: 1; }
+    .qfront .qnum { font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; color: #C9C2AE; line-height: 1; }
     .qfront .quirk-label { margin: 0; }
     .qhint { font-family: 'Lato', sans-serif; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #A89F87; }
     .qback { background: var(--green, #2B3D30); transform: rotateY(180deg); overflow: auto; }
     .qback .quirk-label { color: #D8CDB4; margin-bottom: 10px; }
-    .qback .quirk-desc { color: rgba(242,232,213,0.92); }
-    @media (max-width: 700px) { .qflip, .qflip-inner { min-height: 300px; } }
+    .qback .quirk-desc { color: rgba(242,232,213,0.92); font-size: 12.5px; line-height: 1.6; }
+    @media (max-width: 700px) { .qflip, .qflip-inner { min-height: 185px; } .quirk-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .qfront { gap: 6px; } .qfront .quirk-label { font-size: 11px; } }
+
+    /* ─── HERO GLASS BAR ─── */
+    .hero { position: relative; }
+    .hero-bar { position: absolute; left: 0; right: 0; bottom: 0;
+      background: rgba(18,24,19,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(242,232,213,0.16); padding: 15px 22px; z-index: 2; }
+    .hero-bar p { max-width: 780px; margin: 0 auto; text-align: center;
+      font-family: 'Lato', sans-serif; font-size: 13.5px; font-weight: 300;
+      color: rgba(242,232,213,0.95); line-height: 1.65; }
+    @media (max-width: 640px) { .hero-bar { padding: 12px 18px; } .hero-bar p { font-size: 12.5px; } }
   </style>
 </head>
 <body>
@@ -620,8 +630,8 @@
     <div class="hero-overlay"></div>
     <div class="hero-body">
       <h1 class="hero-title">More house. Better value. And a few things that will surprise <em>you</em>.</h1>
-      <p class="hero-sub">Utah County homes are genuinely different from what most relocating buyers are used to. Here is what to expect before you start searching.</p>
     </div>
+    <div class="hero-bar"><p>Utah County homes are genuinely different from what most relocating buyers are used to. Here is what to expect before you start searching.</p></div>
   </section>
 
   <!-- SECTION 1: HOUSING TYPES -->

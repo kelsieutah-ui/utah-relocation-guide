@@ -110,7 +110,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.45);
+      background: linear-gradient(180deg, rgba(15,20,16,0.40) 0%, rgba(15,20,16,0.34) 60%, rgba(15,20,16,0.30) 100%);
     }
     .hero-body {
       position: absolute;
@@ -444,6 +444,16 @@
       .stat-tile-num { font-size: 44px; }
     }
       h1 em, h2 em, h3 em { font-style: italic; }
+
+    /* ─── HERO GLASS BAR ─── */
+    .hero { position: relative; }
+    .hero-bar { position: absolute; left: 0; right: 0; bottom: 0;
+      background: rgba(18,24,19,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(242,232,213,0.16); padding: 15px 22px; z-index: 2; }
+    .hero-bar p { max-width: 780px; margin: 0 auto; text-align: center;
+      font-family: 'Lato', sans-serif; font-size: 13.5px; font-weight: 300;
+      color: rgba(242,232,213,0.95); line-height: 1.65; }
+    @media (max-width: 640px) { .hero-bar { padding: 12px 18px; } .hero-bar p { font-size: 12.5px; } }
   </style>
 </head>
 <body>
@@ -462,8 +472,8 @@
     <div class="hero-overlay"></div>
     <div class="hero-body">
       <h1 class="hero-title">Where you live determines<br>your commute <em>reality</em>.</h1>
-      <p class="hero-sub">This is the thing I wish every buyer would ask before they fall in love with a house.</p>
     </div>
+    <div class="hero-bar"><p>This is the thing I wish every buyer would ask before they fall in love with a house.</p></div>
   </section>
 
   <!-- COMMUTE GRID -->
