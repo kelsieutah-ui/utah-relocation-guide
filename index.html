@@ -977,7 +977,9 @@
 
       .features-grid { grid-template-columns: 1fr; }
 
-      .split { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; display: flex; flex-direction: column; }
+      .split .split-copy { order: 0; }
+      .split .split-img { order: 1; }
       .split-img { height: 280px; }
       .split-copy { padding: 48px 28px; }
       #community-split .split-title { font-size: clamp(20px, 4vw, 32px); }
