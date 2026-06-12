@@ -1199,7 +1199,7 @@
         <p class="xm-desc" id="xm-desc"></p>
         <div class="xm-meta">
           <span class="xm-price" id="xm-price"></span>
-          <a class="xm-explore" href="https://guide.kelsiejimenez.com/neighborhoods.html">Explore this area</a>
+          <a class="xm-explore" id="xm-explore" href="https://guide.kelsiejimenez.com/neighborhoods.html">Explore this area</a>
         </div>
         <a class="xm-cta" id="xm-cta" href="#contact">Start shopping here</a>
       </div>
@@ -1385,6 +1385,17 @@
 
     // Interactive county map
     const XM_META = {"lehi": {"n": "Lehi", "o": "Tech money, new builds, and more traffic than it planned for.", "p": 565}, "saratoga-springs": {"n": "Saratoga Springs", "o": "Lakeside growth machine. New everything, including the neighbors.", "p": 540}, "eagle-mountain": {"n": "Eagle Mountain", "o": "Space, stars, and new construction. Bring patience for the commute.", "p": 470}, "american-fork": {"n": "American Fork", "o": "Central, established, and closer to the canyon than people expect.", "p": 545}, "pleasant-grove": {"n": "Pleasant Grove", "o": "Strawberry Days, old trees, and my hometown. I'm biased and correct.", "p": 530}, "lindon": {"n": "Lindon", "o": "Horse property next to highway access. A weird, wonderful holdout.", "p": 600}, "orem": {"n": "Orem", "o": "Family City USA. Established yards, real amenities, zero pretense.", "p": 480}, "provo": {"n": "Provo", "o": "College town energy, historic homes, and the county's best food.", "p": 450}, "vineyard": {"n": "Vineyard", "o": "Brand new city on the lake. Young, dense, and still figuring itself out.", "p": 460}, "springville": {"n": "Springville", "o": "Art City. Small-town feel with Provo ten minutes up the road.", "p": 500}, "spanish-fork": {"n": "Spanish Fork", "o": "Rodeo town turned commuter favorite. Wind is real, value is too.", "p": 510}, "mapleton": {"n": "Mapleton", "o": "Big lots at the base of the mountain. Quietly expensive, on purpose.", "p": 740}, "payson": {"n": "Payson", "o": "South county value play. Canyon access and room to breathe.", "p": 460}, "salem": {"n": "Salem", "o": "Pond town. Slow, pretty, and fiercely loved by people who live there.", "p": 540}, "santaquin": {"n": "Santaquin", "o": "Orchards and the county's southern edge. Value if you can commute.", "p": 450}, "highland": {"n": "Highland", "o": "Large lots, large homes, and an unspoken HOA of expectations.", "p": 850}, "alpine": {"n": "Alpine", "o": "Tucked against the mountain. Gorgeous, exclusive, priced like it.", "p": 980}, "cedar-hills": {"n": "Cedar Hills", "o": "Golf course bench living with Timpanogos out the back window.", "p": 640}, "woodland-hills": {"n": "Woodland Hills", "o": "A mountainside hideaway. Views for days, one road in.", "p": 780}, "elk-ridge": {"n": "Elk Ridge", "o": "Forested bench above Payson. Feels like a cabin town with sidewalks.", "p": 600}, "genola": {"n": "Genola", "o": "Farmland and quiet. If you know, you know.", "p": 520}, "goshen": {"n": "Goshen", "o": "Rural west side. Horses outnumber stoplights.", "p": 430}, "cedar-fort": {"n": "Cedar Fort", "o": "Cedar Valley frontier. True rural living west of the mountain.", "p": 450}, "fairfield": {"n": "Fairfield", "o": "Historic Camp Floyd country. Tiny, and proud of it.", "p": 440}};
+    const XM_ZONE = {
+      'lehi':'#north-corridor','saratoga-springs':'#north-corridor',
+      'american-fork':'#mid-county','pleasant-grove':'#mid-county','cedar-hills':'#mid-county',
+      'highland':'#mid-county','lindon':'#mid-county','orem':'#mid-county','vineyard':'#mid-county',
+      'provo':'#urban-core',
+      'eagle-mountain':'#eagle-mountain','cedar-fort':'#eagle-mountain','fairfield':'#eagle-mountain',
+      'springville':'#south-county','mapleton':'#south-county','spanish-fork':'#south-county',
+      'salem':'#south-county','payson':'#south-county','santaquin':'#south-county',
+      'elk-ridge':'#south-county','woodland-hills':'#south-county','genola':'#south-county','goshen':'#south-county',
+      'alpine':'#alpine-suncrest'
+    };
     const xmCard=document.getElementById('xm-card'), xmPlace=document.getElementById('xm-place'),
           xmDesc=document.getElementById('xm-desc'), xmPrice=document.getElementById('xm-price'),
           xmCta=document.getElementById('xm-cta'), xmNudge=document.getElementById('xm-nudge');
@@ -1410,6 +1421,7 @@
       xmPlace.textContent=m.n; xmDesc.textContent=m.o;
       xmPrice.innerHTML='$'+m.p+'K<small>median sale price &middot; sample</small>';
       xmCta.textContent='Start shopping in '+m.n;
+      document.getElementById('xm-explore').href='https://guide.kelsiejimenez.com/neighborhoods.html'+(XM_ZONE[slug]||'');
       xmNudge.classList.add('hide');
       xmCard.classList.add('show');
       document.querySelectorAll('.xm-city.active').forEach(a=>a.classList.remove('active'));
