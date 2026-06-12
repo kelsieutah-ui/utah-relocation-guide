@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>New Homeowner Guide · Kelsie Jimenez</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --dark:#1a1f1a;--green:#2d3d2d;--green-mid:#3d5c3d;
-    --sage:#99a189;--mist:#b7bea9;--taupe:#b19f8f;
-    --cream:#f7f4f0;--warm:#fcf0e7;--linen:#ece9e4;
-    --mid:#6b6158;--light:#9a9188;--white:#ffffff;
+    --dark:#22302A;--green:#2B3D30;--green-mid:#3E5547;
+    --sage:#A8A493;--mist:#C9C2AE;--taupe:#B5A88E;
+    --cream:#F8F5EE;--warm:#F6F3EA;--linen:#EFEAE0;
+    --mid:#5C564A;--light:#8A8474;--white:#ffffff;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -108,9 +108,36 @@
     .kelsie-note{padding:32px 24px}
   }
     h1 em, h2 em, h3 em { font-style: italic; }
-  </style>
+  
+    /* ─── BRAND PASS OVERRIDES ─── */
+    .hero { position: relative !important; min-height: 52vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 130px 24px 86px !important; background: url('neighborhood.jpg') center/cover no-repeat !important; }
+    .hero::before { content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(15,20,16,0.46) 0%, rgba(15,20,16,0.38) 60%, rgba(15,20,16,0.34) 100%); }
+    .hero > * { position: relative; z-index: 1; }
+    .hero h1 { color: #F2E8D5 !important; text-shadow: 0 2px 18px rgba(0,0,0,0.45); font-family: 'Playfair Display', serif !important; }
+    .hero-sub { position: absolute !important; left: 0; right: 0; bottom: 0; z-index: 2; margin: 0 !important; max-width: none !important;
+      background: rgba(18,24,19,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(242,232,213,0.16); padding: 14px 22px !important; text-align: center;
+      font-family: 'Lato', sans-serif !important; font-size: 13.5px !important; font-weight: 300 !important;
+      color: rgba(242,232,213,0.95) !important; line-height: 1.65 !important; text-shadow: none !important; }
+    .section-icon { display: none !important; }
+    body { font-family: 'Lato', sans-serif; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    .hero::before { width: auto !important; height: auto !important; border-radius: 0 !important; }
+    .top-bar { display: none !important; }
+</style>
 </head>
 <body>
+
+<div style="position:fixed; top:16px; left:16px; right:16px; z-index:100;">
+  <nav style="max-width:1100px; margin:0 auto; background:rgba(43,61,48,0.72); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid rgba(242,232,213,0.18); box-shadow:0 4px 32px rgba(0,0,0,0.18); border-radius:100px; padding:10px 12px 10px 24px; display:flex; align-items:center; justify-content:space-between;">
+    <a href="https://guide.kelsiejimenez.com/resources.html" style="font-size:13px; color:#F2E8D5; text-decoration:none; font-family:'Lato',sans-serif;">&larr; Client Resources</a>
+    <a href="https://guide.kelsiejimenez.com/#contact" style="background:linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62)); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(242,232,213,0.45); box-shadow:inset 0 1px 0 rgba(255,255,255,0.25); color:#F2E8D5; padding:9px 20px; border-radius:100px; font-size:13px; font-weight:500; text-decoration:none; white-space:nowrap; font-family:'Lato',sans-serif;">Work With Me</a>
+  </nav>
+</div>
+
 
 <div class="top-bar">
   <div class="top-bar-name">Kelsie Jimenez · The Perry Group · Real Broker LLC</div>
@@ -129,7 +156,7 @@
 
 <div class="intro-letter">
   <div class="letter-quote">"Getting you to closing was the goal, but keeping you informed and supported long after is the commitment. This is your home now. Here's everything I wish someone had handed me on day one."</div>
-  <div class="letter-sig">,  Kelsie Jimenez</div>
+  <div class="letter-sig">Kelsie Jimenez</div>
 </div>
 
 <div class="main">
@@ -142,77 +169,77 @@
 
     <div class="task-list">
       <div class="task-item" onclick="toggleTask(this)">
-        <div class="task-box">✓</div>
+        <div class="task-box"></div>
         <div>
           <div class="task-text"><strong>Change all your locks</strong></div>
           <div class="task-note">You don't know who has a copy of the previous keys, this is non-negotiable</div>
         </div>
       </div>
       <div class="task-item" onclick="toggleTask(this)">
-        <div class="task-box">✓</div>
+        <div class="task-box"></div>
         <div>
           <div class="task-text"><strong>Locate your main water shutoff valve</strong></div>
           <div class="task-note">Know where it is before you need it, usually in the basement or utility room</div>
         </div>
       </div>
       <div class="task-item" onclick="toggleTask(this)">
-        <div class="task-box">✓</div>
+        <div class="task-box"></div>
         <div>
           <div class="task-text"><strong>Locate your electrical panel and label the breakers</strong></div>
           <div class="task-note">Label what each breaker controls, future you will thank present you</div>
         </div>
       </div>
       <div class="task-item" onclick="toggleTask(this)">
-        <div class="task-box">✓</div>
+        <div class="task-box"></div>
         <div>
           <div class="task-text"><strong>Locate your gas shutoff</strong></div>
           <div class="task-note">Usually near the meter outside, know where it is in case of emergency</div>
         </div>
       </div>
       <div class="task-item" onclick="toggleTask(this)">
-        <div class="task-box">✓</div>
+        <div class="task-box"></div>
         <div>
           <div class="task-text"><strong>Update your address everywhere</strong></div>
           <div class="task-note">USPS, bank, employer, subscriptions, DMV, voter registration, IRS</div>
         </div>
       </div>
       <div class="task-item" onclick="toggleTask(this)">
-        <div class="task-box">✓</div>
+        <div class="task-box"></div>
         <div>
           <div class="task-text"><strong>Set up homeowner's insurance auto-pay</strong></div>
           <div class="task-note">Confirm your policy is active and payment is set up, don't let it lapse</div>
         </div>
       </div>
       <div class="task-item" onclick="toggleTask(this)">
-        <div class="task-box">✓</div>
+        <div class="task-box"></div>
         <div>
           <div class="task-text"><strong>Test all smoke and carbon monoxide detectors</strong></div>
           <div class="task-note">Replace batteries even if they seem fine, start fresh</div>
         </div>
       </div>
       <div class="task-item" onclick="toggleTask(this)">
-        <div class="task-box">✓</div>
+        <div class="task-box"></div>
         <div>
           <div class="task-text"><strong>Change your HVAC air filter</strong></div>
           <div class="task-note">Do it now and set a reminder every 90 days going forward</div>
         </div>
       </div>
       <div class="task-item" onclick="toggleTask(this)">
-        <div class="task-box">✓</div>
+        <div class="task-box"></div>
         <div>
           <div class="task-text"><strong>Find your HOA contact and review the CC&Rs (if applicable)</strong></div>
           <div class="task-note">Know the rules before you accidentally break one</div>
         </div>
       </div>
       <div class="task-item" onclick="toggleTask(this)">
-        <div class="task-box">✓</div>
+        <div class="task-box"></div>
         <div>
           <div class="task-text"><strong>Introduce yourself to your neighbors</strong></div>
           <div class="task-note">Good neighbors are one of the best things about homeownership</div>
         </div>
       </div>
       <div class="task-item" onclick="toggleTask(this)">
-        <div class="task-box">✓</div>
+        <div class="task-box"></div>
         <div>
           <div class="task-text"><strong>Document the condition of everything with photos</strong></div>
           <div class="task-note">Walk through and photograph every room, appliance, and system for your records</div>
@@ -230,7 +257,7 @@
     <div class="season-grid">
       <div class="season-card season-spring">
         <div class="season-header">
-          <div class="season-icon">🌸</div>
+          <div class="season-icon"></div>
           <div class="season-name">Spring</div>
         </div>
         <div class="season-body">
@@ -248,7 +275,7 @@
       </div>
       <div class="season-card season-summer">
         <div class="season-header">
-          <div class="season-icon">☀️</div>
+          <div class="season-icon"></div>
           <div class="season-name">Summer</div>
         </div>
         <div class="season-body">
@@ -265,7 +292,7 @@
       </div>
       <div class="season-card season-fall">
         <div class="season-header">
-          <div class="season-icon">🍂</div>
+          <div class="season-icon"></div>
           <div class="season-name">Fall</div>
         </div>
         <div class="season-body">
@@ -283,7 +310,7 @@
       </div>
       <div class="season-card season-winter">
         <div class="season-header">
-          <div class="season-icon">❄️</div>
+          <div class="season-icon"></div>
           <div class="season-name">Winter</div>
         </div>
         <div class="season-body">
@@ -318,7 +345,7 @@
         <div class="vendor-name">TJ Shelley</div>
         <div class="vendor-company">First Colony Mortgage · NMLS# 1674331</div>
         <div class="vendor-detail">
-          📞 (801) 660-8661<br>
+           (801) 660-8661<br>
           tjs@firstcolonymortgage.com
         </div>
       </div>
@@ -328,7 +355,7 @@
         <div class="vendor-name">Jarran Scheid</div>
         <div class="vendor-company">Novation Title Group</div>
         <div class="vendor-detail">
-          📞 (801) 406-1254<br>
+           (801) 406-1254<br>
           jarran@novationtitlegroup.com
         </div>
         <a href="http://novationtitle.com" target="_blank" class="vendor-link">novationtitle.com →</a>
@@ -339,7 +366,7 @@
         <div class="vendor-name">Andy Torgerson</div>
         <div class="vendor-company">360 Home Check</div>
         <div class="vendor-detail">
-          📞 (801) 735-4642
+           (801) 735-4642
         </div>
         <a href="https://www.360homecheck.com" target="_blank" class="vendor-link">360homecheck.com →</a>
       </div>
@@ -349,7 +376,7 @@
         <div class="vendor-name">A1 Utah Home Inspector</div>
         <div class="vendor-company">A1 Utah</div>
         <div class="vendor-detail">
-          📞 (435) 757-3363
+           (435) 757-3363
         </div>
         <a href="https://a1utahhomeinspector.com" target="_blank" class="vendor-link">a1utahhomeinspector.com →</a>
       </div>
@@ -359,7 +386,7 @@
         <div class="vendor-name">James Frazier</div>
         <div class="vendor-company">On Top Roofing · Outside Sales Rep</div>
         <div class="vendor-detail">
-          📞 (801) 391-9662<br>
+           (801) 391-9662<br>
           jfrazier@ontoproofing.com
         </div>
         <a href="https://ontoproofing.com" target="_blank" class="vendor-link">ontoproofing.com →</a>
@@ -370,7 +397,7 @@
         <div class="vendor-name">Jared Ochoa</div>
         <div class="vendor-company">Westlake Home Solutions</div>
         <div class="vendor-detail">
-          📞 (801) 403-5059
+           (801) 403-5059
         </div>
       </div>
 
@@ -379,7 +406,7 @@
         <div class="vendor-name">Jesus Cantua</div>
         <div class="vendor-company"></div>
         <div class="vendor-detail">
-          📞 (801) 259-0827
+           (801) 259-0827
         </div>
       </div>
 
@@ -396,7 +423,7 @@
         <div class="vendor-name">IBEX Home Warranty</div>
         <div class="vendor-company"></div>
         <div class="vendor-detail">
-          📞 (801) 668-1016
+           (801) 668-1016
         </div>
         <a href="https://ibexhw.com" target="_blank" class="vendor-link">ibexhw.com →</a>
       </div>
@@ -406,7 +433,7 @@
         <div class="vendor-name">Elevate Homescriptions</div>
         <div class="vendor-company"></div>
         <div class="vendor-detail">
-          📞 (855) 349-8824
+           (855) 349-8824
         </div>
         <a href="https://elevatehomescriptions.com" target="_blank" class="vendor-link">elevatehomescriptions.com →</a>
       </div>
@@ -432,7 +459,7 @@
   <!-- KELSIE NOTE -->
   <div class="kelsie-note">
     <div class="kelsie-note-text">"My relationship with you doesn't end at closing. Whether it's a vendor referral, a question about your home, or advice on when to sell, I'm always just a text away. Congratulations again. You earned this."</div>
-    <div class="kelsie-note-sig">,  Kelsie Jimenez &nbsp;·&nbsp; 801.420.2284</div>
+    <div class="kelsie-note-sig">Kelsie Jimenez &nbsp;·&nbsp; 801.420.2284</div>
   </div>
 
 </div>
@@ -445,5 +472,11 @@
 <script>
 function toggleTask(item){item.classList.toggle('done')}
 </script>
+
+<div style="text-align:center; padding: 30px 20px 60px; background: transparent;">
+  <a href="sms:8014202284" style="display:inline-block; background:#2B3D30; color:#F2E8D5; font-family:'Lato',sans-serif; font-size:14px; font-weight:500; letter-spacing:0.04em; padding:15px 30px; border-radius:100px; text-decoration:none;">
+    <small style="display:block; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,232,213,0.65); margin-bottom:3px; font-weight:400;">Questions about this part?</small>Text me, this is what I'm here for &rarr;
+  </a>
+</div>
 </body>
 </html>
