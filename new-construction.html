@@ -406,7 +406,27 @@
       .ref-table td:first-child { width: auto; }
     }
       h1 em, h2 em, h3 em { font-style: italic; }
-  </style>
+  
+    /* ─── TIP FLIP CARDS ─── */
+    .tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .ncflip { perspective: 1100px; cursor: pointer; outline: none; min-height: 215px; }
+    .ncflip-inner { position: relative; width: 100%; height: 100%; min-height: 215px;
+      transition: transform .55s cubic-bezier(.4,.1,.2,1); transform-style: preserve-3d; }
+    .ncflip.flipped .ncflip-inner { transform: rotateY(180deg); }
+    .ncflip:focus-visible .ncflip-inner { box-shadow: 0 0 0 2px var(--green, #2B3D30); border-radius: 12px; }
+    .ncface { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      border-radius: 12px; padding: 20px; box-sizing: border-box; }
+    .ncfront { background: #F8F5EE; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; gap: 10px; }
+    .ncfront .ncnum { font-family: 'Playfair Display', serif; font-style: italic; font-size: 26px; color: #C9C2AE; line-height: 1; }
+    .ncfront .tip-label { margin: 0; font-size: 15px; }
+    .nchint { font-family: 'Lato', sans-serif; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #A89F87; }
+    .ncback { background: var(--green, #2B3D30); transform: rotateY(180deg); overflow: auto; }
+    .ncback .tip-label { color: #D8CDB4; margin-bottom: 9px; font-size: 14px; }
+    .ncback .tip-text { color: rgba(242,232,213,0.92); font-size: 12.5px; line-height: 1.6; }
+    @media (max-width: 860px) { .tips-grid { grid-template-columns: repeat(2, 1fr); gap: 11px; } .ncflip, .ncflip-inner { min-height: 180px; } .ncfront .tip-label { font-size: 13px; } }
+    @media (max-width: 520px) { .tips-grid { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 
@@ -470,61 +490,123 @@
         <p>These are the conversations I have with buyers before they step foot in a model home. Read them first.</p>
       </div>
       <div class="tips-grid">
-
-        <div class="tip-box">
-          <p class="tip-number">Tip 01</p>
-          <p class="tip-label">Your first model home visit is not a shopping trip.</p>
-          <p class="tip-text">Do not fill out any paperwork, register your name, or sign anything on your first visit. Once you register directly with the builder without a buyer's agent, you may lose your right to representation on that community, permanently. Call me before you walk in. It costs you nothing to have an agent, and the builder pays that commission regardless.</p>
+        <div class="ncflip" role="button" tabindex="0" aria-expanded="false" aria-label="Your first model home visit is not a shopping trip.: tap to reveal">
+          <div class="ncflip-inner">
+            <div class="ncface ncfront">
+              <span class="ncnum">01</span>
+              <p class="tip-label">Your first model home visit is not a shopping trip.</p>
+              <span class="nchint">Tap to flip</span>
+            </div>
+            <div class="ncface ncback">
+              <p class="tip-label">Your first model home visit is not a shopping trip.</p>
+              <p class="tip-text">Do not fill out any paperwork, register your name, or sign anything on your first visit. Once you register directly with the builder without a buyer's agent, you may lose your right to representation on that community, permanently. Call me before you walk in. It costs you nothing to have an agent, and the builder pays that commission regardless.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="tip-box">
-          <p class="tip-number">Tip 02</p>
-          <p class="tip-label">Base price is the starting point, not what you will pay.</p>
-          <p class="tip-text">The home you tour in the model is typically $80,000 to $120,000 above base price in upgrades. Lot premiums, structural options, and design center selections add up fast. When you see an advertised price, ask the sales rep what the model home is actually priced at versus the base. The gap will tell you everything.</p>
+        <div class="ncflip" role="button" tabindex="0" aria-expanded="false" aria-label="Base price is the starting point, not what you will pay.: tap to reveal">
+          <div class="ncflip-inner">
+            <div class="ncface ncfront">
+              <span class="ncnum">02</span>
+              <p class="tip-label">Base price is the starting point, not what you will pay.</p>
+              <span class="nchint">Tap to flip</span>
+            </div>
+            <div class="ncface ncback">
+              <p class="tip-label">Base price is the starting point, not what you will pay.</p>
+              <p class="tip-text">The home you tour in the model is typically $80,000 to $120,000 above base price in upgrades. Lot premiums, structural options, and design center selections add up fast. When you see an advertised price, ask the sales rep what the model home is actually priced at versus the base. The gap will tell you everything.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="tip-box">
-          <p class="tip-number">Tip 03</p>
-          <p class="tip-label">Change orders after signing are expensive.</p>
-          <p class="tip-text">Once you sign your purchase contract and selections are locked in, any changes cost significantly more than they would have before. Know what you want before you get to the design center appointment. Make a prioritized list. Decide what matters and what you can live without before you are sitting in front of someone whose job is to sell you everything.</p>
+        <div class="ncflip" role="button" tabindex="0" aria-expanded="false" aria-label="Change orders after signing are expensive.: tap to reveal">
+          <div class="ncflip-inner">
+            <div class="ncface ncfront">
+              <span class="ncnum">03</span>
+              <p class="tip-label">Change orders after signing are expensive.</p>
+              <span class="nchint">Tap to flip</span>
+            </div>
+            <div class="ncface ncback">
+              <p class="tip-label">Change orders after signing are expensive.</p>
+              <p class="tip-text">Once you sign your purchase contract and selections are locked in, any changes cost significantly more than they would have before. Know what you want before you get to the design center appointment. Make a prioritized list. Decide what matters and what you can live without before you are sitting in front of someone whose job is to sell you everything.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="tip-box">
-          <p class="tip-number">Tip 04</p>
-          <p class="tip-label">Budget 15 to 20 percent above base for the design center.</p>
-          <p class="tip-text">Design centers are designed to be overwhelming in the best possible way. The options are beautiful and the experience is fun. Go in with a firm budget and a written list of your non-negotiables versus nice-to-haves. The flooring, countertops, and cabinets have the biggest visual impact. The built-in wine fridge does not.</p>
+        <div class="ncflip" role="button" tabindex="0" aria-expanded="false" aria-label="Budget 15 to 20 percent above base for the design center.: tap to reveal">
+          <div class="ncflip-inner">
+            <div class="ncface ncfront">
+              <span class="ncnum">04</span>
+              <p class="tip-label">Budget 15 to 20 percent above base for the design center.</p>
+              <span class="nchint">Tap to flip</span>
+            </div>
+            <div class="ncface ncback">
+              <p class="tip-label">Budget 15 to 20 percent above base for the design center.</p>
+              <p class="tip-text">Design centers are designed to be overwhelming in the best possible way. The options are beautiful and the experience is fun. Go in with a firm budget and a written list of your non-negotiables versus nice-to-haves. The flooring, countertops, and cabinets have the biggest visual impact. The built-in wine fridge does not.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="tip-box">
-          <p class="tip-number">Tip 05</p>
-          <p class="tip-label">Concrete cracks. That is normal. Structural cracks are not.</p>
-          <p class="tip-text">Minor shrinkage cracks in a concrete foundation are standard and expected. Horizontal cracks, stair-step cracks along block, or cracks wider than a quarter inch are different. Know the difference before your walkthrough. Your inspector should call out anything structural. Do not let a sales rep dismiss foundation cracks without a specific explanation.</p>
+        <div class="ncflip" role="button" tabindex="0" aria-expanded="false" aria-label="Concrete cracks. That is normal. Structural cracks are not.: tap to reveal">
+          <div class="ncflip-inner">
+            <div class="ncface ncfront">
+              <span class="ncnum">05</span>
+              <p class="tip-label">Concrete cracks. That is normal. Structural cracks are not.</p>
+              <span class="nchint">Tap to flip</span>
+            </div>
+            <div class="ncface ncback">
+              <p class="tip-label">Concrete cracks. That is normal. Structural cracks are not.</p>
+              <p class="tip-text">Minor shrinkage cracks in a concrete foundation are standard and expected. Horizontal cracks, stair-step cracks along block, or cracks wider than a quarter inch are different. Know the difference before your walkthrough. Your inspector should call out anything structural. Do not let a sales rep dismiss foundation cracks without a specific explanation.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="tip-box">
-          <p class="tip-number">Tip 06</p>
-          <p class="tip-label">Quick move-in homes are worth a serious look.</p>
-          <p class="tip-text">Builders carry inventory, homes under construction or recently completed that are move-in ready or close to it. You get less customization but a faster possession date, and builders are often motivated to move inventory. You can sometimes negotiate more on a quick move-in than on a to-be-built home because the builder's carrying costs are already running.</p>
+        <div class="ncflip" role="button" tabindex="0" aria-expanded="false" aria-label="Quick move-in homes are worth a serious look.: tap to reveal">
+          <div class="ncflip-inner">
+            <div class="ncface ncfront">
+              <span class="ncnum">06</span>
+              <p class="tip-label">Quick move-in homes are worth a serious look.</p>
+              <span class="nchint">Tap to flip</span>
+            </div>
+            <div class="ncface ncback">
+              <p class="tip-label">Quick move-in homes are worth a serious look.</p>
+              <p class="tip-text">Builders carry inventory, homes under construction or recently completed that are move-in ready or close to it. You get less customization but a faster possession date, and builders are often motivated to move inventory. You can sometimes negotiate more on a quick move-in than on a to-be-built home because the builder's carrying costs are already running.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="tip-box">
-          <p class="tip-number">Tip 07</p>
-          <p class="tip-label">Understand your 2-10 warranty before you close.</p>
-          <p class="tip-text">Most production builders offer a 2-10 Home Buyers Warranty: one year on workmanship and materials, two years on mechanical systems like HVAC plumbing and electrical, ten years on structural defects. Read what voids each coverage tier before you start doing any modifications. Some finishes and structural work done without builder approval can void warranty coverage on related systems.</p>
+        <div class="ncflip" role="button" tabindex="0" aria-expanded="false" aria-label="Understand your 2-10 warranty before you close.: tap to reveal">
+          <div class="ncflip-inner">
+            <div class="ncface ncfront">
+              <span class="ncnum">07</span>
+              <p class="tip-label">Understand your 2-10 warranty before you close.</p>
+              <span class="nchint">Tap to flip</span>
+            </div>
+            <div class="ncface ncback">
+              <p class="tip-label">Understand your 2-10 warranty before you close.</p>
+              <p class="tip-text">Most production builders offer a 2-10 Home Buyers Warranty: one year on workmanship and materials, two years on mechanical systems like HVAC plumbing and electrical, ten years on structural defects. Read what voids each coverage tier before you start doing any modifications. Some finishes and structural work done without builder approval can void warranty coverage on related systems.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="tip-box">
-          <p class="tip-number">Tip 08</p>
-          <p class="tip-label">The builder's lender incentive is real but so is the trade-off.</p>
-          <p class="tip-text">Builders will offer you closing cost credits or upgrades to use their preferred lender. That can be worth thousands. It can also mean a slightly higher rate or less flexibility on your loan terms. Get a competing quote from your own lender before you decide. Sometimes the builder incentive wins. Sometimes it does not. You will not know unless you compare.</p>
+        <div class="ncflip" role="button" tabindex="0" aria-expanded="false" aria-label="The builder's lender incentive is real but so is the trade-off.: tap to reveal">
+          <div class="ncflip-inner">
+            <div class="ncface ncfront">
+              <span class="ncnum">08</span>
+              <p class="tip-label">The builder's lender incentive is real but so is the trade-off.</p>
+              <span class="nchint">Tap to flip</span>
+            </div>
+            <div class="ncface ncback">
+              <p class="tip-label">The builder's lender incentive is real but so is the trade-off.</p>
+              <p class="tip-text">Builders will offer you closing cost credits or upgrades to use their preferred lender. That can be worth thousands. It can also mean a slightly higher rate or less flexibility on your loan terms. Get a competing quote from your own lender before you decide. Sometimes the builder incentive wins. Sometimes it does not. You will not know unless you compare.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="tip-box">
-          <p class="tip-number">Tip 09</p>
-          <p class="tip-label">Walk the site on a Sunday when nobody is there.</p>
-          <p class="tip-text">Visit your lot and the surrounding streets on a weekend when workers are not present. Look at drainage patterns, neighboring lots, what is being built next door, and how the grading is coming together. You see things on a quiet Sunday that you miss on a scheduled tour. Take photos. Note anything that looks off and bring it to your preconstruction meeting.</p>
+        <div class="ncflip" role="button" tabindex="0" aria-expanded="false" aria-label="Walk the site on a Sunday when nobody is there.: tap to reveal">
+          <div class="ncflip-inner">
+            <div class="ncface ncfront">
+              <span class="ncnum">09</span>
+              <p class="tip-label">Walk the site on a Sunday when nobody is there.</p>
+              <span class="nchint">Tap to flip</span>
+            </div>
+            <div class="ncface ncback">
+              <p class="tip-label">Walk the site on a Sunday when nobody is there.</p>
+              <p class="tip-text">Visit your lot and the surrounding streets on a weekend when workers are not present. Look at drainage patterns, neighboring lots, what is being built next door, and how the grading is coming together. You see things on a quiet Sunday that you miss on a scheduled tour. Take photos. Note anything that looks off and bring it to your preconstruction meeting.</p>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -629,5 +711,14 @@
     }, { passive: true });
   </script>
 
+
+  <script>
+    document.querySelectorAll('.ncflip').forEach(card => {
+      function flip() { card.classList.toggle('flipped');
+        card.setAttribute('aria-expanded', card.classList.contains('flipped') ? 'true' : 'false'); }
+      card.addEventListener('click', flip);
+      card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') { e.preventDefault(); flip(); } });
+    });
+  </script>
 </body>
 </html>
