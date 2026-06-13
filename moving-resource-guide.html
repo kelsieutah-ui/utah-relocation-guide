@@ -4,45 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Utah County Moving Toolkit · Kelsie Jimenez</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #2d4a3e;
-    --green-light: #3a5e50;
+    --green: #2B3D30;
+    --green-light: #344A3C;
     --cream: #f5f0e8;
     --oat: #e8e0d0;
     --oat-dark: #d8cfc0;
-    --accent: #4a7c5f;
-    --text: #1a2e25;
-    --muted: #7a8c7f;
-    --link: #3a6b52;
+    --accent: #3E5547;
+    --text: #22302A;
+    --muted: #8A8474;
+    --link: #2B3D30;
     --white: #ffffff;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
     background: #FDFCFA;
     color: var(--text);
     min-height: 100vh;
   }
 
   /* ── HERO ── */
-  .hero {
-    background: var(--green);
-    padding: 48px 24px 40px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
+  .hero { position: relative; min-height: 52vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 130px 24px 70px; background: url('mudroom.jpg') center 60%/cover no-repeat; }
+    .hero::before { content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(15,20,16,0.46) 0%, rgba(15,20,16,0.38) 60%, rgba(15,20,16,0.34) 100%); }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-bar { position: absolute; left: 0; right: 0; bottom: 0;
+      background: rgba(18,24,19,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(242,232,213,0.16); padding: 14px 22px; z-index: 2; }
+    .hero-bar p { max-width: 760px; margin: 0 auto; text-align: center; font-family: 'Lato', sans-serif;
+      font-size: 13.5px; font-weight: 300; color: rgba(242,232,213,0.95); line-height: 1.65; }
+    .phase-strip { background: #FDFCFA; border-bottom: 1px solid #EFEAE0; padding: 18px 20px; }
+    .phase-strip .phase-nav { margin: 0 auto; }
 
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 70% 0%, #3a6b52 0%, transparent 60%),
-                radial-gradient(ellipse at 20% 100%, #1a2e25 0%, transparent 50%);
+    background: radial-gradient(ellipse at 70% 0%, #2B3D30 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 100%, #22302A 0%, transparent 50%);
     pointer-events: none;
   }
 
@@ -58,8 +63,7 @@
     border: 1px solid rgba(245,240,232,0.2);
     border-radius: 20px;
     padding: 4px 14px;
-    margin-bottom: 18px;
-  }
+    margin-bottom: 18px; color: rgba(242,232,213,0.85) !important; }
 
   .hero h1 {
     font-family: 'Playfair Display', serif;
@@ -67,12 +71,11 @@
     font-weight: 700;
     color: var(--cream);
     line-height: 1.1;
-    margin-bottom: 12px;
-  }
+    margin-bottom: 12px; color: #F2E8D5 !important; text-shadow: 0 2px 18px rgba(0,0,0,0.45); }
 
   .hero h1 em {
     font-style: italic;
-    color: #a8c5b0;
+    color: #C9C2AE;
   }
 
   .hero-sub {
@@ -101,7 +104,7 @@
     border: none;
     border-radius: 9px;
     background: transparent;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 13px;
     font-weight: 500;
     color: rgba(245,240,232,0.6);
@@ -217,7 +220,7 @@
   }
 
   .tip-box {
-    background: #e8f2ec;
+    background: #F6F3EA;
     border-left: 3px solid var(--accent);
     border-radius: 0 8px 8px 0;
     padding: 14px 16px;
@@ -275,14 +278,14 @@
     text-decoration: none;
     font-size: 12px;
     font-weight: 500;
-    background: #e8f2ec;
+    background: #F6F3EA;
     border-radius: 4px;
     padding: 3px 8px;
     white-space: nowrap;
     transition: background 0.14s;
   }
 
-  .utility-table td a:hover { background: #d0e8d8; }
+  .utility-table td a:hover { background: #F8F5EE; }
 
   .phone-num {
     font-size: 13px;
@@ -312,7 +315,7 @@
   .item:hover { background: #fafaf7; }
   .item.done { background: #f6faf7; }
   .item.done .item-label { text-decoration: line-through; color: var(--muted); }
-  .item.done .item-note { color: #aab8af; }
+  .item.done .item-note { color: #A8A493; }
 
   .checkbox {
     width: 20px;
@@ -355,7 +358,7 @@
     font-weight: 600;
     letter-spacing: 0.08em;
     color: var(--link);
-    background: #e8f2ec;
+    background: #F6F3EA;
     border-radius: 4px;
     padding: 2px 7px;
     text-decoration: none;
@@ -364,7 +367,7 @@
     transition: background 0.15s;
   }
 
-  .link-badge:hover { background: #d0e8d8; }
+  .link-badge:hover { background: #F8F5EE; }
 
   /* ── PROGRESS ── */
   .progress-wrap { margin-bottom: 28px; }
@@ -385,7 +388,7 @@
     border: 2px solid var(--oat);
     border-radius: 8px;
     background: var(--white);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 13px;
     font-weight: 500;
     color: var(--muted);
@@ -426,7 +429,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -452,7 +455,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--accent);
-    background: #e8f2ec;
+    background: #F6F3EA;
     border-radius: 20px;
     padding: 4px 12px;
     margin-bottom: 20px;
@@ -463,16 +466,38 @@
     .utility-table thead th { font-size: 10px; padding: 8px 12px; }
   }
     h1 em, h2 em, h3 em { font-style: italic; }
+
+    .section-icon { display: none !important; }
+
+    /* ─── NEXT PHASE BUTTONS ─── */
+    .next-phase-wrap { text-align: center; padding: 36px 20px 10px; }
+    .next-phase { display: inline-block; background: #2B3D30; color: #F2E8D5; border: none; cursor: pointer;
+      font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
+      padding: 15px 30px; border-radius: 100px; transition: transform .15s, box-shadow .2s; text-decoration: none; }
+    .next-phase:hover { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(43,61,48,0.25); }
+    .next-phase small { display: block; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(242,232,213,0.65); margin-bottom: 3px; font-weight: 400; }
   </style>
 </head>
 <body>
+
+<div style="position:fixed; top:16px; left:16px; right:16px; z-index:100;">
+  <nav style="max-width:1100px; margin:0 auto; background:rgba(43,61,48,0.72); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid rgba(242,232,213,0.18); box-shadow:0 4px 32px rgba(0,0,0,0.18); border-radius:100px; padding:10px 12px 10px 24px; display:flex; align-items:center; justify-content:space-between;">
+    <a href="https://guide.kelsiejimenez.com/resources.html" style="font-size:13px; color:#F2E8D5; text-decoration:none; font-family:'Lato',sans-serif;">&larr; Client Resources</a>
+    <a href="https://guide.kelsiejimenez.com/#contact" style="background:linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62)); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(242,232,213,0.45); box-shadow:inset 0 1px 0 rgba(255,255,255,0.25); color:#F2E8D5; padding:9px 20px; border-radius:100px; font-size:13px; font-weight:500; text-decoration:none; white-space:nowrap; font-family:'Lato',sans-serif;">Work With Me</a>
+  </nav>
+</div>
 
 <div class="hero">
   <div class="hero-inner">
     <div class="brand-tag">Kelsie Jimenez · The Perry Group</div>
     <h1>Your Utah County<br><em>Moving Toolkit</em></h1>
-    <p class="hero-sub">Everything you need from before closing through moving day, utilities, address updates, and a complete packing guide all in one spot.</p>
-    <div class="phase-nav">
+
+  </div>
+  <div class="hero-bar"><p>Everything you need from before closing through moving day, utilities, address updates, and a complete packing guide all in one spot.</p></div>
+</div>
+<div class="phase-strip">
+  <div class="phase-nav">
       <button class="phase-btn active" onclick="switchPhase('utilities')">
         <span>Phase 1 · Pre-Closing</span>
         Utilities Setup
@@ -486,7 +511,6 @@
         Packing Guide
       </button>
     </div>
-  </div>
 </div>
 
 <div class="main">
@@ -495,11 +519,11 @@
        PHASE 1, UTILITIES
   ══════════════════════════════════════ -->
   <div class="panel active" id="panel-utilities">
-    <div class="phase-label">⚡ Phase 1, Before You Get Your Keys</div>
+    <div class="phase-label"> Phase 1, Before You Get Your Keys</div>
 
     <div class="section">
       <div class="section-header">
-        <div class="section-icon">📅</div>
+        <div class="section-icon"></div>
         <div class="section-title">When to Schedule</div>
       </div>
       <div class="info-card">
@@ -522,7 +546,7 @@
 
     <div class="section">
       <div class="section-header">
-        <div class="section-icon">🔌</div>
+        <div class="section-icon"></div>
         <div class="section-title">Primary Utilities, All Cities</div>
       </div>
       <div class="utility-table">
@@ -555,7 +579,7 @@
 
     <div class="section">
       <div class="section-header">
-        <div class="section-icon">🏙️</div>
+        <div class="section-icon"></div>
         <div class="section-title">City-Specific Utilities</div>
       </div>
       <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Find your city below for water, sewer, and garbage setup.</p>
@@ -590,13 +614,13 @@
         </table>
       </div>
       <div class="tip-box" style="margin-top:12px;border-radius:8px;">
-        <strong>Alpine &amp; Eagle Mountain Garbage:</strong> Ace Disposal, <span class="phone-num">(800) 724‑9995</span> <a href="https://www.acedisposal.com/waste-management-utah-county/" target="_blank" style="color:var(--link);font-size:12px;font-weight:500;background:#e8f2ec;border-radius:4px;padding:2px 7px;text-decoration:none;margin-left:4px;">acedisposal.com →</a>
+        <strong>Alpine &amp; Eagle Mountain Garbage:</strong> Ace Disposal, <span class="phone-num">(800) 724‑9995</span> <a href="https://www.acedisposal.com/waste-management-utah-county/" target="_blank" style="color:var(--link);font-size:12px;font-weight:500;background:#F6F3EA;border-radius:4px;padding:2px 7px;text-decoration:none;margin-left:4px;">acedisposal.com →</a>
       </div>
     </div>
 
     <div class="section">
       <div class="section-header">
-        <div class="section-icon">📡</div>
+        <div class="section-icon"></div>
         <div class="section-title">Internet, Cable &amp; Security</div>
       </div>
       <div class="info-card">
@@ -607,31 +631,31 @@
       </div>
     </div>
 
-    <div class="info-card" style="border-left: 3px solid #b07d3a; background: #fdf8f0;">
+    <div class="info-card" style="border-left: 3px solid #B8882A; background: #fdf8f0;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-        <span style="font-size:20px;">✈️</span>
-        <span style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#7a5522;">Moving from Out of State?</span>
+        <span style="font-size:20px;"></span>
+        <span style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#7A5A1C;">Moving from Out of State?</span>
       </div>
       <p style="font-size:14px;color:var(--text);line-height:1.7;">A few things work differently for relocation clients that are worth knowing up front.</p>
       <ul style="margin-top:10px;">
         <li style="border-color:#e8dcc8;">
-          <div class="bullet-dot" style="background:#b07d3a;"></div>
+          <div class="bullet-dot" style="background:#B8882A;"></div>
           <div><strong>Driver's license &amp; vehicle registration</strong>, You're not just updating your address, you're transferring to Utah. You'll need to visit a Utah DMV office in person. Utah requires this within <strong>60 days</strong> of establishing residency. <a href="https://dld.utah.gov/online-services/" target="_blank" style="color:var(--link);font-weight:500;">Utah DMV →</a></div>
         </li>
         <li style="border-color:#e8dcc8;">
-          <div class="bullet-dot" style="background:#b07d3a;"></div>
+          <div class="bullet-dot" style="background:#B8882A;"></div>
           <div><strong>Voter registration</strong>, Your out-of-state registration doesn't transfer automatically. Register fresh in Utah at <a href="https://vote.utah.gov" target="_blank" style="color:var(--link);font-weight:500;">vote.utah.gov →</a></div>
         </li>
         <li style="border-color:#e8dcc8;">
-          <div class="bullet-dot" style="background:#b07d3a;"></div>
+          <div class="bullet-dot" style="background:#B8882A;"></div>
           <div><strong>Vehicle inspection &amp; emissions</strong>, Utah requires a safety inspection within 30 days of registering your vehicle here. Emissions testing may also be required depending on your county.</div>
         </li>
         <li style="border-color:#e8dcc8;">
-          <div class="bullet-dot" style="background:#b07d3a;"></div>
+          <div class="bullet-dot" style="background:#B8882A;"></div>
           <div><strong>Auto insurance</strong>, Let your carrier know you've moved states immediately. Coverage requirements vary by state and your rate will likely change.</div>
         </li>
         <li style="border-bottom:none;">
-          <div class="bullet-dot" style="background:#b07d3a;"></div>
+          <div class="bullet-dot" style="background:#B8882A;"></div>
           <div><strong>Professional licenses</strong>, If you hold a state-issued professional license (real estate, nursing, teaching, contracting, etc.), check whether Utah has reciprocity with your previous state or if you'll need to reapply.</div>
         </li>
       </ul>
@@ -641,7 +665,11 @@
       <strong>Ready to set up your address changes?</strong>
       Once you've got your keys and closed, head to Phase 2, the address change checklist, to make sure nothing slips through the cracks. It's interactive and has direct links to the most common places you'll need to update.
       <br><br>
-      <button class="phase-btn" style="background:rgba(255,255,255,0.15);color:var(--cream);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:10px 20px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;" onclick="switchPhase('checklist')">Go to Address Change Checklist →</button>
+      <button class="phase-btn" style="background:rgba(255,255,255,0.15);color:var(--cream);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:10px 20px;font-size:13px;cursor:pointer;font-family:'Lato',sans-serif;" onclick="switchPhase('checklist')">Go to Address Change Checklist →</button>
+    </div>
+  
+    <div class="next-phase-wrap">
+      <button class="next-phase" onclick="switchPhase('checklist'); document.querySelector('.phase-strip').scrollIntoView({behavior:'smooth'});"><small>Next up</small>Phase 2 &middot; Address Changes &rarr;</button>
     </div>
   </div>
 
@@ -650,11 +678,11 @@
        PHASE 2, ADDRESS CHANGE CHECKLIST
   ══════════════════════════════════════ -->
   <div class="panel" id="panel-checklist">
-    <div class="phase-label">📬 Phase 2, After Closing</div>
+    <div class="phase-label"> Phase 2, After Closing</div>
 
     <div class="client-tabs">
-      <button class="client-tab active" onclick="switchClient('buyer')">🏠 Buyer Checklist</button>
-      <button class="client-tab" onclick="switchClient('seller')">📦 Seller Checklist</button>
+      <button class="client-tab active" onclick="switchClient('buyer')"> Buyer Checklist</button>
+      <button class="client-tab" onclick="switchClient('seller')"> Seller Checklist</button>
     </div>
 
     <!-- BUYER -->
@@ -665,75 +693,75 @@
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">📬</div><div class="section-title">Mail &amp; Government</div><div class="section-count" id="sc-buyer-gov"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Mail &amp; Government</div><div class="section-count" id="sc-buyer-gov"></div></div>
         <div class="items" id="group-buyer-gov">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">USPS Mail Forwarding <a class="link-badge" href="https://moversguide.usps.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">$1.25 fee online · do this first, ideally 2 weeks before move · go directly to moversguide.usps.com</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Utah Driver's License / ID <a class="link-badge" href="https://dld.utah.gov/online-services/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Required within 30 days of moving</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Vehicle Registration</div><div class="item-note">Update at Utah DMV, can do same visit as license</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Voter Registration <a class="link-badge" href="https://vote.utah.gov" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">vote.utah.gov</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">IRS / Tax Records <a class="link-badge" href="https://www.irs.gov/faqs/irs-procedures/address-changes" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">File Form 8822 or update when filing next return</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Social Security Administration <a class="link-badge" href="https://www.ssa.gov/myaccount/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update via my Social Security account online</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">USPS Mail Forwarding <a class="link-badge" href="https://moversguide.usps.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">$1.25 fee online · do this first, ideally 2 weeks before move · go directly to moversguide.usps.com</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Utah Driver's License / ID <a class="link-badge" href="https://dld.utah.gov/online-services/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Required within 30 days of moving</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Vehicle Registration</div><div class="item-note">Update at Utah DMV, can do same visit as license</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Voter Registration <a class="link-badge" href="https://vote.utah.gov" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">vote.utah.gov</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">IRS / Tax Records <a class="link-badge" href="https://www.irs.gov/faqs/irs-procedures/address-changes" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">File Form 8822 or update when filing next return</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Social Security Administration <a class="link-badge" href="https://www.ssa.gov/myaccount/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update via my Social Security account online</div></div></div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">🏦</div><div class="section-title">Financial</div><div class="section-count" id="sc-buyer-fin"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Financial</div><div class="section-count" id="sc-buyer-fin"></div></div>
         <div class="items" id="group-buyer-fin">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Bank(s) &amp; Credit Unions</div><div class="item-note">Log into your online banking portal · update billing address on all accounts</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Credit Cards</div><div class="item-note">Update each card individually, billing address mismatch can block purchases</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Apple Pay / Apple Wallet <a class="link-badge" href="https://wallet.apple.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Settings → Wallet &amp; Apple Pay → update billing on each linked card</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Google Pay <a class="link-badge" href="https://pay.google.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update payment method billing addresses</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">PayPal <a class="link-badge" href="https://www.paypal.com/myaccount/settings/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Settings → Account Info → Address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Venmo <a class="link-badge" href="https://venmo.com/account/settings" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update in profile settings</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Investment / Brokerage Accounts</div><div class="item-note">Fidelity, Schwab, Vanguard, etc., log in and update profile address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Student Loans <a class="link-badge" href="https://studentaid.gov" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Federal: studentaid.gov · private: contact servicer directly</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Bank(s) &amp; Credit Unions</div><div class="item-note">Log into your online banking portal · update billing address on all accounts</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Credit Cards</div><div class="item-note">Update each card individually, billing address mismatch can block purchases</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Apple Pay / Apple Wallet <a class="link-badge" href="https://wallet.apple.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Settings → Wallet &amp; Apple Pay → update billing on each linked card</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Google Pay <a class="link-badge" href="https://pay.google.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update payment method billing addresses</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">PayPal <a class="link-badge" href="https://www.paypal.com/myaccount/settings/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Settings → Account Info → Address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Venmo <a class="link-badge" href="https://venmo.com/account/settings" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update in profile settings</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Investment / Brokerage Accounts</div><div class="item-note">Fidelity, Schwab, Vanguard, etc., log in and update profile address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Student Loans <a class="link-badge" href="https://studentaid.gov" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Federal: studentaid.gov · private: contact servicer directly</div></div></div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">📦</div><div class="section-title">Shopping &amp; Subscriptions</div><div class="section-count" id="sc-buyer-shop"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Shopping &amp; Subscriptions</div><div class="section-count" id="sc-buyer-shop"></div></div>
         <div class="items" id="group-buyer-shop">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Amazon <a class="link-badge" href="https://www.amazon.com/cpe/yourpayments/wallet" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update default shipping AND billing · check all saved addresses</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Walmart / Sam's Club <a class="link-badge" href="https://www.walmart.com/account" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update saved shipping address in account</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Target <a class="link-badge" href="https://www.target.com/account" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update shipping and Target Circle address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Costco <a class="link-badge" href="https://www.costco.com/AccountMembershipView" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update membership address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Apple ID <a class="link-badge" href="https://appleid.apple.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">appleid.apple.com, update billing and contact address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Google Account <a class="link-badge" href="https://myaccount.google.com/personal-info" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update personal info and billing address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Subscription Boxes (HelloFresh, Stitch Fix, etc.)</div><div class="item-note">Update before next scheduled delivery</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Amazon <a class="link-badge" href="https://www.amazon.com/cpe/yourpayments/wallet" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update default shipping AND billing · check all saved addresses</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Walmart / Sam's Club <a class="link-badge" href="https://www.walmart.com/account" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update saved shipping address in account</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Target <a class="link-badge" href="https://www.target.com/account" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update shipping and Target Circle address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Costco <a class="link-badge" href="https://www.costco.com/AccountMembershipView" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update membership address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Apple ID <a class="link-badge" href="https://appleid.apple.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">appleid.apple.com, update billing and contact address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Google Account <a class="link-badge" href="https://myaccount.google.com/personal-info" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update personal info and billing address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Subscription Boxes (HelloFresh, Stitch Fix, etc.)</div><div class="item-note">Update before next scheduled delivery</div></div></div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">💊</div><div class="section-title">Insurance &amp; Healthcare</div><div class="section-count" id="sc-buyer-health"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Insurance &amp; Healthcare</div><div class="section-count" id="sc-buyer-health"></div></div>
         <div class="items" id="group-buyer-health">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Health Insurance Provider</div><div class="item-note">Log into member portal or call member services · especially important if coverage is location-based</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Auto Insurance</div><div class="item-note">Rate may change based on new ZIP code · update immediately</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Homeowner's Insurance</div><div class="item-note">Set up new policy at new address if not already done at closing</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Life / Disability Insurance</div><div class="item-note">Update address with each provider</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Doctor / Dentist / Pharmacy</div><div class="item-note">Update at each office, pharmacy update ensures correct prescription routing</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Health Insurance Provider</div><div class="item-note">Log into member portal or call member services · especially important if coverage is location-based</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Auto Insurance</div><div class="item-note">Rate may change based on new ZIP code · update immediately</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Homeowner's Insurance</div><div class="item-note">Set up new policy at new address if not already done at closing</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Life / Disability Insurance</div><div class="item-note">Update address with each provider</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Doctor / Dentist / Pharmacy</div><div class="item-note">Update at each office, pharmacy update ensures correct prescription routing</div></div></div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">⚡</div><div class="section-title">Utilities &amp; Home Services</div><div class="section-count" id="sc-buyer-util"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Utilities &amp; Home Services</div><div class="section-count" id="sc-buyer-util"></div></div>
         <div class="items" id="group-buyer-util">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Electric / Gas (Rocky Mountain Power / Enbridge) <a class="link-badge" href="https://www.rockymountainpower.net/myaccount" target="_blank" onclick="event.stopPropagation()">Manage →</a></div><div class="item-note">Confirm service is active at new address · cancel old service if applicable</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Internet / Cable Provider</div><div class="item-note">Transfer or set up new service · check availability at new address first</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Water / Trash (local municipality)</div><div class="item-note">Contact your city, see the utilities tab for your city's contact info</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Cell Phone Plan</div><div class="item-note">Update billing address with carrier</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Security System / Smart Home</div><div class="item-note">Set up ADT, Ring, SimpliSafe, etc. at new address, schedule after possession</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Electric / Gas (Rocky Mountain Power / Enbridge) <a class="link-badge" href="https://www.rockymountainpower.net/myaccount" target="_blank" onclick="event.stopPropagation()">Manage →</a></div><div class="item-note">Confirm service is active at new address · cancel old service if applicable</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Internet / Cable Provider</div><div class="item-note">Transfer or set up new service · check availability at new address first</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Water / Trash (local municipality)</div><div class="item-note">Contact your city, see the utilities tab for your city's contact info</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Cell Phone Plan</div><div class="item-note">Update billing address with carrier</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Security System / Smart Home</div><div class="item-note">Set up ADT, Ring, SimpliSafe, etc. at new address, schedule after possession</div></div></div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">✉️</div><div class="section-title">Personal &amp; Miscellaneous</div><div class="section-count" id="sc-buyer-misc"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Personal &amp; Miscellaneous</div><div class="section-count" id="sc-buyer-misc"></div></div>
         <div class="items" id="group-buyer-misc">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Employer / HR Department</div><div class="item-note">Update address for W-2, direct deposit, and benefits</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Kids' School / Daycare</div><div class="item-note">Update enrollment records and emergency contacts</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Pet Microchip / Vet Records</div><div class="item-note">Update microchip registry and veterinary office records</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Loyalty / Rewards Programs</div><div class="item-note">Airlines, hotels, grocery stores, gas stations</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Magazine / Newspaper Subscriptions</div><div class="item-note">Update mailing address with each publication</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Friends &amp; Family</div><div class="item-note">Send your new address, the low-tech one people always forget</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Employer / HR Department</div><div class="item-note">Update address for W-2, direct deposit, and benefits</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Kids' School / Daycare</div><div class="item-note">Update enrollment records and emergency contacts</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Pet Microchip / Vet Records</div><div class="item-note">Update microchip registry and veterinary office records</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Loyalty / Rewards Programs</div><div class="item-note">Airlines, hotels, grocery stores, gas stations</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Magazine / Newspaper Subscriptions</div><div class="item-note">Update mailing address with each publication</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Friends &amp; Family</div><div class="item-note">Send your new address, the low-tech one people always forget</div></div></div>
         </div>
       </div>
 
@@ -748,73 +776,73 @@
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">📬</div><div class="section-title">Mail &amp; Government</div><div class="section-count" id="sc-seller-gov"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Mail &amp; Government</div><div class="section-count" id="sc-seller-gov"></div></div>
         <div class="items" id="group-seller-gov">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">USPS Mail Forwarding <a class="link-badge" href="https://moversguide.usps.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Do this first · moversguide.usps.com · $1.25 online · schedule before closing date</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Utah Driver's License / ID <a class="link-badge" href="https://dld.utah.gov/online-services/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Required within 30 days of moving</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Vehicle Registration</div><div class="item-note">Update at Utah DMV when you update your license</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Voter Registration <a class="link-badge" href="https://vote.utah.gov" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">vote.utah.gov</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">IRS / Tax Records <a class="link-badge" href="https://www.irs.gov/faqs/irs-procedures/address-changes" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">File Form 8822 · especially important for capital gains exclusion documentation</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Social Security Administration <a class="link-badge" href="https://www.ssa.gov/myaccount/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update online via my Social Security account</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Mortgage Servicer, Final Payoff Confirmation</div><div class="item-note">Confirm payoff was received · get written confirmation for your records</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">USPS Mail Forwarding <a class="link-badge" href="https://moversguide.usps.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Do this first · moversguide.usps.com · $1.25 online · schedule before closing date</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Utah Driver's License / ID <a class="link-badge" href="https://dld.utah.gov/online-services/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Required within 30 days of moving</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Vehicle Registration</div><div class="item-note">Update at Utah DMV when you update your license</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Voter Registration <a class="link-badge" href="https://vote.utah.gov" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">vote.utah.gov</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">IRS / Tax Records <a class="link-badge" href="https://www.irs.gov/faqs/irs-procedures/address-changes" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">File Form 8822 · especially important for capital gains exclusion documentation</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Social Security Administration <a class="link-badge" href="https://www.ssa.gov/myaccount/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update online via my Social Security account</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Mortgage Servicer, Final Payoff Confirmation</div><div class="item-note">Confirm payoff was received · get written confirmation for your records</div></div></div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">🏦</div><div class="section-title">Financial</div><div class="section-count" id="sc-seller-fin"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Financial</div><div class="section-count" id="sc-seller-fin"></div></div>
         <div class="items" id="group-seller-fin">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Bank(s) &amp; Credit Unions</div><div class="item-note">Update billing and mailing address on all accounts</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Credit Cards</div><div class="item-note">Update each card, important for billing verification on purchases</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Apple Pay / Apple Wallet <a class="link-badge" href="https://wallet.apple.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Settings → Wallet &amp; Apple Pay → update billing on each card</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Google Pay <a class="link-badge" href="https://pay.google.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update payment method billing addresses</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">PayPal <a class="link-badge" href="https://www.paypal.com/myaccount/settings/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Settings → Account Info → Address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Investment / Retirement Accounts</div><div class="item-note">Fidelity, Schwab, Vanguard, 401(k), update profile address in each portal</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Bank(s) &amp; Credit Unions</div><div class="item-note">Update billing and mailing address on all accounts</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Credit Cards</div><div class="item-note">Update each card, important for billing verification on purchases</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Apple Pay / Apple Wallet <a class="link-badge" href="https://wallet.apple.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Settings → Wallet &amp; Apple Pay → update billing on each card</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Google Pay <a class="link-badge" href="https://pay.google.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update payment method billing addresses</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">PayPal <a class="link-badge" href="https://www.paypal.com/myaccount/settings/" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Settings → Account Info → Address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Investment / Retirement Accounts</div><div class="item-note">Fidelity, Schwab, Vanguard, 401(k), update profile address in each portal</div></div></div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">📦</div><div class="section-title">Shopping &amp; Subscriptions</div><div class="section-count" id="sc-seller-shop"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Shopping &amp; Subscriptions</div><div class="section-count" id="sc-seller-shop"></div></div>
         <div class="items" id="group-seller-shop">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Amazon <a class="link-badge" href="https://www.amazon.com/cpe/yourpayments/wallet" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update default shipping AND billing · clear out old saved addresses</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Walmart / Sam's Club <a class="link-badge" href="https://www.walmart.com/account" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update saved shipping address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Target <a class="link-badge" href="https://www.target.com/account" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update shipping and Target Circle address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Costco <a class="link-badge" href="https://www.costco.com/AccountMembershipView" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update membership address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Apple ID <a class="link-badge" href="https://appleid.apple.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">appleid.apple.com, update billing and contact address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Google Account <a class="link-badge" href="https://myaccount.google.com/personal-info" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update personal info and billing address</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Subscription Boxes &amp; Services</div><div class="item-note">HelloFresh, Stitch Fix, etc., update before next scheduled delivery</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Amazon <a class="link-badge" href="https://www.amazon.com/cpe/yourpayments/wallet" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update default shipping AND billing · clear out old saved addresses</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Walmart / Sam's Club <a class="link-badge" href="https://www.walmart.com/account" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update saved shipping address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Target <a class="link-badge" href="https://www.target.com/account" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update shipping and Target Circle address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Costco <a class="link-badge" href="https://www.costco.com/AccountMembershipView" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update membership address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Apple ID <a class="link-badge" href="https://appleid.apple.com" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">appleid.apple.com, update billing and contact address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Google Account <a class="link-badge" href="https://myaccount.google.com/personal-info" target="_blank" onclick="event.stopPropagation()">Update →</a></div><div class="item-note">Update personal info and billing address</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Subscription Boxes &amp; Services</div><div class="item-note">HelloFresh, Stitch Fix, etc., update before next scheduled delivery</div></div></div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">💊</div><div class="section-title">Insurance &amp; Healthcare</div><div class="section-count" id="sc-seller-health"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Insurance &amp; Healthcare</div><div class="section-count" id="sc-seller-health"></div></div>
         <div class="items" id="group-seller-health">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Cancel / Transfer Homeowner's Insurance</div><div class="item-note">Cancel old policy on closing date · confirm buyer's coverage is in place · request refund if prepaid</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Auto Insurance</div><div class="item-note">Update address with carrier, rate may change based on new location</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Health Insurance Provider</div><div class="item-note">Update address in member portal or call member services</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Doctor / Dentist / Pharmacy</div><div class="item-note">Update at each office · pharmacy update ensures prescriptions route correctly</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Cancel / Transfer Homeowner's Insurance</div><div class="item-note">Cancel old policy on closing date · confirm buyer's coverage is in place · request refund if prepaid</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Auto Insurance</div><div class="item-note">Update address with carrier, rate may change based on new location</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Health Insurance Provider</div><div class="item-note">Update address in member portal or call member services</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Doctor / Dentist / Pharmacy</div><div class="item-note">Update at each office · pharmacy update ensures prescriptions route correctly</div></div></div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">⚡</div><div class="section-title">Utilities, Cancel at Old Address</div><div class="section-count" id="sc-seller-util"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Utilities, Cancel at Old Address</div><div class="section-count" id="sc-seller-util"></div></div>
         <div class="items" id="group-seller-util">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Electric / Gas, Cancel Service <a class="link-badge" href="https://www.rockymountainpower.net/myaccount" target="_blank" onclick="event.stopPropagation()">Manage →</a></div><div class="item-note">Schedule disconnect for closing date · don't leave buyer without power</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Internet / Cable, Cancel or Transfer</div><div class="item-note">Schedule cancellation · return equipment to avoid charges</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Water / Trash, Notify Municipality</div><div class="item-note">Contact your city to transfer service out of your name on closing date</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Security System, Cancel or Transfer</div><div class="item-note">ADT, Ring, SimpliSafe, cancel contract or transfer to new owner · check for cancellation fees</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Cell Phone Plan, Update Billing Address</div><div class="item-note">Update address with carrier after move</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Electric / Gas, Cancel Service <a class="link-badge" href="https://www.rockymountainpower.net/myaccount" target="_blank" onclick="event.stopPropagation()">Manage →</a></div><div class="item-note">Schedule disconnect for closing date · don't leave buyer without power</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Internet / Cable, Cancel or Transfer</div><div class="item-note">Schedule cancellation · return equipment to avoid charges</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Water / Trash, Notify Municipality</div><div class="item-note">Contact your city to transfer service out of your name on closing date</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Security System, Cancel or Transfer</div><div class="item-note">ADT, Ring, SimpliSafe, cancel contract or transfer to new owner · check for cancellation fees</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Cell Phone Plan, Update Billing Address</div><div class="item-note">Update address with carrier after move</div></div></div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-header"><div class="section-icon">✉️</div><div class="section-title">Personal &amp; Miscellaneous</div><div class="section-count" id="sc-seller-misc"></div></div>
+        <div class="section-header"><div class="section-icon"></div><div class="section-title">Personal &amp; Miscellaneous</div><div class="section-count" id="sc-seller-misc"></div></div>
         <div class="items" id="group-seller-misc">
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Employer / HR Department</div><div class="item-note">Update address for W-2 and benefits, do this before end of year</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Kids' School / Daycare</div><div class="item-note">Update enrollment records · may require new enrollment if changing districts</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Pet Microchip / Vet Records</div><div class="item-note">Update microchip registry and vet office records</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Loyalty / Rewards Programs</div><div class="item-note">Airlines, hotels, grocery stores, gas stations</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Magazine / Newspaper Subscriptions</div><div class="item-note">Update mailing address with each publication</div></div></div>
-          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Friends &amp; Family</div><div class="item-note">Send your new address, easy to forget in the chaos of closing</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Employer / HR Department</div><div class="item-note">Update address for W-2 and benefits, do this before end of year</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Kids' School / Daycare</div><div class="item-note">Update enrollment records · may require new enrollment if changing districts</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Pet Microchip / Vet Records</div><div class="item-note">Update microchip registry and vet office records</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Loyalty / Rewards Programs</div><div class="item-note">Airlines, hotels, grocery stores, gas stations</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Magazine / Newspaper Subscriptions</div><div class="item-note">Update mailing address with each publication</div></div></div>
+          <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Friends &amp; Family</div><div class="item-note">Send your new address, easy to forget in the chaos of closing</div></div></div>
         </div>
       </div>
 
@@ -825,6 +853,10 @@
       <strong>A note from Kelsie</strong>
       USPS forwarding only catches what's sent to your old address, it doesn't update your info anywhere automatically. Work through this list in your first couple weeks after closing. Questions? I'm always just a text away.
     </div>
+  
+    <div class="next-phase-wrap">
+      <button class="next-phase" onclick="switchPhase('packing'); document.querySelector('.phase-strip').scrollIntoView({behavior:'smooth'});"><small>Next up</small>Moving Week &middot; Packing Guide &rarr;</button>
+    </div>
   </div>
 
 
@@ -832,38 +864,38 @@
        PACKING GUIDE
   ══════════════════════════════════════ -->
   <div class="panel" id="panel-packing">
-    <div class="phase-label">📦 Moving Week, Packing Guide</div>
+    <div class="phase-label"> Moving Week, Packing Guide</div>
 
     <!-- MOVING SUPPLIES -->
     <div class="section">
       <div class="section-header">
-        <div class="section-icon">🛒</div>
+        <div class="section-icon"></div>
         <div class="section-title">Moving Supplies Checklist</div>
         <div class="section-count" id="sc-supplies"></div>
       </div>
       <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Stock up at least 2 weeks before move day, stores run out of boxes and movers sell supplies at a markup.</p>
       <div class="items" id="group-supplies">
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Small boxes</div><div class="item-note">Books, canned goods, tools, heavy items stay manageable in small boxes</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Medium boxes</div><div class="item-note">Most household items, the workhorse of any move</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Large boxes</div><div class="item-note">Bedding, pillows, stuffed animals, lightweight items only, don't pack heavy things in large boxes</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Dish pack / cell boxes with dividers</div><div class="item-note">Worth every penny for glasses and stemware, regular boxes break them</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Wardrobe boxes with hanging bar</div><div class="item-note">2–3 per household, clothes go straight from closet rod to box and back</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Packing tape + tape gun</div><div class="item-note">Get two tape guns, you'll lose one. Buy more tape than you think you need.</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Packing paper or newsprint</div><div class="item-note">Wrap dishes, fill box gaps to prevent shifting, cheaper than bubble wrap for non-fragile items</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Bubble wrap</div><div class="item-note">Reserve for truly fragile items, mirrors, artwork, electronics screens</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Thick black markers (at least 4)</div><div class="item-note">Label every box: room name + contents + which side is up. You will thank yourself.</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Mattress bags</div><div class="item-note">One per mattress, protects from dirt, moisture, and scuffs in the truck</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Stretch wrap / furniture wrap</div><div class="item-note">Wrap furniture legs and drawer faces to prevent scratches</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Furniture pads / moving blankets</div><div class="item-note">Usually included by movers, confirm before renting your own</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Ziplock bags (quart and gallon)</div><div class="item-note">Screws, bolts, and hardware from disassembled furniture, tape the bag to the piece it came from</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Color-coded labels or stickers</div><div class="item-note">Assign a color per room, movers can stack in the right room without reading every box</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Small boxes</div><div class="item-note">Books, canned goods, tools, heavy items stay manageable in small boxes</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Medium boxes</div><div class="item-note">Most household items, the workhorse of any move</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Large boxes</div><div class="item-note">Bedding, pillows, stuffed animals, lightweight items only, don't pack heavy things in large boxes</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Dish pack / cell boxes with dividers</div><div class="item-note">Worth every penny for glasses and stemware, regular boxes break them</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Wardrobe boxes with hanging bar</div><div class="item-note">2–3 per household, clothes go straight from closet rod to box and back</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Packing tape + tape gun</div><div class="item-note">Get two tape guns, you'll lose one. Buy more tape than you think you need.</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Packing paper or newsprint</div><div class="item-note">Wrap dishes, fill box gaps to prevent shifting, cheaper than bubble wrap for non-fragile items</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Bubble wrap</div><div class="item-note">Reserve for truly fragile items, mirrors, artwork, electronics screens</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Thick black markers (at least 4)</div><div class="item-note">Label every box: room name + contents + which side is up. You will thank yourself.</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Mattress bags</div><div class="item-note">One per mattress, protects from dirt, moisture, and scuffs in the truck</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Stretch wrap / furniture wrap</div><div class="item-note">Wrap furniture legs and drawer faces to prevent scratches</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Furniture pads / moving blankets</div><div class="item-note">Usually included by movers, confirm before renting your own</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Ziplock bags (quart and gallon)</div><div class="item-note">Screws, bolts, and hardware from disassembled furniture, tape the bag to the piece it came from</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Color-coded labels or stickers</div><div class="item-note">Assign a color per room, movers can stack in the right room without reading every box</div></div></div>
       </div>
     </div>
 
     <!-- PACKING TIMELINE -->
     <div class="section">
       <div class="section-header">
-        <div class="section-icon">📅</div>
+        <div class="section-icon"></div>
         <div class="section-title">What to Pack When</div>
       </div>
       <div class="info-card">
@@ -899,7 +931,7 @@
     <!-- ROOM BY ROOM TIPS -->
     <div class="section">
       <div class="section-header">
-        <div class="section-icon">🏠</div>
+        <div class="section-icon"></div>
         <div class="section-title">Room-by-Room Tips</div>
       </div>
       <div class="info-card">
@@ -947,41 +979,41 @@
     <!-- OPEN FIRST BOX -->
     <div class="section">
       <div class="section-header">
-        <div class="section-icon">⭐</div>
+        <div class="section-icon"></div>
         <div class="section-title">Your Open First Box</div>
         <div class="section-count" id="sc-openfirst"></div>
       </div>
       <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Pack this last. Load it last. It comes off the truck first. Check each item as you pack it in.</p>
       <div class="items" id="group-openfirst">
-        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">🚿 Bathroom</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Toilet paper</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Shower curtain liner + rings</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Hand soap</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Towels, one per person</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Toothbrush + toothpaste + deodorant</div></div></div>
-        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">☕ Kitchen</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Coffee maker + coffee</div><div class="item-note">Non-negotiable. I don't make the rules, I just enforce them.</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Paper plates + plastic cups + utensils</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Dish soap + sponge + paper towels</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Trash bags</div></div></div>
-        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">🛏️ Bedroom</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Sheets + pillow per person</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Phone chargers</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Daily medications</div></div></div>
-        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">🧰 Misc</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Box cutter</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">All-purpose cleaner</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Power strip</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Snacks + easy food</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Cash, movers + tips + takeout</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Pet food + bowls + leash</div></div></div>
+        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);"> Bathroom</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Toilet paper</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Shower curtain liner + rings</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Hand soap</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Towels, one per person</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Toothbrush + toothpaste + deodorant</div></div></div>
+        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);"> Kitchen</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Coffee maker + coffee</div><div class="item-note">Non-negotiable. I don't make the rules, I just enforce them.</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Paper plates + plastic cups + utensils</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Dish soap + sponge + paper towels</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Trash bags</div></div></div>
+        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);"> Bedroom</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Sheets + pillow per person</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Phone chargers</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Daily medications</div></div></div>
+        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);"> Misc</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Box cutter</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">All-purpose cleaner</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Power strip</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Snacks + easy food</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Cash, movers + tips + takeout</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Pet food + bowls + leash</div></div></div>
       </div>
     </div>
 
     <!-- KEEP WITH YOU -->
     <div class="section">
       <div class="section-header">
-        <div class="section-icon">🚗</div>
+        <div class="section-icon"></div>
         <div class="section-title">Keep These With You, Not on the Truck</div>
         <div class="section-count" id="sc-keepwith"></div>
       </div>
@@ -989,26 +1021,26 @@
         <strong>This one I feel strongly about.</strong> Moving delays happen. When they do, your belongings can sit in storage for weeks. Keep what matters most in your car or on your person, always.
       </div>
       <div class="items" id="group-keepwith">
-        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">🪪 Identity &amp; Legal</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Passports + birth certificates</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Social Security cards</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Closing documents</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Insurance cards + policies</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Financial + bank documents</div></div></div>
-        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">💎 Irreplaceable Items</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Jewelry, especially family pieces</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Kids' school + IEP records</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Pet vaccination records</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Medications, especially controlled substances</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">Firearms if applicable</div><div class="item-note">Transport unloaded in a locked case, know both your departure state and Utah laws</div></div></div>
-        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="item-content"><div class="item-label">External hard drives + irreplaceable photos</div></div></div>
+        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);"> Identity &amp; Legal</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Passports + birth certificates</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Social Security cards</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Closing documents</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Insurance cards + policies</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Financial + bank documents</div></div></div>
+        <div class="item" onclick="togglePacking(this)" style="background:#fafff8;"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label" style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);"> Irreplaceable Items</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Jewelry, especially family pieces</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Kids' school + IEP records</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Pet vaccination records</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Medications, especially controlled substances</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">Firearms if applicable</div><div class="item-note">Transport unloaded in a locked case, know both your departure state and Utah laws</div></div></div>
+        <div class="item" onclick="togglePacking(this)"><div class="checkbox"><span class="checkmark"></span></div><div class="item-content"><div class="item-label">External hard drives + irreplaceable photos</div></div></div>
       </div>
     </div>
 
     <!-- WHAT MOVERS WON'T TAKE -->
     <div class="section">
       <div class="section-header">
-        <div class="section-icon">🚫</div>
+        <div class="section-icon"></div>
         <div class="section-title">What Movers Won't Take</div>
       </div>
       <div class="info-card">
@@ -1054,6 +1086,10 @@
     <div class="footer-note">
       <strong>A note from Kelsie</strong>
       I've moved 10 times with kids. The Open First box saves moving day every single time. And the two-week property walk saves you from the 11pm "where did I pack my phone charger" spiral. You've got this.
+    </div>
+  
+    <div class="next-phase-wrap">
+      <a class="next-phase" href="sms:8014202284"><small>That's the whole toolkit</small>Questions about your move? Text me &rarr;</a>
     </div>
   </div>
 
