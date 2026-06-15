@@ -97,6 +97,10 @@
   .col.market .single-pay { color:#1C1C1C; }
   .single-rate { font-size:13px; color:#A8A493; margin-top:10px; letter-spacing:0.05em; }
   .single-note { font-size:12px; font-weight:300; color:#9A9486; margin-top:12px; line-height:1.5; }
+  .offer-card { margin-bottom:0; }
+  .col.buydown .single-pay { color:var(--cream); }
+  .col.buydown .single-rate { color:rgba(242,232,213,0.7); }
+  .col.buydown .single-note { color:rgba(242,232,213,0.75); }
 
   .plan { background:#FBF6E9; border-left:3px solid var(--gold); border-radius:10px; padding:18px 20px; margin:20px 0 0; }
   .plan .ph { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; font-weight:700; }
@@ -253,21 +257,18 @@
         <div class="field">
           <label for="buydownType">Builder buydown</label>
           <select id="buydownType">
-            <option value="2-1">2-1 buydown (year 1 and 2 reduced)</option>
-            <option value="1-0">1-0 buydown (year 1 reduced)</option>
-            <option value="3-2-1">3-2-1 buydown (years 1, 2, 3 reduced)</option>
+            <option value="2-1">2-1 temporary buydown (years 1 and 2 lower)</option>
+            <option value="1-0">1-0 temporary buydown (year 1 lower)</option>
+            <option value="3-2-1">3-2-1 temporary buydown (years 1, 2, 3 lower)</option>
+            <option value="perm">Permanent buydown (rate fixed for 30 years)</option>
+            <option value="none">No buydown, just my rate</option>
           </select>
-          <div class="note">The most common builder offer is a 2-1.</div>
+          <div class="note">Pick the offer that matches yours. The most common builder offer is a temporary 2-1.</div>
         </div>
         <div class="field">
-          <label for="finalRate">Your note rate after the buydown</label>
+          <label for="finalRate" id="rate-label">Your note rate after the buydown</label>
           <div class="wrap"><input type="number" id="finalRate" value="6.5" step="0.125" inputmode="decimal"><span class="suf">%</span></div>
-          <div class="note">The real rate your loan settles at. Today's average is about 6.5%. Your lender's number wins; override this.</div>
-        </div>
-        <div class="field">
-          <label for="permRate">Permanent buydown rate <span style="text-transform:none; letter-spacing:0; color:#B5AE9B;">(if offered)</span></label>
-          <div class="wrap"><input type="number" id="permRate" value="5.5" step="0.125" inputmode="decimal"><span class="suf">%</span></div>
-          <div class="note">Some builders buy your rate down for the whole 30 years, often into the 4 to 5% range. Enter it here to compare. Leave it if you only have a temporary offer.</div>
+          <div class="note" id="rate-note">This is the rate your loan settles at once the buydown expires. It is NOT the teaser number on the flyer. Today's average is about 6.5%. Your lender's number wins.</div>
         </div>
         <div class="field">
           <label for="closing">Estimated closing costs</label>
@@ -287,30 +288,19 @@
     </div>
 
     <div class="result">
-      <div class="cols">
-        <div class="col buydown">
-          <h4>Temporary buydown</h4>
-          <p class="tag">Low to start, climbs for 3 years</p>
+      <div class="col buydown offer-card">
+        <h4 id="offer-title">What your payment looks like</h4>
+        <p class="tag" id="offer-tag">Based on the offer you entered</p>
+        <div id="rows-temp">
           <div class="yr"><div><span class="lbl">Year 1</span><span class="rate" id="bd-r1"></span></div><span class="pay" id="bd-p1">$0</span></div>
           <div class="yr"><div><span class="lbl">Year 2</span><span class="rate" id="bd-r2"></span></div><span class="pay" id="bd-p2">$0</span></div>
-          <div class="yr step3"><div><span class="lbl">Year 3+</span><span class="rate" id="bd-r3"></span></div><span class="pay" id="bd-p3">$0</span></div>
+          <div class="yr step3"><div><span class="lbl">Year 3 and beyond</span><span class="rate" id="bd-r3"></span></div><span class="pay" id="bd-p3">$0</span></div>
         </div>
-        <div class="col perm">
-          <h4>Permanent buydown</h4>
-          <p class="tag">Same payment, all 30 years</p>
+        <div id="rows-flat" style="display:none;">
           <div class="single">
-            <span class="single-pay" id="pm-pay">$0</span>
-            <span class="single-rate" id="pm-rate"></span>
-            <span class="single-note">Every month, for the life of the loan. No step-up.</span>
-          </div>
-        </div>
-        <div class="col market">
-          <h4>No buydown</h4>
-          <p class="tag">For comparison</p>
-          <div class="single">
-            <span class="single-pay" id="mk-pay">$0</span>
-            <span class="single-rate" id="mk-rate"></span>
-            <span class="single-note">The full payment from day one.</span>
+            <span class="single-pay" id="flat-pay">$0</span>
+            <span class="single-rate" id="flat-rate"></span>
+            <span class="single-note" id="flat-note"></span>
           </div>
         </div>
       </div>
@@ -437,31 +427,55 @@
     } else if (dpMode === 'percent' && price > 0) {
       $('dp-note').textContent = "That's " + fmt(down) + " down. Toggle to $ to enter a dollar amount instead.";
     }
-    var finalRate = V('finalRate');
+    var rate = V('finalRate');
     var type = $('buydownType').value;
+    var isTemp = (type === '2-1' || type === '1-0' || type === '3-2-1');
 
-    // buydown reductions off the final note rate
-    var r1, r2, r3 = finalRate;
-    if (type === '2-1'){ r1 = finalRate - 2; r2 = finalRate - 1; }
-    else if (type === '1-0'){ r1 = finalRate - 1; r2 = finalRate; }
-    else { r1 = finalRate - 3; r2 = finalRate - 2; } // 3-2-1
-    r1 = Math.max(0, r1); r2 = Math.max(0, r2);
+    // relabel the rate field to match the offer
+    if (type === 'perm') {
+      $('rate-label').textContent = 'Your permanent rate, fixed for 30 years';
+      $('rate-note').textContent = 'The rate the builder is buying you down to for the whole loan, often in the 4 to 5% range. Your lender confirms the exact number.';
+    } else if (type === 'none') {
+      $('rate-label').textContent = 'Your rate';
+      $('rate-note').textContent = "Today's average is about 6.5%. Your lender's number wins, so override this with your quote.";
+    } else {
+      $('rate-label').textContent = 'Your note rate after the buydown';
+      $('rate-note').textContent = 'This is the rate your loan settles at once the buydown expires. It is NOT the teaser number on the flyer. Today\'s average is about 6.5%. Your lender\'s number wins.';
+    }
 
-    var permRate = V('permRate');
+    // ── payments ──
+    var budgetNum;       // the number to live on now
+    if (isTemp) {
+      var r1, r2, r3 = rate;
+      if (type === '2-1'){ r1 = rate - 2; r2 = rate - 1; }
+      else if (type === '1-0'){ r1 = rate - 1; r2 = rate; }
+      else { r1 = rate - 3; r2 = rate - 2; } // 3-2-1
+      r1 = Math.max(0, r1); r2 = Math.max(0, r2);
 
-    // temporary buydown payments
-    var bp1 = pay(loan, r1), bp2 = pay(loan, r2), bp3 = pay(loan, r3);
-    // permanent buydown = same reduced rate every year
-    var pp = pay(loan, permRate);
-    // market (no buydown) = final note rate every year
-    var mp = pay(loan, finalRate);
+      var bp1 = pay(loan, r1), bp2 = pay(loan, r2), bp3 = pay(loan, r3);
+      $('bd-p1').textContent = fmt(bp1); $('bd-r1').textContent = r1.toFixed(2) + '%';
+      $('bd-p2').textContent = fmt(bp2); $('bd-r2').textContent = r2.toFixed(2) + '%';
+      $('bd-p3').textContent = fmt(bp3); $('bd-r3').textContent = r3.toFixed(2) + '%';
 
-    $('bd-p1').textContent = fmt(bp1); $('bd-r1').textContent = r1.toFixed(2) + '%';
-    $('bd-p2').textContent = fmt(bp2); $('bd-r2').textContent = r2.toFixed(2) + '%';
-    $('bd-p3').textContent = fmt(bp3); $('bd-r3').textContent = r3.toFixed(2) + '%';
-
-    $('pm-pay').textContent = fmt(pp); $('pm-rate').textContent = permRate.toFixed(2) + '% fixed';
-    $('mk-pay').textContent = fmt(mp); $('mk-rate').textContent = finalRate.toFixed(2) + '% fixed';
+      $('rows-temp').style.display = '';
+      $('rows-flat').style.display = 'none';
+      $('offer-tag').textContent = 'Low to start, then climbs to your real rate';
+      budgetNum = bp3;
+    } else {
+      var flat = pay(loan, rate);
+      $('flat-pay').textContent = fmt(flat);
+      $('flat-rate').textContent = rate.toFixed(2) + '% fixed';
+      if (type === 'perm') {
+        $('flat-note').textContent = 'Every month, for the life of the loan. No step-up, no surprise.';
+        $('offer-tag').textContent = 'The same payment every month for 30 years';
+      } else {
+        $('flat-note').textContent = 'The full payment, the same from day one.';
+        $('offer-tag').textContent = 'Your standard payment, no buydown';
+      }
+      $('rows-temp').style.display = 'none';
+      $('rows-flat').style.display = '';
+      budgetNum = flat;
+    }
 
     // ── cash to close ──
     var closing = V('closing');
@@ -480,31 +494,26 @@
     $('cash-rows').innerHTML = rows;
 
     var noteMsg = 'Here is the part the flyer often leaves out: with most builder promos the buydown is paid from the builder\'s concession rather than your pocket, so it typically does not add to your cash up front. Confirm the specifics with your lender. Your cash to close is mostly your down payment and closing costs';
-    if (builderCredit > 0) {
-      noteMsg += ', minus whatever the builder is covering.';
-    } else {
-      noteMsg += '. If the builder offers a closing-cost credit, set it above and watch this drop.';
-    }
+    noteMsg += (builderCredit > 0) ? ', minus whatever the builder is covering.' : '. If the builder offers a closing-cost credit, set it above and watch this drop.';
     $('cash-note').innerHTML = noteMsg;
 
-    // plan number = the temporary buydown's year 3+ payment (the surprise to budget for)
-    $('plan-num').textContent = fmt(bp3) + ' / month';
-    var firstYearSavings = (mp - bp1) * 12;
-    $('plan-text').innerHTML = 'A temporary buydown saves you about <strong>' + fmt(mp - bp1) + ' a month</strong> in year one (roughly ' + fmt(firstYearSavings) + ' that first year). That is a real head start. One smart approach many buyers use: live as if your payment is already <strong>' + fmt(bp3) + '</strong> from the start and bank the difference, so the year-three step-up is something you have already planned for.';
-
-    // smart takeaway: compare temporary vs permanent if a permanent rate is entered and lower than note rate
-    var step = bp3 - bp1;
-    var msg = 'Your temporary payment steps up about <strong>' + fmt(step) + ' a month</strong> by year three. Known in advance, that is just a plan. It is only a problem when it is a surprise.';
-    if (permRate > 0 && permRate < finalRate) {
-      var permVsTempLong = bp3 - pp; // monthly difference once temporary expires
-      if (permVsTempLong > 0) {
-        msg += ' And notice the middle column: a <strong>permanent</strong> buydown keeps you at <strong>' + fmt(pp) + '</strong> for all 30 years, about ' + fmt(permVsTempLong) + ' a month less than where the temporary one lands. If you plan to stay more than a few years, a permanent buydown is often worth a close look, even when the temporary one has the flashier first-year number. Your lender can price both for your exact situation.';
-      }
+    // ── the number to budget for ──
+    if (isTemp) {
+      $('plan-num').textContent = fmt(budgetNum) + ' / month';
+      $('plan-text').innerHTML = 'Your payment starts lower and climbs to <strong>' + fmt(budgetNum) + '</strong> by year three. One smart approach many buyers use: live as if your payment is already <strong>' + fmt(budgetNum) + '</strong> from the start and bank the difference, so the step-up is something you have already planned for instead of a surprise.';
+      $('takeaway').innerHTML = 'A temporary buydown makes your first year or two genuinely easier, and that is a real head start. The only thing to watch is treating year one as forever. Now that you can see year three, it is just a plan.';
+    } else if (type === 'perm') {
+      $('plan-num').textContent = fmt(budgetNum) + ' / month';
+      $('plan-text').innerHTML = 'This is your payment for the life of the loan. It never changes, which makes budgeting simple. Because the builder buys the rate down permanently from their concession, you usually are not paying extra up front for it.';
+      $('takeaway').innerHTML = 'A permanent buydown is the simplest kind to plan around: one rate, one payment, no step-up. If your builder is offering this, it is often the easiest option to live with. Your lender can confirm the exact rate and cost.';
+    } else {
+      $('plan-num').textContent = fmt(budgetNum) + ' / month';
+      $('plan-text').innerHTML = 'This is your payment with no buydown applied. If a builder offers you a buydown, switch the offer type above to see how it changes your first years and what to budget for.';
+      $('takeaway').innerHTML = 'No buydown means no step-up to plan for. If a builder is offering one, it can lower your early payments, just remember the rate it settles at is the number that matters long term.';
     }
-    $('takeaway').innerHTML = msg;
   }
 
-  ['price','down','finalRate','permRate','closing'].forEach(function(id){ $(id).addEventListener('input', recalc); });
+  ['price','down','finalRate','closing'].forEach(function(id){ $(id).addEventListener('input', recalc); });
   $('builderCovers').addEventListener('change', recalc);
   $('buydownType').addEventListener('change', recalc);
   recalc();
