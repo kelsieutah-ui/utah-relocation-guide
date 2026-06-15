@@ -35,6 +35,20 @@
   .intro { max-width:720px; margin:0 auto; padding:48px 24px 8px; text-align:center; }
   .intro h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(24px,3.4vw,34px); margin-bottom:14px; }
   .intro p { font-size:15px; font-weight:300; color:#555; line-height:1.8; }
+  .decoder { max-width:760px; margin:36px auto 0; padding:0 20px; }
+  .decoder-inner { background:#22302A; border-radius:16px; padding:34px 30px; color:#F2E8D5; }
+  .dk { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(242,232,213,0.6); text-align:center; margin-bottom:10px; font-weight:700; }
+  .decoder h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(24px,3.6vw,34px); text-align:center; color:#F2E8D5; margin-bottom:14px; }
+  .dlead { font-size:14.5px; font-weight:300; color:rgba(242,232,213,0.88); line-height:1.8; text-align:center; max-width:620px; margin:0 auto 28px; }
+  .dsteps { display:flex; flex-direction:column; gap:18px; }
+  .dstep { display:flex; gap:16px; align-items:flex-start; }
+  .dn { flex-shrink:0; width:34px; height:34px; border-radius:50%; background:rgba(242,232,213,0.12); border:1px solid rgba(242,232,213,0.3);
+    display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:16px; color:#F2E8D5; }
+  .dt { font-weight:700; font-size:15px; color:#F2E8D5; margin-bottom:4px; }
+  .dd { font-size:13.5px; font-weight:300; color:rgba(242,232,213,0.82); line-height:1.7; }
+  .dclose { font-size:14px; font-weight:300; color:rgba(242,232,213,0.9); line-height:1.75; text-align:center; margin-top:26px;
+    border-top:1px solid rgba(242,232,213,0.16); padding-top:20px; }
+  .decoder em { font-style:italic; }
 
   .tool { max-width:920px; margin:30px auto 0; padding:0 20px; }
   .inputs { background:#fff; border:1px solid #E3DCCB; border-radius:14px; padding:24px; }
@@ -84,6 +98,15 @@
   .plan .pbig { font-family:'Playfair Display',serif; font-size:clamp(22px,3.4vw,30px); font-weight:500; color:var(--charcoal); margin-bottom:8px; }
   .plan p { font-size:13.5px; font-weight:300; color:#3A352A; line-height:1.7; }
   .plan strong { color:var(--green); font-weight:700; }
+  .cash { background:#fff; border:1px solid #E3DCCB; border-top:4px solid var(--green); border-radius:14px; padding:24px; margin:18px 0 0; text-align:center; }
+  .cash .ch { font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#8A8474; margin-bottom:6px; font-weight:700; }
+  .cash .cbig { font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(30px,5vw,44px); color:var(--green); margin-bottom:14px; }
+  .cash-rows { max-width:380px; margin:0 auto; text-align:left; }
+  .cash-rows .crow { display:flex; justify-content:space-between; font-size:13px; font-weight:300; color:#555; padding:5px 0; border-bottom:1px solid #F0EBDF; }
+  .cash-rows .crow:last-child { border-bottom:0; }
+  .cash-rows .crow.tot { border-top:1px solid #DDD6C4; margin-top:5px; padding-top:9px; font-weight:700; color:#1C1C1C; border-bottom:0; }
+  .cash-rows .crow.credit span:last-child { color:var(--green); }
+  .cash-note { font-size:12.5px; font-weight:300; color:#8A8474; line-height:1.65; max-width:480px; margin:14px auto 0; }
 
   .takeaway { text-align:center; font-size:14.5px; font-weight:300; color:#444; line-height:1.8; max-width:680px; margin:22px auto 0; }
   .takeaway strong { color:var(--green); }
@@ -148,6 +171,47 @@
     <p>A 2-1 buydown can make your first year genuinely affordable, and that is a great way to get into a new home. The only thing that trips people up is treating year-one as forever. See all three years now, budget for the step-up, and the rate adjustment becomes a non-event instead of a surprise.</p>
   </div>
 
+  <div class="decoder">
+    <div class="decoder-inner">
+      <p class="dk">Decoding the flyer</p>
+      <h2>So what does <em>"1.99%"</em> actually mean?</h2>
+      <p class="dlead">Here is a real builder ad, translated. When a builder advertises something like a 1.99% rate, that is almost never the rate of your loan. It is the first year of a temporary buydown sitting on top of a higher real rate. Here is how one actual offer breaks down.</p>
+
+      <div class="dsteps">
+        <div class="dstep">
+          <span class="dn">1</span>
+          <div>
+            <p class="dt">The big number is year one only</p>
+            <p class="dd">"1.99%" is what you pay in the first year. It is real, and it makes that first year genuinely affordable. It just is not permanent.</p>
+          </div>
+        </div>
+        <div class="dstep">
+          <span class="dn">2</span>
+          <div>
+            <p class="dt">The rate climbs on a schedule</p>
+            <p class="dd">In a 2-1 buydown, the rate steps up each year: roughly 1.99% in year one, about a point higher in year two, then it lands at the real rate. In that EDGEhomes example the real rate underneath was 3.99%, so the payment settles there from year three on.</p>
+          </div>
+        </div>
+        <div class="dstep">
+          <span class="dn">3</span>
+          <div>
+            <p class="dt">It can be an ARM, so even the "real" rate may move</p>
+            <p class="dd">That same offer was a 7/6 ARM, meaning the 3.99% itself can adjust after seven years. Not a dealbreaker, just something to know going in. A fixed-rate buydown and an ARM buydown are not the same animal.</p>
+          </div>
+        </div>
+        <div class="dstep">
+          <span class="dn">4</span>
+          <div>
+            <p class="dt">You are not paying for the buydown, the builder is</p>
+            <p class="dd">The fine print usually says the buydown is paid out of the seller credit the builder was already offering. That is why it does not raise your cash to close. It also means those same dollars could go toward a permanent buydown or your closing costs instead. Which is the smartest use depends on how long you will stay, and that is the conversation worth having.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="dclose">So when you see a number that looks too good, it is not a trick, it is just year one. Plug your own numbers in below and you will see all three years at once, plus what you would actually bring to closing.</p>
+    </div>
+  </div>
+
   <div class="tool">
     <div class="inputs">
       <h3>Your numbers</h3>
@@ -185,6 +249,20 @@
           <div class="wrap"><input type="number" id="permRate" value="5.5" step="0.125" inputmode="decimal"><span class="suf">%</span></div>
           <div class="note">Some builders buy your rate down for the whole 30 years, often into the 4 to 5% range. Enter it here to compare. Leave it if you only have a temporary offer.</div>
         </div>
+        <div class="field">
+          <label for="closing">Estimated closing costs</label>
+          <div class="wrap"><span class="pre" id="cc-pre">$</span><input class="has-pre" type="number" id="closing" value="9000" step="500" inputmode="numeric"></div>
+          <div class="note">Title, escrow, lender fees, prepaids. A rough rule is 2 to 3% of the price. Your Loan Estimate has the real figure. Builders often cover some or all of this.</div>
+        </div>
+        <div class="field">
+          <label for="builderCovers">Does the builder cover your closing costs?</label>
+          <select id="builderCovers">
+            <option value="0">No, I pay my own closing costs</option>
+            <option value="0.5">Partially (builder covers about half)</option>
+            <option value="1">Yes, builder covers all closing costs</option>
+          </select>
+          <div class="note">Many builder promos include a closing-cost credit. If yours does, your cash to close drops.</div>
+        </div>
       </div>
     </div>
 
@@ -217,6 +295,13 @@
         <p class="ph">The number to budget for now</p>
         <p class="pbig" id="plan-num">$0 / month</p>
         <p id="plan-text"></p>
+      </div>
+
+      <div class="cash">
+        <p class="ch">Your cash to close, roughly</p>
+        <p class="cbig" id="cash-num">$0</p>
+        <div class="cash-rows" id="cash-rows"></div>
+        <p class="cash-note" id="cash-note"></p>
       </div>
 
       <p class="takeaway" id="takeaway"></p>
@@ -359,6 +444,30 @@
     $('mk-p2').textContent = fmt(mp); $('mk-r2').textContent = finalRate.toFixed(2) + '%';
     $('mk-p3').textContent = fmt(mp); $('mk-r3').textContent = finalRate.toFixed(2) + '%';
 
+    // ── cash to close ──
+    var closing = V('closing');
+    var coverFactor = parseFloat($('builderCovers').value) || 0;
+    var builderCredit = closing * coverFactor;
+    var cashToClose = down + closing - builderCredit;
+
+    $('cash-num').textContent = fmt(cashToClose);
+    var rows = '';
+    rows += '<div class="crow"><span>Down payment</span><span>' + fmt(down) + '</span></div>';
+    rows += '<div class="crow"><span>Closing costs (est.)</span><span>' + fmt(closing) + '</span></div>';
+    if (builderCredit > 0) {
+      rows += '<div class="crow credit"><span>Builder closing-cost credit</span><span>\u2212 ' + fmt(builderCredit) + '</span></div>';
+    }
+    rows += '<div class="crow tot"><span>Estimated cash to close</span><span>' + fmt(cashToClose) + '</span></div>';
+    $('cash-rows').innerHTML = rows;
+
+    var noteMsg = 'Here is the part the flyer never shows: the buydown almost always comes out of the builder\'s concession, not your pocket. So that low first-year payment usually costs you nothing extra up front. Your cash to close is mostly your down payment and closing costs';
+    if (builderCredit > 0) {
+      noteMsg += ', minus whatever the builder is covering.';
+    } else {
+      noteMsg += '. If the builder offers a closing-cost credit, set it above and watch this drop.';
+    }
+    $('cash-note').innerHTML = noteMsg;
+
     // plan number = the temporary buydown's year 3+ payment (the surprise to budget for)
     $('plan-num').textContent = fmt(bp3) + ' / month';
     var firstYearSavings = (mp - bp1) * 12;
@@ -376,7 +485,8 @@
     $('takeaway').innerHTML = msg;
   }
 
-  ['price','down','finalRate','permRate'].forEach(function(id){ $(id).addEventListener('input', recalc); });
+  ['price','down','finalRate','permRate','closing'].forEach(function(id){ $(id).addEventListener('input', recalc); });
+  $('builderCovers').addEventListener('change', recalc);
   $('buydownType').addEventListener('change', recalc);
   recalc();
 </script>
