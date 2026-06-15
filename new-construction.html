@@ -394,6 +394,18 @@
     }
     .btn-green:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
 
+    /* BUYDOWN PLANNER CTA */
+    .planner-cta { background: linear-gradient(135deg, #2B3D30 0%, #344A39 100%); padding: 72px 24px; }
+    .planner-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+    .planner-kicker { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(242,232,213,0.6); font-weight: 700; margin-bottom: 14px; }
+    .planner-cta h2 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(26px, 4vw, 38px); color: var(--cream); line-height: 1.2; margin-bottom: 18px; }
+    .planner-cta h2 em { font-style: italic; }
+    .planner-lead { font-size: 15px; font-weight: 300; color: rgba(242,232,213,0.88); line-height: 1.8; max-width: 600px; margin: 0 auto 28px; }
+    .planner-btn { display: inline-block; background: var(--cream); color: var(--green); font-weight: 700; font-size: 15px;
+      padding: 16px 34px; border-radius: 100px; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+    .planner-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.28); }
+    .planner-sub { font-size: 13px; font-weight: 300; color: rgba(242,232,213,0.7); margin-top: 18px; }
+
     /* RESPONSIVE */
     @media (max-width: 600px) {
       .hero { height: 70vh; min-height: 420px; }
@@ -402,6 +414,7 @@
       .process-section,
       .table-section { padding: 64px 20px 80px; }
       .cta-section { padding: 72px 24px; }
+      .planner-cta { padding: 56px 22px; }
       .nav-pill { padding: 10px 10px 10px 20px; }
       .ref-table td:first-child { width: auto; }
     }
@@ -608,6 +621,17 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- BUYDOWN PLANNER CTA -->
+  <section class="planner-cta">
+    <div class="planner-inner">
+      <p class="planner-kicker">Run your own numbers</p>
+      <h2>That "1.99%" in the builder ad? <em>Let's decode it.</em></h2>
+      <p class="planner-lead">Builder rate promos are real, and some of them are genuinely good. But the flashy first-year number is almost never the rate of your loan. I built a free planner that shows you what a builder buydown actually does to your monthly payment across all three years, what you would really bring to closing, and how a temporary buydown stacks up against a permanent one. No sign-up, no catch. Play with your own numbers.</p>
+      <a class="planner-btn" href="buydown-planner.html">Open the Builder Buydown Planner</a>
+      <p class="planner-sub">It even covers the Utah program that lends first-time buyers up to $20,000 on a new build.</p>
     </div>
   </section>
 
