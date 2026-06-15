@@ -108,6 +108,11 @@
   .cash-rows .crow.credit span:last-child { color:var(--green); }
   .cash-note { font-size:12.5px; font-weight:300; color:#8A8474; line-height:1.65; max-width:480px; margin:14px auto 0; }
 
+  .edu-banner { display:flex; gap:13px; align-items:flex-start; background:#EEF1EB; border:1px solid #CDD5C6;
+    border-radius:12px; padding:16px 18px; margin-bottom:18px; }
+  .edu-banner .edu-ico { flex-shrink:0; font-size:18px; color:#2B3D30; line-height:1.3; }
+  .edu-banner p { font-size:13px; font-weight:300; color:#3A463A; line-height:1.65; }
+  .edu-banner strong { color:#2B3D30; font-weight:700; }
   .takeaway { text-align:center; font-size:14.5px; font-weight:300; color:#444; line-height:1.8; max-width:680px; margin:22px auto 0; }
   .takeaway strong { color:var(--green); }
 
@@ -213,6 +218,10 @@
   </div>
 
   <div class="tool">
+    <div class="edu-banner">
+      <span class="edu-ico">&#9432;</span>
+      <p><strong>This is a learning tool, not a quote.</strong> Play with the numbers to understand how builder buydowns work and how the years compare. The real, official figures come from your lender's Loan Estimate, and a licensed loan officer is the only one who can quote you an actual rate and payment. Use this to walk into that conversation already understanding your options.</p>
+    </div>
     <div class="inputs">
       <h3>Your numbers</h3>
       <p class="sub">Change anything. It all updates as you type.</p>
@@ -346,7 +355,7 @@
     </div>
   </div>
 
-  <p class="fine">These are estimates for planning, principal and interest only. Taxes, insurance, HOA, and mortgage insurance are not included and will raise the actual payment. Buydown structures, qualifying rates, and terms vary by builder and lender, and an offer like "1.99%" is often a temporary buydown on top of a higher note rate. Your lender's official Loan Estimate is the real document. This tool just helps you understand it before you sign.</p>
+  <p class="fine">These are estimates for planning, principal and interest only. Taxes, insurance, HOA, and mortgage insurance are not included and will raise the actual payment. Buydown structures, qualifying rates, and terms vary by builder and lender, and an offer like "1.99%" is often a temporary buydown on top of a higher note rate. Nothing here is a loan offer, a rate quote, or a commitment to lend, and it is not financial advice. Kelsie is a real estate agent, not a licensed mortgage lender. Your lender's official Loan Estimate is the only document that reflects your real numbers. This tool exists purely to help you understand your options before you talk to them.</p>
 
   <div class="cta">
     <a href="sms:8014202284"><small>New construction on the table?</small>Text me with questions, or let's start touring &rarr;</a>
@@ -460,7 +469,7 @@
     rows += '<div class="crow tot"><span>Estimated cash to close</span><span>' + fmt(cashToClose) + '</span></div>';
     $('cash-rows').innerHTML = rows;
 
-    var noteMsg = 'Here is the part the flyer never shows: the buydown almost always comes out of the builder\'s concession, not your pocket. So that low first-year payment usually costs you nothing extra up front. Your cash to close is mostly your down payment and closing costs';
+    var noteMsg = 'Here is the part the flyer often leaves out: with most builder promos the buydown is paid from the builder\'s concession rather than your pocket, so it typically does not add to your cash up front. Confirm the specifics with your lender. Your cash to close is mostly your down payment and closing costs';
     if (builderCredit > 0) {
       noteMsg += ', minus whatever the builder is covering.';
     } else {
@@ -471,7 +480,7 @@
     // plan number = the temporary buydown's year 3+ payment (the surprise to budget for)
     $('plan-num').textContent = fmt(bp3) + ' / month';
     var firstYearSavings = (mp - bp1) * 12;
-    $('plan-text').innerHTML = 'A temporary buydown saves you about <strong>' + fmt(mp - bp1) + ' a month</strong> in year one (roughly ' + fmt(firstYearSavings) + ' that first year). That is a real head start. The move is to live as if your payment is already <strong>' + fmt(bp3) + '</strong> and bank the difference, so when year three arrives, nothing changes for you.';
+    $('plan-text').innerHTML = 'A temporary buydown saves you about <strong>' + fmt(mp - bp1) + ' a month</strong> in year one (roughly ' + fmt(firstYearSavings) + ' that first year). That is a real head start. One smart approach many buyers use: live as if your payment is already <strong>' + fmt(bp3) + '</strong> from the start and bank the difference, so the year-three step-up is something you have already planned for.';
 
     // smart takeaway: compare temporary vs permanent if a permanent rate is entered and lower than note rate
     var step = bp3 - bp1;
@@ -479,7 +488,7 @@
     if (permRate > 0 && permRate < finalRate) {
       var permVsTempLong = bp3 - pp; // monthly difference once temporary expires
       if (permVsTempLong > 0) {
-        msg += ' And notice the middle column: a <strong>permanent</strong> buydown keeps you at <strong>' + fmt(pp) + '</strong> for all 30 years, about ' + fmt(permVsTempLong) + ' a month less than where the temporary one lands. If you plan to stay more than a few years, the permanent buydown is usually the stronger deal, even when the temporary one has the flashier first-year number.';
+        msg += ' And notice the middle column: a <strong>permanent</strong> buydown keeps you at <strong>' + fmt(pp) + '</strong> for all 30 years, about ' + fmt(permVsTempLong) + ' a month less than where the temporary one lands. If you plan to stay more than a few years, a permanent buydown is often worth a close look, even when the temporary one has the flashier first-year number. Your lender can price both for your exact situation.';
       }
     }
     $('takeaway').innerHTML = msg;
