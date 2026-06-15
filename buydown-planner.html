@@ -92,6 +92,11 @@
   .yr .pay { font-family:'Playfair Display',serif; font-size:23px; font-weight:500; }
   .yr.step3 .pay { color:var(--gold); }
   .col.buydown .yr.step3 .pay { color:#E8C77A; }
+  .single { display:flex; flex-direction:column; align-items:flex-start; justify-content:center; min-height:148px; padding:8px 0; }
+  .single-pay { font-family:'Playfair Display',serif; font-size:40px; font-weight:500; line-height:1; color:var(--green); }
+  .col.market .single-pay { color:#1C1C1C; }
+  .single-rate { font-size:13px; color:#A8A493; margin-top:10px; letter-spacing:0.05em; }
+  .single-note { font-size:12px; font-weight:300; color:#9A9486; margin-top:12px; line-height:1.5; }
 
   .plan { background:#FBF6E9; border-left:3px solid var(--gold); border-radius:10px; padding:18px 20px; margin:20px 0 0; }
   .plan .ph { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; font-weight:700; }
@@ -151,7 +156,13 @@
   @media (max-width:720px) {
     .frow { grid-template-columns:1fr; }
     .cols { grid-template-columns:1fr; gap:12px; }
-    .hero { min-height:44vh; }
+    /* hero: stack the glass bar below the headline so nothing gets cut off */
+    .hero { display:block; min-height:auto; padding:118px 20px 0; }
+    .hero h1 { font-size:27px; line-height:1.2; }
+    .hero .kicker { font-size:10px; letter-spacing:0.18em; margin-bottom:9px; }
+    .hero h1 br { display:none; }
+    .hero-bar { position:static; margin-top:26px; background:rgba(18,24,19,0.62);
+      backdrop-filter:none; -webkit-backdrop-filter:none; padding:16px 20px; }
   }
 </style>
 </head>
@@ -279,7 +290,7 @@
       <div class="cols">
         <div class="col buydown">
           <h4>Temporary buydown</h4>
-          <p class="tag">Low to start, then steps up</p>
+          <p class="tag">Low to start, climbs for 3 years</p>
           <div class="yr"><div><span class="lbl">Year 1</span><span class="rate" id="bd-r1"></span></div><span class="pay" id="bd-p1">$0</span></div>
           <div class="yr"><div><span class="lbl">Year 2</span><span class="rate" id="bd-r2"></span></div><span class="pay" id="bd-p2">$0</span></div>
           <div class="yr step3"><div><span class="lbl">Year 3+</span><span class="rate" id="bd-r3"></span></div><span class="pay" id="bd-p3">$0</span></div>
@@ -287,16 +298,20 @@
         <div class="col perm">
           <h4>Permanent buydown</h4>
           <p class="tag">Same payment, all 30 years</p>
-          <div class="yr"><div><span class="lbl">Year 1</span><span class="rate" id="pm-r1"></span></div><span class="pay" id="pm-p1">$0</span></div>
-          <div class="yr"><div><span class="lbl">Year 2</span><span class="rate" id="pm-r2"></span></div><span class="pay" id="pm-p2">$0</span></div>
-          <div class="yr step3"><div><span class="lbl">Year 3+</span><span class="rate" id="pm-r3"></span></div><span class="pay" id="pm-p3">$0</span></div>
+          <div class="single">
+            <span class="single-pay" id="pm-pay">$0</span>
+            <span class="single-rate" id="pm-rate"></span>
+            <span class="single-note">Every month, for the life of the loan. No step-up.</span>
+          </div>
         </div>
         <div class="col market">
           <h4>No buydown</h4>
           <p class="tag">For comparison</p>
-          <div class="yr"><div><span class="lbl">Year 1</span><span class="rate" id="mk-r1"></span></div><span class="pay" id="mk-p1">$0</span></div>
-          <div class="yr"><div><span class="lbl">Year 2</span><span class="rate" id="mk-r2"></span></div><span class="pay" id="mk-p2">$0</span></div>
-          <div class="yr step3"><div><span class="lbl">Year 3+</span><span class="rate" id="mk-r3"></span></div><span class="pay" id="mk-p3">$0</span></div>
+          <div class="single">
+            <span class="single-pay" id="mk-pay">$0</span>
+            <span class="single-rate" id="mk-rate"></span>
+            <span class="single-note">The full payment from day one.</span>
+          </div>
         </div>
       </div>
 
@@ -445,13 +460,8 @@
     $('bd-p2').textContent = fmt(bp2); $('bd-r2').textContent = r2.toFixed(2) + '%';
     $('bd-p3').textContent = fmt(bp3); $('bd-r3').textContent = r3.toFixed(2) + '%';
 
-    $('pm-p1').textContent = fmt(pp); $('pm-r1').textContent = permRate.toFixed(2) + '%';
-    $('pm-p2').textContent = fmt(pp); $('pm-r2').textContent = permRate.toFixed(2) + '%';
-    $('pm-p3').textContent = fmt(pp); $('pm-r3').textContent = permRate.toFixed(2) + '%';
-
-    $('mk-p1').textContent = fmt(mp); $('mk-r1').textContent = finalRate.toFixed(2) + '%';
-    $('mk-p2').textContent = fmt(mp); $('mk-r2').textContent = finalRate.toFixed(2) + '%';
-    $('mk-p3').textContent = fmt(mp); $('mk-r3').textContent = finalRate.toFixed(2) + '%';
+    $('pm-pay').textContent = fmt(pp); $('pm-rate').textContent = permRate.toFixed(2) + '% fixed';
+    $('mk-pay').textContent = fmt(mp); $('mk-rate').textContent = finalRate.toFixed(2) + '% fixed';
 
     // ── cash to close ──
     var closing = V('closing');
