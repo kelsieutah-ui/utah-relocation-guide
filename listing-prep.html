@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listing Prep Guide: Getting a Utah County Home Ready to Sell</title>
+<meta name="description" content="A room-by-room listing prep guide for Utah County sellers. What inspectors flag, what to fix versus disclose, lighting and paint by window direction, and how to neutralize a home without losing its warmth.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:#2B3D30; --dark:#22302A; --green-mid:#3E5547;
+    --sage:#A8A493; --mist:#C9C2AE; --taupe:#B5A88E;
+    --cream:#F2E8D5; --warm:#F6F3EA; --linen:#EFEAE0;
+    --mid:#5C564A; --light:#8A8474; --white:#ffffff; --charcoal:#1C1C1C; --bg:#FDFCFA;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Lato',sans-serif; background:var(--bg); color:var(--charcoal); line-height:1.7; }
+  h1,h2,h3 { font-family:'Playfair Display',serif; }
+  h1 em, h2 em, h3 em { font-style:italic; }
+
+  /* NAV */
+  .nav-wrap { position:fixed; top:16px; left:16px; right:16px; z-index:100; }
+  .nav-pill { max-width:1100px; margin:0 auto; background:rgba(43,61,48,0.72); backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px); border:1px solid rgba(242,232,213,0.18); box-shadow:0 4px 32px rgba(0,0,0,0.18);
+    border-radius:100px; padding:10px 12px 10px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-back { font-size:13px; color:var(--cream); text-decoration:none; }
+  .nav-cta { background:linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62)); border:1px solid rgba(242,232,213,0.45);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.25); color:var(--cream); padding:9px 20px; border-radius:100px;
+    font-size:13px; font-weight:500; text-decoration:none; white-space:nowrap; }
+
+  /* HERO */
+  .hero { position:relative; min-height:54vh; display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:140px 24px 86px; background:url('exteriorhouse.jpg') center 50%/cover no-repeat; }
+  .hero::before { content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(15,20,16,0.48) 0%, rgba(15,20,16,0.40) 60%, rgba(15,20,16,0.36) 100%); }
+  .hero > * { position:relative; z-index:1; }
+  .hero .kicker { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(242,232,213,0.85); margin-bottom:14px; }
+  .hero h1 { font-weight:400; font-size:clamp(34px,5.4vw,58px); line-height:1.13; color:var(--cream); text-shadow:0 2px 18px rgba(0,0,0,0.45); }
+  .hero-bar { position:absolute; left:0; right:0; bottom:0; z-index:2; background:rgba(18,24,19,0.45);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-top:1px solid rgba(242,232,213,0.16); padding:14px 22px; }
+  .hero-bar p { max-width:780px; margin:0 auto; text-align:center; font-size:13.5px; font-weight:300; color:rgba(242,232,213,0.95); line-height:1.65; }
+
+  /* INTRO LETTER */
+  .intro-letter { background:var(--warm); border-left:4px solid var(--sage); padding:36px 48px; max-width:900px; margin:0 auto; }
+  .letter-quote { font-family:'Playfair Display',serif; font-size:18px; font-style:italic; color:var(--dark); line-height:1.75; margin-bottom:14px; }
+  .letter-sig { font-size:12px; color:var(--light); letter-spacing:1px; }
+
+  /* MAIN */
+  .main { max-width:860px; margin:0 auto; padding:60px 48px 72px; }
+  .section { margin-bottom:60px; }
+  .section-eyebrow { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--sage); font-weight:600; margin-bottom:12px; }
+  .section-title { font-size:31px; font-weight:400; color:var(--dark); line-height:1.16; margin-bottom:16px; }
+  .section-title em { font-style:italic; color:var(--taupe); }
+  .section-body { font-size:15px; color:var(--mid); font-weight:300; line-height:1.85; margin-bottom:18px; }
+  .section-body strong { color:var(--dark); font-weight:500; }
+  .divider { width:48px; height:1px; background:var(--linen); margin:30px 0; }
+
+  /* PULL QUOTE */
+  .pull { font-family:'Playfair Display',serif; font-style:italic; font-size:21px; line-height:1.55; color:var(--green);
+    border-left:3px solid var(--taupe); padding:6px 0 6px 22px; margin:24px 0; }
+
+  /* ALERTS */
+  .alert { padding:20px 24px; margin:22px 0; font-size:14px; line-height:1.78; font-weight:300; }
+  .alert-warm { background:var(--warm); border-left:3px solid var(--taupe); color:var(--mid); }
+  .alert-sage { background:rgba(168,164,147,0.14); border-left:3px solid var(--sage); color:var(--mid); }
+  .alert strong { color:var(--dark); font-weight:600; }
+  .alert .lead { display:block; font-family:'Playfair Display',serif; font-size:16px; color:var(--dark); margin-bottom:6px; }
+
+  /* FLAG CARDS (inspector findings) */
+  .flag-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0; }
+  .flag-card { background:var(--white); border:1px solid var(--linen); border-top:3px solid var(--green); padding:22px 24px; }
+  .flag-tag { font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:var(--sage); font-weight:700; margin-bottom:9px; }
+  .flag-name { font-family:'Playfair Display',serif; font-size:18px; color:var(--dark); margin-bottom:7px; }
+  .flag-body { font-size:13px; color:var(--mid); font-weight:300; line-height:1.7; }
+
+  /* THREE-WAY (fix / disclose / price) */
+  .triad { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:24px 0; }
+  .triad-card { background:var(--white); border:1px solid var(--linen); padding:20px; }
+  .triad-card h4 { font-family:'Playfair Display',serif; font-size:17px; color:var(--green); margin-bottom:8px; }
+  .triad-card p { font-size:12.5px; color:var(--mid); font-weight:300; line-height:1.65; }
+
+  /* LIGHT DIRECTION GRID */
+  .light-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0; }
+  .light-card { background:var(--white); border:1px solid var(--linen); overflow:hidden; }
+  .light-head { padding:14px 20px; background:rgba(168,164,147,0.16); display:flex; align-items:baseline; gap:10px; }
+  .light-dir { font-family:'Playfair Display',serif; font-size:17px; color:var(--dark); }
+  .light-tag { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--light); }
+  .light-body { padding:16px 20px; }
+  .light-row { font-size:13px; color:var(--mid); font-weight:300; line-height:1.6; margin-bottom:10px; }
+  .light-row:last-child { margin-bottom:0; }
+  .light-row b { color:var(--dark); font-weight:600; font-size:11px; letter-spacing:0.5px; text-transform:uppercase; display:block; margin-bottom:2px; }
+
+  /* COMPARE (ROI worth it / skip it) */
+  .compare { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0; }
+  .compare-col { background:var(--white); border:1px solid var(--linen); padding:22px 24px; }
+  .compare-col.yes { border-top:3px solid var(--sage); }
+  .compare-col.no { border-top:3px solid var(--taupe); }
+  .compare-col h4 { font-family:'Playfair Display',serif; font-size:18px; color:var(--dark); margin-bottom:14px; }
+  .compare-list { list-style:none; display:flex; flex-direction:column; gap:9px; }
+  .compare-list li { font-size:13px; color:var(--mid); font-weight:300; display:flex; align-items:flex-start; gap:9px; line-height:1.5; }
+  .compare-list li::before { content:'–'; color:var(--mist); flex-shrink:0; margin-top:1px; }
+
+  /* INTERACTIVE CHECKLIST */
+  .check-group { margin:18px 0 26px; }
+  .check-group h4 { font-family:'Playfair Display',serif; font-size:16px; color:var(--green); margin-bottom:12px; letter-spacing:0.3px; }
+  .task-list { display:flex; flex-direction:column; gap:9px; }
+  .task-item { display:flex; align-items:flex-start; gap:13px; padding:14px 18px; background:var(--white); border:1px solid var(--linen);
+    transition:border-color .2s, box-shadow .2s; cursor:pointer; }
+  .task-item:hover { border-color:var(--mist); box-shadow:0 2px 12px rgba(45,61,45,.05); }
+  .task-item.done .task-text { color:var(--light); text-decoration:line-through; }
+  .task-item.done .task-box { background:var(--sage); border-color:var(--sage); color:white; }
+  .task-box { width:19px; height:19px; border:1.5px solid var(--mist); flex-shrink:0; margin-top:2px; display:flex; align-items:center;
+    justify-content:center; transition:all .2s; font-size:11px; color:transparent; background:white; }
+  .task-item.done .task-box::after { content:'\2713'; color:white; }
+  .task-text { font-size:13.5px; color:var(--dark); font-weight:300; line-height:1.5; }
+  .task-text strong { font-weight:600; }
+  .task-note { font-size:11px; color:var(--light); margin-top:3px; }
+
+  /* TIMELINE */
+  .timeline { margin:24px 0; border-left:2px solid var(--linen); padding-left:24px; }
+  .tl-step { position:relative; padding-bottom:24px; }
+  .tl-step:last-child { padding-bottom:0; }
+  .tl-step::before { content:''; position:absolute; left:-31px; top:3px; width:12px; height:12px; border-radius:50%; background:var(--sage); border:2px solid var(--bg); }
+  .tl-when { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--sage); font-weight:700; margin-bottom:4px; }
+  .tl-what { font-size:13.5px; color:var(--mid); font-weight:300; line-height:1.6; }
+  .tl-what b { color:var(--dark); font-weight:600; }
+
+  /* KELSIE NOTE */
+  .kelsie-note { background:var(--green); padding:44px 48px; margin:48px 0; position:relative; overflow:hidden; }
+  .kelsie-note::before { content:'\201C'; font-family:'Playfair Display',serif; font-size:140px; color:rgba(255,255,255,.05);
+    position:absolute; top:-16px; left:24px; line-height:1; pointer-events:none; }
+  .kelsie-note-text { font-family:'Playfair Display',serif; font-size:18px; font-style:italic; color:var(--cream); line-height:1.8; margin-bottom:22px; position:relative; }
+  .kelsie-note-sig { font-size:11px; color:var(--mist); letter-spacing:2px; text-transform:uppercase; }
+
+  /* CTA + FOOTER */
+  .cta-wrap { text-align:center; padding:8px 24px 56px; }
+  .cta-btn { display:inline-block; background:var(--green); color:var(--cream); font-size:14px; font-weight:500; letter-spacing:0.04em;
+    padding:15px 30px; border-radius:100px; text-decoration:none; }
+  .cta-btn small { display:block; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,232,213,0.65); margin-bottom:3px; font-weight:400; }
+  footer { background:var(--dark); padding:30px 48px; text-align:center; }
+  .footer-brand { font-size:16px; color:var(--linen); font-weight:400; letter-spacing:2px; }
+  .footer-meta { font-size:11px; color:rgba(255,255,255,.32); letter-spacing:0.8px; line-height:1.9; margin-top:8px; }
+  .footer-meta a { color:rgba(255,255,255,.5); text-decoration:none; }
+
+  @media (max-width:760px) {
+    .main, .intro-letter, footer { padding-left:24px; padding-right:24px; }
+    .flag-grid, .light-grid, .compare, .triad { grid-template-columns:1fr; }
+    .hero { min-height:48vh; }
+    .kelsie-note { padding:32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <nav class="nav-pill">
+      <a class="nav-back" href="sellers.html">&larr; Seller Toolkit</a>
+      <a class="nav-cta" href="https://guide.kelsiejimenez.com/#contact">Work With Me</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div>
+      <p class="kicker">Seller Toolkit &middot; Utah County</p>
+      <h1>The Listing Prep <em>Guide</em></h1>
+    </div>
+    <div class="hero-bar"><p>What buyers' inspectors flag, what to fix versus disclose, and where prep money actually comes back to you. Walked room by room, by an agent with a construction background.</p></div>
+  </section>
+
+  <div class="intro-letter">
+    <div class="letter-quote">"Here's the truth most agents won't say out loud. Prep isn't about impressing anyone. It's about not handing a buyer a list of reasons to chip away at your price after you're already under contract. I walk every listing the way the buyer's inspector will, before they ever get the chance."</div>
+    <div class="letter-sig">Kelsie Jimenez</div>
+  </div>
+
+  <div class="main">
+
+    <!-- 1. PHILOSOPHY -->
+    <div class="section">
+      <div class="section-eyebrow">Start Here</div>
+      <h2 class="section-title">You're not building your forever home. <em>You're removing doubt.</em></h2>
+      <p class="section-body">Most sellers decide to list and immediately spiral into renovation mode. New countertops. A bathroom gut. Fresh flooring throughout. Put the contractor's number down for a second.</p>
+      <p class="section-body">Here's what's true: most full remodels do not pay back at sale. You can spend $30,000 and recover $18,000. I've watched it happen. What buyers actually pay more for isn't <strong>new</strong>. It's <strong>cared for</strong>.</p>
+      <p class="section-body">So before you demo anything, the whole job of prep is simpler than it sounds. Every issue a buyer notices becomes a reason to hesitate, and every reason to hesitate becomes leverage to negotiate. Prep removes the friction. That's it. When a home feels easy, buyers feel confident, and confident buyers write stronger, cleaner offers.</p>
+      <div class="pull">You are not building your forever home. You are removing doubt from a stranger's mind.</div>
+    </div>
+
+    <!-- 2. THE WALKTHROUGH -->
+    <div class="section">
+      <div class="section-eyebrow">Part One</div>
+      <h2 class="section-title">The Pre-Listing <em>Walkthrough</em></h2>
+      <p class="section-body">My background is construction before real estate, so before a single photo gets taken, I walk your home the way the buyer's inspector will. Slowly. Looking for the stuff you've stopped noticing because you live there.</p>
+      <p class="section-body">You can start this yourself today. Walk every room and make a <strong>red-flag list</strong>. The rule is simple: anything that makes a buyer pause for more than three seconds goes on the list.</p>
+      <div class="alert alert-sage">
+        <span class="lead">What lands on a red-flag list</span>
+        A wobbly stair railing. A cracked tile in the entryway. A faucet that drips. A cabinet door that won't close right. A running toilet. A scuffed baseboard. A sticky slider. None of it is expensive. All of it whispers "deferred maintenance" to a buyer who is already nervous about what they can't see.
+      </div>
+      <p class="section-body">Fix the red flags. Leave the rest. You're not chasing perfect, you're closing the small gaps that make a stranger wonder what else got ignored.</p>
+    </div>
+
+    <!-- 3. WHAT INSPECTORS FLAG (LOCAL) -->
+    <div class="section">
+      <div class="section-eyebrow">Part Two</div>
+      <h2 class="section-title">What Buyers' Inspectors Flag <em>in Utah County Homes</em></h2>
+      <p class="section-body">After enough listings, you learn what comes up on inspection reports here specifically. These are the items I check before we list, so they become things you choose how to handle instead of surprises that show up as a repair request.</p>
+
+      <div class="alert alert-warm">
+        <span class="lead">Radon is the local one almost nobody plans for</span>
+        Utah has some of the highest radon levels in the country. State data shows about <strong>1 in 3 tested homes</strong> sit above the EPA action level, and in parts of Utah County it runs higher. Buyers here test for it. If you have a basement and no mitigation system, plan for it to come up. A system usually runs around $1,500 to $2,000, and a home that already has one reads as a feature, not a red flag.
+      </div>
+
+      <div class="flag-grid">
+        <div class="flag-card">
+          <div class="flag-tag">Roof</div>
+          <div class="flag-name">Age and sun wear</div>
+          <div class="flag-body">Our UV and snow load are hard on shingles. A lot of original Cedar Hills and Pleasant Grove builds are now hitting 20-plus years. Get ahead of it with a roof report so a buyer can't use an unknown to negotiate.</div>
+        </div>
+        <div class="flag-card">
+          <div class="flag-tag">Water Heater &amp; Plumbing</div>
+          <div class="flag-name">Hard water buildup</div>
+          <div class="flag-body">Utah's hard water shortens water heater life and leaves sediment and fixture scale. Inspectors flag age, leaks under sinks, and weak shutoff valves. Easy wins before listing.</div>
+        </div>
+        <div class="flag-card">
+          <div class="flag-tag">HVAC</div>
+          <div class="flag-name">Furnace age and swamp coolers</div>
+          <div class="flag-body">Original furnaces and AC units reaching end of life get noted. Older homes with evaporative (swamp) coolers draw extra questions. A recent service record goes a long way.</div>
+        </div>
+        <div class="flag-card">
+          <div class="flag-tag">Foundation &amp; Grading</div>
+          <div class="flag-name">Soil movement and drainage</div>
+          <div class="flag-body">Our clay soils shift. Inspectors look for foundation cracks, settling, and grading that slopes toward the house. Clean gutters and proper drainage away from the foundation matter here.</div>
+        </div>
+        <div class="flag-card">
+          <div class="flag-tag">Electrical</div>
+          <div class="flag-name">Panels and missing GFCIs</div>
+          <div class="flag-body">Double-tapped breakers, older panels, and missing GFCI outlets near water are common write-ups. Most are cheap fixes that quietly clean up the report.</div>
+        </div>
+        <div class="flag-card">
+          <div class="flag-tag">Windows &amp; Exterior</div>
+          <div class="flag-name">Failed seals and stucco cracks</div>
+          <div class="flag-body">Foggy windows (failed thermal seals), cracked stucco, and worn caulking show up often. Sealing and small repairs read as a maintained home.</div>
+        </div>
+        <div class="flag-card">
+          <div class="flag-tag">Irrigation</div>
+          <div class="flag-name">Sprinklers and backflow</div>
+          <div class="flag-body">Nearly every yard here has a system. Inspectors and buyers ask about winterization and backflow. Make sure it runs and you can explain the shutoff.</div>
+        </div>
+        <div class="flag-card">
+          <div class="flag-tag">Decks &amp; Fences</div>
+          <div class="flag-name">Sun and snow fatigue</div>
+          <div class="flag-body">Our sun is brutal on wood. Loose boards, wobbly rails, and gray weathered fencing get noticed. A wash and a fresh seal can reset the whole impression.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. FIX / DISCLOSE / PRICE -->
+    <div class="section">
+      <div class="section-eyebrow">Part Three</div>
+      <h2 class="section-title">Fix It, Disclose It, <em>or Price It In</em></h2>
+      <p class="section-body">Not everything on the list needs to be fixed. Every issue has three honest options, and knowing which bucket something belongs in is half the strategy.</p>
+      <div class="triad">
+        <div class="triad-card">
+          <h4>Fix</h4>
+          <p>Anything cheap, cosmetic, or safety-related. The stuff that photographs badly or smells. Red flags from your walkthrough. This is most of the list and most of it is inexpensive.</p>
+        </div>
+        <div class="triad-card">
+          <h4>Disclose</h4>
+          <p>Known issues you're choosing not to fix. Utah's Seller Property Condition Disclosure exists for this. Honesty here protects you. Hidden problems become broken trust, and broken trust kills deals.</p>
+        </div>
+        <div class="triad-card">
+          <h4>Price In</h4>
+          <p>Big-ticket items like a roof or foundation work. Sometimes a credit or a price that reflects it beats a rushed, half-done repair the week before listing. We decide this together.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. THE AIRBNB RULE (DECOR) -->
+    <div class="section">
+      <div class="section-eyebrow">Part Four</div>
+      <h2 class="section-title">Welcoming, Not Personal: <em>The Airbnb Rule</em></h2>
+      <p class="section-body">Here's the line I give every seller: make it feel like a really good Airbnb. Not like nobody lives there, and not like <strong>you</strong> live there. Somewhere in between. Warm and inviting, but neutral enough that a buyer can picture their own life in it instead of touring yours.</p>
+      <p class="section-body">A buyer who feels like a guest in someone else's home writes a more hesitant offer than a buyer who already feels at home. So before photos, we quietly take the "who lives here" out of the house:</p>
+      <div class="alert alert-sage">
+        <span class="lead">Box these up before you list</span>
+        <strong>Personal photos.</strong> Family pictures, kids' names on the wall, the gallery wall up the stairs. Buyers should be imagining their photos there, not meeting your family.<br><br>
+        <strong>Religious and political items.</strong> Not a judgment on any of it. It's simply that anything announcing a specific belief can quietly make a buyer feel like an outsider, and you never know who's walking through. Neutral ground keeps every buyer comfortable.<br><br>
+        <strong>Anything in excess.</strong> This is the one people miss. A coffee maker on the counter is welcoming. A whole wall themed around coffee is not. Same with a wine-and-bar display, a maximalist sports shrine, or a collection that takes over a room. The hobby reads as clutter, and the excess pulls attention off the house.
+      </div>
+      <p class="section-body">The simple test: would it look at home in a nice short-term rental? If yes, leave it. If it announces exactly who lives here or what they believe, it goes in a box for the next house. You're not erasing your home's warmth. You're making room for the buyer's imagination.</p>
+    </div>
+
+    <!-- 6. LIGHTING -->
+    <div class="section">
+      <div class="section-eyebrow">Part Five</div>
+      <h2 class="section-title">Light It the Way It <em>Deserves to Be Seen</em></h2>
+      <p class="section-body">Lighting is the cheapest return in real estate, and most sellers skip it. Dark rooms feel small. Small rooms feel cheap. Cheap rooms get low offers. Photography day is not the day to discover your living room looks like a cave.</p>
+      <p class="section-body">The fix costs under $100. Go room by room and replace every bulb so they match: <strong>warm white, 2700 to 3000K</strong>. No dead bulbs, no mixed tones, no one fixture glowing blue while the next one glows yellow. Then open every blind and pull back every curtain. If a tree outside is blocking light from a window, trim it before photos.</p>
+      <div class="pull">Bright sells. Dim apologizes.</div>
+
+      <div class="divider"></div>
+
+      <h3 style="font-size:21px;color:var(--dark);font-weight:500;margin-bottom:10px;">Then read your natural light</h3>
+      <p class="section-body">Before you pick any paint, notice which direction your windows face. The direction the sun comes from changes how a room feels and how every color on the wall reads. Here in the northern hemisphere it works like this:</p>
+
+      <div class="light-grid">
+        <div class="light-card">
+          <div class="light-head"><span class="light-dir">North-facing</span><span class="light-tag">Cool &amp; steady</span></div>
+          <div class="light-body">
+            <div class="light-row"><b>The light</b>Soft and even all day, with no direct sun. Can feel a little dim and slightly blue.</div>
+            <div class="light-row"><b>For paint</b>Lean warm. Warm whites and soft greiges. Cool grays can go flat or read faintly purple in this light.</div>
+          </div>
+        </div>
+        <div class="light-card">
+          <div class="light-head"><span class="light-dir">South-facing</span><span class="light-tag">Bright &amp; warm</span></div>
+          <div class="light-body">
+            <div class="light-row"><b>The light</b>The most light you'll get, warm and full from late morning on. Your best rooms for photos.</div>
+            <div class="light-row"><b>For paint</b>Very forgiving. Cooler tones stay balanced here. Just watch that warm colors don't turn intense.</div>
+          </div>
+        </div>
+        <div class="light-card">
+          <div class="light-head"><span class="light-dir">East-facing</span><span class="light-tag">Morning glow</span></div>
+          <div class="light-body">
+            <div class="light-row"><b>The light</b>Bright and warm early, then softer and cooler through the afternoon.</div>
+            <div class="light-row"><b>For paint</b>Warm neutrals and soft greens glow in the morning. Warm whites do well all day.</div>
+          </div>
+        </div>
+        <div class="light-card">
+          <div class="light-head"><span class="light-dir">West-facing</span><span class="light-tag">Golden evenings</span></div>
+          <div class="light-body">
+            <div class="light-row"><b>The light</b>Quiet in the morning, then strong and golden, sometimes almost orange, in late afternoon.</div>
+            <div class="light-row"><b>For paint</b>Warm colors can intensify at night. A balanced neutral keeps the room from going orange.</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="section-body">The same gray can look blue in a north room and warm in a south room, which is why a color that looked perfect at the store can look off on your wall. Two rules save you every time: <strong>test the swatch on the actual wall</strong> and look at it morning, midday, and evening before you commit. And keep your warm bulbs and a warm-leaning neutral working together, so the whole home photographs warm and cohesive instead of cold in one room and yellow in the next.</p>
+
+      <div class="alert alert-warm">
+        <span class="lead">For a listing, neutral wins</span>
+        Skip the bold accent walls and the very cool grays that can read cold or dated. A light, warm neutral photographs bright, makes rooms feel bigger, and lets a buyer project. For my go-to neutrals, whites, and the sheen cheat sheet, see the <a href="paint-guide.html" style="color:var(--green);font-weight:600;">Paint Guide</a> before you head to the store.
+      </div>
+    </div>
+
+    <!-- 7. CLEANING -->
+    <div class="section">
+      <div class="section-eyebrow">Part Six</div>
+      <h2 class="section-title">Clean to the Standard <em>Buyers Trust</em></h2>
+      <p class="section-body">Buyers decide how they feel about a house in the first few minutes, and a lot of that is sensory before it's ever logical. They notice smell, light, surfaces, and temperature before they notice anything you'd point out on a tour.</p>
+      <p class="section-body">This is a deeper clean than your normal Saturday. Baseboards and corners. Inside the oven and the fridge. Grout lines. Windows and tracks. Light switch plates. The smudge on the stainless. And smell matters more than people think: no pet odor, no last night's dinner, no heavy plug-ins trying to cover something. Clean and barely-there beats fragranced every time.</p>
+      <div class="pull">Buyers are already deciding. Make it easy.</div>
+    </div>
+
+    <!-- 8. CURB APPEAL -->
+    <div class="section">
+      <div class="section-eyebrow">Part Seven</div>
+      <h2 class="section-title">Curb Appeal Is the <em>First Offer You Get</em></h2>
+      <p class="section-body">Before any buyer walks through your front door, they've already made a decision, and they made it in the first eight seconds standing on your driveway. Curb appeal isn't about being the prettiest house on the street. It's about passing the basic test: does this look like someone gives a damn about this place?</p>
+      <p class="section-body">None of this is a landscaping project. It's evidence that a human being cares about the property:</p>
+      <div class="check-group">
+        <div class="task-list">
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Mow and edge the lawn</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Power wash the driveway and walkway</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Wipe down the front door, or repaint it if it needs it</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Replace any dead plants, add a little potted color</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Clean the light fixtures out front</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Make sure the house number is visible and not rusted out</strong></div></div></div>
+        </div>
+      </div>
+      <div class="pull">First impressions in real estate are not second chances.</div>
+    </div>
+
+    <!-- 9. ROI -->
+    <div class="section">
+      <div class="section-eyebrow">Part Eight</div>
+      <h2 class="section-title">Where Prep Money <em>Actually Comes Back</em></h2>
+      <p class="section-body">Not every dollar of prep is equal. Some spending shows up in your sale price and some just makes you feel productive. Here's roughly how it sorts out.</p>
+      <div class="compare">
+        <div class="compare-col yes">
+          <h4>Usually worth it</h4>
+          <ul class="compare-list">
+            <li>Paint in forgiving neutrals</li>
+            <li>Deep clean, declutter, depersonalize</li>
+            <li>Fresh, matched, warm lighting</li>
+            <li>Curb appeal basics</li>
+            <li>Fixing the red flags from your walkthrough</li>
+            <li>Carpet cleaning or replacement if it's rough</li>
+            <li>Pre-listing items that clear the inspection report</li>
+          </ul>
+        </div>
+        <div class="compare-col no">
+          <h4>Usually skip it</h4>
+          <ul class="compare-list">
+            <li>Full kitchen or bath remodels right before listing</li>
+            <li>High-end finishes a buyer may rip out anyway</li>
+            <li>Over-customized or trend-chasing upgrades</li>
+            <li>Additions you won't recover at sale</li>
+            <li>Anything that delays listing for months</li>
+            <li>Big landscaping projects beyond tidy and cared-for</li>
+          </ul>
+        </div>
+      </div>
+      <p class="section-body">If you're staring at a big-ticket repair and not sure whether to fix it, credit it, or price it in, that's exactly the conversation to have before you spend anything. Sometimes the smart money move is the one you don't make.</p>
+    </div>
+
+    <!-- 10. ROOM BY ROOM CHECKLIST -->
+    <div class="section">
+      <div class="section-eyebrow">Part Nine</div>
+      <h2 class="section-title">The Room-by-Room <em>Prep Checklist</em></h2>
+      <p class="section-body">Here's the whole thing in one place. Check it off as you go. None of it is complicated and most of it is free or close to it.</p>
+
+      <div class="check-group">
+        <h4>Exterior &amp; Curb Appeal</h4>
+        <div class="task-list">
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Mow, edge, and tidy all landscaping</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Power wash driveway, walkway, and siding</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Refresh the front door and clean exterior fixtures</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Wash gray weathered fencing and reseal the deck</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Confirm sprinklers run and you know the shutoff</strong></div></div></div>
+        </div>
+      </div>
+
+      <div class="check-group">
+        <h4>Kitchen</h4>
+        <div class="task-list">
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Clear counters down to a few clean, simple items</strong><div class="task-note">A coffee maker is fine. The themed wall and the gadget pile are not.</div></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Deep clean appliances, inside and out</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Fix dripping faucets and sticky cabinet doors</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Degrease, descale hard-water spots, polish the sink</strong></div></div></div>
+        </div>
+      </div>
+
+      <div class="check-group">
+        <h4>Bathrooms</h4>
+        <div class="task-list">
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Scrub grout, re-caulk tubs and showers if stained</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Fix running toilets and slow drains</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Clear personal items off counters, fresh towels out</strong></div></div></div>
+        </div>
+      </div>
+
+      <div class="check-group">
+        <h4>Living Spaces &amp; Bedrooms</h4>
+        <div class="task-list">
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Take down personal photos, religious and political items</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Declutter surfaces and thin out furniture so rooms feel open</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Touch up scuffed walls and baseboards</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Repaint bold or dark walls in a warm neutral if needed</strong></div></div></div>
+        </div>
+      </div>
+
+      <div class="check-group">
+        <h4>Light &amp; Air (whole house)</h4>
+        <div class="task-list">
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Replace every bulb to match: warm white, 2700 to 3000K</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Open all blinds, pull curtains, trim anything blocking a window</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Change the HVAC filter and air out any pet or cooking odor</strong></div></div></div>
+        </div>
+      </div>
+
+      <div class="check-group">
+        <h4>Basement &amp; Mechanical</h4>
+        <div class="task-list">
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Consider a radon test, and a mitigation system if it's high</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Gather service records for furnace, AC, and water heater</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Check for leaks, label the panel, find the shutoffs</strong></div></div></div>
+        </div>
+      </div>
+
+      <div class="check-group">
+        <h4>The Week of Photos</h4>
+        <div class="task-list">
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Full reset clean, every light on, every blind open</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Clear cars from the driveway and front of house</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Stow pet bowls, beds, and litter; plan to be out for showings</strong></div></div></div>
+          <div class="task-item" onclick="toggleTask(this)"><div class="task-box"></div><div><div class="task-text"><strong>Complete your Seller Property Condition Disclosure</strong></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. TIMELINE -->
+    <div class="section">
+      <div class="section-eyebrow">Part Ten</div>
+      <h2 class="section-title">Your Prep <em>Timeline</em></h2>
+      <p class="section-body">You don't need to do all of this at once. Here's the order that keeps it from feeling like a fire drill the week before listing.</p>
+      <div class="timeline">
+        <div class="tl-step">
+          <div class="tl-when">6 Weeks Out</div>
+          <div class="tl-what"><b>Walk and plan.</b> Do your red-flag walkthrough, schedule a radon test, and get bids on anything big so you can decide fix, disclose, or price in.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-when">4 Weeks Out</div>
+          <div class="tl-what"><b>Fix and paint.</b> Knock out the red-flag repairs and any neutral repainting. Paint needs time to be done well, so start it early.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-when">2 Weeks Out</div>
+          <div class="tl-what"><b>Neutralize and light.</b> Box up the personal items, declutter, swap every bulb to warm white, and book the deep clean.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-when">Photo Week</div>
+          <div class="tl-what"><b>Reset and shine.</b> Final clean, curb appeal pass, full disclosure done, cars moved, pets arranged. Every light on, every blind open.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-when">Go Live</div>
+          <div class="tl-what"><b>Show-ready, calm, and prepared.</b> You walk in confident instead of scrambling, and the home competes from day one.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- KELSIE NOTE -->
+  <div class="kelsie-note">
+    <div class="kelsie-note-text">"None of this is about making your home perfect. It's about removing the friction that makes buyers hesitate. When buyers feel confident, they write better offers. And when you're prepared, you negotiate from a steady place instead of a reactive one. That's the whole goal."</div>
+    <div class="kelsie-note-sig">Kelsie Jimenez &nbsp;&middot;&nbsp; 801.420.2284</div>
+  </div>
+
+  <div class="cta-wrap">
+    <a class="cta-btn" href="sms:8014202284"><small>Getting close to your own listing?</small>Text me before you do anything else &rarr;</a>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Kelsie Jimenez</div>
+    <div class="footer-meta">The Perry Group &middot; Real Broker LLC &middot; License #11407496-SA00<br><a href="tel:8014202284">(801) 420-2284</a></div>
+  </footer>
+
+  <script>
+    function toggleTask(item){ item.classList.toggle('done'); }
+  </script>
+
+</body>
+</html>

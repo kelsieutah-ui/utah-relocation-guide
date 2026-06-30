@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paint Colors That Sell: A Utah County Seller's Paint Guide</title>
+<meta name="description" content="A seller's paint guide for Utah County: the neutral and white colors that photograph best, the best black paint colors, a front door insight, and a simple sheen cheat sheet for every surface.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:#2B3D30; --dark:#22302A; --green-mid:#3E5547;
+    --sage:#A8A493; --mist:#C9C2AE; --taupe:#B5A88E;
+    --cream:#F2E8D5; --warm:#F6F3EA; --linen:#EFEAE0;
+    --mid:#5C564A; --light:#8A8474; --white:#ffffff; --charcoal:#1C1C1C; --bg:#FDFCFA;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Lato',sans-serif; background:var(--bg); color:var(--charcoal); line-height:1.7; }
+  h1,h2,h3 { font-family:'Playfair Display',serif; }
+  h1 em, h2 em, h3 em { font-style:italic; }
+
+  .nav-wrap { position:fixed; top:16px; left:16px; right:16px; z-index:100; }
+  .nav-pill { max-width:1100px; margin:0 auto; background:rgba(43,61,48,0.72); backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px); border:1px solid rgba(242,232,213,0.18); box-shadow:0 4px 32px rgba(0,0,0,0.18);
+    border-radius:100px; padding:10px 12px 10px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-back { font-size:13px; color:var(--cream); text-decoration:none; }
+  .nav-cta { background:linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62)); border:1px solid rgba(242,232,213,0.45);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.25); color:var(--cream); padding:9px 20px; border-radius:100px;
+    font-size:13px; font-weight:500; text-decoration:none; white-space:nowrap; }
+
+  .hero { position:relative; min-height:52vh; display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:140px 24px 86px; background:url('kitchen.jpg') center 55%/cover no-repeat; }
+  .hero::before { content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(15,20,16,0.46) 0%, rgba(15,20,16,0.40) 60%, rgba(15,20,16,0.36) 100%); }
+  .hero > * { position:relative; z-index:1; }
+  .hero .kicker { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(242,232,213,0.85); margin-bottom:14px; }
+  .hero h1 { font-weight:400; font-size:clamp(34px,5.4vw,58px); line-height:1.13; color:var(--cream); text-shadow:0 2px 18px rgba(0,0,0,0.45); }
+  .hero-bar { position:absolute; left:0; right:0; bottom:0; z-index:2; background:rgba(18,24,19,0.45);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-top:1px solid rgba(242,232,213,0.16); padding:14px 22px; }
+  .hero-bar p { max-width:780px; margin:0 auto; text-align:center; font-size:13.5px; font-weight:300; color:rgba(242,232,213,0.95); line-height:1.65; }
+
+  .intro-letter { background:var(--warm); border-left:4px solid var(--sage); padding:36px 48px; max-width:900px; margin:0 auto; }
+  .letter-quote { font-family:'Playfair Display',serif; font-size:18px; font-style:italic; color:var(--dark); line-height:1.75; margin-bottom:14px; }
+  .letter-sig { font-size:12px; color:var(--light); letter-spacing:1px; }
+
+  .main { max-width:860px; margin:0 auto; padding:60px 48px 72px; }
+  .section { margin-bottom:58px; }
+  .section-eyebrow { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--sage); font-weight:600; margin-bottom:12px; }
+  .section-title { font-size:31px; font-weight:400; color:var(--dark); line-height:1.16; margin-bottom:16px; }
+  .section-title em { font-style:italic; color:var(--taupe); }
+  .section-body { font-size:15px; color:var(--mid); font-weight:300; line-height:1.85; margin-bottom:18px; }
+  .section-body strong { color:var(--dark); font-weight:500; }
+  .divider { width:48px; height:1px; background:var(--linen); margin:30px 0; }
+
+  .pull { font-family:'Playfair Display',serif; font-style:italic; font-size:21px; line-height:1.55; color:var(--green);
+    border-left:3px solid var(--taupe); padding:6px 0 6px 22px; margin:24px 0; }
+
+  .alert { padding:20px 24px; margin:22px 0; font-size:14px; line-height:1.78; font-weight:300; }
+  .alert-warm { background:var(--warm); border-left:3px solid var(--taupe); color:var(--mid); }
+  .alert-sage { background:rgba(168,164,147,0.14); border-left:3px solid var(--sage); color:var(--mid); }
+  .alert strong { color:var(--dark); font-weight:600; }
+  .alert .lead { display:block; font-family:'Playfair Display',serif; font-size:16px; color:var(--dark); margin-bottom:6px; }
+
+  /* SWATCH GRID */
+  .swatch-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px 14px; margin:26px 0 8px; }
+  .swatch-grid.cols-3 { grid-template-columns:repeat(3,1fr); }
+  .swatch { text-align:center; }
+  .chip { width:84px; height:84px; border-radius:50%; margin:0 auto 12px; border:1px solid rgba(0,0,0,0.06);
+    box-shadow:0 6px 16px rgba(45,61,45,0.12); position:relative; overflow:hidden; }
+  .chip::after { content:''; position:absolute; top:10%; left:14%; width:34%; height:24%; border-radius:50%;
+    background:rgba(255,255,255,0.32); filter:blur(2px); }
+  .chip.dark::after { background:rgba(255,255,255,0.16); }
+  .swatch-code { font-family:'Playfair Display',serif; font-size:15px; color:var(--dark); line-height:1.25; }
+  .swatch-name { font-size:12px; color:var(--mid); font-weight:600; letter-spacing:0.3px; margin-top:2px; text-transform:uppercase; }
+  .swatch-brand { font-size:11px; color:var(--light); font-weight:300; margin-top:1px; }
+
+  /* SHEEN GUIDE */
+  .sheen { margin:24px 0; display:flex; flex-direction:column; gap:10px; }
+  .sheen-row { display:grid; grid-template-columns:150px 1fr; gap:16px; align-items:center; background:var(--white);
+    border:1px solid var(--linen); padding:16px 20px; }
+  .sheen-name { font-family:'Playfair Display',serif; font-size:17px; color:var(--green); display:flex; align-items:center; gap:10px; }
+  .sheen-dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; border:1px solid rgba(0,0,0,0.08); }
+  .sheen-use { font-size:13.5px; color:var(--mid); font-weight:300; }
+
+  .kelsie-note { background:var(--green); padding:44px 48px; margin:48px 0; position:relative; overflow:hidden; }
+  .kelsie-note::before { content:'\201C'; font-family:'Playfair Display',serif; font-size:140px; color:rgba(255,255,255,.05);
+    position:absolute; top:-16px; left:24px; line-height:1; pointer-events:none; }
+  .kelsie-note-text { font-family:'Playfair Display',serif; font-size:18px; font-style:italic; color:var(--cream); line-height:1.8; margin-bottom:22px; position:relative; }
+  .kelsie-note-sig { font-size:11px; color:var(--mist); letter-spacing:2px; text-transform:uppercase; }
+
+  .cta-wrap { text-align:center; padding:8px 24px 56px; }
+  .cta-btn { display:inline-block; background:var(--green); color:var(--cream); font-size:14px; font-weight:500; letter-spacing:0.04em;
+    padding:15px 30px; border-radius:100px; text-decoration:none; }
+  .cta-btn small { display:block; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,232,213,0.65); margin-bottom:3px; font-weight:400; }
+  footer { background:var(--dark); padding:30px 48px; text-align:center; }
+  .footer-brand { font-size:16px; color:var(--linen); font-weight:400; letter-spacing:2px; }
+  .footer-meta { font-size:11px; color:rgba(255,255,255,.32); letter-spacing:0.8px; line-height:1.9; margin-top:8px; }
+  .footer-meta a { color:rgba(255,255,255,.5); text-decoration:none; }
+
+  @media (max-width:760px) {
+    .main, .intro-letter, footer { padding-left:24px; padding-right:24px; }
+    .swatch-grid, .swatch-grid.cols-3 { grid-template-columns:repeat(2,1fr); }
+    .sheen-row { grid-template-columns:1fr; gap:4px; }
+    .hero { min-height:46vh; }
+    .kelsie-note { padding:32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <nav class="nav-pill">
+      <a class="nav-back" href="sellers.html">&larr; Seller Toolkit</a>
+      <a class="nav-cta" href="https://guide.kelsiejimenez.com/#contact">Work With Me</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div>
+      <p class="kicker">Seller Toolkit &middot; Utah County</p>
+      <h1>Paint Colors <em>That Sell</em></h1>
+    </div>
+    <div class="hero-bar"><p>The neutrals and whites that photograph best, the black paint lineup, and a simple sheen cheat sheet for every surface. Because it's not just about pricing, it's also about presentation.</p></div>
+  </section>
+
+  <div class="intro-letter">
+    <div class="letter-quote">"Fresh paint is the highest return you'll get before you list. The right neutral makes a home feel newer, cleaner, and bigger in photos and in person. The wrong color, or the wrong sheen on the wrong wall, quietly does the opposite. This is the short list I actually use."</div>
+    <div class="letter-sig">Kelsie Jimenez</div>
+  </div>
+
+  <div class="main">
+
+    <!-- WHY PAINT -->
+    <div class="section">
+      <div class="section-eyebrow">Start Here</div>
+      <h2 class="section-title">Why Paint Is the <em>Best Money You'll Spend</em></h2>
+      <p class="section-body">A fresh coat on the main interior walls makes a home look fresh, new, and more attractive for showings and open houses. The right neutral also gives the whole place a cohesive look and can make rooms feel larger, almost like you added square footage. It's one of the few prep dollars that reliably comes back.</p>
+      <p class="section-body">One honest note before the colors: <strong>your screen is not paint.</strong> Every swatch below is close, but light, sheen, and your own walls change everything. Always grab a real sample, paint a patch, and look at it morning, midday, and night before you commit.</p>
+    </div>
+
+    <!-- NEUTRAL WALL COLORS -->
+    <div class="section">
+      <div class="section-eyebrow">The Go-To Neutrals</div>
+      <h2 class="section-title">Neutral <em>Wall Colors</em></h2>
+      <p class="section-body">These are forgiving across most rooms and lighting. Lighter at the top, deeper as you go down, so you can match the shade to how much natural light a room gets.</p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="chip" style="background:#F4F4EF;"></div>
+          <div class="swatch-code">OC-65</div>
+          <div class="swatch-name">Chantilly Lace</div>
+          <div class="swatch-brand">Benjamin Moore</div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#E7E4DA;"></div>
+          <div class="swatch-code">OC-19</div>
+          <div class="swatch-name">Seapearl</div>
+          <div class="swatch-brand">Benjamin Moore</div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#D6CDBC;"></div>
+          <div class="swatch-code">CSP-95</div>
+          <div class="swatch-name">Sea Salt</div>
+          <div class="swatch-brand">Benjamin Moore</div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#A8A293;"></div>
+          <div class="swatch-code">HC-105</div>
+          <div class="swatch-name">Rockport Gray</div>
+          <div class="swatch-brand">Benjamin Moore</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHITES -->
+    <div class="section">
+      <div class="section-eyebrow">The Whites</div>
+      <h2 class="section-title">Favorite <em>White Paint Colors</em></h2>
+      <p class="section-body">True white can read cold and clinical. These are soft, warm-leaning whites that photograph bright without going blue. They pair well with warm white bulbs and let trim, cabinets, and light do the work.</p>
+      <div class="swatch-grid cols-3">
+        <div class="swatch">
+          <div class="chip" style="background:#EFEBE0;"></div>
+          <div class="swatch-name">Alabaster</div>
+          <div class="swatch-brand">Sherwin Williams</div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#ECE7DB;"></div>
+          <div class="swatch-name">Silos White</div>
+          <div class="swatch-brand">Magnolia Home</div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#E3DDCC;"></div>
+          <div class="swatch-name">White Duck</div>
+          <div class="swatch-brand">Sherwin Williams</div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#E9E2D6;"></div>
+          <div class="swatch-name">Aesthetic White</div>
+          <div class="swatch-brand">Sherwin Williams</div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#F0EADD;"></div>
+          <div class="swatch-name">Cameo White</div>
+          <div class="swatch-brand">Behr</div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#EFEDE6;"></div>
+          <div class="swatch-name">Snowbound</div>
+          <div class="swatch-brand">Sherwin Williams</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLACKS + FRONT DOOR -->
+    <div class="section">
+      <div class="section-eyebrow">The Contrast</div>
+      <h2 class="section-title">The Best <em>Black Paint Colors</em></h2>
+      <p class="section-body">A little contrast adds dimension that photographs beautifully: a front door, a stair rail, window trim, a fireplace, cabinet hardware moments. True black can feel flat, so most of these are softened with charcoal, blue, or green undertones.</p>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="chip dark" style="background:#3C4042;"></div><div class="swatch-name">Graphite</div><div class="swatch-brand">Benjamin Moore</div></div>
+        <div class="swatch"><div class="chip dark" style="background:#3D403E;"></div><div class="swatch-name">Wrought Iron</div><div class="swatch-brand">Benjamin Moore</div></div>
+        <div class="swatch"><div class="chip dark" style="background:#30332D;"></div><div class="swatch-name">Mopboard Black</div><div class="swatch-brand">Benjamin Moore</div></div>
+        <div class="swatch"><div class="chip dark" style="background:#353A3E;"></div><div class="swatch-name">Onyx</div><div class="swatch-brand">Benjamin Moore</div></div>
+        <div class="swatch"><div class="chip dark" style="background:#2C2C2B;"></div><div class="swatch-name">Tricorn Black</div><div class="swatch-brand">Sherwin Williams</div></div>
+        <div class="swatch"><div class="chip dark" style="background:#4A4B47;"></div><div class="swatch-name">Peppercorn</div><div class="swatch-brand">Sherwin Williams</div></div>
+        <div class="swatch"><div class="chip dark" style="background:#3A4347;"></div><div class="swatch-name">Nightfall</div><div class="swatch-brand">Benjamin Moore</div></div>
+        <div class="swatch"><div class="chip dark" style="background:#3F403B;"></div><div class="swatch-name">Ebony Field</div><div class="swatch-brand">Valspar</div></div>
+        <div class="swatch"><div class="chip dark" style="background:#353B41;"></div><div class="swatch-name">Soot</div><div class="swatch-brand">Benjamin Moore</div></div>
+        <div class="swatch"><div class="chip dark" style="background:#66645A;"></div><div class="swatch-name">Kendall Charcoal</div><div class="swatch-brand">Benjamin Moore</div></div>
+        <div class="swatch"><div class="chip dark" style="background:#2C2E2D;"></div><div class="swatch-name">Black Beauty</div><div class="swatch-brand">Benjamin Moore</div></div>
+        <div class="swatch"><div class="chip dark" style="background:#434442;"></div><div class="swatch-name">Iron Ore</div><div class="swatch-brand">Sherwin Williams</div></div>
+      </div>
+
+      <div class="alert alert-warm">
+        <span class="lead">The cheapest high-impact move: your front door</span>
+        In Zillow's buyer research, a black or charcoal front door scored the highest, with buyers saying they'd pay as much as $6,449 more for it, though some also found it polarizing. That's a national survey estimate, not a promise on your specific home, but the takeaway holds: a crisp black or charcoal door is one of the least expensive updates you can make, it photographs with great contrast, and it reads as intentional. Slate blue and olive green also tested well. Just make sure it suits the house.
+      </div>
+    </div>
+
+    <!-- SHEEN GUIDE -->
+    <div class="section">
+      <div class="section-eyebrow">The Cheat Sheet</div>
+      <h2 class="section-title">Paint Sheen <em>Guide</em></h2>
+      <p class="section-body">The right color in the wrong finish still looks wrong. Here's the simple rule for which sheen goes where. As a quick logic: flatter finishes hide flaws, glossier finishes wipe clean and take wear.</p>
+      <div class="sheen">
+        <div class="sheen-row">
+          <div class="sheen-name"><span class="sheen-dot" style="background:#E9E6DE;"></span>Flat / Matte</div>
+          <div class="sheen-use">Ceilings. Hides imperfections, no glare.</div>
+        </div>
+        <div class="sheen-row">
+          <div class="sheen-name"><span class="sheen-dot" style="background:#DAD6CB;"></span>Eggshell</div>
+          <div class="sheen-use">Living rooms, shiplap, accent walls. A soft, low glow.</div>
+        </div>
+        <div class="sheen-row">
+          <div class="sheen-name"><span class="sheen-dot" style="background:#C8C3B5;"></span>Satin</div>
+          <div class="sheen-use">Furniture, hallways, trims, and doors. Wipeable and durable.</div>
+        </div>
+        <div class="sheen-row">
+          <div class="sheen-name"><span class="sheen-dot" style="background:#B6B0A0;"></span>Semi Gloss</div>
+          <div class="sheen-use">Bathrooms, doors, trim, and cabinets. Handles moisture and scrubbing.</div>
+        </div>
+        <div class="sheen-row">
+          <div class="sheen-name"><span class="sheen-dot" style="background:#9E978A;"></span>Gloss</div>
+          <div class="sheen-use">Rarely used. Architectural elements and statement details.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIGHT TIE-IN -->
+    <div class="section">
+      <div class="section-eyebrow">Before You Buy</div>
+      <h2 class="section-title">Match the Color to <em>Your Light</em></h2>
+      <p class="section-body">The same gray reads blue in a north-facing room and warm in a south-facing one, which is why a color that looked perfect at the store can look off on your wall. Before you commit to any of these, read your natural light first.</p>
+      <div class="alert alert-sage">
+        <span class="lead">It pairs with the lighting section of the prep guide</span>
+        How your windows face changes how every color reads, and which neutral or white will actually look right. The <a href="listing-prep.html" style="color:var(--green);font-weight:600;">Listing Prep Guide</a> breaks down north, south, east, and west light and how to choose paint around it. Read that, then come back here for the colors.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- KELSIE NOTE -->
+  <div class="kelsie-note">
+    <div class="kelsie-note-text">"You don't need to repaint the whole house. You need the right neutral on the main walls, the right sheen on the right surfaces, and a little contrast where it counts. Get those three right and the home photographs like it's worth more, because it shows like it's worth more."</div>
+    <div class="kelsie-note-sig">Kelsie Jimenez &nbsp;&middot;&nbsp; 801.420.2284</div>
+  </div>
+
+  <div class="cta-wrap">
+    <a class="cta-btn" href="sms:8014202284"><small>Not sure which white for your light?</small>Text me, I'll help you pick &rarr;</a>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Kelsie Jimenez</div>
+    <div class="footer-meta">The Perry Group &middot; Real Broker LLC &middot; License #11407496-SA00<br><a href="tel:8014202284">(801) 420-2284</a></div>
+  </footer>
+
+</body>
+</html>
