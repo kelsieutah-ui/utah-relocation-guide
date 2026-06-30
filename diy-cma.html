@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The DIY Quick CMA: Sanity-Check Any Home Price in Utah County</title>
+<meta name="description" content="A do-it-yourself quick CMA for Utah County sellers. Learn solds versus actives, the adjustments people skip, and why the Zestimate misses, then run a fast price-per-square-foot estimate on your own home.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:#2B3D30; --dark:#22302A; --green-mid:#3E5547;
+    --sage:#A8A493; --mist:#C9C2AE; --taupe:#B5A88E;
+    --cream:#F2E8D5; --warm:#F6F3EA; --linen:#EFEAE0;
+    --mid:#5C564A; --light:#8A8474; --white:#ffffff; --charcoal:#1C1C1C; --bg:#FDFCFA;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Lato',sans-serif; background:var(--bg); color:var(--charcoal); line-height:1.7; }
+  h1,h2,h3 { font-family:'Playfair Display',serif; }
+  h1 em, h2 em, h3 em { font-style:italic; }
+
+  .nav-wrap { position:fixed; top:16px; left:16px; right:16px; z-index:100; }
+  .nav-pill { max-width:1100px; margin:0 auto; background:rgba(43,61,48,0.72); backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px); border:1px solid rgba(242,232,213,0.18); box-shadow:0 4px 32px rgba(0,0,0,0.18);
+    border-radius:100px; padding:10px 12px 10px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-back { font-size:13px; color:var(--cream); text-decoration:none; }
+  .nav-cta { background:linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62)); border:1px solid rgba(242,232,213,0.45);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.25); color:var(--cream); padding:9px 20px; border-radius:100px;
+    font-size:13px; font-weight:500; text-decoration:none; white-space:nowrap; }
+
+  .hero { position:relative; min-height:52vh; display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:140px 24px 86px; background:url('neighborhood.jpg') center 50%/cover no-repeat; }
+  .hero::before { content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(15,20,16,0.50) 0%, rgba(15,20,16,0.42) 60%, rgba(15,20,16,0.38) 100%); }
+  .hero > * { position:relative; z-index:1; }
+  .hero .kicker { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(242,232,213,0.85); margin-bottom:14px; }
+  .hero h1 { font-weight:400; font-size:clamp(34px,5.4vw,58px); line-height:1.13; color:var(--cream); text-shadow:0 2px 18px rgba(0,0,0,0.45); }
+  .hero-bar { position:absolute; left:0; right:0; bottom:0; z-index:2; background:rgba(18,24,19,0.45);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-top:1px solid rgba(242,232,213,0.16); padding:14px 22px; }
+  .hero-bar p { max-width:780px; margin:0 auto; text-align:center; font-size:13.5px; font-weight:300; color:rgba(242,232,213,0.95); line-height:1.65; }
+
+  .intro-letter { background:var(--warm); border-left:4px solid var(--sage); padding:36px 48px; max-width:900px; margin:0 auto; }
+  .letter-quote { font-family:'Playfair Display',serif; font-size:18px; font-style:italic; color:var(--dark); line-height:1.75; margin-bottom:14px; }
+  .letter-sig { font-size:12px; color:var(--light); letter-spacing:1px; }
+
+  .main { max-width:860px; margin:0 auto; padding:60px 48px 40px; }
+  .section { margin-bottom:56px; }
+  .section-eyebrow { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--sage); font-weight:600; margin-bottom:12px; }
+  .section-title { font-size:31px; font-weight:400; color:var(--dark); line-height:1.16; margin-bottom:16px; }
+  .section-title em { font-style:italic; color:var(--taupe); }
+  .section-body { font-size:15px; color:var(--mid); font-weight:300; line-height:1.85; margin-bottom:18px; }
+  .section-body strong { color:var(--dark); font-weight:500; }
+
+  .pull { font-family:'Playfair Display',serif; font-style:italic; font-size:21px; line-height:1.55; color:var(--green);
+    border-left:3px solid var(--taupe); padding:6px 0 6px 22px; margin:24px 0; }
+
+  .alert { padding:20px 24px; margin:22px 0; font-size:14px; line-height:1.78; font-weight:300; }
+  .alert-warm { background:var(--warm); border-left:3px solid var(--taupe); color:var(--mid); }
+  .alert-sage { background:rgba(168,164,147,0.14); border-left:3px solid var(--sage); color:var(--mid); }
+  .alert strong { color:var(--dark); font-weight:600; }
+  .alert .lead { display:block; font-family:'Playfair Display',serif; font-size:16px; color:var(--dark); margin-bottom:6px; }
+
+  /* THREE LISTS */
+  .triad { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:24px 0; }
+  .triad-card { background:var(--white); border:1px solid var(--linen); padding:20px; }
+  .triad-card h4 { font-family:'Playfair Display',serif; font-size:17px; color:var(--green); margin-bottom:4px; }
+  .triad-card .tk { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--sage); font-weight:700; margin-bottom:8px; }
+  .triad-card p { font-size:12.5px; color:var(--mid); font-weight:300; line-height:1.65; }
+
+  /* INTERACTIVE WORKSHEET */
+  .cma-tool { margin:26px 0 6px; }
+  .group { background:#fff; border:1px solid #E3DCCB; border-radius:12px; padding:22px; margin-bottom:16px; }
+  .group h3 { font-family:'Playfair Display',serif; font-weight:500; font-size:19px; margin-bottom:6px; }
+  .group .hint { font-size:13px; color:var(--light); font-weight:300; margin-bottom:14px; line-height:1.6; }
+  .field label { display:block; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#8A8474; margin-bottom:6px; }
+  .field input { width:100%; padding:12px 13px; border:1px solid #DDD6C4; border-radius:9px; background:#FDFCFA;
+    font-family:'Lato',sans-serif; font-size:15px; color:#1C1C1C; }
+  .field input:focus { outline:none; border-color:var(--green); background:#fff; }
+  .comp-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+  .comp-row:last-child { margin-bottom:0; }
+  .result { background:var(--green); border-radius:14px; padding:28px 24px; text-align:center; color:var(--cream); margin:20px 0 10px; }
+  .result .lbl { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(242,232,213,0.7); margin-bottom:6px; }
+  .result .big { font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(34px,5vw,48px); }
+  .result .rangeline { font-size:13.5px; font-weight:300; color:rgba(242,232,213,0.9); margin-top:8px; }
+  .ppsf-list { max-width:340px; margin:18px auto 0; text-align:left; border-top:1px solid rgba(242,232,213,0.2); padding-top:12px; }
+  .ppsf-row { display:flex; justify-content:space-between; font-size:13px; font-weight:300; color:rgba(242,232,213,0.85); padding:3px 0; }
+  .ppsf-row.avg { border-top:1px solid rgba(242,232,213,0.25); margin-top:6px; padding-top:8px; font-weight:700; color:var(--cream); }
+  .fine { font-size:11.5px; font-weight:300; color:#999; text-align:center; max-width:640px; margin:16px auto 0; line-height:1.75; }
+
+  .kelsie-note { background:var(--green); padding:44px 48px; margin:44px 0; position:relative; overflow:hidden; }
+  .kelsie-note::before { content:'\201C'; font-family:'Playfair Display',serif; font-size:140px; color:rgba(255,255,255,.05);
+    position:absolute; top:-16px; left:24px; line-height:1; pointer-events:none; }
+  .kelsie-note-text { font-family:'Playfair Display',serif; font-size:18px; font-style:italic; color:var(--cream); line-height:1.8; margin-bottom:22px; position:relative; }
+  .kelsie-note-sig { font-size:11px; color:var(--mist); letter-spacing:2px; text-transform:uppercase; }
+
+  .cta-wrap { text-align:center; padding:8px 24px 56px; }
+  .cta-btn { display:inline-block; background:var(--green); color:var(--cream); font-size:14px; font-weight:500; letter-spacing:0.04em;
+    padding:15px 30px; border-radius:100px; text-decoration:none; }
+  .cta-btn small { display:block; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,232,213,0.65); margin-bottom:3px; font-weight:400; }
+  footer { background:var(--dark); padding:30px 48px; text-align:center; }
+  .footer-brand { font-size:16px; color:var(--linen); font-weight:400; letter-spacing:2px; }
+  .footer-meta { font-size:11px; color:rgba(255,255,255,.32); letter-spacing:0.8px; line-height:1.9; margin-top:8px; }
+  .footer-meta a { color:rgba(255,255,255,.5); text-decoration:none; }
+
+  @media (max-width:760px) {
+    .main, .intro-letter, footer { padding-left:24px; padding-right:24px; }
+    .triad { grid-template-columns:1fr; }
+    .hero { min-height:46vh; }
+    .kelsie-note { padding:32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <nav class="nav-pill">
+      <a class="nav-back" href="sellers.html">&larr; Seller Toolkit</a>
+      <a class="nav-cta" href="https://guide.kelsiejimenez.com/#contact">Work With Me</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div>
+      <p class="kicker">Seller Toolkit &middot; Utah County</p>
+      <h1>The DIY <em>Quick CMA</em></h1>
+    </div>
+    <div class="hero-bar"><p>How to sanity-check any price opinion, including mine. Solds versus actives, the adjustments people skip, and why the Zestimate misses.</p></div>
+  </section>
+
+  <div class="intro-letter">
+    <div class="letter-quote">"Every agent who walks through your door is going to hand you a number, and so is Zillow. Some of those numbers are built on what actually sold. Some are built on hope. Here's how to tell the difference, so nobody prices your house on a feeling, including me."</div>
+    <div class="letter-sig">Kelsie Jimenez</div>
+  </div>
+
+  <div class="main">
+
+    <!-- WHAT A CMA IS -->
+    <div class="section">
+      <div class="section-eyebrow">Start Here</div>
+      <h2 class="section-title">What a CMA <em>Actually Is</em></h2>
+      <p class="section-body">A comparative market analysis prices your home off what truly similar homes actually sold for, recently, near you. That's it. It isn't what you paid, it isn't what you need to walk away with, and it isn't what your neighbor swears they got.</p>
+      <p class="section-body">The market doesn't care about any of that. It cares about what a buyer will pay today, and the best evidence we have for that is what buyers just paid for homes like yours. Everything below is how to read that evidence yourself.</p>
+    </div>
+
+    <!-- SOLDS VS ACTIVES -->
+    <div class="section">
+      <div class="section-eyebrow">Part One</div>
+      <h2 class="section-title">Solds, Actives, <em>and Pendings</em></h2>
+      <p class="section-body">There are three lists, and they are not equal. Most people anchor on the wrong one because it's the one Zillow shows them first.</p>
+      <div class="triad">
+        <div class="triad-card">
+          <div class="tk">The Truth</div>
+          <h4>Solds</h4>
+          <p>Closed sales. What buyers actually paid. This is your foundation. Real money changed hands at these numbers.</p>
+        </div>
+        <div class="triad-card">
+          <div class="tk">The Present</div>
+          <h4>Pendings</h4>
+          <p>Under contract right now. Often fresher than solds, so they show where the market is heading this minute.</p>
+        </div>
+        <div class="triad-card">
+          <div class="tk">The Competition</div>
+          <h4>Actives</h4>
+          <p>Still for sale. These are wish prices and what you're up against, not proof of value. Many will sit or drop.</p>
+        </div>
+      </div>
+      <p class="section-body">The most common mistake is pricing off the actives, because that's what's visible. Active list prices tell you what other sellers are hoping for. Plenty of them will sit on the market, cut their price, or never sell at that number at all. <strong>Anchor on solds.</strong> Use actives only to understand who you're competing with.</p>
+    </div>
+
+    <!-- PULLING COMPS -->
+    <div class="section">
+      <div class="section-eyebrow">Part Two</div>
+      <h2 class="section-title">Pulling Your <em>Comps</em></h2>
+      <p class="section-body">The tighter the match, the less guessing you'll have to do later. Aim for sold homes that are:</p>
+      <div class="alert alert-sage">
+        <strong>Recent.</strong> Sold in the last 3 to 6 months. Older than that and the market may have moved.<br><br>
+        <strong>Close.</strong> Your neighborhood or subdivision first. In Utah County especially, a few streets over can be a different price world, so stay inside your bubble when you can.<br><br>
+        <strong>Similar.</strong> Comparable square footage (within about 20 percent), the same style, similar beds and baths, similar age and lot size.
+      </div>
+      <p class="section-body">Three or four genuinely similar solds beat ten loose ones. You're building a case, not a spreadsheet.</p>
+    </div>
+
+    <!-- ADJUSTMENTS -->
+    <div class="section">
+      <div class="section-eyebrow">Part Three</div>
+      <h2 class="section-title">The Adjustments <em>People Skip</em></h2>
+      <p class="section-body">No two homes are identical, so you adjust for the differences. For each one, ask a single question: <strong>what would a buyer pay more or less for this?</strong></p>
+      <p class="section-body">A finished basement, an updated kitchen, an extra bathroom, a third-car garage, a bigger lot, a newer roof or furnace, all move the number. So does plain condition. This is where my construction background earns its keep, because "updated" on a listing and actually updated are not always the same thing, and buyers' inspectors find the difference fast.</p>
+      <div class="pull">A buyer is not paying for your square footage. They're paying for how it feels to live in it.</div>
+    </div>
+
+    <!-- ZESTIMATE -->
+    <div class="section">
+      <div class="section-eyebrow">Part Four</div>
+      <h2 class="section-title">Why the Zestimate <em>Misses</em></h2>
+      <p class="section-body">It's a starting point, not a price. The Zestimate runs on public records and broad patterns, so it cannot see the things that actually move value: whether your kitchen was redone or is original, the condition, the light, the finishes, the way it feels when you walk in.</p>
+      <p class="section-body">It also lags a moving market, and it gets shakier on new construction, acreage, and one-of-a-kind homes, which describes a whole lot of Utah County. Use it to get oriented. Do not list on it.</p>
+    </div>
+
+    <!-- WORKSHEET -->
+    <div class="section">
+      <div class="section-eyebrow">Now You Try</div>
+      <h2 class="section-title">The Quick Comp <em>Worksheet</em></h2>
+      <p class="section-body">Pull three or four recent solds that look like your home and drop them in. You'll get a rough price-per-square-foot range. This is the back-of-the-napkin version. It gets you in the neighborhood. It does not know your finishes or your lot, which is exactly why the adjustments above still matter.</p>
+
+      <div class="cma-tool">
+        <div class="group">
+          <h3>Your home</h3>
+          <div class="field"><label for="mySqft">Your finished square feet</label><input type="number" id="mySqft" value="2000" step="50" inputmode="numeric"></div>
+        </div>
+
+        <div class="group">
+          <h3>Recent sold comps</h3>
+          <p class="hint">Enter the sale price and finished square feet for each. Leave a row blank if you only have two or three.</p>
+          <div class="comp-row">
+            <div class="field"><label>Comp 1 sold price</label><input type="number" class="c-price" value="585000" step="1000" inputmode="numeric"></div>
+            <div class="field"><label>Comp 1 sq ft</label><input type="number" class="c-sqft" value="2050" step="25" inputmode="numeric"></div>
+          </div>
+          <div class="comp-row">
+            <div class="field"><label>Comp 2 sold price</label><input type="number" class="c-price" value="610000" step="1000" inputmode="numeric"></div>
+            <div class="field"><label>Comp 2 sq ft</label><input type="number" class="c-sqft" value="2150" step="25" inputmode="numeric"></div>
+          </div>
+          <div class="comp-row">
+            <div class="field"><label>Comp 3 sold price</label><input type="number" class="c-price" value="562000" step="1000" inputmode="numeric"></div>
+            <div class="field"><label>Comp 3 sq ft</label><input type="number" class="c-sqft" value="1900" step="25" inputmode="numeric"></div>
+          </div>
+          <div class="comp-row">
+            <div class="field"><label>Comp 4 sold price</label><input type="number" class="c-price" value="0" step="1000" inputmode="numeric"></div>
+            <div class="field"><label>Comp 4 sq ft</label><input type="number" class="c-sqft" value="0" step="25" inputmode="numeric"></div>
+          </div>
+        </div>
+
+        <div class="result">
+          <p class="lbl">Your quick ballpark</p>
+          <p class="big" id="estMid">$0</p>
+          <p class="rangeline" id="estRange">Enter your square footage and at least one sold comp.</p>
+          <div class="ppsf-list" id="ppsfList"></div>
+        </div>
+
+        <p class="fine">This is a rough orientation estimate based only on price per square foot. It is not an appraisal or a listing price, and it does not account for condition, updates, lot, or current competition. The real number comes from adjusting genuinely similar comps against your actual home.</p>
+      </div>
+    </div>
+
+    <!-- SANITY CHECK -->
+    <div class="section">
+      <div class="section-eyebrow">The Whole Point</div>
+      <h2 class="section-title">Sanity-Check Any Number, <em>Including Mine</em></h2>
+      <p class="section-body">When anyone hands you a price, ask four questions: Is it built on solds or actives? How recent are they? How close? How similar? Then ask to see the comps.</p>
+      <p class="section-body">A real price has receipts. If an agent can't show you why, or every comp they used is the highest sale in the zip code, be careful. The right price is not the highest number someone will say out loud to win your listing. It's the number a buyer will actually pay, and a good agent can show you exactly how they got there.</p>
+    </div>
+
+  </div>
+
+  <!-- KELSIE NOTE -->
+  <div class="kelsie-note">
+    <div class="kelsie-note-text">"A quick CMA gets you in the right neighborhood. A real one, with eyes on your actual finishes and the buyers who are out there right now, gets you to the right number. Do this first. Then you'll know which agents actually did the work, and which ones just told you what you wanted to hear."</div>
+    <div class="kelsie-note-sig">Kelsie Jimenez &nbsp;&middot;&nbsp; 801.420.2284</div>
+  </div>
+
+  <div class="cta-wrap">
+    <a class="cta-btn" href="sms:8014202284"><small>Want the real number on your house?</small>Text me and I'll run your actual CMA &rarr;</a>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Kelsie Jimenez</div>
+    <div class="footer-meta">The Perry Group &middot; Real Broker LLC &middot; License #11407496-SA00<br><a href="tel:8014202284">(801) 420-2284</a></div>
+  </footer>
+
+  <script>
+    var $ = function(id){ return document.getElementById(id); };
+    function num(el){ return Math.max(0, parseFloat(el.value) || 0); }
+    function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
+
+    function calcCMA(){
+      var sqft = num($('mySqft'));
+      var rows = document.querySelectorAll('.comp-row');
+      var ppsfs = [];
+      var listHtml = '';
+      var n = 0;
+      rows.forEach(function(r){
+        n++;
+        var p = num(r.querySelector('.c-price'));
+        var s = num(r.querySelector('.c-sqft'));
+        if (p > 0 && s > 0){
+          var v = p / s;
+          ppsfs.push(v);
+          listHtml += '<div class="ppsf-row"><span>Comp ' + n + '</span><span>' + fmt(v) + ' / sq ft</span></div>';
+        }
+      });
+      if (sqft <= 0 || ppsfs.length === 0){
+        $('estMid').textContent = '$0';
+        $('estRange').textContent = 'Enter your square footage and at least one sold comp.';
+        $('ppsfList').innerHTML = '';
+        return;
+      }
+      var sum = ppsfs.reduce(function(a,b){ return a + b; }, 0);
+      var avg = sum / ppsfs.length;
+      var low = Math.min.apply(null, ppsfs);
+      var high = Math.max.apply(null, ppsfs);
+      $('estMid').textContent = fmt(avg * sqft);
+      $('estRange').textContent = 'Range: ' + fmt(low * sqft) + ' to ' + fmt(high * sqft);
+      $('ppsfList').innerHTML = listHtml + '<div class="ppsf-row avg"><span>Average</span><span>' + fmt(avg) + ' / sq ft</span></div>';
+    }
+
+    document.querySelectorAll('.cma-tool input').forEach(function(i){ i.addEventListener('input', calcCMA); });
+    calcCMA();
+  </script>
+
+</body>
+</html>
