@@ -2,862 +2,393 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="format-detection" content="telephone=no">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Buyer's Roadmap · Kelsie Jimenez</title>
+<title>Your Buyer's Transaction Roadmap | Under Contract to Keys | Kelsie Jimenez</title>
+<link rel="canonical" href="https://guide.kelsiejimenez.com/buyers-roadmap.html">
+<meta property="og:url" content="https://guide.kelsiejimenez.com/buyers-roadmap.html">
+<meta property="og:type" content="website">
+<meta name="description" content="You're under contract. This roadmap walks a Utah County buyer through every phase from accepted offer to keys: earnest money, disclosures, due diligence, financing, and settlement.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --green: #2B3D30;
-  --green-light: #344A3C;
-  --cream: #f5f0e8;
-  --oat: #e8e0d0;
-  --oat-dark: #d4cab8;
-  --accent: #3E5547;
-  --text: #22302A;
-  --muted: #8A8474;
-  --link: #2B3D30;
-  --white: #ffffff;
-  --amber: #B8882A;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Lato', sans-serif; background: #FDFCFA; color: var(--text); }
+  :root { --green:#2B3D30; --dark:#22302A; --sage:#A8A493; --taupe:#B5A88E; --cream:#F2E8D5; --warm:#F6F3EA; --linen:#EFEAE0; --mid:#5C564A; --light:#8A8474; --charcoal:#1C1C1C; --amber:#B8882A; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Lato',sans-serif; background:#FDFCFA; color:var(--charcoal); line-height:1.7; }
+  h1 em, h2 em, h3 em { font-style:italic; }
+  a { color:inherit; }
 
-/* ── HERO ── */
-.hero { background: var(--green); position: relative; overflow: hidden; }
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 80% 0%, #2B3D30 0%, transparent 55%),
-              radial-gradient(ellipse at 10% 100%, #22302A 0%, transparent 50%);
-  pointer-events: none;
-}
-.hero-inner {
-  position: relative; max-width: 900px; margin: 0 auto;
-  padding: 40px 32px 36px;
-}
-.hero-text { }
+  .nav-wrap { position:fixed; top:16px; left:16px; right:16px; z-index:100; }
+  .nav-pill { max-width:1100px; margin:0 auto; background:rgba(43,61,48,0.72); backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px); border:1px solid rgba(242,232,213,0.18); box-shadow:0 4px 32px rgba(0,0,0,0.18);
+    border-radius:100px; padding:10px 12px 10px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-back { font-size:13px; color:var(--cream); text-decoration:none; }
+  .nav-cta { background:linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62)); border:1px solid rgba(242,232,213,0.45);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.25); color:var(--cream); padding:9px 20px; border-radius:100px;
+    font-size:13px; font-weight:500; text-decoration:none; white-space:nowrap; }
 
+  .hero { position:relative; min-height:46vh; display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:130px 24px 80px; background:url('neighborhood.jpg') center/cover no-repeat, var(--green); }
+  .hero::before { content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(15,20,16,0.56) 0%, rgba(15,20,16,0.48) 60%, rgba(15,20,16,0.44) 100%); }
+  .hero > * { position:relative; z-index:1; }
+  .hero .kicker { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(242,232,213,0.85); margin-bottom:14px; }
+  .hero h1 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(32px,5vw,54px); line-height:1.12;
+    color:var(--cream); text-shadow:0 2px 18px rgba(0,0,0,0.45); }
+  .hero-bar { position:absolute; left:0; right:0; bottom:0; z-index:2; background:rgba(18,24,19,0.45);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-top:1px solid rgba(242,232,213,0.16); padding:14px 22px; }
+  .hero-bar p { max-width:760px; margin:0 auto; text-align:center; font-size:13.5px; font-weight:300; color:rgba(242,232,213,0.95); line-height:1.65; }
 
-.bt-dot { opacity:0.4; margin:0 7px; font-size:8px; vertical-align:middle; }
-.bt-sep { opacity:0.3; margin:0 10px; }
-.brand-tag {
-  display: inline-block; font-size: 10px; font-weight: 500;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(245,240,232,0.55);
-  border: 1px solid rgba(245,240,232,0.18);
-  border-radius: 20px; padding: 4px 14px; margin-bottom: 16px;
-}
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 5vw, 46px);
-  font-weight: 700; color: var(--cream);
-  line-height: 1.1; margin-bottom: 10px;
-}
-.hero h1 em { font-style: italic; color: #C9C2AE; }
-.hero-sub {
-  font-size: 16px; color: rgba(245,240,232,0.6);
-  font-weight: 300; line-height: 1.7;
-  max-width: 440px; margin-bottom: 22px;
-}
+  /* STICKY PHASE NAV */
+  .phasenav { position:sticky; top:0; z-index:90; background:var(--green); }
+  .phasenav-inner { max-width:1000px; margin:0 auto; display:flex; gap:6px; overflow-x:auto; padding:12px 16px; }
+  .phasenav a { flex-shrink:0; font-size:12.5px; color:rgba(242,232,213,0.7); text-decoration:none; padding:8px 14px; border-radius:100px; border:1px solid transparent; white-space:nowrap; transition:all .18s; }
+  .phasenav a:hover { color:var(--cream); border-color:rgba(242,232,213,0.3); }
+  .phasenav a .n { color:var(--taupe); font-weight:700; margin-right:6px; }
 
+  .wrap { max-width:800px; margin:0 auto; padding:52px 22px 10px; }
+  .lead { font-size:16px; font-weight:300; color:#444; line-height:1.9; max-width:680px; margin:0 auto; text-align:center; }
+  .lead strong { color:var(--dark); font-weight:600; }
 
+  /* PHASE SECTION */
+  .phase { margin-top:64px; scroll-margin-top:64px; }
+  .eyebrow { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--sage); font-weight:600; margin-bottom:12px; text-align:center; }
+  .h-sec { font-family:'Playfair Display',serif; font-size:clamp(26px,3.6vw,38px); font-weight:400; color:var(--dark); line-height:1.16; margin-bottom:12px; text-align:center; }
+  .h-sec em { font-style:italic; color:var(--taupe); }
+  .p-sec { font-size:15px; font-weight:300; color:var(--mid); line-height:1.85; max-width:660px; margin:0 auto 8px; text-align:center; }
 
+  .sub { font-family:'Playfair Display',serif; font-size:20px; font-weight:500; color:var(--dark); margin:34px auto 12px; max-width:680px; }
+  .body { font-size:14.5px; font-weight:300; color:var(--mid); line-height:1.85; max-width:680px; margin:0 auto 8px; }
+  .body strong { color:var(--dark); font-weight:600; }
 
+  /* numbered steps */
+  .steps { max-width:680px; margin:16px auto 0; }
+  .step { display:flex; gap:16px; align-items:flex-start; padding:14px 0; border-bottom:1px solid var(--linen); }
+  .step:last-child { border-bottom:none; }
+  .step .sn { flex-shrink:0; width:26px; height:26px; border-radius:50%; background:var(--green); color:var(--cream); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; margin-top:2px; }
+  .step .st strong { display:block; color:var(--dark); font-weight:600; font-size:14.5px; margin-bottom:2px; }
+  .step .st span { font-size:13.5px; font-weight:300; color:var(--mid); line-height:1.7; }
 
-/* PHASE NAV */
-.phase-nav-wrap {
-  background: rgba(0,0,0,0.22);
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-.phase-nav {
-  max-width: 900px; margin: 0 auto;
-  display: flex; overflow-x: auto;
-  scrollbar-width: none; padding: 0 32px; gap: 0;
-}
-.phase-nav::-webkit-scrollbar { display: none; }
-.phase-tab {
-  flex-shrink: 0; padding: 13px 16px;
-  border: none; background: transparent;
-  font-family: 'Lato', sans-serif;
-  font-size: 12px; font-weight: 500;
-  color: rgba(245,240,232,0.4);
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  transition: all 0.2s; white-space: nowrap;
-  display: flex; align-items: center; gap: 7px;
-}
-.phase-tab .pnum {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  font-size: 10px; font-weight: 600;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s; flex-shrink: 0;
-}
-.phase-tab.active { color: var(--text-dark, #1C1C1C); border-bottom-color: #C9C2AE; }
-.phase-tab.active .pnum { background: #C9C2AE; color: var(--green); }
-.phase-tab.completed { color: rgba(245,240,232,0.55); }
-.phase-tab.completed .pnum { background: rgba(168,197,176,0.25); color: #C9C2AE; }
+  /* deadline (amber) alert */
+  .alert { border-radius:8px; padding:18px 22px; max-width:680px; margin:22px auto 0; font-size:14px; font-weight:300; line-height:1.8; }
+  .alert strong { font-weight:600; }
+  .alert-amber { background:rgba(184,136,42,0.10); border-left:4px solid var(--amber); color:#3A352A; }
+  .alert-amber strong { color:#7a5a12; }
+  .alert-sage { background:var(--warm); border-left:4px solid var(--sage); color:var(--mid); }
+  .alert-sage strong { color:var(--dark); }
+  .alert-red { background:#FBEEEA; border-left:4px solid #B5533A; color:#4a2b22; }
+  .alert-red strong { color:#8a3a26; }
 
-/* SAVE PROGRESS BAR */
-.save-bar {
-  background: var(--oat); border-bottom: 1px solid var(--oat-dark);
-  padding: 10px 32px;
-  display: flex; align-items: center; gap: 14px;
-  max-width: 100%;
-}
-.save-bar-inner {
-  max-width: 900px; margin: 0 auto; width: 100%;
-  display: flex; align-items: center; gap: 12px;
-}
-.save-indicator {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 12px; color: var(--muted); font-weight: 400;
-}
-.save-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent); flex-shrink: 0;
-}
-.save-dot.unsaved { background: var(--amber); }
-.clear-btn {
-  margin-left: auto; font-size: 11px; font-weight: 500;
-  letter-spacing: 0.06em; color: var(--muted);
-  background: none; border: 1px solid var(--oat-dark);
-  border-radius: 5px; padding: 5px 11px; cursor: pointer;
-  transition: all 0.14s; font-family: 'Lato', sans-serif;
-}
-.clear-btn:hover { background: var(--oat-dark); color: var(--green); }
+  /* link list (resources) */
+  .links { display:grid; grid-template-columns:1fr 1fr; gap:10px; max-width:680px; margin:16px auto 0; }
+  .links a, .links .li { display:flex; justify-content:space-between; align-items:center; gap:10px; background:#fff; border:1px solid var(--linen); border-radius:10px; padding:13px 16px; font-size:13.5px; color:var(--dark); text-decoration:none; }
+  .links a:hover { border-color:var(--sage); }
+  .links .li .meta { color:var(--light); font-weight:300; font-size:12.5px; }
 
-/* MAIN */
-.main { max-width: 900px; margin: 0 auto; padding: 36px 32px 60px; }
+  /* green band */
+  .band { background:var(--green); border-radius:16px; padding:38px 34px; max-width:700px; margin:26px auto 0; text-align:center; }
+  .band .eyebrow { color:var(--sage); }
+  .band h3 { font-family:'Playfair Display',serif; font-size:clamp(22px,3vw,28px); font-weight:400; color:var(--cream); line-height:1.2; margin-bottom:12px; }
+  .band h3 em { font-style:italic; }
+  .band p { font-size:14px; font-weight:300; color:rgba(242,232,213,0.85); line-height:1.8; max-width:540px; margin:0 auto 10px; }
+  .band .deadlines { text-align:left; max-width:460px; margin:20px auto 0; }
+  .band .dl { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid rgba(242,232,213,0.1); }
+  .band .dl:last-child { border-bottom:none; }
+  .band .dl .dn { flex-shrink:0; color:var(--taupe); font-weight:700; font-size:13px; width:18px; }
+  .band .dl .dt { color:rgba(242,232,213,0.9); font-size:14px; font-weight:300; line-height:1.5; }
+  .band .dl .dt b { color:var(--cream); font-weight:600; }
+  .band .foot { font-size:11.5px; color:rgba(242,232,213,0.6); margin-top:18px; }
 
-/* PANELS */
-.panel { display: none; }
-.panel.active { display: block; }
+  /* video coming soon chips */
+  .vids { max-width:680px; margin:18px auto 0; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+  .vidbtn { display:inline-block; background:var(--green); color:var(--cream); font-size:12.5px; font-weight:500; padding:10px 18px; border-radius:100px; text-decoration:none; }
+  .vidsoon { display:inline-block; background:#fff; border:1px solid var(--linen); color:var(--light); font-size:12.5px; font-weight:400; padding:10px 18px; border-radius:100px; }
 
-/* CONTRACT DATES WIDGET */
-.dates-card {
-  background: #FFFFFF; border-radius: 12px;
-  padding: 20px 24px; margin-bottom: 28px;
-}
-.dates-card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 15px; font-weight: 700; color: var(--text-dark, #1C1C1C);
-  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
-}
-.dates-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-@media (max-width: 520px) { .dates-grid { grid-template-columns: 1fr; } }
-.date-field label {
-  display: block; font-size: 10px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(245,240,232,0.55); margin-bottom: 4px;
-}
-.date-field input {
-  width: 100%; padding: 8px 10px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 7px; color: var(--text-dark, #1C1C1C);
-  font-family: 'Lato', sans-serif;
-  font-size: 13px; font-weight: 400;
-  outline: none; transition: border 0.15s;
-}
-.date-field input::placeholder { color: rgba(245,240,232,0.35); }
-.date-field input:focus { border-color: rgba(168,197,176,0.6); }
-.dates-note {
-  font-size: 13px; color: rgba(245,240,232,0.4);
-  margin-top: 12px; line-height: 1.5;
-}
+  /* to-do checklist */
+  .todo { background:var(--green); border-radius:16px; padding:34px 32px; max-width:700px; margin:30px auto 0; }
+  .todo h4 { font-family:'Playfair Display',serif; font-size:20px; color:var(--cream); font-weight:400; text-align:center; margin-bottom:6px; }
+  .todo .tsub { font-size:12px; font-weight:300; color:rgba(242,232,213,0.45); text-align:center; margin-bottom:22px; }
+  .citem { display:flex; align-items:flex-start; gap:14px; padding:12px 0; border-bottom:1px solid rgba(242,232,213,0.09); cursor:pointer; }
+  .citem:last-child { border-bottom:none; }
+  .cbox { width:20px; height:20px; border:1.5px solid rgba(242,232,213,0.28); border-radius:5px; flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center; font-size:12px; color:transparent; transition:all .18s; }
+  .citem.done .cbox { background:var(--taupe); border-color:var(--taupe); color:var(--green); }
+  .ctext { font-size:14px; color:rgba(242,232,213,0.88); font-weight:300; line-height:1.55; transition:all .18s; }
+  .ctext em { color:rgba(242,232,213,0.6); font-style:normal; display:block; font-size:12.5px; margin-top:2px; }
+  .citem.done .ctext { color:rgba(242,232,213,0.4); text-decoration:line-through; }
 
-/* PROGRESS DOTS */
-.progress-dots { display: flex; align-items: center; gap: 6px; margin-bottom: 24px; }
-.pdot { width: 8px; height: 8px; border-radius: 50%; background: var(--oat-dark); transition: all 0.2s; }
-.pdot.active { background: var(--green); width: 24px; border-radius: 4px; }
-.pdot.done { background: var(--accent); }
+  .phase-links { display:flex; justify-content:space-between; max-width:700px; margin:26px auto 0; gap:12px; }
+  .phase-links a { font-size:13px; color:var(--green); text-decoration:none; font-weight:500; }
+  .phase-links a.next { margin-left:auto; }
 
-/* PHASE HEADER */
-.phase-header {
-  display: flex; align-items: flex-start; gap: 16px;
-  margin-bottom: 24px; padding-bottom: 20px;
-  border-bottom: 2px solid var(--oat);
-}
-.phase-icon-big {
-  width: 48px; height: 48px; flex-shrink: 0;
-  background: var(--green); border-radius: 12px;
-  display: flex; align-items: center; justify-content: center; font-size: 22px;
-}
-.phase-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-.phase-title { font-family: 'Playfair Display', serif; font-size: clamp(20px, 4vw, 28px); font-weight: 700; color: var(--green); line-height: 1.15; }
-.phase-tagline { font-size: 14px; color: var(--muted); margin-top: 4px; font-weight: 300; }
+  .cta { text-align:center; padding:44px 20px 56px; }
+  .cta a { display:inline-block; background:var(--green); color:var(--cream); font-size:14px; font-weight:500; padding:15px 30px; border-radius:100px; text-decoration:none; }
+  .cta a small { display:block; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,232,213,0.65); margin-bottom:3px; }
 
-/* CARDS */
-.card { background: var(--white); border: 1px solid var(--oat); border-radius: 12px; padding: 22px 24px; margin-bottom: 18px; }
-.card-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--green); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-.card p { font-size: 16px; line-height: 1.75; color: var(--text); }
-.card p + p { margin-top: 10px; }
+  footer { background:var(--dark); padding:30px 48px; text-align:center; }
+  .footer-brand { font-family:'Playfair Display',serif; font-size:16px; color:var(--linen); font-weight:400; letter-spacing:2px; }
+  .footer-meta { font-size:11px; color:rgba(255,255,255,.32); letter-spacing:0.8px; line-height:1.9; margin-top:8px; }
+  .footer-meta a { color:rgba(255,255,255,.5); text-decoration:none; }
 
-/* STEPS */
-.steps { margin-top: 14px; }
-.step { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--oat); }
-.step:last-child { border-bottom: none; }
-.step-num { width: 26px; height: 26px; flex-shrink: 0; background: var(--green); border-radius: 50%; color: var(--cream); font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
-.step-label { font-size: 15px; font-weight: 500; color: var(--text); line-height: 1.35; }
-.step-note { font-size: 13px; color: var(--muted); margin-top: 2px; font-weight: 300; line-height: 1.5; }
-
-/* BULLET LIST */
-.blist { list-style: none; margin-top: 12px; }
-.blist li { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--oat); font-size: 15px; line-height: 1.6; color: var(--text); }
-.blist li:last-child { border-bottom: none; }
-.bdot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
-
-/* TIP / WARN */
-.tip { background: #F6F3EA; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 13px 16px; margin-top: 14px; font-size: 13px; line-height: 1.65; color: var(--green); }
-.tip strong { font-weight: 600; }
-.warn { background: #fdf5e8; border-left: 3px solid var(--amber); border-radius: 0 8px 8px 0; padding: 13px 16px; margin-top: 14px; font-size: 13px; line-height: 1.65; color: #7A5A1C; }
-.warn strong { font-weight: 600; }
-
-/* CHECKLIST */
-.checklist { margin-top: 4px; }
-.ci { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--oat); cursor: pointer; }
-.ci:last-child { border-bottom: none; }
-.ci:hover { background: #fafaf7; margin: 0 -24px; padding: 12px 24px; border-radius: 0; }
-.ci.done .ci-label { text-decoration: line-through; color: var(--muted); }
-.ci.done .ci-note { color: #D8D3C4; }
-.cbox { width: 20px; height: 20px; flex-shrink: 0; border: 2px solid var(--oat-dark); border-radius: 5px; background: var(--white); margin-top: 1px; display: flex; align-items: center; justify-content: center; transition: all 0.18s; }
-.ci.done .cbox { background: var(--accent); border-color: var(--accent); }
-.cmark { opacity: 0; font-size: 11px; color: #fff; font-weight: 700; }
-.ci.done .cmark { opacity: 1; }
-.ci-body { flex: 1; }
-.ci-label { font-size: 15px; font-weight: 500; color: var(--text); line-height: 1.3; }
-.ci-note { font-size: 13px; color: var(--muted); margin-top: 2px; font-weight: 300; line-height: 1.4; }
-
-/* VIDEO BUTTONS */
-.video-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--green); color: var(--cream);
-  border-radius: 8px; padding: 10px 16px;
-  font-size: 13px; font-weight: 500; text-decoration: none;
-  margin-top: 14px; transition: background 0.15s; border: none; cursor: pointer;
-  font-family: 'Lato', sans-serif;
-}
-.video-btn:hover { background: var(--green-light); }
-.video-btn-coming {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--oat); color: var(--muted);
-  border-radius: 8px; padding: 10px 16px;
-  font-size: 13px; font-weight: 500; margin-top: 14px;
-  border: 1px dashed var(--oat-dark); cursor: default;
-}
-
-/* LINK BADGE */
-.lbadge { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--link); background: #F6F3EA; border-radius: 4px; padding: 2px 7px; text-decoration: none; margin-left: 6px; white-space: nowrap; transition: background 0.15s; }
-.lbadge:hover { background: #F8F5EE; }
-
-/* RESOURCE LINK BUTTON */
-.resource-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: #F6F3EA; color: var(--link);
-  border: 1px solid #F3EFE4; border-radius: 8px;
-  padding: 10px 16px; font-size: 13px; font-weight: 500;
-  text-decoration: none; margin-top: 14px; transition: all 0.15s;
-}
-.resource-btn:hover { background: #F8F5EE; }
-
-/* NAV BUTTONS */
-.nav-btns { display: flex; gap: 12px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--oat); }
-.btn-prev, .btn-next { padding: 11px 22px; border-radius: 8px; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; border: none; }
-.btn-prev { background: var(--white); color: var(--muted); border: 1px solid var(--oat); }
-.btn-prev:hover { background: var(--oat); color: var(--green); }
-.btn-next { background: var(--green); color: var(--cream); margin-left: auto; }
-.btn-next:hover { background: var(--green-light); }
-
-/* INSPECTOR */
-.inspector-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-@media (max-width: 520px) { .inspector-grid { grid-template-columns: 1fr; } }
-.inspector-card { background: #FDFCFA; border: 1px solid var(--oat); border-radius: 8px; padding: 12px 14px; }
-.inspector-name { font-size: 14px; font-weight: 600; color: var(--green); }
-.inspector-co { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
-.inspector-phone { font-size: 14px; color: var(--text); }
-
-/* SECTION DIVIDER */
-.sdiv { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin: 20px 0 10px; display: flex; align-items: center; gap: 10px; }
-.sdiv::after { content: ''; flex: 1; height: 1px; background: var(--oat); }
-
-@media (max-width: 640px) {
-  .hero-inner { padding: 24px 20px 0; }
-  
-  .hero-text { padding-bottom: 32px; padding-right: 0; }
-  .main { padding: 24px 16px 48px; }
-  .save-bar { padding: 10px 16px; }
-}
-    h1 em, h2 em, h3 em { font-style: italic; }
-  
-    /* ─── BRAND PASS OVERRIDES ─── */
-    .hero { position: relative !important; min-height: 52vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 130px 24px 86px !important; background: url('homes-hero.jpg') center/cover no-repeat !important; }
-    .hero::before { content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(15,20,16,0.46) 0%, rgba(15,20,16,0.38) 60%, rgba(15,20,16,0.34) 100%); }
-    .hero > * { position: relative; z-index: 1; }
-    .hero h1 { color: #F2E8D5 !important; text-shadow: 0 2px 18px rgba(0,0,0,0.45); font-family: 'Playfair Display', serif !important; }
-    .hero-sub { position: absolute !important; left: 0; right: 0; bottom: 0; z-index: 2; margin: 0 !important; max-width: none !important;
-      background: rgba(18,24,19,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      border-top: 1px solid rgba(242,232,213,0.16); padding: 14px 22px !important; text-align: center;
-      font-family: 'Lato', sans-serif !important; font-size: 13.5px !important; font-weight: 300 !important;
-      color: rgba(242,232,213,0.95) !important; line-height: 1.65 !important; text-shadow: none !important; }
-    .section-icon { display: none !important; }
-    body { font-family: 'Lato', sans-serif; }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; }
-
-    /* ─── ROADMAP HERO RESTRUCTURE ─── */
-    .hero { min-height: 48vh !important; padding: 130px 24px 80px !important; }
-    .hero-inner { display: block !important; max-width: 900px; margin: 0 auto; }
-    .hero-text { margin: 0 auto !important; }
-    .hero h1 { font-size: clamp(34px, 5vw, 56px) !important; }
-    .brand-tag { font-size: 11px !important; letter-spacing: 0.18em !important; color: rgba(242,232,213,0.85) !important;
-      text-transform: uppercase; margin-bottom: 14px !important; }
-    .hero-sub { position: static !important; background: none !important; border: none !important; backdrop-filter: none !important; }
-    .hero-bar2 { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
-      background: rgba(18,24,19,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      border-top: 1px solid rgba(242,232,213,0.16); padding: 14px 22px; }
-    .hero-bar2 p { max-width: 760px; margin: 0 auto; text-align: center; font-family: 'Lato', sans-serif;
-      font-size: 13.5px; font-weight: 300; color: rgba(242,232,213,0.95); line-height: 1.65; }
-    .phase-strip2 { background: #FDFCFA; border-bottom: 1px solid #EFEAE0; padding: 14px 16px; }
-    .phase-strip2 .phase-nav-wrap { position: static !important; background: none !important; margin: 0 auto; max-width: 1000px; }
-    .phase-strip2 .phase-tab { color: #2B3D30 !important; }
+  @media (max-width:700px) { .links { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
-
-<div style="position:fixed; top:16px; left:16px; right:16px; z-index:100;">
-  <nav style="max-width:1100px; margin:0 auto; background:rgba(43,61,48,0.72); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid rgba(242,232,213,0.18); box-shadow:0 4px 32px rgba(0,0,0,0.18); border-radius:100px; padding:10px 12px 10px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <a href="https://guide.kelsiejimenez.com/resources.html" style="font-size:13px; color:#F2E8D5; text-decoration:none; font-family:'Lato',sans-serif;">&larr; Client Resources</a>
-    <a href="https://guide.kelsiejimenez.com/#contact" style="background:linear-gradient(135deg, rgba(43,61,48,0.82), rgba(43,61,48,0.62)); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(242,232,213,0.45); box-shadow:inset 0 1px 0 rgba(255,255,255,0.25); color:#F2E8D5; padding:9px 20px; border-radius:100px; font-size:13px; font-weight:500; text-decoration:none; white-space:nowrap; font-family:'Lato',sans-serif;">Work With Me</a>
-  </nav>
-</div>
-
-
-<!-- ═══ HERO ═══ -->
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-text" style="text-align:center;">
-      <div class="brand-tag" style="background:none !important; border:none !important; padding:0 !important;">Kelsie Jimenez &middot; The Perry Group &middot; Real Broker LLC</div>
-      <h1>Your Buyer's<br><em>Transaction Roadmap</em></h1>
-    </div>
-  </div>
-  <div class="hero-bar2"><p>You're under contract, congratulations. This guide walks you through every phase from here to keys. Bookmark it and come back whenever you need it.</p></div>
-</div>
-<div class="phase-strip2">
-  <div class="phase-nav-wrap">
-    <div class="phase-nav">
-      <button class="phase-tab active" onclick="goTo(0)"><span class="pnum">1</span> Earnest Money</button>
-      <button class="phase-tab" onclick="goTo(1)"><span class="pnum">2</span> Disclosures &amp; Title</button>
-      <button class="phase-tab" onclick="goTo(2)"><span class="pnum">3</span> Due Diligence</button>
-      <button class="phase-tab" onclick="goTo(3)"><span class="pnum">4</span> Financing &amp; Appraisal</button>
-      <button class="phase-tab" onclick="goTo(4)"><span class="pnum">5</span> Settlement Day</button>
-    </div>
-  </div>
-</div>
-
-<!-- SAVE BAR -->
-<div class="save-bar">
-  <div class="save-bar-inner">
-    <div class="save-indicator">
-      <div class="save-dot" id="save-dot"></div>
-      <span id="save-status">Progress saved on this device</span>
-    </div>
-    <button class="clear-btn" onclick="clearProgress()">↺ Reset All</button>
-  </div>
-</div>
-
-<!-- ═══ MAIN ═══ -->
-<div class="main">
-
-  <!-- CONTRACT DATES (shown on every panel) -->
-  <div class="dates-card">
-    <div class="dates-card-title"> Your Contract Dates</div>
-    <div class="dates-grid">
-      <div class="date-field">
-        <label>Contract Acceptance Date</label>
-        <input type="date" id="date-acceptance" placeholder="MM/DD/YYYY" onchange="saveDates()">
-      </div>
-      <div class="date-field">
-        <label>Earnest Money Deadline</label>
-        <input type="date" id="date-earnest" placeholder="MM/DD/YYYY" onchange="saveDates()">
-      </div>
-      <div class="date-field">
-        <label>Due Diligence Deadline</label>
-        <input type="date" id="date-duediligence" placeholder="MM/DD/YYYY" onchange="saveDates()">
-      </div>
-      <div class="date-field">
-        <label>Financing &amp; Appraisal Deadline</label>
-        <input type="date" id="date-financing" placeholder="MM/DD/YYYY" onchange="saveDates()">
-      </div>
-      <div class="date-field">
-        <label>Settlement / Closing Date</label>
-        <input type="date" id="date-settlement" placeholder="MM/DD/YYYY" onchange="saveDates()">
-      </div>
-      </div>
-    <div class="dates-note"> All REPC deadlines are 5:00 PM Mountain Time on the stated date. Fill these in from your contract, refer back to this section any time.</div>
+  <div class="nav-wrap">
+    <nav class="nav-pill">
+      <a class="nav-back" href="https://guide.kelsiejimenez.com">&larr; Utah County Guide</a>
+      <a class="nav-cta" href="sms:8014202284">Work With Me</a>
+    </nav>
   </div>
 
-  <!-- ══ PHASE 1 ══ -->
-  <div class="panel active" id="phase-0">
-    <div class="progress-dots"><div class="pdot active"></div><div class="pdot"></div><div class="pdot"></div><div class="pdot"></div><div class="pdot"></div></div>
-    <div class="phase-header">
-      <div class="phase-icon-big"></div>
-      <div>
-        <div class="phase-eyebrow">Phase 1 of 5</div>
-        <div class="phase-title">Congratulations, You're Under Contract</div>
-        <div class="phase-tagline">First up: getting your earnest money submitted on time.</div>
+  <section class="hero">
+    <div>
+      <p class="kicker">The Transaction Roadmap &middot; Utah County</p>
+      <h1>Under contract,<br>to <em>keys</em></h1>
+    </div>
+    <div class="hero-bar"><p>You're under contract, congratulations. This roadmap walks you through every phase from here to the keys. Bookmark it and come back whenever you need it.</p></div>
+  </section>
+
+  <div class="phasenav">
+    <div class="phasenav-inner">
+      <a href="#p1"><span class="n">1</span>Earnest Money</a>
+      <a href="#p2"><span class="n">2</span>Disclosures &amp; Title</a>
+      <a href="#p3"><span class="n">3</span>Due Diligence</a>
+      <a href="#p4"><span class="n">4</span>Financing</a>
+      <a href="#p5"><span class="n">5</span>Settlement</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="lead">You made it under contract. From here, the deal runs on deadlines, and I am with you the whole way. Before you dive into the phases, do one thing that keeps you ahead of every date that follows.</p>
+
+    <!-- DEADLINE CALENDAR STEP (replaces the old tracker) -->
+    <div class="band">
+      <div class="eyebrow">First Thing</div>
+      <h3>Put your five deadlines <em>in your phone</em></h3>
+      <p>Open your signed REPC, find each of these dates, and add them to your phone calendar right now, with an alert set for the day before. A deadline does you no good living on a page you closed.</p>
+      <div class="deadlines">
+        <div class="dl"><span class="dn">1</span><span class="dt"><b>Contract Acceptance Date</b>, the day everything starts counting from</span></div>
+        <div class="dl"><span class="dn">2</span><span class="dt"><b>Earnest Money Deadline</b>, within 4 calendar days of acceptance</span></div>
+        <div class="dl"><span class="dn">3</span><span class="dt"><b>Due Diligence Deadline</b>, your window to inspect and research</span></div>
+        <div class="dl"><span class="dn">4</span><span class="dt"><b>Financing &amp; Appraisal Deadline</b>, your last day to cancel over financing and keep your earnest money</span></div>
+        <div class="dl"><span class="dn">5</span><span class="dt"><b>Settlement / Closing Date</b>, signing day</span></div>
       </div>
+      <div class="foot">All REPC deadlines are 5:00 PM Mountain Time on the stated date. Extensions only count if they are agreed to in writing.</div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span></span> What Is Earnest Money?</div>
-      <p>Earnest money is a good-faith deposit that shows the seller you're serious. It's held by the title company and credited back to you at closing, it's not an extra cost, it's part of your purchase price.</p>
-      <div class="warn"><strong>⏰ Deadline:</strong> Earnest money must be submitted within <strong>4 calendar days</strong> of contract acceptance. Missing this deadline puts your contract at risk.</div>
-    </div>
+    <!-- PHASE 1 -->
+    <div class="phase" id="p1">
+      <div class="eyebrow">Phase One of Five</div>
+      <h2 class="h-sec">Congratulations, you're <em>under contract</em>.</h2>
+      <p class="p-sec">First up: getting your earnest money submitted on time.</p>
 
-    <div class="card">
-      <div class="card-title"><span></span> Your Three Options</div>
+      <div class="sub">What is earnest money?</div>
+      <p class="body">Earnest money is a good-faith deposit that shows the seller you are serious. It is held by the title company and credited back to you at closing. It is not an extra cost, it is part of your purchase price.</p>
+
+      <div class="alert alert-amber"><strong>Deadline:</strong> Earnest money must be submitted within 4 calendar days of contract acceptance. Missing this deadline puts your contract at risk.</div>
+
+      <div class="sub">Your three options</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div><div class="step-label">Cashier's Check</div><div class="step-note">Obtain from your bank made out to the title company. Deliver directly to the title company in person.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div><div class="step-label">Wire Transfer</div><div class="step-note">Send funds electronically. Wire fees may apply. Read the wire fraud warning below before doing this.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div><div class="step-label">Mobile Deposit via the Earnest App</div><div class="step-note">A convenient digital option. Fees may apply. Kelsie can send the deposit request link directly to you.</div></div></div>
+        <div class="step"><div class="sn">1</div><div class="st"><strong>Cashier's Check</strong><span>Obtain from your bank made out to the title company. Deliver directly to the title company in person.</span></div></div>
+        <div class="step"><div class="sn">2</div><div class="st"><strong>Wire Transfer</strong><span>Send funds electronically. Wire fees may apply. Read the wire fraud warning below before doing this.</span></div></div>
+        <div class="step"><div class="sn">3</div><div class="st"><strong>Mobile Deposit via the Earnest App</strong><span>A convenient digital option. Fees may apply. I can send the deposit request link directly to you.</span></div></div>
       </div>
-      <div class="tip"><strong>Reply to Kelsie with your preferred method</strong>, she'll send the Earnest App link or coordinate wire instructions with the title company.</div>
-    </div>
+      <p class="body" style="margin-top:14px;">Reply to me with your preferred method, and I will send the Earnest App link or coordinate wire instructions with the title company.</p>
 
-    <div class="card" style="border-left:3px solid #A1452F;">
-      <div class="card-title"><span></span> Wire Fraud Warning, Please Read</div>
-      <p>Wire fraud specifically targets homebuyers. Before sending any money:</p>
-      <ul class="blist">
-        <li><div class="bdot" style="background:#A1452F"></div><div>Call the title company directly to verify wire instructions, use their publicly listed number, not one from an email.</div></li>
-        <li><div class="bdot" style="background:#A1452F"></div><div>Never trust wire instructions sent only via email without calling to confirm.</div></li>
-        <li><div class="bdot" style="background:#A1452F"></div><div>Never trust a phone call from someone claiming to be from the title company who provides "updated" instructions.</div></li>
-        <li><div class="bdot" style="background:#A1452F"></div><div>When in doubt, call Kelsie first. Slow down and verify before you send a single dollar.</div></li>
-      </ul>
-    </div>
+      <div class="alert alert-red"><strong>Wire fraud warning, please read.</strong> Wire fraud specifically targets homebuyers. Before sending any money: call the title company directly to verify wire instructions using their publicly listed number, not one from an email. Never trust wire instructions sent only by email without calling to confirm. Never trust a call from someone claiming to be the title company giving "updated" instructions. When in doubt, call me first. Slow down and verify before you send a single dollar.</div>
 
-    <div class="card">
-      <div class="card-title"><span></span> REPC Walkthrough Video</div>
-      <p>Want to understand the full purchase contract before diving in? Kelsie has a recorded walkthrough of the entire REPC, every section, what it protects, and what to watch for.</p>
-      <a class="video-btn" href="repc-walkthrough.html" style="text-decoration:none; display:inline-block;">▶ Watch the Full REPC Walkthrough</a>
-      <div class="video-btn-coming" style="margin-top:8px;">▶ Earnest Money Section Deep Dive, Coming Soon</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><span></span> What's Coming Next</div>
-      <ul class="blist" style="margin-top:8px;">
-        <li><div class="bdot"></div><div>Seller will send their <strong>Seller Property Condition Disclosure (SPCD)</strong></div></li>
-        <li><div class="bdot"></div><div>Title will send the <strong>plat map, ownership record, and any recorded liens</strong></div></li>
-        <li><div class="bdot"></div><div>You'll need to <strong>schedule inspections right away</strong>, your due diligence window is already running</div></li>
-      </ul>
-      <div class="tip">Head to Phase 3 now to get inspections scheduled, don't wait for Phase 2 documents to arrive first.</div>
-    </div>
-
-    <div class="sdiv">Your To-Do List</div>
-    <div class="card">
-      <div class="checklist" id="cl-0">
-        <div class="ci" data-id="0-3" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Fill in your contract dates in the table above</div><div class="ci-note">Acceptance date, earnest deadline, due diligence, financing &amp; appraisal, and settlement, refer back to this any time</div></div></div>
-        <div class="ci" data-id="0-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Reply to Kelsie with your preferred earnest money method</div></div></div>
-        <div class="ci" data-id="0-1" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Submit earnest money within 4 calendar days of acceptance</div><div class="ci-note">Verify wire instructions by phone before sending any funds</div></div></div>
-        <div class="ci" data-id="0-2" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Get a receipt or confirmation of your deposit</div></div></div>
+      <div class="vids">
+        <a class="vidbtn" href="repc-walkthrough.html">&#9654; Watch the full REPC walkthrough</a>
+        <span class="vidsoon">Earnest money deep dive, coming soon</span>
       </div>
-    </div>
-    <div class="nav-btns"><button class="btn-next" onclick="goTo(1)">Next: Disclosures &amp; Title →</button></div>
-  </div>
 
-
-  <!-- ══ PHASE 2 ══ -->
-  <div class="panel" id="phase-1">
-    <div class="progress-dots"><div class="pdot done"></div><div class="pdot active"></div><div class="pdot"></div><div class="pdot"></div><div class="pdot"></div></div>
-    <div class="phase-header">
-      <div class="phase-icon-big"></div>
-      <div>
-        <div class="phase-eyebrow">Phase 2 of 5</div>
-        <div class="phase-title">Seller Disclosures &amp; Title</div>
-        <div class="phase-tagline">Documents are headed your way. Here's exactly what to do with each one.</div>
+      <div class="todo">
+        <h4>Your To-Do List</h4>
+        <div class="tsub">Check off as you go. Saves on this device.</div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Add all five contract dates to my phone calendar<em>Acceptance, earnest, due diligence, financing, settlement</em></div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Reply to Kelsie with my preferred earnest money method</div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Submit earnest money within 4 calendar days of acceptance<em>Verify wire instructions by phone before sending any funds</em></div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Get a receipt or confirmation of my deposit</div></div>
       </div>
+      <div class="phase-links"><span></span><a class="next" href="#p2">Next: Disclosures &amp; Title &rarr;</a></div>
     </div>
 
-    <div class="card">
-      <p>This phase is about <strong>confirming receipt and reading what's in front of you.</strong> Three documents are coming. Here's your guide to each one.</p>
-    </div>
+    <!-- PHASE 2 -->
+    <div class="phase" id="p2">
+      <div class="eyebrow">Phase Two of Five</div>
+      <h2 class="h-sec">Seller disclosures &amp; <em>title</em>.</h2>
+      <p class="p-sec">Documents are headed your way. Here is exactly what to do with each one.</p>
+      <p class="body" style="text-align:center;">This phase is about confirming receipt and reading what is in front of you. Three documents are coming.</p>
 
-    <div class="card">
-      <div class="card-title"><span></span> Seller Property Condition Disclosure (SPCD)</div>
-      <p>The seller is required to disclose any known issues with the property. When it arrives:</p>
-      <ul class="blist">
-        <li><div class="bdot"></div><div><strong>Sign and initial to confirm receipt.</strong> This does NOT mean you agree with the condition, it only documents that you received it.</div></li>
-        <li><div class="bdot"></div><div>If anything raises a flag, forward it to Kelsie immediately, this feeds into your due diligence decisions.</div></li>
-      </ul>
-      <div class="video-btn-coming" style="margin-top:14px;">▶ Seller Disclosures Walkthrough, Coming Soon</div>
-    </div>
+      <div class="sub">Seller Property Condition Disclosure (SPCD)</div>
+      <p class="body">The seller is required to disclose any known issues with the property. When it arrives, sign and initial to confirm receipt. This does <strong>not</strong> mean you agree with the condition, it only documents that you received it. If anything raises a flag, forward it to me immediately, it feeds into your due diligence decisions.</p>
 
-    <div class="card">
-      <div class="card-title"><span></span> HOA Documents &amp; CC&Rs <span style="font-size:12px;font-weight:400;color:var(--muted)">(if applicable)</span></div>
-      <p>If the property is in an HOA, read these carefully. They outline fees, restrictions on the property, and rules that could affect how you use your home.</p>
-      <div class="tip">No signature required, just read them. Flag anything unusual for Kelsie before your due diligence deadline closes.</div>
-    </div>
+      <div class="sub">HOA documents &amp; CC&amp;Rs (if applicable)</div>
+      <p class="body">If the property is in an HOA, read these carefully. They outline fees, restrictions, and rules that could affect how you use your home. No signature required, just read them, and flag anything unusual before your due diligence deadline closes.</p>
 
-    <div class="card">
-      <div class="card-title"><span></span> Preliminary Title Report</div>
-      <p>The title company will send the plat map, ownership on record, and any recorded liens, judgments, or easements.</p>
-      <div class="steps" style="margin-top:12px;">
-        <div class="step"><div class="step-num">1</div><div><div class="step-label">Open and read it</div><div class="step-note">Look for anything unexpected, easements or liens you weren't aware of.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div><div class="step-label">Reply to the title company's email to confirm receipt</div></div></div>
-        <div class="step"><div class="step-num">3</div><div><div class="step-label">Forward anything confusing to Kelsie</div></div></div>
-      </div>
-      <div class="video-btn-coming" style="margin-top:14px;">▶ Title &amp; Title Insurance Walkthrough, Coming Soon</div>
-    </div>
-
-    <div class="sdiv">Your To-Do List</div>
-    <div class="card">
-      <div class="checklist" id="cl-1">
-        <div class="ci" data-id="1-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Sign and initial the SPCD when it arrives</div><div class="ci-note">Confirms receipt only, not agreement with condition</div></div></div>
-        <div class="ci" data-id="1-1" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Read the HOA documents and CC&Rs (if applicable)</div></div></div>
-        <div class="ci" data-id="1-2" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Open the Preliminary Title Report and reply to the title company or your Transaction Coordinator to confirm receipt</div><div class="ci-note">Don't just open it, they need written confirmation from you</div></div></div>
-        <div class="ci" data-id="1-3" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Forward anything confusing to Kelsie</div></div></div>
-      </div>
-    </div>
-    <div class="nav-btns">
-      <button class="btn-prev" onclick="goTo(0)">← Earnest Money</button>
-      <button class="btn-next" onclick="goTo(2)">Next: Due Diligence →</button>
-    </div>
-  </div>
-
-
-  <!-- ══ PHASE 3 ══ -->
-  <div class="panel" id="phase-2">
-    <div class="progress-dots"><div class="pdot done"></div><div class="pdot done"></div><div class="pdot active"></div><div class="pdot"></div><div class="pdot"></div></div>
-    <div class="phase-header">
-      <div class="phase-icon-big"></div>
-      <div>
-        <div class="phase-eyebrow">Phase 3 of 5</div>
-        <div class="phase-title">Due Diligence, Don't Skip This Part</div>
-        <div class="phase-tagline">Your window to dig in. Once it closes, your options get a lot more limited.</div>
-      </div>
-    </div>
-
-    <div class="card" style="border-left:3px solid var(--amber);">
-      <p>You're in your Due Diligence period. This is your best and sometimes only chance to research the property, get inspections done, and make sure you feel confident before moving forward.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><span></span> Step 1: Get Inspections Scheduled, Now</div>
-      <p>Most time-sensitive item on the list. Don't wait. A general home inspection covers the structural, mechanical, and overall condition of the property.</p>
-      <div class="sdiv" style="margin-top:16px;">Inspectors Our Clients Have Loved</div>
-      <div class="inspector-grid">
-        <div class="inspector-card"><div class="inspector-name">Andy Torgerson</div><div class="inspector-co">360 Home Check</div><a href="https://www.360homecheck.com" target="_blank" class="lbadge" style="display:inline-block;margin-top:4px;margin-bottom:8px;">360homecheck.com →</a><div class="inspector-phone">(801) 735‑4642</div></div>
-        <div class="inspector-card"><div class="inspector-name">A1 Utah Home Inspectors</div><a href="https://a1utahhomeinspector.com" target="_blank" class="lbadge" style="display:inline-block;margin-top:4px;margin-bottom:8px;">a1utahhomeinspector.com →</a><div class="inspector-phone">(435) 757‑3363</div></div>
-      </div>
-      <div class="sdiv" style="margin-top:16px;">Optional Add-Ons to Consider</div>
-      <ul class="blist">
-        <li><div class="bdot"></div><div>Mold Inspection</div></li>
-        <li><div class="bdot"></div><div>Meth Testing</div></li>
-        <li><div class="bdot"></div><div>Pest &amp; Termite Inspection</div></li>
-        <li><div class="bdot"></div><div>Sewer Scope Inspection</div></li>
-      </ul>
-      <div class="video-btn-coming" style="margin-top:14px;">▶ Buyer's Due Diligence Walkthrough, Coming Soon</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><span></span> Step 2: Do Your Research</div>
-      <div class="sdiv">The Property</div>
-      <ul class="blist">
-        <li><div class="bdot"></div><div>Property Tax History <a class="lbadge" href="https://www.utahcounty.gov/LandRecords/Property.asp" target="_blank">Utah County →</a></div></li>
-        <li><div class="bdot"></div><div>FEMA Flood Maps <a class="lbadge" href="https://msc.fema.gov/portal/home" target="_blank">FEMA →</a></div></li>
-        <li><div class="bdot"></div><div>Environmental Hazards</div></li>
-        <li><div class="bdot"></div><div>Property Liens &amp; Judgments (in your title report)</div></li>
-      </ul>
-      <div class="sdiv">The Neighborhood</div>
-      <ul class="blist">
-        <li><div class="bdot"></div><div>Crime &amp; Safety <a class="lbadge" href="https://www.crimemapping.com" target="_blank">Crime Map →</a></div></li>
-        <li><div class="bdot"></div><div>Sex Offender Registry <a class="lbadge" href="https://svor.utah.gov" target="_blank">Utah →</a></div></li>
-        <li><div class="bdot"></div><div>School District Ratings <a class="lbadge" href="https://www.greatschools.org" target="_blank">GreatSchools →</a></div></li>
-        <li><div class="bdot"></div><div>Zoning &amp; City Planning <span style="font-size:12px;color:var(--muted);">(search your specific city's website)</span></div></li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><span></span> Step 3: Where Do You Land?</div>
-      <p>Once you've reviewed inspection results and done your research, you may want to:</p>
-      <ul class="blist" style="margin-top:10px;">
-        <li><div class="bdot"></div><div><strong>Move forward as-is</strong></div></li>
-        <li><div class="bdot"></div><div><strong>Request repairs or concessions</strong> from the seller</div></li>
-        <li><div class="bdot"></div><div><strong>Walk away</strong>, that's what this period is for</div></li>
-      </ul>
-      <div class="tip">Reply to Kelsie as soon as you have inspection results, even just "all clear." The sooner she knows, the more options you have.</div>
-    </div>
-
-    <div class="sdiv">Your To-Do List</div>
-    <div class="card">
-      <div class="checklist" id="cl-2">
-        <div class="ci" data-id="2-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Schedule general home inspection, do this today</div></div></div>
-        <div class="ci" data-id="2-1" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Consider optional add-on inspections</div></div></div>
-        <div class="ci" data-id="2-2" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Research the property and neighborhood</div></div></div>
-        <div class="ci" data-id="2-3" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Review inspection report when it arrives</div></div></div>
-        <div class="ci" data-id="2-4" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Reply to Kelsie with your decision</div></div></div>
-      </div>
-    </div>
-    <div class="nav-btns">
-      <button class="btn-prev" onclick="goTo(1)">← Disclosures &amp; Title</button>
-      <button class="btn-next" onclick="goTo(3)">Next: Financing &amp; Appraisal →</button>
-    </div>
-  </div>
-
-
-  <!-- ══ PHASE 4 ══ -->
-  <div class="panel" id="phase-3">
-    <div class="progress-dots"><div class="pdot done"></div><div class="pdot done"></div><div class="pdot done"></div><div class="pdot active"></div><div class="pdot"></div></div>
-    <div class="phase-header">
-      <div class="phase-icon-big"></div>
-      <div>
-        <div class="phase-eyebrow">Phase 4 of 5</div>
-        <div class="phase-title">Financing &amp; Appraisal</div>
-        <div class="phase-tagline">Your lender is working. Here's what's happening and what you need, or need to avoid, doing.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><span></span> The Financing &amp; Appraisal Deadline</div>
-      <p>This is one of the most important dates in your contract. It's the last day you can cancel based on financing or appraisal issues and still protect your earnest money. After this deadline, your earnest money becomes non-refundable if you back out for financing reasons.</p>
-      <div class="warn"><strong>Time is of the essence in Utah.</strong> All REPC deadlines are 5:00 PM Mountain Time. Extensions must be agreed to in writing, they don't happen automatically.</div>
-      <div class="video-btn-coming" style="margin-top:14px;">▶ Financing Condition Walkthrough, Coming Soon</div>
-      <div class="video-btn-coming" style="margin-top:8px;">▶ Appraisal Condition Walkthrough, Coming Soon</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><span></span> What Your Lender Is Doing Right Now</div>
+      <div class="sub">Preliminary Title Report</div>
+      <p class="body">The title company will send the plat map, ownership on record, and any recorded liens, judgments, or easements.</p>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div><div class="step-label">Loan application submitted</div><div class="step-note">Already done before your offer was accepted.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div><div class="step-label">Appraisal ordered</div><div class="step-note">An independent appraiser visits the property to confirm its market value. Ordered by your lender from a blind pool.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div><div class="step-label">Underwriting review</div><div class="step-note">Respond to lender document requests immediately, delays here delay everything.</div></div></div>
-        <div class="step"><div class="step-num">4</div><div><div class="step-label">Conditional approval</div><div class="step-note">You may receive this first, underwriting needs a few more items before full approval.</div></div></div>
-        <div class="step"><div class="step-num">5</div><div><div class="step-label">Clear to Close (CTC)</div><div class="step-note">The finish line. Financing is fully approved and you're ready to schedule settlement.</div></div></div>
+        <div class="step"><div class="sn">1</div><div class="st"><strong>Open and read it</strong><span>Look for anything unexpected, easements or liens you weren't aware of.</span></div></div>
+        <div class="step"><div class="sn">2</div><div class="st"><strong>Reply to confirm receipt</strong><span>The title company needs written confirmation, not just that you opened it.</span></div></div>
+        <div class="step"><div class="sn">3</div><div class="st"><strong>Forward anything confusing to me</strong><span>Better to ask early than after the deadline.</span></div></div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-title"><span></span> What Is the Appraisal?</div>
-      <p>An independent assessment of the property's market value ordered by your lender.</p>
-      <div class="steps" style="margin-top:12px;">
-        <div class="step"><div class="step-num">1</div><div><div class="step-label">Appraisal comes in at or above purchase price</div><div class="step-note">Best case, financing moves forward without issue.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div><div class="step-label">Appraisal comes in low</div><div class="step-note">Your lender will only lend on the appraised amount. You'll need to negotiate a price reduction, pay the difference, or cancel within the appraisal deadline.</div></div></div>
+      <div class="vids"><span class="vidsoon">Seller disclosures walkthrough, coming soon</span><span class="vidsoon">Title &amp; title insurance walkthrough, coming soon</span></div>
+
+      <div class="todo">
+        <h4>Your To-Do List</h4>
+        <div class="tsub">Check off as you go. Saves on this device.</div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Sign and initial the SPCD when it arrives<em>Confirms receipt only, not agreement with condition</em></div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Read the HOA documents and CC&amp;Rs (if applicable)</div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Open the Preliminary Title Report and reply to confirm receipt<em>They need written confirmation from you</em></div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Forward anything confusing to Kelsie</div></div>
       </div>
-      <div class="tip"><strong>Now is not the time for big financial moves.</strong> No new credit cards, large purchases, job changes, or moving large sums between accounts.</div>
+      <div class="phase-links"><a href="#p1">&larr; Earnest Money</a><a class="next" href="#p3">Next: Due Diligence &rarr;</a></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span></span> Things That Can Derail Financing</div>
-      <ul class="blist">
-        <li><div class="bdot" style="background:var(--amber)"></div><div>Slow response to lender document requests</div></li>
-        <li><div class="bdot" style="background:var(--amber)"></div><div>Opening new lines of credit or making large purchases</div></li>
-        <li><div class="bdot" style="background:var(--amber)"></div><div>Changing employers or going self-employed</div></li>
-        <li><div class="bdot" style="background:var(--amber)"></div><div>Moving large amounts of money between accounts without documentation</div></li>
-        <li><div class="bdot" style="background:var(--amber)"></div><div>A low appraisal that can't be resolved before the deadline</div></li>
-      </ul>
-    </div>
+    <!-- PHASE 3 -->
+    <div class="phase" id="p3">
+      <div class="eyebrow">Phase Three of Five</div>
+      <h2 class="h-sec">Due diligence, don't skip <em>this part</em>.</h2>
+      <p class="p-sec">Your window to dig in. Once it closes, your options get a lot more limited.</p>
+      <p class="body" style="text-align:center;">This is your best, and sometimes only, chance to research the property, get inspections done, and make sure you feel confident before moving forward.</p>
 
-    <div class="sdiv">Your To-Do List</div>
-    <div class="card">
-      <div class="checklist" id="cl-3">
-        <div class="ci" data-id="3-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Respond to all lender document requests immediately</div></div></div>
-        <div class="ci" data-id="3-1" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Do not open new credit, make large purchases, or change jobs</div></div></div>
-        <div class="ci" data-id="3-2" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Note your Financing &amp; Appraisal Deadline in the contract dates above</div><div class="ci-note">5:00 PM Mountain Time on that date</div></div></div>
-        <div class="ci" data-id="3-3" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Review appraisal results with Kelsie when they arrive</div></div></div>
-        <div class="ci" data-id="3-4" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Receive Clear to Close (CTC) from your lender </div></div></div>
+      <div class="sub">Step 1: Get inspections scheduled, now</div>
+      <p class="body">This is the most time-sensitive item on the list. Do not wait. A general home inspection covers the structural, mechanical, and overall condition of the property.</p>
+      <p class="body" style="margin-top:14px;"><strong>Inspectors our clients have loved:</strong></p>
+      <div class="links">
+        <a href="https://www.360homecheck.com" target="_blank" rel="noopener"><span>Andy Torgerson, 360 Home Check</span><span class="meta">(801) 735-4642</span></a>
+        <a href="https://a1utahhomeinspector.com" target="_blank" rel="noopener"><span>A1 Utah Home Inspectors</span><span class="meta">(435) 757-3363</span></a>
       </div>
-    </div>
-    <div class="nav-btns">
-      <button class="btn-prev" onclick="goTo(2)">← Due Diligence</button>
-      <button class="btn-next" onclick="goTo(4)">Next: Settlement Day →</button>
-    </div>
-  </div>
+      <p class="body" style="margin-top:14px;"><strong>Optional add-ons to consider:</strong> mold inspection, meth testing, pest &amp; termite inspection, sewer scope inspection.</p>
 
-
-  <!-- ══ PHASE 5 ══ -->
-  <div class="panel" id="phase-4">
-    <div class="progress-dots"><div class="pdot done"></div><div class="pdot done"></div><div class="pdot done"></div><div class="pdot done"></div><div class="pdot active"></div></div>
-    <div class="phase-header">
-      <div class="phase-icon-big"></div>
-      <div>
-        <div class="phase-eyebrow">Phase 5 of 5</div>
-        <div class="phase-title">Settlement Day, You're Almost There</div>
-        <div class="phase-tagline">The finish line is in sight. Here's what actually happens and when you get your keys.</div>
+      <div class="sub">Step 2: Do your research</div>
+      <p class="body"><strong>The property</strong></p>
+      <div class="links">
+        <a href="https://www.utahcounty.gov/LandRecords/Property.asp" target="_blank" rel="noopener"><span>Property tax history</span><span class="meta">Utah County &rarr;</span></a>
+        <a href="https://msc.fema.gov/portal/home" target="_blank" rel="noopener"><span>FEMA flood maps</span><span class="meta">FEMA &rarr;</span></a>
       </div>
+      <p class="body" style="margin-top:14px;"><strong>The neighborhood</strong></p>
+      <div class="links">
+        <a href="https://www.crimemapping.com" target="_blank" rel="noopener"><span>Crime &amp; safety</span><span class="meta">Crime Map &rarr;</span></a>
+        <a href="https://svor.utah.gov" target="_blank" rel="noopener"><span>Sex offender registry</span><span class="meta">Utah &rarr;</span></a>
+        <a href="https://www.greatschools.org" target="_blank" rel="noopener"><span>School district ratings</span><span class="meta">GreatSchools &rarr;</span></a>
+        <span class="li"><span>Zoning &amp; city planning</span><span class="meta">your city's site</span></span>
+      </div>
+
+      <div class="sub">Step 3: Where do you land?</div>
+      <p class="body">Once you have reviewed inspection results and done your research, you may want to move forward as-is, request repairs or concessions from the seller, or walk away. That is what this period is for. Reply to me as soon as you have inspection results, even just "all clear." The sooner I know, the more options you have.</p>
+
+      <div class="vids"><span class="vidsoon">Buyer's due diligence walkthrough, coming soon</span></div>
+
+      <div class="todo">
+        <h4>Your To-Do List</h4>
+        <div class="tsub">Check off as you go. Saves on this device.</div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Schedule general home inspection<em>Do this today</em></div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Consider optional add-on inspections</div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Research the property and neighborhood</div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Review inspection report when it arrives</div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Reply to Kelsie with my decision</div></div>
+      </div>
+      <div class="phase-links"><a href="#p2">&larr; Disclosures &amp; Title</a><a class="next" href="#p4">Next: Financing &rarr;</a></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span></span> Signing Day (Settlement)</div>
-      <p>You'll sign all final loan and closing documents. Important distinction:</p>
-      <div class="warn"><strong>Signing does not mean you officially own the home yet.</strong> Ownership is finalized at recording, not at signing.</div>
-      <div class="video-btn-coming" style="margin-top:14px;">▶ Settlement &amp; Closing Walkthrough, Coming Soon</div>
-    </div>
+    <!-- PHASE 4 -->
+    <div class="phase" id="p4">
+      <div class="eyebrow">Phase Four of Five</div>
+      <h2 class="h-sec">Financing &amp; <em>appraisal</em>.</h2>
+      <p class="p-sec">Your lender is working. Here is what is happening, and what you need to avoid doing.</p>
 
-    <div class="card">
-      <div class="card-title"><span></span> What Happens After You Sign</div>
+      <div class="alert alert-amber"><strong>The Financing &amp; Appraisal Deadline</strong> is one of the most important dates in your contract. It is the last day you can cancel based on financing or appraisal issues and still protect your earnest money. After this deadline, your earnest money becomes non-refundable if you back out for financing reasons. Time is of the essence in Utah, all REPC deadlines are 5:00 PM Mountain, and extensions must be agreed to in writing.</div>
+
+      <div class="sub">What your lender is doing right now</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div><div class="step-label">Your lender sends funds to the title company</div></div></div>
-        <div class="step"><div class="step-num">2</div><div><div class="step-label">The title company balances the transaction</div></div></div>
-        <div class="step"><div class="step-num">3</div><div><div class="step-label">The full package is sent to the county recorder</div></div></div>
-        <div class="step"><div class="step-num">4</div><div><div class="step-label">The deed is recorded in your name</div><div class="step-note">This is the moment you become the legal owner of the home.</div></div></div>
+        <div class="step"><div class="sn">1</div><div class="st"><strong>Loan application submitted</strong><span>Already done before your offer was accepted.</span></div></div>
+        <div class="step"><div class="sn">2</div><div class="st"><strong>Appraisal ordered</strong><span>An independent appraiser confirms the property's market value, ordered by your lender from a blind pool.</span></div></div>
+        <div class="step"><div class="sn">3</div><div class="st"><strong>Underwriting review</strong><span>Respond to lender document requests immediately, delays here delay everything.</span></div></div>
+        <div class="step"><div class="sn">4</div><div class="st"><strong>Conditional approval</strong><span>You may get this first, underwriting needs a few more items before full approval.</span></div></div>
+        <div class="step"><div class="sn">5</div><div class="st"><strong>Clear to Close (CTC)</strong><span>The finish line. Financing is fully approved and you're ready to schedule settlement.</span></div></div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-title"><span></span> Possession &amp; Keys</div>
-      <p>Possession follows the terms in your REPC. If your contract states <strong>"possession upon recording,"</strong> sellers release keys only after the deed records, not when you finish signing.</p>
-    </div>
+      <div class="sub">What is the appraisal?</div>
+      <p class="body">An independent assessment of the property's market value, ordered by your lender. If it comes in <strong>at or above</strong> your purchase price, financing moves forward without issue. If it comes in <strong>low</strong>, your lender will only lend on the appraised amount, so you would negotiate a price reduction, pay the difference, or cancel within the appraisal deadline.</p>
 
-    <div class="card">
-      <div class="card-title"><span></span> Timing in Utah County</div>
-      <ul class="blist" style="margin-top:8px;">
-        <li><div class="bdot"></div><div>Earlier signing → may record same day</div></li>
-        <li><div class="bdot"></div><div>Later afternoon signing → recording likely next business day</div></li>
-        <li><div class="bdot"></div><div><strong>Friday afternoon signing</strong> → recording happens Monday morning</div></li>
-        <li><div class="bdot"></div><div>County processes in order received, no way to rush this</div></li>
-      </ul>
-      <div class="tip">Kelsie will let you know the moment recording is confirmed. That's when it's keys time.</div>
-    </div>
+      <div class="alert alert-sage"><strong>Now is not the time for big financial moves.</strong> No new credit cards, large purchases, job changes, or moving large sums between accounts. These are exactly the things that can derail financing: slow responses to your lender, new lines of credit, changing employers or going self-employed, undocumented large transfers, or a low appraisal that cannot be resolved before the deadline.</div>
 
-    <div class="card">
-      <div class="card-title"><span></span> Before You Head to Closing</div>
-      <ul class="blist">
-        <li><div class="bdot"></div><div>Bring a valid government-issued photo ID</div></li>
-        <li><div class="bdot"></div><div>Confirm closing funds amount with title (cashier's check or wire), verify wire instructions by phone</div></li>
-        <li><div class="bdot"></div><div>Schedule your final walkthrough before the signing appointment</div></li>
-        <li><div class="bdot"></div><div>Utilities should already be set up in your name</div></li>
-      </ul>
-      <a class="resource-btn" href="https://guide.kelsiejimenez.com/moving-resource-guide.html" target="_blank"> Open Your Moving &amp; Utilities Guide →</span>
-    </div>
+      <div class="vids"><span class="vidsoon">Financing condition walkthrough, coming soon</span><span class="vidsoon">Appraisal condition walkthrough, coming soon</span></div>
 
-    <div class="sdiv">Final Checklist</div>
-    <div class="card">
-      <div class="checklist" id="cl-4">
-        <div class="ci" data-id="4-0" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Confirm closing funds with title company</div><div class="ci-note">Verify wire instructions by phone, never from email alone</div></div></div>
-        <div class="ci" data-id="4-1" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Complete final walkthrough before signing</div></div></div>
-        <div class="ci" data-id="4-2" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Bring valid photo ID to signing</div></div></div>
-        <div class="ci" data-id="4-3" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Sign all closing documents</div></div></div>
-        <div class="ci" data-id="4-4" onclick="toggleCI(this)"><div class="cbox"><span class="cmark"></span></div><div class="ci-body"><div class="ci-label">Wait for recording confirmation from Kelsie, then keys! </div></div></div>
+      <div class="todo">
+        <h4>Your To-Do List</h4>
+        <div class="tsub">Check off as you go. Saves on this device.</div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Respond to all lender document requests immediately</div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Do not open new credit, make large purchases, or change jobs</div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Confirm my Financing &amp; Appraisal deadline is in my calendar<em>5:00 PM Mountain Time on that date</em></div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Review appraisal results with Kelsie when they arrive</div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Receive Clear to Close (CTC) from my lender</div></div>
       </div>
+      <div class="phase-links"><a href="#p3">&larr; Due Diligence</a><a class="next" href="#p5">Next: Settlement &rarr;</a></div>
     </div>
-    <div class="nav-btns"><button class="btn-prev" onclick="goTo(3)">← Financing &amp; Appraisal</button></div>
+
+    <!-- PHASE 5 -->
+    <div class="phase" id="p5">
+      <div class="eyebrow">Phase Five of Five</div>
+      <h2 class="h-sec">Settlement day, you're <em>almost there</em>.</h2>
+      <p class="p-sec">The finish line is in sight. Here is what actually happens, and when you get your keys.</p>
+
+      <div class="sub">Signing day (settlement)</div>
+      <p class="body">You will sign all final loan and closing documents. Important distinction: <strong>signing does not mean you officially own the home yet.</strong> Ownership is finalized at recording, not at signing.</p>
+
+      <div class="sub">What happens after you sign</div>
+      <div class="steps">
+        <div class="step"><div class="sn">1</div><div class="st"><strong>Your lender sends funds to the title company</strong></div></div>
+        <div class="step"><div class="sn">2</div><div class="st"><strong>The title company balances the transaction</strong></div></div>
+        <div class="step"><div class="sn">3</div><div class="st"><strong>The full package is sent to the county recorder</strong></div></div>
+        <div class="step"><div class="sn">4</div><div class="st"><strong>The deed is recorded in your name</strong><span>This is the moment you become the legal owner of the home.</span></div></div>
+      </div>
+
+      <div class="sub">Possession &amp; keys</div>
+      <p class="body">Possession follows the terms in your REPC. If your contract states "possession upon recording," the sellers release keys only after the deed records, not when you finish signing.</p>
+
+      <div class="alert alert-sage"><strong>Timing in Utah County:</strong> an earlier signing may record the same day. A later afternoon signing likely records the next business day. A Friday afternoon signing records Monday morning. The county processes in the order received, there is no way to rush it. I will let you know the moment recording is confirmed. That is when it is keys time.</div>
+
+      <div class="sub">Before you head to closing</div>
+      <div class="steps">
+        <div class="step"><div class="sn">&#10003;</div><div class="st"><span>Bring a valid government-issued photo ID</span></div></div>
+        <div class="step"><div class="sn">&#10003;</div><div class="st"><span>Confirm closing funds amount with title, cashier's check or wire, and verify wire instructions by phone</span></div></div>
+        <div class="step"><div class="sn">&#10003;</div><div class="st"><span>Schedule your final walkthrough before the signing appointment</span></div></div>
+        <div class="step"><div class="sn">&#10003;</div><div class="st"><span>Utilities should already be set up in your name</span></div></div>
+      </div>
+
+      <div class="vids"><a class="vidbtn" href="https://guide.kelsiejimenez.com/moving-resource-guide.html" target="_blank" rel="noopener">Open your moving &amp; utilities guide &rarr;</a><span class="vidsoon">Settlement &amp; closing walkthrough, coming soon</span></div>
+
+      <div class="todo">
+        <h4>Final Checklist</h4>
+        <div class="tsub">Check off as you go. Saves on this device.</div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Confirm closing funds with title company<em>Verify wire instructions by phone, never from email alone</em></div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Complete final walkthrough before signing</div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Bring valid photo ID to signing</div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Sign all closing documents</div></div>
+        <div class="citem" onclick="tc(this)"><div class="cbox">&#10003;</div><div class="ctext">Wait for recording confirmation from Kelsie, then keys!</div></div>
+      </div>
+      <div class="phase-links"><a href="#p4">&larr; Financing &amp; Appraisal</a><span></span></div>
+    </div>
+
   </div>
 
-</div><!-- /main -->
+  <div class="cta">
+    <a href="sms:8014202284"><small>Question at any phase?</small>Text me, I'm with you the whole way &rarr;</a>
+  </div>
 
-<script>
-let current = 0;
+  <footer>
+    <div class="footer-brand">Kelsie Jimenez</div>
+    <div class="footer-meta">The Perry Group &middot; Real Broker LLC &middot; License #11407496-SA00<br><a href="tel:8014202284">(801) 420-2284</a> &middot; <a href="https://kelsiejimenez.com">kelsiejimenez.com</a></div>
+  </footer>
 
-// ── PHASE NAV ──
-function goTo(n) {
-  document.getElementById('phase-' + current).classList.remove('active');
-  document.querySelectorAll('.phase-tab')[current].classList.remove('active');
-  current = n;
-  document.getElementById('phase-' + current).classList.add('active');
-  document.querySelectorAll('.phase-tab').forEach((t, i) => {
-    t.classList.remove('active', 'completed');
-    if (i < current) t.classList.add('completed');
-    if (i === current) t.classList.add('active');
-  });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// ── CHECKLIST WITH LOCAL STORAGE ──
-function toggleCI(el) {
-  if (event.target.classList.contains('lbadge') || event.target.tagName === 'A') return;
-  el.classList.toggle('done');
-  saveProgress();
-}
-
-function saveProgress() {
-  const state = {};
-  document.querySelectorAll('.ci[data-id]').forEach(el => {
-    state[el.dataset.id] = el.classList.contains('done');
-  });
-  try {
-    localStorage.setItem('kelsie_roadmap_checks', JSON.stringify(state));
-    localStorage.setItem('kelsie_roadmap_dates', getDatesObj());
-    showSaved();
-  } catch(e) {}
-}
-
-function saveDates() {
-  try {
-    localStorage.setItem('kelsie_roadmap_dates', getDatesObj());
-    showSaved();
-  } catch(e) {}
-}
-
-function getDatesObj() {
-  const ids = ['acceptance','earnest','duediligence','financing','settlement'];
-  const obj = {};
-  ids.forEach(id => {
-    const el = document.getElementById('date-' + id);
-    if (el) obj[id] = el.value;
-  });
-  return JSON.stringify(obj);
-}
-
-function loadProgress() {
-  try {
-    const checks = localStorage.getItem('kelsie_roadmap_checks');
-    if (checks) {
-      const state = JSON.parse(checks);
-      document.querySelectorAll('.ci[data-id]').forEach(el => {
-        if (state[el.dataset.id]) el.classList.add('done');
-      });
-    }
-    const dates = localStorage.getItem('kelsie_roadmap_dates');
-    if (dates) {
-      const obj = JSON.parse(dates);
-      Object.entries(obj).forEach(([id, val]) => {
-        const el = document.getElementById('date-' + id);
-        if (el) el.value = val;
-      });
-    }
-    updateSaveStatus(true);
-  } catch(e) {}
-}
-
-function clearProgress() {
-  if (!confirm('Reset all checkboxes and dates? This can\'t be undone.')) return;
-  document.querySelectorAll('.ci').forEach(el => el.classList.remove('done'));
-  ['acceptance','earnest','duediligence','financing','settlement'].forEach(id => {
-    const el = document.getElementById('date-' + id);
-    if (el) el.value = '';
-  });
-  try { localStorage.removeItem('kelsie_roadmap_checks'); localStorage.removeItem('kelsie_roadmap_dates'); } catch(e) {}
-  updateSaveStatus(false);
-}
-
-function showSaved() {
-  updateSaveStatus(true);
-}
-
-function updateSaveStatus(saved) {
-  const dot = document.getElementById('save-dot');
-  const label = document.getElementById('save-status');
-  if (saved) {
-    dot.classList.remove('unsaved');
-    label.textContent = 'Progress saved on this device';
-  } else {
-    dot.classList.add('unsaved');
-    label.textContent = 'Not saved yet';
-  }
-}
-
-// Load on start
-loadProgress();
-</script>
-
-<div style="text-align:center; padding: 30px 20px 60px; background: transparent;">
-  <a href="sms:8014202284" style="display:inline-block; background:#2B3D30; color:#F2E8D5; font-family:'Lato',sans-serif; font-size:14px; font-weight:500; letter-spacing:0.04em; padding:15px 30px; border-radius:100px; text-decoration:none;">
-    <small style="display:block; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,232,213,0.65); margin-bottom:3px; font-weight:400;">Questions about this part?</small>Text me, this is what I'm here for &rarr;
-  </a>
-</div>
+  <script>
+    function tc(el){el.classList.toggle('done');save()}
+    function save(){var s=Array.from(document.querySelectorAll('.citem')).map(function(i){return i.classList.contains('done')});localStorage.setItem('roadmapTodos',JSON.stringify(s))}
+    function load(){var v=localStorage.getItem('roadmapTodos');if(v){try{JSON.parse(v).forEach(function(d,i){var el=document.querySelectorAll('.citem')[i];if(d&&el)el.classList.add('done')})}catch(e){}}}
+    load();
+  </script>
 </body>
 </html>
