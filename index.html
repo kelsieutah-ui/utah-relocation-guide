@@ -329,16 +329,15 @@
       aspect-ratio: 4 / 5;
       border-radius: 16px;
       background: #F1ECE2;
-      border: 1px dashed #C9BFA8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      color: #9A917D;
-      font-size: 13px;
-      line-height: 1.7;
-      letter-spacing: 0.02em;
+      overflow: hidden;
+      box-shadow: 0 22px 55px -30px rgba(28,28,26,0.45);
+    }
+    .meet-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
     }
     .meet-copy h2 {
       font-family: 'Playfair Display', serif;
@@ -1168,6 +1167,7 @@
   <section class="meet-section" id="meet-kelsie">
     <div class="meet-inner">
       <div class="meet-photo">
+        <img src="https://kelsiejimenez.com/wp-content/uploads/2026/06/headshot.jpg" alt="Kelsie Jimenez, Utah County listing specialist" />
       </div>
       <div class="meet-copy">
         <span class="pill pill-dark">Meet Kelsie</span>
